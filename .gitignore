@@ -1,0 +1,45 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+logs/
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/
+
+# Dist/build folders
+dist/
+build/
+
+# Env files (variables de entorno)
+.env
+.env.local
+.env.*.local
+
+# Cache
+.cache/
+.tmp/
+*.tmp
+
+# Dependency directories
+bower_components/
+
+# Coverage reports
+coverage/
+
+# Compiled files
+*.class
+*.o
+*.so
+
+# Misc
+*.swp
+*.swo
