@@ -1,0 +1,151 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\elier\\Documents\\Web 2\\Nexociencia\\Nexociencia.Entidaes\\Nexociencia.Entidaes.csproj": {}
+  },
+  "projects": {
+    "D:\\elier\\Documents\\Web 2\\Nexociencia\\Nexociencia.Entidaes\\Nexociencia.Entidaes.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\elier\\Documents\\Web 2\\Nexociencia\\Nexociencia.Entidaes\\Nexociencia.Entidaes.csproj",
+        "projectName": "Nexociencia.Entidaes",
+        "projectPath": "D:\\elier\\Documents\\Web 2\\Nexociencia\\Nexociencia.Entidaes\\Nexociencia.Entidaes.csproj",
+        "packagesPath": "C:\\Users\\elier\\.nuget\\packages\\",
+        "outputPath": "D:\\elier\\Documents\\Web 2\\Nexociencia\\Nexociencia.Entidaes\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\ProgramData\\Microsoft\\VisualStudio\\share\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\elier\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\elier\\Documents\\Web 2\\Nexociencia\\Nexociencia.WebApi\\Nexociencia.WebApi.csproj": {
+                "projectPath": "D:\\elier\\Documents\\Web 2\\Nexociencia\\Nexociencia.WebApi\\Nexociencia.WebApi.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\elier\\Documents\\Web 2\\Nexociencia\\Nexociencia.WebApi\\Nexociencia.WebApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\elier\\Documents\\Web 2\\Nexociencia\\Nexociencia.WebApi\\Nexociencia.WebApi.csproj",
+        "projectName": "Nexociencia.WebApi",
+        "projectPath": "D:\\elier\\Documents\\Web 2\\Nexociencia\\Nexociencia.WebApi\\Nexociencia.WebApi.csproj",
+        "packagesPath": "C:\\Users\\elier\\.nuget\\packages\\",
+        "outputPath": "D:\\elier\\Documents\\Web 2\\Nexociencia\\Nexociencia.WebApi\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\ProgramData\\Microsoft\\VisualStudio\\share\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\elier\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[8.1.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
