@@ -197,7 +197,7 @@ a:hover {
 /* color de fondo menu*/
 /* fondo sobrio para el menú */
 .menu-body {
-    background: url('./Recursos/depositphotos_216201272-stock-photo-glowing-gold-blue-atom-model.jpg') no-repeat center center fixed;
+    background: url('../Recursos/Imagenes/fondo.jpg') no-repeat center center fixed;
     background-size: cover;
     filter: contrast(1.1) saturate(1.05);
     color: white;
