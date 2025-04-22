@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Preguntas - Menú</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body  class="menu-body">
+    <div id="menu" class="screen">
+        <h2>Selecciona un Tema</h2>
+        <div>
+            <button class="btn-menu" onclick="selectCategory('Mecanica')">Mecánica</button>
+            <button class="btn-menu" onclick="selectCategory('Calculo')">Cálculo</button>
+            
+        </div>
+    </div>
+
+    <script>
+        function selectCategory(category) {
+            localStorage.setItem('category', category);
+            if (category === 'Mecanica') {
+                window.location.href = 'quizMecanica.html';
+            } else if (category === 'Calculo') {
+                window.location.href = 'quizCalculo.html';
+            }
+        }
+    </script>
+</body>
+
+</html>

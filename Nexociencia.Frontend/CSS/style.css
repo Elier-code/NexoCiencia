@@ -1,0 +1,238 @@
+#body-login {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: url('./Recursos/depositphotos_216201272-stock-photo-glowing-gold-blue-atom-model.jpg') no-repeat center center fixed;
+    background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+    image-rendering: crisp-edges; /* Para navegadores compatibles */
+    image-rendering: -webkit-optimize-contrast; /* Para navegadores WebKit */
+    filter: contrast(1.1) saturate(1.05); /* Mejora el contraste sin alterar la luz */
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Evita recortes en el fondo */
+}
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+background-color: rgb(13, 13, 174);
+    image-rendering: crisp-edges; /* Para navegadores compatibles */
+    image-rendering: -webkit-optimize-contrast; /* Para navegadores WebKit */
+    filter: contrast(1.1) saturate(1.05); /* Mejora el contraste sin alterar la luz */
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Ajusta el nivel de oscuridad (0.5 = 50%) */
+    z-index: -1; /* Asegura que esté detrás del contenido */
+}
+
+.screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    background-color: #ffcc00;
+    border: none;
+    padding: 12px 24px;
+    margin: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+::placeholder{
+    color: black;
+}
+
+button:hover {
+    background-color: #ffd633;
+}
+
+#options button {
+    display: block;
+    width: 250px;
+    text-align: left;
+    padding: 15px;
+    font-size: 18px;
+}
+
+#media-container img,
+#media-container video {
+    max-width: 80%;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 350px;
+    color: white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding-left: 40px;
+}
+
+.input-box .icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: #ffcc00;
+    color: black;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ffd633;
+}
+
+p {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+a {
+    color: #ffcc00;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+/* diseño de los botones del menu */
+.btn-menu {
+    background-color: #58cc02;  
+    color: white;
+    font-weight: bold;
+    padding: 20px 60px;
+    font-size: 22px;
+    border: none;
+    border-radius: 30px;
+    margin: 15px;
+    cursor: pointer;
+    box-shadow: 0 6px 0 #3e8e00; /* sombra como si estuviera elevado */
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-menu:hover {
+    background-color: #6de100;
+    transform: scale(1.05);
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-menu:active {
+    transform: scale(0.95);
+    box-shadow: 0 4px 0 #3e8e00;
+}
+
+/* color de fondo menu*/
+/* fondo sobrio para el menú */
+.menu-body {
+    background: url('./Recursos/depositphotos_216201272-stock-photo-glowing-gold-blue-atom-model.jpg') no-repeat center center fixed;
+    background-size: cover;
+    filter: contrast(1.1) saturate(1.05);
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* botones estilo técnico */
+.btn-menu {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    color: white;
+    font-weight: normal;
+    padding: 15px 50px;
+    font-size: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    margin: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-menu:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.03);
+    border-color: #ffcc00;
+    color: #ffcc00;
+}
+
+h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: white;
+}
