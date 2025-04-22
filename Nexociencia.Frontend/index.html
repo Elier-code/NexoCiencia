@@ -10,21 +10,49 @@
 </head>
 
 <body id="body-login">
-    <div class="login-container">
-        <h2>Login <i class="fas fa-user-lock"></i></h2>
+    <div class="login-container" id="form-container">
+        <h2 id="form-title">Login <i class="fas fa-user-lock"></i></h2>
 
-        <form>
+        <form id="login-form">
             <div class="input-box">
                 <input type="text" id="username" placeholder="Username" required>
                 <span class="icon"><i class="fas fa-user"></i></span>
             </div>
             <div class="input-box">
-                <input type="password" placeholder="Password" required>
+                <input type="password" id="password" placeholder="Password" required>
                 <span class="icon"><i class="fas fa-lock"></i></span>
             </div>
 
             <button type="button" onclick="startGame()">Entrar</button>
+            <p>¿No tienes una cuenta? <a href="#" onclick="toggleForm()">Regístrate</a></p>
         </form>
+
+        <form id="register-form" class="hidden">
+            <div class="input-box">
+                <input type="text" id="new-username" placeholder="Nombre" required>
+                <span class="icon"><i class="fas fa-user-plus"></i></span>
+            </div>
+            <div class="input-box">
+                <input type="text" id="surname" placeholder="Apellido" required>
+                <span class="icon"><i class="fas fa-user"></i></span>
+            </div>
+            <div class="input-box">
+                <input type="email" id="email" placeholder="Correo" required>
+                <span class="icon"><i class="fas fa-envelope"></i></span>
+            </div>
+            <div class="input-box">
+                <input type="password" id="new-password" placeholder="Contraseña" required>
+                <span class="icon"><i class="fas fa-lock"></i></span>
+            </div>
+            <div class="input-box">
+                <input type="password" id="confirm-password" placeholder="Confirmar Contraseña" required>
+                <span class="icon"><i class="fas fa-lock"></i></span>
+            </div>
+        
+            <button type="button" onclick="register()">Registrarse</button>
+            <p>¿Ya tienes una cuenta? <a href="#" onclick="toggleForm()">Inicia sesión</a></p>
+        </form>
+        
     </div>
 
     <script>
@@ -37,8 +65,35 @@
                 alert("Por favor, ingresa tu nombre");
             }
         }
-    </script>
 
+        function register() {
+            const newUsername = document.getElementById('new-username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('new-password').value;
+
+            if (newUsername && email && password) {
+                alert(`Usuario ${newUsername} registrado correctamente.`);
+                toggleForm(); // Vuelve al login
+            } else {
+                alert("Por favor completa todos los campos");
+            }
+        }
+
+        function toggleForm() {
+            const loginForm = document.getElementById('login-form');
+            const registerForm = document.getElementById('register-form');
+            const formTitle = document.getElementById('form-title');
+
+            loginForm.classList.toggle('hidden');
+            registerForm.classList.toggle('hidden');
+
+            if (!loginForm.classList.contains('hidden')) {
+                formTitle.innerHTML = 'Login <i class="fas fa-user-lock"></i>';
+            } else {
+                formTitle.innerHTML = 'Registro <i class="fas fa-user-plus"></i>';
+            }
+        }
+    </script>
 </body>
 
 </html>

@@ -197,7 +197,8 @@ a:hover {
 /* color de fondo menu*/
 /* fondo sobrio para el menú */
 .menu-body {
-    background: url('./Recursos/depositphotos_216201272-stock-photo-glowing-gold-blue-atom-model.jpg') no-repeat center center fixed;
+    background: url('../Recursos/Imagenes/fondo.jpg') no-repeat center center fixed;
+
     background-size: cover;
     filter: contrast(1.1) saturate(1.05);
     color: white;
@@ -236,3 +237,17 @@ h2 {
     margin-bottom: 30px;
     color: white;
 }
+/* Animación de transición */
+form {
+    transition: all 0.5s ease-in-out;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateX(100%);
+    pointer-events: none;
+    position: absolute;
+}
+
