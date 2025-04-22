@@ -1,7 +1,7 @@
 #body-login {
     font-family: Arial, sans-serif;
     text-align: center;
-    background: url('./Recursos/depositphotos_216201272-stock-photo-glowing-gold-blue-atom-model.jpg') no-repeat center center fixed;
+    background: url('../Recursos/Imagenes/fondo.jpg') no-repeat center center fixed;
     background-size: cover; /* Asegura que la imagen cubra todo el fondo */
     image-rendering: crisp-edges; /* Para navegadores compatibles */
     image-rendering: -webkit-optimize-contrast; /* Para navegadores WebKit */
@@ -170,7 +170,7 @@ a:hover {
 }
 /* diseño de los botones del menu */
 .btn-menu {
-    background-color: #58cc02;  
+    background-color: #58cc02;
     color: white;
     font-weight: bold;
     padding: 20px 60px;

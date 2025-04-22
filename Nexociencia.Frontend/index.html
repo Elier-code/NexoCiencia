@@ -5,17 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juego de Preguntas - Login</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 
-<body id="body-login"> 
+<body id="body-login">
     <div class="login-container">
         <h2>Login <i class="fas fa-user-lock"></i></h2>
 
         <form>
             <div class="input-box">
-                <input type="text" id="username" placeholder="Username" required>  
+                <input type="text" id="username" placeholder="Username" required>
                 <span class="icon"><i class="fas fa-user"></i></span>
             </div>
             <div class="input-box">
@@ -23,7 +23,7 @@
                 <span class="icon"><i class="fas fa-lock"></i></span>
             </div>
 
-            <button type="button" onclick="startGame()">Entrar</button>  
+            <button type="button" onclick="startGame()">Entrar</button>
         </form>
     </div>
 
@@ -32,7 +32,7 @@
             const username = document.getElementById('username').value;
             if (username.trim() !== "") {
                 localStorage.setItem('username', username);
-                window.location.href = 'menu.html';
+                window.location.href = 'HTML/menu.html';
             } else {
                 alert("Por favor, ingresa tu nombre");
             }
