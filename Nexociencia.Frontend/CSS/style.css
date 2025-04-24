@@ -14,6 +14,7 @@
     align-items: center;
     min-height: 100vh; /* Evita recortes en el fondo */
 }
+
 body {
     font-family: Arial, sans-serif;
     text-align: center;

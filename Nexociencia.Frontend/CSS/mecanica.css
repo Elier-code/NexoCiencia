@@ -1,0 +1,23 @@
+.container{
+    width: 100%;
+    
+    
+}
+button{
+    width: 60px;
+    height: 60px;
+    display: block;
+    margin: 10px auto ;
+    border-radius: 50%;
+}
+.separacion-nivel{
+    text-align: left;
+}
+h2, hr{
+    display: inline-block;
+    flex-direction: row;
+}
+hr{
+    width: 80%;
+    justify-content: center;
+}

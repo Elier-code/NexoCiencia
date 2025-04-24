@@ -6,23 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juego de Preguntas-quizMecanica</title>
     <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/mecanica.css">
 </head>
 
 <body>
-    <div id="quiz" class="screen">
-        <h2 id="question">Cargando pregunta...</h2>
-        <div id="media-container">
-            <img id="questionImage" class="hidden">
-            <video id="questionVideo" controls class="hidden"></video>
-        </div>
-        <div id="options">
-            <button onclick="checkAnswer(this)">A: Opción mecanica 1</button>
-            <button onclick="checkAnswer(this)">B: Opción mecanica 2</button>
-            <button onclick="checkAnswer(this)">C: Opción mecanica 3</button>
-            <button onclick="checkAnswer(this)">D: Opción mecanica 4</button>
-        </div>
-    </div>
+    <div class="container ">
 
+        <div class="tema1">
+            <h2>Tema #1</h2>
+            <button class="btn-tema1"> 1 </button>
+            <button class="btn-tema2"> 2 </button>
+            <button class="btn-tema3"> 3 </button>
+            <button class="btn-tema4"> 4 </button>
+        </div>
+        <div class="separacion-nivel">
+            <h2>Tema #2</h2>
+            <hr>
+        </div>    
+        <div class="tema2">
+            
+            <button class="btn-tema1"> 1 </button>
+            <button class="btn-tema2"> 2 </button>
+            <button class="btn-tema3"> 3 </button>
+            <button class="btn-tema4"> 4 </button>
+        </div>
+        <div class="separacion-nivel">
+            <h2>Tema #3</h2>
+            <hr>
+        </div>  
+        <div class="tema3">
+            
+            <button class="btn-tema1"> 1 </button>
+            <button class="btn-tema2"> 2 </button>
+            <button class="btn-tema3"> 3 </button>
+            <button class="btn-tema4"> 4 </button>
+        </div>
+        <div class="separacion-nivel">
+            <h2>Tema #4</h2>
+            <hr>
+        </div>  
+        <div class="tema4">
+            
+            <button class="btn-tema1"> 1 </button>
+            <button class="btn-tema2"> 2 </button>
+            <button class="btn-tema3"> 3 </button>
+            <button class="btn-tema4"> 4 </button>
+        </div>
+
+    </div>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const category = localStorage.getItem('category');
