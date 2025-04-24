@@ -1,6 +1,6 @@
 .container{
     width: 100%;
-    
+    background-color: rgb(26, 26, 66);
     
 }
 button{
@@ -20,4 +20,24 @@ h2, hr{
 hr{
     width: 80%;
     justify-content: center;
+}
+/* para la Orientación de los botones */
+button:nth-child(1) {
+    transform: translateX(-20px); /* izquierda */
+}
+
+button:nth-child(2) {
+    transform: translateX(20px);  /* derecha */
+}
+
+button:nth-child(3) {
+    transform: translateX(-20px); /* izquierda */
+}
+
+button:nth-child(4) {
+    transform: translateX(20px);  /* derecha */
+}
+
+#botones{
+    background-color: rgb(8, 87, 8);
 }
