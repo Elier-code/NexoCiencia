@@ -1,7 +1,14 @@
 .container{
     width: 100%;
     background-color: rgb(26, 26, 66);
+    border-radius: 10px;
+    border: 2px solid ;
+    margin: 20px;
+    padding: 30px;
     
+}
+body{
+    background-color: aqua;
 }
 button{
     width: 60px;
@@ -40,4 +47,19 @@ button:nth-child(4) {
 
 #botones{
     background-color: rgb(8, 87, 8);
+    
+}
+
+button {
+    width: 60px;
+    height: 60px;
+    display: block;
+    margin: 10px auto;
+    border-radius: 50%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* para animación suave */
+}
+
+button:hover {
+    transform: scale(1.2); /* Expande el botón */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra suave para dar profundidad */
 }
