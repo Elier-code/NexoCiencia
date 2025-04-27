@@ -1,53 +1,40 @@
-.container{
+.container {
     width: 100%;
-    background-color: rgb(26, 26, 66);
+    background-color: #9ab1c9;
     border-radius: 10px;
-    border: 2px solid ;
+    border: 2px solid;
     margin: 20px;
     padding: 30px;
-    
-}
-body{
-    background-color: aqua;
-}
-button{
-    width: 60px;
-    height: 60px;
-    display: block;
-    margin: 10px auto ;
-    border-radius: 50%;
-}
-.separacion-nivel{
-    text-align: left;
-}
-h2, hr{
-    display: inline-block;
-    flex-direction: row;
-}
-hr{
-    width: 80%;
-    justify-content: center;
-}
-/* para la Orientación de los botones */
-button:nth-child(1) {
-    transform: translateX(-20px); /* izquierda */
+    background-image: url(../Recursos/Imagenes/fondo-mecanica.jpeg);
 }
 
-button:nth-child(2) {
-    transform: translateX(20px);  /* derecha */
+.container-calculo{
+    width: 100%;
+    background-color: #9ab1c9;
+    border-radius: 10px;
+    border: 2px solid;
+    margin: 20px;
+    padding: 30px;
+   
 }
 
-button:nth-child(3) {
-    transform: translateX(-20px); /* izquierda */
+.tema1,
+.tema2,
+.tema3,
+.tema4 {
+    background-color: #f4f6f800;
+    border: 2px;
+    border-radius: 10px;
+    padding: 20px;
 }
 
-button:nth-child(4) {
-    transform: translateX(20px);  /* derecha */
+body {
+    background-color: #f4f6f8;
+    color: #0d2c54;
 }
-
-#botones{
-    background-color: rgb(8, 87, 8);
-    
+.header{
+    background-color: #3dbfc1;
+    margin: 10px;
 }
 
 button {
@@ -56,10 +43,74 @@ button {
     display: block;
     margin: 10px auto;
     border-radius: 50%;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* para animación suave */
+}
+
+.separacion-nivel {
+    text-align: left;
+}
+h2{
+    color: #0d2c54;
+}
+h2,
+hr {
+    display: inline-block;
+    flex-direction: row;
+}
+
+hr {
+    width: 80%;
+    justify-content: center;
+    
+    
+}
+
+/* para la Orientación de los botones */
+button:nth-child(1) {
+    transform: translateX(-20px);
+    /* izquierda */
+}
+
+button:nth-child(2) {
+    transform: translateX(20px);
+    /* derecha */
+}
+
+button:nth-child(3) {
+    transform: translateX(-20px);
+    /* izquierda */
+}
+
+button:nth-child(4) {
+    transform: translateX(20px);
+    /* derecha */
+}
+
+#botones {
+    background-color: #f89c1c;
+    font-family:  "Tagesschrift", system-ui;
+}
+
+button {
+    width: 60px;
+    height: 60px;
+    display: block;
+    margin: 10px auto;
+    border-radius: 50%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* para animación suave */
 }
 
 button:hover {
-    transform: scale(1.2); /* Expande el botón */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra suave para dar profundidad */
+    transform: scale(1.2);
+    /* Expande el botón */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    /* Sombra suave para dar profundidad */
+}
+
+.ancho-personalizado {
+    width: 100%;
+    height: 4px;
+    background-color: #3dbfc1;
+    border: none;
+    
 }

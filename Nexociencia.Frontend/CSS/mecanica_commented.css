@@ -1,0 +1,81 @@
+/* Contenedor principal que ocupa el 100% del ancho, con fondo oscuro, bordes redondeados y margen/padding para separación */
+.container{
+    width: 100%;
+    background-color: rgb(26, 26, 66);
+    border-radius: 10px;
+    border: 2px solid ;
+    margin: 20px;
+    padding: 30px;
+    
+}
+
+/* Estilo de fondo para todo el cuerpo de la página */
+body{
+    background-color: aqua;
+}
+
+/* Estilo general para los botones: tamaño, forma circular, centrado y margen */
+button{
+    width: 60px;
+    height: 60px;
+    display: block;
+    margin: 10px auto ;
+    border-radius: 50%;
+}
+
+/* Clase para alinear el texto a la izquierda en elementos específicos */
+.separacion-nivel{
+    text-align: left;
+}
+
+/* Estilo para títulos h2 y líneas horizontales hr para mostrarse en línea */
+h2, hr{
+    display: inline-block;
+    flex-direction: row;
+}
+
+/* Ancho y justificación para las líneas horizontales */
+hr{
+    width: 80%;
+    justify-content: center;
+}
+
+/* Orientación específica para los primeros cuatro botones usando nth-child */
+/* Botones 1 y 3 se desplazan hacia la izquierda */
+button:nth-child(1) {
+    transform: translateX(-20px); /* izquierda */
+}
+
+button:nth-child(2) {
+    transform: translateX(20px);  /* derecha */
+}
+
+button:nth-child(3) {
+    transform: translateX(-20px); /* izquierda */
+}
+
+button:nth-child(4) {
+    transform: translateX(20px);  /* derecha */
+}
+
+/* Estilo para el contenedor con id "botones": fondo verde oscuro */
+#botones{
+    background-color: rgb(8, 87, 8);
+    
+}
+
+/* Estilo general para los botones con transición suave para transformaciones y sombras */
+button {
+    width: 60px;
+    height: 60px;
+    display: block;
+    margin: 10px auto;
+    border-radius: 50%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* para animación suave */
+}
+
+/* Efecto hover para los botones: aumento de tamaño y sombra para dar profundidad */
+button:hover {
+    transform: scale(1.2); /* Expande el botón */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra suave para dar profundidad */
+}
