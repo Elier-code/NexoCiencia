@@ -4,10 +4,19 @@
     <meta charset="UTF-8">
     <title>Prueba dinamica</title>
     <link rel="stylesheet" href="../CSS/botones.css">
+    <script src="../JS/icono.js"></script>
+    <style>
+        .pregunta {
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+    </style>
 </head>
 <body>
 
 <div class="contenedor">
+    <button onclick="history.back()" id="btn-volver">&lt;</button>
     <form class="cuestionario">
         <h2>Prueba de Autocompletar Fórmulas</h2>
 
@@ -66,6 +75,8 @@
 
     </form>
 </div>
-
+<script>
+    insertarLogo();
+</script>
 </body>
 </html>

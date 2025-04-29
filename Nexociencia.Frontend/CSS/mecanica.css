@@ -15,7 +15,7 @@
     border: 2px solid;
     margin: 20px;
     padding: 30px;
-   
+
 }
 
 .tema1,
@@ -60,8 +60,8 @@ hr {
 hr {
     width: 80%;
     justify-content: center;
-    
-    
+
+
 }
 
 /* para la Orientación de los botones */
@@ -89,7 +89,11 @@ button:nth-child(4) {
     background-color: #f89c1c;
     font-family:  "Tagesschrift", system-ui;
 }
-
+#botones > a{
+    color: #000;
+    text-decoration: none;
+    font-family: "Tagesschrift", system-ui;
+}
 button {
     width: 60px;
     height: 60px;
@@ -112,5 +116,5 @@ button:hover {
     height: 4px;
     background-color: #3dbfc1;
     border: none;
-    
+
 }

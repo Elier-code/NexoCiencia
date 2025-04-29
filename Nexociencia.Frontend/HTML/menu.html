@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juego de Preguntas - Menú</title>
     <link rel="stylesheet" href="../CSS/style.css">
-    
+    <script src="../JS/icono.js"></script>
 
 </head>
 
 <body  class="menu-body">
     <div id="menu" class="screen">
-        <h2>Selecciona un Tema</h2>
-        
+        <h2 style="color: #f89c1c;">Selecciona un Tema</h2>
+
         <div>
             <button class="btn-menu" onclick="selectCategory('Mecanica')">Mecánica</button>
             <button class="btn-menu" onclick="selectCategory('Calculo')">Cálculo</button>
@@ -30,6 +30,7 @@
                 window.location.href = 'quizCalculo.html';
             }
         }
+        insertarLogo();
     </script>
 </body>
 

@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <title>Examen</title>
     <link rel="stylesheet" href="../CSS/botones.css">
+    <script src="../JS/icono.js"></script>
+    <style>
+        .contenedor{
+            padding: 30px;
+            margin: 20px auto;
+        }
+        .cuestionario {
+            margin-top: 20px;
+            text-align: left;
+        }
+    </style>
 </head>
 <body>
 
@@ -12,6 +23,7 @@
 </div>
 
 <div class="contenedor">
+    <button onclick="history.back()" id="btn-volver">&lt;</button>
     <form class="cuestionario">
 
         <!-- Pregunta 1 -->
@@ -121,6 +133,8 @@
 
     </form>
 </div>
-
+<script>
+    insertarLogo();
+</script>
 </body>
 </html>
