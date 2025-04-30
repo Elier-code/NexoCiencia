@@ -18,11 +18,23 @@ body {
 .texto {
     margin: 20px 0;
 }
-#btn-volver{
+
+/* boton de regreso */
+#btn-volver {
     display: block;
-    background-color: #fff0;
-    font-size: 20px;
     text-align: left;
+    top: 20px;
+    left: 20px;
+    background-color: #3dbfc1; 
+    color: black;
+    font-size: 28px;
+    padding: 10px 15px;
+    border-radius: 50%;
+    border: 2px solid #d1d9e0;
+    cursor: pointer;
+    box-shadow:0 0 30px #d1d9e0,
+    
+    
 }
 .caja-texto {
     border: 1px solid black;
@@ -102,7 +114,7 @@ label {
 
 
 .header {
-    background-color: #4CAF50;
+    background-color: #3dbfc1;
     padding: 15px;
     color: white;
 }
@@ -141,3 +153,9 @@ label {
     margin-top: 30px;
 }
 
+
+
+
+.btn-volver:hover {
+    background-color: #38458e;
+}

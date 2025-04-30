@@ -14,16 +14,34 @@
             margin-top: 20px;
             text-align: left;
         }
+        h1{
+            display: inline;
+            
+        }
+        .cont-volver{
+            display: flex;
+            width: 45%;
+            text-align: left;
+            align-items: start;
+        }
+        .header{
+            display: flex;
+            
+        }
     </style>
 </head>
 <body>
 
 <div class="header">
+    <div class="cont-volver">
+        <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
+    </div>
     <h1>Examen</h1>
 </div>
 
 <div class="contenedor">
-    <button onclick="history.back()" id="btn-volver">&lt;</button>
+    
+
     <form class="cuestionario">
 
         <!-- Pregunta 1 -->
