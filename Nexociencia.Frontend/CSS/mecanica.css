@@ -42,7 +42,17 @@ button {
     height: 60px;
     display: block;
     margin: 10px auto;
-    border-radius: 50%;
+    padding: 1rem 2rem;
+    border-radius: 50px; /* Muy redondeado */
+    border: 2px solid #22050d; /* Color de borde */
+    background-color: #170606; /* Fondo rosita claro */
+    color: #333; /* Color del texto */
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+    box-shadow: 0 8px 0 #160106; /* Sombra abajo como en la imagen */
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .separacion-nivel {
