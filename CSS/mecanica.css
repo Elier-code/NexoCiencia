@@ -42,7 +42,6 @@ button {
     height: 60px;
     display: block;
     margin: 10px auto;
-    padding: 1rem 2rem;
     border-radius: 50px; /* Muy redondeado */
     border: 2px solid #22050d; /* Color de borde */
     background-color: #170606; /* Fondo rosita claro */
@@ -98,11 +97,13 @@ button:nth-child(4) {
 #botones {
     background-color: #f89c1c;
     font-family:  "Tagesschrift", system-ui;
+
 }
 #botones > a{
     color: #000;
     text-decoration: none;
     font-family: "Tagesschrift", system-ui;
+    
 }
 button {
     width: 60px;
