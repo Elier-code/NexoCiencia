@@ -1,6 +1,0 @@
-@Nexociencia.WebApi_HostAddress = http://localhost:5230
-
-GET {{Nexociencia.WebApi_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
