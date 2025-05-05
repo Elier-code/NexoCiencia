@@ -5,45 +5,63 @@
     <title>explicación</title>
     <link rel="stylesheet" href="../CSS/botones.css">
     <script src="../JS/icono.js"></script>
-    
 </head>
 <body>
     <div class="cont-volver">
         <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
     </div>
-<div class="contenedor">
-  
+    <div class="contenedor">
 
-    <!-- Primer video -->
-    <video width="640" height="360" controls>
-        <source src="video1.mp4" type="video/mp4">
-        Tu navegador no soporta videos HTML5.
-    </video>
+        <!-- Primer video -->
+        <video width="640" height="360" controls>
+            <source src="video1.mp4" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
 
-    <!-- Texto central -->
-    <div class="texto">
-        <p>
-            Aquí va una descripción o explicación relacionada con el video.
-            Puedes escribir varias líneas de texto para acompañar el contenido multimedia.
-        </p>
+        <!-- Texto central -->
+        <div class="texto">
+            <p>
+                Aquí va una descripción o explicación relacionada con el video.
+                Puedes escribir varias líneas de texto para acompañar el contenido multimedia.
+            </p>
+        </div>
+
+        <!-- Segundo cuadro de texto -->
+        <div class="caja-texto">
+            <p>
+                <strong>Rotación de un cuerpo rígido:</strong><br><br>
+                Un cuerpo rígido es un objeto idealizado en el que las distancias entre todas sus partes permanecen constantes mientras se mueve. En la rotación de un cuerpo rígido alrededor de un eje fijo, cada punto del cuerpo describe un círculo en un plano perpendicular al eje de rotación, y todos los puntos tienen la misma velocidad angular (&omega;) y aceleración angular (&alpha;).<br><br>
+
+                La dinámica de rotación se describe mediante el <em>momento de inercia</em> (I), que es análogo a la masa en el movimiento lineal y depende de cómo está distribuida la masa respecto al eje de rotación. La ecuación fundamental es:<br>
+                <strong>&tau; = I &alpha;</strong><br>
+                donde &tau; es el torque neto aplicado sobre el cuerpo.<br><br>
+
+                Esta ecuación es análoga a la segunda ley de Newton para el movimiento lineal (F = ma). Además, en ausencia de fuerzas externas, el momento angular del cuerpo se conserva. Este principio es crucial para entender fenómenos como la estabilidad de los giroscopios o el movimiento de los patinadores al girar.<br><br>
+
+                <strong>Ejercicio resuelto:</strong><br><br>
+                <em>Un disco uniforme de 2 kg y radio 0.5 m está inicialmente en reposo. Se le aplica un torque constante de 1 N·m. ¿Cuál será su aceleración angular y su velocidad angular después de 4 segundos?</em><br><br>
+
+                <u>Solución:</u><br>
+                - El momento de inercia de un disco respecto a su eje central es: <br>
+                &nbsp;&nbsp;&nbsp;I = (1/2)MR² = (1/2)(2)(0.5)² = 0.25 kg·m²<br><br>
+
+                - Usamos la ecuación del torque: <br>
+                &nbsp;&nbsp;&nbsp;&tau; = I&alpha; ⇒ 1 = 0.25&alpha; ⇒ &alpha; = 4 rad/s²<br><br>
+
+                - Como la aceleración angular es constante y el disco parte del reposo:<br>
+                &nbsp;&nbsp;&nbsp;&omega; = &alpha;t = 4 × 4 = <strong>16 rad/s</strong><br><br>
+
+                <strong>Respuesta:</strong> La aceleración angular es 4 rad/s² y la velocidad angular después de 4 s es 16 rad/s.
+            </p>
+        </div>
+
+        <!-- Botón siguiente -->
+        <div class="boton">
+            <button>Siguiente ➔</button>
+        </div>
     </div>
-
-    <!-- Segundo cuadro de texto -->
-    <div class="caja-texto">
-        <p>
-            Aquí puedes escribir un texto adicional o mostrar información importante.
-            Este recuadro está resaltado visualmente con borde.
-        </p>
-    </div>
-
-    <!-- Botón siguiente -->
-    <div class="boton">
-        <button>Siguiente ➔</button>
-    </div>
-</div>
-<script>
-    insertarLogo();
-</script>
+    <script>
+        insertarLogo();
+    </script>
 </body>
 </html>
-
