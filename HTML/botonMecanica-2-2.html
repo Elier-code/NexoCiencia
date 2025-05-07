@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../CSS/botones.css">
     <script src="../JS/icono.js"></script>
     <style>
-        .cotenedor{
+        .cotenedor {
             padding: 30px;
         }
     </style>
@@ -15,110 +15,118 @@
     <div class="cont-volver">
         <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
     </div>
-<div class="contenedor">
- 
-    <!-- Video -->
-    <video width="640" height="360" controls>
-        <source src="video1.mp4" type="video/mp4">
-        Tu navegador no soporta videos HTML5.
-    </video>
 
-    <!-- Cuestionario -->
-    <form class="cuestionario">
-        <h2>Prueba de Conocimientos</h2>
+    <div class="contenedor">
 
-        <!-- Preguntas -->
-        <!-- Repito el bloque 10 veces -->
-        <div class="pregunta">
-            <p>1. ¿Pregunta 1?</p>
-            <label><input type="radio" name="p1" value="A"> A)</label>
-            <label><input type="radio" name="p1" value="B"> B)</label>
-            <label><input type="radio" name="p1" value="C"> C)</label>
-            <label><input type="radio" name="p1" value="D"> D)</label>
-        </div>
+        <!-- Video -->
+        <video width="640" height="360" controls>
+            <source src="video1.mp4" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
 
-        <div class="pregunta">
-            <p>2. ¿Pregunta 2?</p>
-            <label><input type="radio" name="p2" value="A"> A)</label>
-            <label><input type="radio" name="p2" value="B"> B)</label>
-            <label><input type="radio" name="p2" value="C"> C)</label>
-            <label><input type="radio" name="p2" value="D"> D)</label>
-        </div>
+        <!-- Cuestionario -->
+        <form class="cuestionario">
+            <h2>Prueba de Conocimientos</h2>
 
-        <div class="pregunta">
-            <p>3. ¿Pregunta 3?</p>
-            <label><input type="radio" name="p3" value="A"> A)</label>
-            <label><input type="radio" name="p3" value="B"> B)</label>
-            <label><input type="radio" name="p3" value="C"> C)</label>
-            <label><input type="radio" name="p3" value="D"> D)</label>
-        </div>
+            <!-- Pregunta 1 -->
+            <div class="pregunta">
+                <p>1. ¿Qué es el torque?</p>
+                <label><input type="radio" name="p1" value="A"> A) La masa de un cuerpo</label>
+                <label><input type="radio" name="p1" value="B"> B) La capacidad de una fuerza para producir rotación</label>
+                <label><input type="radio" name="p1" value="C"> C) El cambio de velocidad</label>
+                <label><input type="radio" name="p1" value="D"> D) La energía almacenada</label>
+            </div>
 
-        <div class="pregunta">
-            <p>4. ¿Pregunta 4?</p>
-            <label><input type="radio" name="p4" value="A"> A)</label>
-            <label><input type="radio" name="p4" value="B"> B)</label>
-            <label><input type="radio" name="p4" value="C"> C)</label>
-            <label><input type="radio" name="p4" value="D"> D)</label>
-        </div>
+            <!-- Pregunta 2 -->
+            <div class="pregunta">
+                <p>2. ¿Cuál es la fórmula del torque?</p>
+                <label><input type="radio" name="p2" value="A"> A) τ = F / r</label>
+                <label><input type="radio" name="p2" value="B"> B) τ = F · r · sen(θ)</label>
+                <label><input type="radio" name="p2" value="C"> C) τ = m · a</label>
+                <label><input type="radio" name="p2" value="D"> D) τ = F · t</label>
+            </div>
 
-        <div class="pregunta">
-            <p>5. ¿Pregunta 5?</p>
-            <label><input type="radio" name="p5" value="A"> A)</label>
-            <label><input type="radio" name="p5" value="B"> B)</label>
-            <label><input type="radio" name="p5" value="C"> C)</label>
-            <label><input type="radio" name="p5" value="D"> D)</label>
-        </div>
+            <!-- Pregunta 3 -->
+            <div class="pregunta">
+                <p>3. ¿Cuál es la unidad del torque en el Sistema Internacional?</p>
+                <label><input type="radio" name="p3" value="A"> A) N</label>
+                <label><input type="radio" name="p3" value="B"> B) J</label>
+                <label><input type="radio" name="p3" value="C"> C) N·m</label>
+                <label><input type="radio" name="p3" value="D"> D) kg·m/s²</label>
+            </div>
 
-        <div class="pregunta">
-            <p>6. ¿Pregunta 6?</p>
-            <label><input type="radio" name="p6" value="A"> A)</label>
-            <label><input type="radio" name="p6" value="B"> B)</label>
-            <label><input type="radio" name="p6" value="C"> C)</label>
-            <label><input type="radio" name="p6" value="D"> D)</label>
-        </div>
+            <!-- Pregunta 4 -->
+            <div class="pregunta">
+                <p>4. ¿Qué sucede si aplicas una fuerza justo en el eje de rotación?</p>
+                <label><input type="radio" name="p4" value="A"> A) El torque es máximo</label>
+                <label><input type="radio" name="p4" value="B"> B) El torque es mínimo</label>
+                <label><input type="radio" name="p4" value="C"> C) No se genera torque</label>
+                <label><input type="radio" name="p4" value="D"> D) El torque es infinito</label>
+            </div>
 
-        <div class="pregunta">
-            <p>7. ¿Pregunta 7?</p>
-            <label><input type="radio" name="p7" value="A"> A)</label>
-            <label><input type="radio" name="p7" value="B"> B)</label>
-            <label><input type="radio" name="p7" value="C"> C)</label>
-            <label><input type="radio" name="p7" value="D"> D)</label>
-        </div>
+            <!-- Pregunta 5 -->
+            <div class="pregunta">
+                <p>5. ¿Qué dirección tiene el vector torque?</p>
+                <label><input type="radio" name="p5" value="A"> A) Siempre hacia abajo</label>
+                <label><input type="radio" name="p5" value="B"> B) Perpendicular al plano formado por r y F</label>
+                <label><input type="radio" name="p5" value="C"> C) En la misma dirección de la fuerza</label>
+                <label><input type="radio" name="p5" value="D"> D) En la misma dirección del brazo</label>
+            </div>
 
-        <div class="pregunta">
-            <p>8. ¿Pregunta 8?</p>
-            <label><input type="radio" name="p8" value="A"> A)</label>
-            <label><input type="radio" name="p8" value="B"> B)</label>
-            <label><input type="radio" name="p8" value="C"> C)</label>
-            <label><input type="radio" name="p8" value="D"> D)</label>
-        </div>
+            <!-- Pregunta 6 -->
+            <div class="pregunta">
+                <p>6. ¿Qué pasa si el ángulo entre la fuerza y el brazo es 0°?</p>
+                <label><input type="radio" name="p6" value="A"> A) El torque es máximo</label>
+                <label><input type="radio" name="p6" value="B"> B) El torque es cero</label>
+                <label><input type="radio" name="p6" value="C"> C) El torque es negativo</label>
+                <label><input type="radio" name="p6" value="D"> D) El torque no se puede calcular</label>
+            </div>
 
-        <div class="pregunta">
-            <p>9. ¿Pregunta 9?</p>
-            <label><input type="radio" name="p9" value="A"> A)</label>
-            <label><input type="radio" name="p9" value="B"> B)</label>
-            <label><input type="radio" name="p9" value="C"> C)</label>
-            <label><input type="radio" name="p9" value="D"> D)</label>
-        </div>
+            <!-- Pregunta 7 -->
+            <div class="pregunta">
+                <p>7. ¿Cuál de los siguientes factores afecta el torque?</p>
+                <label><input type="radio" name="p7" value="A"> A) El color del objeto</label>
+                <label><input type="radio" name="p7" value="B"> B) La velocidad angular</label>
+                <label><input type="radio" name="p7" value="C"> C) La distancia desde el punto de giro y el ángulo de la fuerza</label>
+                <label><input type="radio" name="p7" value="D"> D) La masa del sistema</label>
+            </div>
 
-        <div class="pregunta">
-            <p>10. ¿Pregunta 10?</p>
-            <label><input type="radio" name="p10" value="A"> A)</label>
-            <label><input type="radio" name="p10" value="B"> B)</label>
-            <label><input type="radio" name="p10" value="C"> C)</label>
-            <label><input type="radio" name="p10" value="D"> D)</label>
-        </div>
+            <!-- Pregunta 8 -->
+            <div class="pregunta">
+                <p>8. ¿Qué herramienta común aprovecha el torque para su funcionamiento?</p>
+                <label><input type="radio" name="p8" value="A"> A) Termómetro</label>
+                <label><input type="radio" name="p8" value="B"> B) Destornillador</label>
+                <label><input type="radio" name="p8" value="C"> C) Linterna</label>
+                <label><input type="radio" name="p8" value="D"> D) Cinta métrica</label>
+            </div>
 
-        <!-- Botón enviar -->
-        <div class="boton">
-            <button type="submit">Enviar</button>
-        </div>
+            <!-- Pregunta 9 -->
+            <div class="pregunta">
+                <p>9. ¿Qué pasa si duplicas la distancia desde el eje al punto de aplicación de la fuerza?</p>
+                <label><input type="radio" name="p9" value="A"> A) El torque se mantiene igual</label>
+                <label><input type="radio" name="p9" value="B"> B) El torque se reduce a la mitad</label>
+                <label><input type="radio" name="p9" value="C"> C) El torque se duplica</label>
+                <label><input type="radio" name="p9" value="D"> D) El torque desaparece</label>
+            </div>
 
-    </form>
+            <!-- Pregunta 10 -->
+            <div class="pregunta">
+                <p>10. ¿Qué relación debe cumplirse entre velocidad angular y lineal para que un objeto ruede sin resbalar?</p>
+                <label><input type="radio" name="p10" value="A"> A) v = ω</label>
+                <label><input type="radio" name="p10" value="B"> B) v = r · ω</label>
+                <label><input type="radio" name="p10" value="C"> C) v = ω / r</label>
+                <label><input type="radio" name="p10" value="D"> D) v = r / ω</label>
+            </div>
 
-</div>
-<script>
-    insertarLogo();
-</script>
+            <!-- Botón enviar -->
+            <div class="boton">
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        insertarLogo();
+    </script>
 </body>
 </html>

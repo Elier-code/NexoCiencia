@@ -5,44 +5,66 @@
     <title>explicación</title>
     <link rel="stylesheet" href="../CSS/botones.css">
     <script src="../JS/icono.js"></script>
-
 </head>
 <body>
     <div class="cont-volver">
         <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
     </div>
-<div class="contenedor">
- 
 
-    <!-- Primer video -->
-    <video width="640" height="360" controls>
-        <source src="video1.mp4" type="video/mp4">
-        Tu navegador no soporta videos HTML5.
-    </video>
+    <div class="contenedor">
 
-    <!-- Texto central -->
-    <div class="texto">
-        <p>
-            Aquí va una descripción o explicación relacionada con el video.
-            Puedes escribir varias líneas de texto para acompañar el contenido multimedia.
-        </p>
+        <!-- Primer video -->
+        <video width="640" height="360" controls>
+            <source src="video1.mp4" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
+
+        <!-- Texto central -->
+        <div class="texto">
+            <p>
+                En este video exploramos dos conceptos fundamentales en la rotación de cuerpos rígidos: <strong>velocidad angular</strong> y <strong>aceleración angular</strong>.
+                <br><br>
+                La <strong>velocidad angular</strong> (𝜔 o v<sub>z</sub>) describe qué tan rápido rota un objeto en torno a un eje. Se mide en radianes por segundo (rad/s).
+                Por ejemplo, una rueda que gira 2 vueltas por segundo tiene una velocidad angular de aproximadamente 12.57 rad/s.
+                <br><br>
+                La <strong>aceleración angular</strong> (𝛼 o a<sub>z</sub>) indica cómo cambia la velocidad angular con el tiempo. Si una rueda acelera o frena su rotación,
+                está experimentando aceleración angular. Se mide en rad/s².
+                <br><br>
+                Cuando la aceleración angular es constante, se puede usar la ecuación:
+                <br>
+                <code>ω = ω₀ + α·t</code>
+                <br>
+                donde ω₀ es la velocidad angular inicial, α es la aceleración angular y t es el tiempo transcurrido.
+                <br><br>
+                Ambos conceptos son análogos a los de la cinemática lineal, solo que en lugar de moverse en línea recta, se aplican a cuerpos en rotación:contentReference[oaicite:0]{index=0}:contentReference[oaicite:1]{index=1}.
+            </p>
+        </div>
+
+        <!-- Segundo cuadro de texto -->
+        <div class="caja-texto">
+            <p>
+                <strong>Ejemplo resuelto:</strong><br>
+                Una rueda parte del reposo y alcanza una velocidad angular de 15 rad/s en 5 segundos. ¿Cuál fue su aceleración angular?
+                <br><br>
+                Usamos la fórmula: <code>α = (ω - ω₀)/t = (15 - 0)/5 = 3 rad/s²</code><br>
+                La aceleración angular fue de <strong>3 rad/s²</strong>.
+                <br><br>
+                Ahora, si queremos saber cuántos radianes giró en ese tiempo:
+                <br>
+                <code>θ = ω₀·t + (1/2)·α·t² = 0 + (1/2)(3)(5²) = 37.5 rad</code>
+                <br>
+                La rueda giró <strong>37.5 radianes</strong>.
+            </p>
+        </div>
+
+        <!-- Botón siguiente -->
+        <div class="boton">
+            <button>Siguiente ➔</button>
+        </div>
     </div>
 
-    <!-- Segundo cuadro de texto -->
-    <div class="caja-texto">
-        <p>
-            Aquí puedes escribir un texto adicional o mostrar información importante.
-            Este recuadro está resaltado visualmente con borde.
-        </p>
-    </div>
-
-    <!-- Botón siguiente -->
-    <div class="boton">
-        <button>Siguiente ➔</button>
-    </div>
-</div>
-<script>
-    insertarLogo();
-</script>
+    <script>
+        insertarLogo();
+    </script>
 </body>
 </html>

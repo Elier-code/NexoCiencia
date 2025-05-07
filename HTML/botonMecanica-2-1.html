@@ -5,44 +5,59 @@
     <title>explicación</title>
     <link rel="stylesheet" href="../CSS/botones.css">
     <script src="../JS/icono.js"></script>
-
 </head>
 <body>
     <div class="cont-volver">
         <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
     </div>
-<div class="contenedor">
- 
 
-    <!-- Primer video -->
-    <video width="640" height="360" controls>
-        <source src="video1.mp4" type="video/mp4">
-        Tu navegador no soporta videos HTML5.
-    </video>
+    <div class="contenedor">
 
-    <!-- Texto central -->
-    <div class="texto">
-        <p>
-            Aquí va una descripción o explicación relacionada con el video.
-            Puedes escribir varias líneas de texto para acompañar el contenido multimedia.
-        </p>
+        <!-- Primer video -->
+        <video width="640" height="360" controls>
+            <source src="video1.mp4" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
+
+        <!-- Texto central -->
+        <div class="texto">
+            <p>
+                <strong>¿Qué es el Torque?</strong><br>
+                El torque (también llamado momento de fuerza) mide la tendencia de una fuerza a hacer girar un objeto
+                alrededor de un eje. Se calcula con la fórmula:<br>
+                <code>τ = F · r · sen(θ)</code><br>
+                donde <strong>τ</strong> es el torque, <strong>F</strong> es la magnitud de la fuerza aplicada, 
+                <strong>r</strong> es la distancia al punto de giro y <strong>θ</strong> es el ángulo entre la fuerza y el brazo de palanca.<br><br>
+
+                Algunas aplicaciones comunes del torque son: abrir una puerta, usar una llave inglesa o girar una manivela. 
+                Es un concepto clave en la física rotacional.
+            </p>
+        </div>
+
+        <!-- Segundo cuadro de texto -->
+        <div class="caja-texto">
+            <p>
+                <strong>Ejercicio resuelto:</strong><br>
+                Una fuerza de <strong>10 N</strong> se aplica perpendicularmente a una barra de <strong>2 m</strong> de largo desde el eje de rotación.
+                ¿Cuál es el torque generado?<br><br>
+                <code>τ = F · r · sen(90°) = 10 N · 2 m · 1 = 20 N·m</code><br><br>
+
+                <strong>Otro ejemplo:</strong><br>
+                Si una fuerza de <strong>12 N</strong> actúa a <strong>3 m</strong> del eje formando un ángulo de <strong>30°</strong>:<br>
+                <code>τ = 12 N · 3 m · sen(30°) = 12 · 3 · 0.5 = 18 N·m</code><br><br>
+
+                Estos ejercicios muestran cómo se calcula el torque en distintos contextos usando trigonometría básica.
+            </p>
+        </div>
+
+        <!-- Botón siguiente -->
+        <div class="boton">
+            <button>Siguiente ➔</button>
+        </div>
     </div>
 
-    <!-- Segundo cuadro de texto -->
-    <div class="caja-texto">
-        <p>
-            Aquí puedes escribir un texto adicional o mostrar información importante.
-            Este recuadro está resaltado visualmente con borde.
-        </p>
-    </div>
-
-    <!-- Botón siguiente -->
-    <div class="boton">
-        <button>Siguiente ➔</button>
-    </div>
-</div>
-<script>
-    insertarLogo();
-</script>
+    <script>
+        insertarLogo();
+    </script>
 </body>
 </html>

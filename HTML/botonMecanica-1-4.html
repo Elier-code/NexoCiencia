@@ -6,13 +6,46 @@
     <link rel="stylesheet" href="../CSS/botones.css">
     <script src="../JS/icono.js"></script>
     <style>
-        .contenedor{
+        .contenedor {
             padding: 30px;
             margin: 20px auto;
         }
         .cuestionario {
             margin-top: 20px;
             text-align: left;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-contenido {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .modal-boton {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -26,118 +59,130 @@
 </div>
 
 <div class="contenedor">
-    
     <form class="cuestionario">
 
-        <!-- Pregunta 1 -->
+        <!-- Preguntas -->
         <div class="pregunta">
-            <p>1. ¿Pregunta 1?</p>
+            <p>1. ¿Qué magnitud física representa la tendencia de un objeto a resistir cambios en su rotación?</p>
             <hr>
-            <label><input type="radio" name="p1" value="A"> A)</label><br>
-            <label><input type="radio" name="p1" value="B"> B)</label><br>
-            <label><input type="radio" name="p1" value="C"> C)</label><br>
-            <label><input type="radio" name="p1" value="D"> D)</label>
+            <label><input type="radio" name="p1" value="A"> A) Momento angular</label><br>
+            <label><input type="radio" name="p1" value="B"> B) Inercia rotacional</label><br>
+            <label><input type="radio" name="p1" value="C"> C) Energía cinética</label><br>
+            <label><input type="radio" name="p1" value="D"> D) Aceleración angular</label>
         </div>
 
-        <!-- Pregunta 2 -->
         <div class="pregunta">
-            <p>2. ¿Pregunta 2?</p>
+            <p>2. ¿Qué unidad se utiliza para medir el momento de inercia?</p>
             <hr>
-            <label><input type="radio" name="p2" value="A"> A)</label><br>
-            <label><input type="radio" name="p2" value="B"> B)</label><br>
-            <label><input type="radio" name="p2" value="C"> C)</label><br>
-            <label><input type="radio" name="p2" value="D"> D)</label>
+            <label><input type="radio" name="p2" value="A"> A) kg·m/s²</label><br>
+            <label><input type="radio" name="p2" value="B"> B) N·m</label><br>
+            <label><input type="radio" name="p2" value="C"> C) kg·m²</label><br>
+            <label><input type="radio" name="p2" value="D"> D) rad/s</label>
         </div>
 
-        <!-- Pregunta 3 -->
         <div class="pregunta">
-            <p>3. ¿Pregunta 3?</p>
+            <p>3. ¿Cuál es la fórmula del momento de inercia para un disco sólido de masa M y radio R?</p>
             <hr>
-            <label><input type="radio" name="p3" value="A"> A)</label><br>
-            <label><input type="radio" name="p3" value="B"> B)</label><br>
-            <label><input type="radio" name="p3" value="C"> C)</label><br>
-            <label><input type="radio" name="p3" value="D"> D)</label>
+            <label><input type="radio" name="p3" value="A"> A) (1/2)MR²</label><br>
+            <label><input type="radio" name="p3" value="B"> B) MR²</label><br>
+            <label><input type="radio" name="p3" value="C"> C) (2/5)MR²</label><br>
+            <label><input type="radio" name="p3" value="D"> D) (3/5)MR²</label>
         </div>
 
-        <!-- Pregunta 4 -->
         <div class="pregunta">
-            <p>4. ¿Pregunta 4?</p>
+            <p>4. ¿Cuál es la expresión de la energía cinética de rotación?</p>
             <hr>
-            <label><input type="radio" name="p4" value="A"> A)</label><br>
-            <label><input type="radio" name="p4" value="B"> B)</label><br>
-            <label><input type="radio" name="p4" value="C"> C)</label><br>
-            <label><input type="radio" name="p4" value="D"> D)</label>
+            <label><input type="radio" name="p4" value="A"> A) (1/2)mv²</label><br>
+            <label><input type="radio" name="p4" value="B"> B) (1/2)Iω²</label><br>
+            <label><input type="radio" name="p4" value="C"> C) Iα</label><br>
+            <label><input type="radio" name="p4" value="D"> D) T = rF</label>
         </div>
 
-        <!-- Pregunta 5 -->
         <div class="pregunta">
-            <p>5. ¿Pregunta 5?</p>
+            <p>5. El momento angular de un objeto rígido es igual a:</p>
             <hr>
-            <label><input type="radio" name="p5" value="A"> A)</label><br>
-            <label><input type="radio" name="p5" value="B"> B)</label><br>
-            <label><input type="radio" name="p5" value="C"> C)</label><br>
-            <label><input type="radio" name="p5" value="D"> D)</label>
+            <label><input type="radio" name="p5" value="A"> A) m·v</label><br>
+            <label><input type="radio" name="p5" value="B"> B) I·ω</label><br>
+            <label><input type="radio" name="p5" value="C"> C) F·r</label><br>
+            <label><input type="radio" name="p5" value="D"> D) a·t</label>
         </div>
 
-        <!-- Pregunta 6 -->
         <div class="pregunta">
-            <p>6. ¿Pregunta 6?</p>
+            <p>6. ¿Qué condición debe cumplirse para que se conserve el momento angular?</p>
             <hr>
-            <label><input type="radio" name="p6" value="A"> A)</label><br>
-            <label><input type="radio" name="p6" value="B"> B)</label><br>
-            <label><input type="radio" name="p6" value="C"> C)</label><br>
-            <label><input type="radio" name="p6" value="D"> D)</label>
+            <label><input type="radio" name="p6" value="A"> A) Que no haya fricción</label><br>
+            <label><input type="radio" name="p6" value="B"> B) Que no exista torque externo</label><br>
+            <label><input type="radio" name="p6" value="C"> C) Que la masa sea constante</label><br>
+            <label><input type="radio" name="p6" value="D"> D) Que la velocidad angular sea cero</label>
         </div>
 
-        <!-- Pregunta 7 -->
         <div class="pregunta">
-            <p>7. ¿Pregunta 7?</p>
+            <p>7. ¿Cuál es la relación entre torque neto y momento angular?</p>
             <hr>
-            <label><input type="radio" name="p7" value="A"> A)</label><br>
-            <label><input type="radio" name="p7" value="B"> B)</label><br>
-            <label><input type="radio" name="p7" value="C"> C)</label><br>
-            <label><input type="radio" name="p7" value="D"> D)</label>
+            <label><input type="radio" name="p7" value="A"> A) τ = I·α</label><br>
+            <label><input type="radio" name="p7" value="B"> B) τ = dL/dt</label><br>
+            <label><input type="radio" name="p7" value="C"> C) τ = mv</label><br>
+            <label><input type="radio" name="p7" value="D"> D) τ = r/m</label>
         </div>
 
-        <!-- Pregunta 8 -->
         <div class="pregunta">
-            <p>8. ¿Pregunta 8?</p>
+            <p>8. ¿Qué tipo de movimiento tiene un objeto que gira alrededor de un eje fijo?</p>
             <hr>
-            <label><input type="radio" name="p8" value="A"> A)</label><br>
-            <label><input type="radio" name="p8" value="B"> B)</label><br>
-            <label><input type="radio" name="p8" value="C"> C)</label><br>
-            <label><input type="radio" name="p8" value="D"> D)</label>
+            <label><input type="radio" name="p8" value="A"> A) Movimiento armónico simple</label><br>
+            <label><input type="radio" name="p8" value="B"> B) Movimiento rectilíneo uniforme</label><br>
+            <label><input type="radio" name="p8" value="C"> C) Movimiento de rotación</label><br>
+            <label><input type="radio" name="p8" value="D"> D) Movimiento aleatorio</label>
         </div>
 
-        <!-- Pregunta 9 -->
         <div class="pregunta">
-            <p>9. ¿Pregunta 9?</p>
+            <p>9. ¿Cuál de los siguientes factores no afecta el momento de inercia?</p>
             <hr>
-            <label><input type="radio" name="p9" value="A"> A)</label><br>
-            <label><input type="radio" name="p9" value="B"> B)</label><br>
-            <label><input type="radio" name="p9" value="C"> C)</label><br>
-            <label><input type="radio" name="p9" value="D"> D)</label>
+            <label><input type="radio" name="p9" value="A"> A) Distribución de la masa</label><br>
+            <label><input type="radio" name="p9" value="B"> B) Velocidad angular</label><br>
+            <label><input type="radio" name="p9" value="C"> C) Eje de rotación</label><br>
+            <label><input type="radio" name="p9" value="D"> D) Masa del objeto</label>
         </div>
 
-        <!-- Pregunta 10 -->
         <div class="pregunta">
-            <p>10. ¿Pregunta 10?</p>
+            <p>10. ¿Qué indica el teorema de los ejes paralelos?</p>
             <hr>
-            <label><input type="radio" name="p10" value="A"> A)</label><br>
-            <label><input type="radio" name="p10" value="B"> B)</label><br>
-            <label><input type="radio" name="p10" value="C"> C)</label><br>
-            <label><input type="radio" name="p10" value="D"> D)</label>
+            <label><input type="radio" name="p10" value="A"> A) I = I_cm + Md²</label><br>
+            <label><input type="radio" name="p10" value="B"> B) I = MR²</label><br>
+            <label><input type="radio" name="p10" value="C"> C) I = (1/2)MR²</label><br>
+            <label><input type="radio" name="p10" value="D"> D) I = m·g·h</label>
         </div>
 
         <!-- Botón Enviar -->
         <div class="boton">
-            <button type="submit">Enviar</button>
+            <button type="submit" class="btn-enviar">Enviar</button>
         </div>
 
     </form>
 </div>
+
+<!-- Modal -->
+<div id="modal-mensaje" class="modal">
+    <div class="modal-contenido">
+        <p>¡Gracias por completar el examen!<br>Tus respuestas han sido enviadas.</p>
+        <button class="modal-boton" onclick="cerrarModal()">Aceptar</button>
+    </div>
+</div>
+
 <script>
     insertarLogo();
+
+    // Mostrar modal al enviar
+    document.querySelectorAll('.cuestionario').forEach(form => {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // evita el envío real
+            document.getElementById("modal-mensaje").style.display = "block";
+        });
+    });
+
+    function cerrarModal() {
+        document.getElementById("modal-mensaje").style.display = "none";
+    }
 </script>
 </body>
 </html>
+

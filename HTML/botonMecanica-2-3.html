@@ -10,75 +10,74 @@
             margin-bottom: 40px;
             text-align: left;
         }
-
     </style>
 </head>
 <body>
     <div class="cont-volver">
         <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
     </div>
-<div class="contenedor">
- 
-    <form class="cuestionario">
-        <h2>Prueba de Autocompletar Fórmulas</h2>
 
-        <!-- Pregunta 1 -->
-        <div class="pregunta">
-            <p>1. La fórmula de la velocidad es:</p>
-            <hr>
-            <div class="opciones">
-                <label><input type="radio" name="p1" value="A"> A) v = d / t</label>
-                <label><input type="radio" name="p1" value="B"> B) v = t / d</label>
-                <label><input type="radio" name="p1" value="C"> C) v = m / a</label>
-                <label><input type="radio" name="p1" value="D"> D) v = f / m</label>
+    <div class="contenedor">
+        <form class="cuestionario">
+            <h2>Prueba de Autocompletar Fórmulas - Tema: Torque</h2>
+
+            <!-- Pregunta 1 -->
+            <div class="pregunta">
+                <p>1. La fórmula del torque es:</p>
+                <hr>
+                <div class="opciones">
+                    <label><input type="radio" name="p1" value="A"> A) τ = F · r · sen(θ)</label>
+                    <label><input type="radio" name="p1" value="B"> B) τ = F / r</label>
+                    <label><input type="radio" name="p1" value="C"> C) τ = m · a</label>
+                    <label><input type="radio" name="p1" value="D"> D) τ = v / t</label>
+                </div>
             </div>
-        </div>
 
-        <!-- Pregunta 2 -->
-        <div class="pregunta">
-            <p>2. La fórmula de la energía cinética es:</p>
-            <hr>
-            <div class="opciones">
-                <label><input type="radio" name="p2" value="A"> A) Ec = ½mv²</label>
-                <label><input type="radio" name="p2" value="B"> B) Ec = mgh</label>
-                <label><input type="radio" name="p2" value="C"> C) Ec = mv</label>
-                <label><input type="radio" name="p2" value="D"> D) Ec = m/a</label>
+            <!-- Pregunta 2 -->
+            <div class="pregunta">
+                <p>2. ¿Cuál es la unidad del torque en el Sistema Internacional?</p>
+                <hr>
+                <div class="opciones">
+                    <label><input type="radio" name="p2" value="A"> A) kg·m/s²</label>
+                    <label><input type="radio" name="p2" value="B"> B) J</label>
+                    <label><input type="radio" name="p2" value="C"> C) N·m</label>
+                    <label><input type="radio" name="p2" value="D"> D) m/s</label>
+                </div>
             </div>
-        </div>
 
-        <!-- Pregunta 3 -->
-        <div class="pregunta">
-            <p>3. La segunda ley de Newton es:</p>
-            <hr>
-            <div class="opciones">
-                <label><input type="radio" name="p3" value="A"> A) F = ma</label>
-                <label><input type="radio" name="p3" value="B"> B) F = m/v</label>
-                <label><input type="radio" name="p3" value="C"> C) F = m + a</label>
-                <label><input type="radio" name="p3" value="D"> D) F = v/a</label>
+            <!-- Pregunta 3 -->
+            <div class="pregunta">
+                <p>3. ¿Cuál es el nombre del ángulo entre la fuerza y el brazo en la fórmula del torque?</p>
+                <hr>
+                <div class="opciones">
+                    <label><input type="radio" name="p3" value="A"> A) Ángulo de ataque</label>
+                    <label><input type="radio" name="p3" value="B"> B) Ángulo centrado</label>
+                    <label><input type="radio" name="p3" value="C"> C) Ángulo perpendicular</label>
+                    <label><input type="radio" name="p3" value="D"> D) Ángulo θ</label>
+                </div>
             </div>
-        </div>
 
-        <!-- Pregunta 4 -->
-        <div class="pregunta">
-            <p>4. La fórmula de la densidad es:</p>
-            <hr>
-            <div class="opciones">
-                <label><input type="radio" name="p4" value="A"> A) d = m / v</label>
-                <label><input type="radio" name="p4" value="B"> B) d = v / m</label>
-                <label><input type="radio" name="p4" value="C"> C) d = v x m</label>
-                <label><input type="radio" name="p4" value="D"> D) d = m - v</label>
+            <!-- Pregunta 4 -->
+            <div class="pregunta">
+                <p>4. Si el ángulo entre la fuerza y el brazo es de 90°, ¿cuál es el valor de sen(θ)?</p>
+                <hr>
+                <div class="opciones">
+                    <label><input type="radio" name="p4" value="A"> A) 0</label>
+                    <label><input type="radio" name="p4" value="B"> B) 0.5</label>
+                    <label><input type="radio" name="p4" value="C"> C) 1</label>
+                    <label><input type="radio" name="p4" value="D"> D) -1</label>
+                </div>
             </div>
-        </div>
 
-        <!-- Botón enviar -->
-        <div class="boton">
-            <button type="submit">Enviar</button>
-        </div>
+            <!-- Botón enviar -->
+            <div class="boton">
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+    </div>
 
-    </form>
-</div>
-<script>
-    insertarLogo();
-</script>
+    <script>
+        insertarLogo();
+    </script>
 </body>
 </html>
