@@ -15,45 +15,14 @@
             text-align: left;
         }
 
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.4);
-        }
 
-        .modal-contenido {
-            background-color: #fff;
-            margin: 15% auto;
-            padding: 20px;
-            border-radius: 10px;
-            width: 80%;
-            max-width: 400px;
-            text-align: center;
-        }
-
-        .modal-boton {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-        }
     </style>
 </head>
 <body>
 
 <div class="header">
     <div class="cont-volver">
-        <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
+        <button onclick="history.back()" id="btn-volver" >&larr;</button>
     </div>
     <h1>Examen</h1>
 </div>
@@ -169,20 +138,9 @@
 </div>
 
 <script>
-    insertarLogo();
-
-    // Mostrar modal al enviar
-    document.querySelectorAll('.cuestionario').forEach(form => {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault(); // evita el envío real
-            document.getElementById("modal-mensaje").style.display = "block";
-        });
-    });
-
-    function cerrarModal() {
-        document.getElementById("modal-mensaje").style.display = "none";
-    }
+    insertarLogo();//funcion que pone el logo de la pagina de forma automatica
 </script>
+<script src="../JS/modal.js"></script><!--Importacion del script para funcionamiento de la ventana modal-->
 </body>
 </html>
 
