@@ -36,13 +36,22 @@
         </p>
     </div>
 
-    <!-- Botón siguiente -->
-    <div class="boton">
-        <button>Siguiente ➔</button>
+     <!-- Botón siguiente -->
+     <form class="cuestionario">
+        <div class="boton">
+            <button type="submit" class="btn-enviar">Siguiente ➔</button>
+        </div>
+    </form>
+    <!-- Modal -->
+<div id="modal-mensaje" class="modal">
+    <div class="modal-contenido">
+        <p>¡Gracias por completar el examen!<br>Tus respuestas han sido enviadas.</p>
+        <button class="modal-boton" onclick="cerrarModal()">Aceptar</button>
     </div>
 </div>
 <script>
     insertarLogo();
 </script>
+<script src="../JS/modal.js"></script><!--Importacion del script para funcionamiento de la ventana modal-->
 </body>
 </html>
