@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juego de Pregunta- Login</title>
-    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="JS/icono.js"></script>
- 
+
 </head>
 
 <body id="body-login">
@@ -62,7 +62,7 @@
             const username = document.getElementById('username').value;
             if (username.trim() !== "") {
                 localStorage.setItem('username', username);
-                window.location.href = '../HTML/menu.html';
+                window.location.href = 'HTML/menu.html';
             } else {
                 alert("Por favor, ingresa tu nombre");
             }
