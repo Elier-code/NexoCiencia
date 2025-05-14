@@ -12,51 +12,64 @@
 </head>
 
 <body id="body-login">
+    <!-- Contenedor principal que agrupa los formularios de login y registro -->
     <div class="login-container" id="form-container">
+        <!-- Título del formulario, cambia dinámicamente según el formulario visible -->
         <h2 id="form-title">Inicio Sesion <i class="fas fa-user-lock"></i></h2>
 
+        <!-- Formulario para iniciar sesión -->
         <form id="login-form">
             <div class="input-box">
+                <!-- Campo para ingresar el nombre de usuario -->
                 <input type="text" id="username" placeholder="Username" required>
+                <!-- Icono de usuario al lado del campo -->
                 <span class="icon"><i class="fas fa-user"></i></span>
             </div>
             <div class="input-box">
+                <!-- Campo para ingresar la contraseña -->
                 <input type="password" id="password" placeholder="Password" required>
+                <!-- Icono de candado al lado del campo -->
                 <span class="icon"><i class="fas fa-lock"></i></span>
             </div>
 
+            <!-- Botón para iniciar sesión, ejecuta la función startGame() al hacer clic -->
             <button type="button" onclick="startGame()" id="btn-regis-inicio">Entrar</button>
+            <!-- Enlace para cambiar al formulario de registro -->
             <p>¿No tienes una cuenta? <a href="#" onclick="toggleForm()">Regístrate</a></p>
         </form>
 
+        <!-- Formulario para registrarse, inicialmente oculto con clase "hidden" -->
         <form id="register-form" class="hidden">
             <div class="input-box">
+                <!-- Campo para ingresar el nuevo nombre de usuario -->
                 <input type="text" id="new-username" placeholder="Nombre" required>
+                <!-- Icono para agregar usuario -->
                 <span class="icon"><i class="fas fa-user-plus"></i></span>
             </div>
             <div class="input-box">
+                <!-- Campo para ingresar el apellido -->
                 <input type="text" id="surname" placeholder="Apellido" required>
+                <!-- Icono de usuario -->
                 <span class="icon"><i class="fas fa-user"></i></span>
             </div>
             <div class="input-box">
-                <input type="email" id="email" placeholder="Correo" required>
+                <!-- Campo para ingresar el correo electrónico -->
+                <input type="email" id="email" placeholder="Correo electrónico" required>
+                <!-- Icono de correo -->
                 <span class="icon"><i class="fas fa-envelope"></i></span>
             </div>
             <div class="input-box">
+                <!-- Campo para ingresar la contraseña nueva -->
                 <input type="password" id="new-password" placeholder="Contraseña" required>
+                <!-- Icono de candado -->
                 <span class="icon"><i class="fas fa-lock"></i></span>
             </div>
-            <div class="input-box">
-                <input type="password" id="confirm-password" placeholder="Confirmar Contraseña" required>
-                <span class="icon"><i class="fas fa-lock"></i></span>
-            </div>
-
-            <button type="button" onclick="register()" id="btn-regis-inicio">Registrarse</button>
+            <!-- Botón para registrarse, ejecuta la función registerUser() al hacer clic -->
+            <button type="button" onclick="registerUser()" id="btn-register">Registrar</button>
+            <!-- Enlace para cambiar al formulario de inicio de sesión -->
             <p>¿Ya tienes una cuenta? <a href="#" onclick="toggleForm()">Inicia sesión</a></p>
         </form>
-
     </div>
-
     <script>
         function startGame() {
             const username = document.getElementById('username').value;
