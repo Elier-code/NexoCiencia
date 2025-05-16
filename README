@@ -1,0 +1,18 @@
+PENDIENTES GENERALES:
+
+-Apartado del usuario:
+	Actualizar sus datos
+	Resumen de su progreso
+	Acceso a los recursos
+
+-Apartado Administrador:
+    Los CRUD
+	Apartado Profesor:
+	Actualizar sus datos
+	Crear temas
+
+-Funcionalidad de la pagina
+	verificación de usuarios
+	Manejo de sección
+	Manejo del progreso(registro de avances, bloqueo y desbloqueo de niveles y temas)
+	mejor presentación de las alertas
