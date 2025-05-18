@@ -71,45 +71,86 @@
         </form>
     </div>
     <script>
-        function startGame() {
-            const username = document.getElementById('username').value;
-            if (username.trim() !== "") {
-                localStorage.setItem('username', username);
-                window.location.href = 'HTML/menu.html';
-            } else {
-                alert("Por favor, ingresa tu nombre");
-            }
+    // Función que se ejecuta al hacer clic en "Entrar"
+    function startGame() {
+        // Obtiene el nombre de usuario y contraseña ingresados
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        // Recupera la lista de usuarios registrados desde localStorage (si no hay, usa arreglo vacío)
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+
+        // Busca un usuario que coincida con el nombre y contraseña ingresados
+        const user = users.find(u => u.username === username && u.password === password);
+
+        // Si se encuentra un usuario válido
+        if (user) {
+            // Guarda el nombre de usuario activo en localStorage (puede usarse en otras páginas)
+            localStorage.setItem('username', username);
+
+            // Redirige al menú principal del juego
+            window.location.href = 'HTML/menu.html';
+        } else {
+            // Muestra mensaje de error si los datos no coinciden con ningún usuario registrado
+            alert("Usuario no registrado o contraseña incorrecta");
         }
+    }
 
-        function register() {
-            const newUsername = document.getElementById('new-username').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('new-password').value;
+    // Función que se ejecuta al hacer clic en "Registrar"
+    function register() {
+        // Obtiene los valores ingresados en el formulario de registro
+        const newUsername = document.getElementById('new-username').value;
+        const surname = document.getElementById('surname').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('new-password').value;
 
-            if (newUsername && email && password) {
-                alert(`Usuario ${newUsername} registrado correctamente.`);
-                toggleForm(); // Vuelve al login
-            } else {
-                alert("Por favor completa todos los campos");
+        // Verifica que todos los campos estén completos
+        if (newUsername && email && password && surname) {
+            // Obtiene los usuarios ya registrados (o crea uno nuevo si no hay ninguno)
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+
+            // Verifica si el nombre de usuario ya está registrado
+            if (users.some(u => u.username === newUsername)) {
+                alert("Este nombre de usuario ya está registrado");
+                return; // Sale de la función sin registrar
             }
+
+            // Agrega el nuevo usuario al arreglo
+            users.push({ username: newUsername, surname, email, password });
+
+            // Guarda el arreglo actualizado de usuarios en localStorage
+            localStorage.setItem('users', JSON.stringify(users));
+
+            // Muestra mensaje de confirmación y vuelve al formulario de login
+            alert(`Usuario ${newUsername} registrado correctamente.`);
+            toggleForm();
+        } else {
+            // Si falta algún campo, muestra mensaje de advertencia
+            alert("Por favor completa todos los campos");
         }
+    }
 
-        function toggleForm() {
-            const loginForm = document.getElementById('login-form');
-            const registerForm = document.getElementById('register-form');
-            const formTitle = document.getElementById('form-title');
+    // Función que cambia entre los formularios de login y registro
+    function toggleForm() {
+        const loginForm = document.getElementById('login-form');
+        const registerForm = document.getElementById('register-form');
+        const formTitle = document.getElementById('form-title');
 
-            loginForm.classList.toggle('hidden');
-            registerForm.classList.toggle('hidden');
+        // Alterna la visibilidad de ambos formularios
+        loginForm.classList.toggle('hidden');
+        registerForm.classList.toggle('hidden');
 
-            if (!loginForm.classList.contains('hidden')) {
-                formTitle.innerHTML = 'Login <i class="fas fa-user-lock"></i>';
-            } else {
-                formTitle.innerHTML = 'Registro <i class="fas fa-user-plus"></i>';
-            }
+        // Cambia el título del formulario según el formulario activo
+        if (!loginForm.classList.contains('hidden')) {
+            formTitle.innerHTML = 'Inicio Sesion <i class="fas fa-user-lock"></i>';
+        } else {
+            formTitle.innerHTML = 'Registro <i class="fas fa-user-plus"></i>';
         }
-        insertarLogo();
-    </script>
+    }
+
+    // Llama a la función insertarLogo() (debe estar definida en otro archivo JS externo)
+    insertarLogo();
+</script>
 </body>
 
 </html>
