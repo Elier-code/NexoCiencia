@@ -6,8 +6,43 @@ PENDIENTES GENERALES:
 	Acceso a los recursos
 
 -Apartado Administrador:
-    Los CRUD
-	Apartado Profesor:
+    Los CRUD:
+		-Cursos:
+			Nombre
+			Fecha inicio
+			fecha fin
+			descripcion
+		-Usuarios:
+			Nombres
+			Apellidos
+			Usuario
+			Contraseña
+			correo
+			(el tipo de usuario por defecto es estudiante)
+		-Temas:
+			Nombre Tema
+			fecha agregacion(por el sistemas)
+		-Ejecicios:
+			Titulo
+			Descripcion
+			tipo ejercicio
+			fecha publicacion
+		-Recompenzas:
+			nombre
+			Criterio Obtencion
+			tipo Recompenza
+		-Recursos:
+			Titulo
+			URL
+			Fecha creacion(por el sistemas)
+			tipo de recurso
+		-Evaluaciones:
+			Puntaje
+			Comentario
+			fecha realizacion(por el sistemas)
+
+
+-Apartado Profesor:
 	Actualizar sus datos
 	Crear temas
 
