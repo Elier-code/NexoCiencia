@@ -23,7 +23,7 @@ nav {
 
 .container {
     width: 70%;
-    height: 500px;
+    height: 600px;
     margin: auto;
     margin-top: 50px;
     padding: 40px;
@@ -31,6 +31,7 @@ nav {
     background-size: 400% 400%;
     animation: fondo-anim 20s ease infinite;
     border-radius: 10px;
+
 }
 
 @keyframes fondo-anim {
@@ -72,13 +73,45 @@ img {
 .content-izd {
     /*width: 70%;*/
     /* height: 100vh; */
-    background-color: #D1D9E0;
     padding: 20px;
-    border-radius: 10px;
+
 }
 
 .content-derc {
     /*width: 30%;*/
     background-color: #D1D9E0;
     border-radius: 10px;
+}
+
+.target {
+    background-color: #D1D9E0;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+
+}
+
+.target {
+    view-timeline-name: --image;
+    view-timeline-axis: block;
+
+    animation-timeline: --image;
+    animation-name: show;
+
+    animation-range: entry 25% cover 30%;
+    animation-fill-mode: both;
+
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+
+    }
 }

@@ -38,7 +38,7 @@ body {
     align-items: center;
 }
 
-.menu-body::before {
+.menu-body::before,#body-login::before {
     content: "";
     position: absolute;
     top: 0;
