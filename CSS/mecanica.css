@@ -8,7 +8,7 @@
     background-image: url(../Recursos/Imagenes/fondo-mecanica.jpeg);
 }
 
-.container-calculo{
+.container-calculo {
     width: 100%;
     background-color: #9ab1c9;
     border-radius: 10px;
@@ -32,9 +32,18 @@ body {
     background-color: #f4f6f8;
     color: #0d2c54;
 }
-.header{
+
+html {
+    background-color: #f4f6f8;
+}
+
+.header {
+    display: flex;
     background-color: #3dbfc1;
     margin: 10px;
+    align-items: center;
+    height: 70px;
+    padding: 20px;
 }
 
 button {
@@ -42,14 +51,19 @@ button {
     height: 60px;
     display: block;
     margin: 10px auto;
-    border-radius: 50px; /* Muy redondeado */
-    border: 2px solid #22050d; /* Color de borde */
-    background-color: #170606; /* Fondo rosita claro */
-    color: #333; /* Color del texto */
+    border-radius: 50px;
+    /* Muy redondeado */
+    border: 2px solid #22050d;
+    /* Color de borde */
+    background-color: #170606;
+    /* Fondo rosita claro */
+    color: #333;
+    /* Color del texto */
     font-weight: bold;
     font-size: 1.2rem;
     text-align: center;
-    box-shadow: 0 8px 0 #160106; /* Sombra abajo como en la imagen */
+    box-shadow: 0 8px 0 #160106;
+    /* Sombra abajo como en la imagen */
     transition: all 0.3s ease;
     cursor: pointer;
 }
@@ -57,9 +71,11 @@ button {
 .separacion-nivel {
     text-align: left;
 }
-h2{
+
+h2 {
     color: #0d2c54;
 }
+
 h2,
 hr {
     display: inline-block;
@@ -96,15 +112,17 @@ button:nth-child(4) {
 
 #botones {
     background-color: #f89c1c;
-    font-family:  "Tagesschrift", system-ui;
+    font-family: "Tagesschrift", system-ui;
 
 }
-#botones > a{
+
+#botones>a {
     color: #000;
     text-decoration: none;
     font-family: "Tagesschrift", system-ui;
-    
+
 }
+
 button {
     width: 60px;
     height: 60px;
@@ -128,4 +146,44 @@ button:hover {
     background-color: #3dbfc1;
     border: none;
 
+}
+
+*::before,
+*::after {
+    content: none;
+    background: #f4f6f8;
+}
+
+#btn-volver {
+    display: block;
+
+    top: 20px;
+    left: 20px;
+    background-color: #3dbfc1;
+    color: black;
+    font-size: 28px;
+    padding: 10px 15px;
+    border-radius: 50%;
+    border: 2px solid #d1d9e0;
+    cursor: pointer;
+    box-shadow: 0 0 20px 10px #d1d9e0;
+    margin: 0;
+    margin-left: 10px;
+
+
+}
+
+.cont-volver {
+    width: 45%;
+    justify-content: start;
+}
+
+#btn-volver:hover {
+    background-color: #38458e;
+}
+
+h1 {
+    display: inline;
+    width: 50%;
+    text-align: left;
 }

@@ -60,7 +60,7 @@ img {
 .content {
     width: 90%;
     margin: auto;
-    padding: 30px;
+    margin-top: 10px;
     /*display: flex;
 
     justify-content: space-between;

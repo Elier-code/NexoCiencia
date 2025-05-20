@@ -38,13 +38,13 @@ body {
     align-items: center;
 }
 
-body::before {
+.menu-body::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background: rgba(0, 0, 0, 0.5);
     /* Ajusta el nivel de oscuridad (0.5 = 50%) */
     z-index: -1;
@@ -193,7 +193,7 @@ a:hover {
 
 /* diseño de los botones del menu */
 .btn-menu {
-    background-color: #58cc02;
+    background-color: rgba(255, 255, 255, 0.1);
     color: #f89c1c;
     font-weight: bold;
     padding: 20px 60px;
@@ -201,10 +201,14 @@ a:hover {
     border: none;
     border-radius: 30px;
     margin: 15px;
+    width: 100%;
     cursor: pointer;
     box-shadow: 0 6px 0 #d1d9e0;
     /* sombra como si estuviera elevado */
     transition: all 0.2s ease-in-out;
+}
+#menu-botones{
+    width: 100vw;
 }
 
 .btn-menu:hover {
@@ -231,10 +235,13 @@ a:hover {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    max-width: 100vw;
 }
 
+
+
 /* botones estilo técnico */
-.btn-menu {
+/* .btn-menu {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(5px);
     color: #f89c1c;
@@ -246,7 +253,7 @@ a:hover {
     margin: 15px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-}
+} */
 
 .btn-menu:hover {
     background: rgba(255, 255, 255, 0.2);
