@@ -1,0 +1,67 @@
+//SCRIP DE JS PARA DARSE DE BAJA:
+// let usuarios = [];
+//     let idEdicion = null;
+
+//     function renderizarTabla() {
+//       const tabla = document.getElementById("tablaUsuarios");
+//       tabla.innerHTML = "";
+//       usuarios.forEach((u, index) => {
+//         tabla.innerHTML += `
+//           <tr>
+//             <td>${u.nombre}</td>
+//             <td>${u.email}</td>
+//             <td>
+//               <button onclick="editarUsuario(${index})">Editar</button>
+//               <button onclick="eliminarUsuario(${index})">Eliminar</button>
+//             </td>
+//           </tr>
+//         `;
+//       });
+//     }
+
+//     function crearUsuario() {
+//       const nombre = document.getElementById("nombre").value.trim();
+//       const email = document.getElementById("email").value.trim();
+
+//       if (!nombre || !email) {
+//         alert("Por favor ingresa nombre y correo.");
+//         return;
+//       }
+
+//       if (idEdicion === null) {
+//         usuarios.push({ nombre, email });
+//       } else {
+//         usuarios[idEdicion] = { nombre, email };
+//         idEdicion = null;
+//       }
+
+//       document.getElementById("nombre").value = "";
+//       document.getElementById("email").value = "";
+//       renderizarTabla();
+//     }
+
+//     function editarUsuario(index) {
+//       const usuario = usuarios[index];
+//       document.getElementById("nombre").value = usuario.nombre;
+//       document.getElementById("email").value = usuario.email;
+//       idEdicion = index;
+//     }
+
+//     function eliminarUsuario(index) {
+//       if (confirm("¿Seguro que deseas eliminar este usuario?")) {
+//         usuarios.splice(index, 1);
+//         renderizarTabla();
+//       }
+//     }
+
+//     function darseDeBaja() {
+//       const email = prompt("Ingresa tu correo para darte de baja:");
+//       const index = usuarios.findIndex(u => u.email === email);
+//       if (index !== -1) {
+//         usuarios.splice(index, 1);
+//         alert("Te has dado de baja.");
+//         renderizarTabla();
+//       } else {
+//         alert("No se encontró un usuario con ese correo.");
+//       }
+//     }
