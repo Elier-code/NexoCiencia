@@ -3,7 +3,6 @@ PENDIENTES GENERALES:
 -Apartado del usuario:
 	Actualizar sus datos
 	Resumen de su progreso
-	Acceso a los recursos
 
 -Apartado Administrador:
     Los CRUD:
@@ -50,4 +49,4 @@ PENDIENTES GENERALES:
 	verificación de usuarios <Listo>
 	Manejo de sección 
 	Manejo del progreso(registro de avances, bloqueo y desbloqueo de niveles y temas)
-	mejor presentación de las alertas 
+	Mejor presentación de las alertas <Listo>

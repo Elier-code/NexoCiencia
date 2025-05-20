@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juego de Pregunta - Login</title>
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/login.css">
     <script src="../JS/icono.js"></script>
+    <script src="../JS/login.js"></script>
 </head>
 
 <body id="body-login">
+
+    <!-- Alerta personalizada -->
+    <div id="customAlert" class="custom-alert"></div>
+
     <div class="login-container" id="form-container">
         <h2 id="form-title">Inicio Sesión <i class="fas fa-user-lock"></i></h2>
 
@@ -50,63 +55,5 @@
             <p>¿Ya tienes una cuenta? <a href="#" onclick="toggleForm()">Inicia sesión</a></p>
         </form>
     </div>
-
-    <script>
-        function startGame() {
-            const email = document.getElementById('login-email').value;
-            const password = document.getElementById('password').value;
-            const users = JSON.parse(localStorage.getItem('users')) || [];
-
-            const user = users.find(u => u.email === email && u.password === password);
-
-            if (user) {
-                localStorage.setItem('email', email);
-                window.location.href = 'menu.html';
-            } else {
-                alert("Correo o contraseña incorrectos");
-            }
-        }
-
-        function register() {
-            const newUsername = document.getElementById('new-username').value;
-            const surname = document.getElementById('surname').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('new-password').value;
-
-            if (newUsername && email && password && surname) {
-                const users = JSON.parse(localStorage.getItem('users')) || [];
-
-                if (users.some(u => u.email === email)) {
-                    alert("Este correo electrónico ya está registrado");
-                    return;
-                }
-
-                users.push({ username: newUsername, surname, email, password });
-                localStorage.setItem('users', JSON.stringify(users));
-
-                alert(`Usuario ${newUsername} registrado correctamente.`);
-                toggleForm();
-            } else {
-                alert("Por favor completa todos los campos");
-            }
-        }
-
-        function toggleForm() {
-            const loginForm = document.getElementById('login-form');
-            const registerForm = document.getElementById('register-form');
-            const formTitle = document.getElementById('form-title');
-
-            loginForm.classList.toggle('hidden');
-            registerForm.classList.toggle('hidden');
-
-            if (!loginForm.classList.contains('hidden')) {
-                formTitle.innerHTML = 'Inicio Sesión <i class="fas fa-user-lock"></i>';
-            } else {
-                formTitle.innerHTML = 'Registro <i class="fas fa-user-plus"></i>';
-            }
-        }
-
-        insertarLogo(); // Asegúrate de que esta función esté definida en icono.js
-    </script>
 </body>
 </html>
