@@ -2,56 +2,96 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>explicación</title>
+    <title>Integración por Partes</title>
     <link rel="stylesheet" href="../CSS/botones.css">
     <script src="../JS/icono.js"></script>
-    
 </head>
 <body>
     <div class="cont-volver">
         <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
     </div>
-<div class="contenedor">
-    
 
-    <!-- Primer video -->
+<div class="contenedor">
+
+    <!-- Video explicativo -->
     <video width="640" height="360" controls>
-        <source src="video1.mp4" type="video/mp4">
+        <source src="video2.mp4" type="video/mp4">
         Tu navegador no soporta videos HTML5.
     </video>
 
-    <!-- Texto central -->
+    <!-- Texto explicativo -->
     <div class="texto">
+        <h2>¿Qué es la Integración por Partes?</h2>
         <p>
-            Aquí va una descripción o explicación relacionada con el video.
-            Puedes escribir varias líneas de texto para acompañar el contenido multimedia.
+            La técnica de <strong>integración por partes</strong> es una herramienta útil para resolver integrales que son producto de dos funciones. 
+            Está basada en la regla del producto para derivadas:
         </p>
+        <p><code>d(uv) = u·dv + v·du</code></p>
+        <p>
+            De ahí se obtiene la fórmula de integración por partes:
+        </p>
+        <p><code>∫u·dv = u·v - ∫v·du</code></p>
+
+        <h3>¿Cuándo se usa?</h3>
+        <p>
+            Se utiliza cuando tenemos el producto de una función fácil de derivar (<code>u</code>) y otra fácil de integrar (<code>dv</code>).
+        </p>
+
+        <h3>Regla LIATE (sugerencia para elegir u):</h3>
+        <ul>
+            <li><strong>L</strong>ogaritmos: ln(x), log(x)</li>
+            <li><strong>I</strong>nversas: arctan(x), arcsin(x)</li>
+            <li><strong>A</strong>lgebraicas: x, x², etc.</li>
+            <li><strong>T</strong>rigonométricas: sin(x), cos(x), etc.</li>
+            <li><strong>E</strong>xponenciales: e<sup>x</sup>, a<sup>x</sup></li>
+        </ul>
     </div>
 
-    <!-- Segundo cuadro de texto -->
+    <!-- Caja con ejemplo -->
     <div class="caja-texto">
+        <h3>Ejemplo resuelto</h3>
+        <p><strong>Ejemplo:</strong> Resolver ∫x·e<sup>x</sup> dx</p>
+        <ul>
+            <li>u = x &rarr; du = dx</li>
+            <li>dv = e<sup>x</sup> dx &rarr; v = e<sup>x</sup></li>
+        </ul>
         <p>
-            Aquí puedes escribir un texto adicional o mostrar información importante.
-            Este recuadro está resaltado visualmente con borde.
+            Aplicamos la fórmula:<br>
+            ∫x·e<sup>x</sup> dx = u·v - ∫v·du<br>
+            ∫x·e<sup>x</sup> dx = x·e<sup>x</sup> - ∫e<sup>x</sup> dx<br>
+            Resultado: <strong>x·e<sup>x</sup> - e<sup>x</sup> + C</strong>
         </p>
     </div>
 
-     <!-- Botón siguiente -->
-     <form class="cuestionario">
+    <!-- Caja con tips -->
+    <div class="caja-texto">
+        <h3>Consejos útiles</h3>
+        <ul>
+            <li>Si después de aplicar una vez la técnica, la integral aún no es elemental, puedes repetir el método.</li>
+            <li>Es común aplicar esta técnica cuando tienes combinaciones como: <code>x·ln(x)</code>, <code>x·cos(x)</code> o <code>ln(x)</code>.</li>
+        </ul>
+    </div>
+
+    <!-- Botón siguiente -->
+    <form class="cuestionario">
         <div class="boton">
             <button type="submit" class="btn-enviar">Siguiente ➔</button>
         </div>
     </form>
+
     <!-- Modal -->
-<div id="modal-mensaje" class="modal">
-    <div class="modal-contenido">
-        <p>¡Gracias por completar el examen!<br>Tus respuestas han sido enviadas.</p>
-        <button class="modal-boton" onclick="cerrarModal()">Aceptar</button>
+    <div id="modal-mensaje" class="modal">
+        <div class="modal-contenido">
+            <p>¡Gracias por completar el examen!<br>Tus respuestas han sido enviadas.</p>
+            <button class="modal-boton" onclick="cerrarModal()">Aceptar</button>
+        </div>
     </div>
+
 </div>
+
 <script>
     insertarLogo();
 </script>
-<script src="../JS/modal.js"></script><!--Importacion del script para funcionamiento de la ventana modal-->
+<script src="../JS/modal.js"></script>
 </body>
 </html>

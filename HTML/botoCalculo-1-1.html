@@ -2,57 +2,78 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>explicación</title>
+    <title>Integración por Sustitución</title>
     <link rel="stylesheet" href="../CSS/botones.css">
     <script src="../JS/icono.js"></script>
-    
 </head>
 <body>
     <div class="cont-volver">
         <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
     </div>
-<div class="contenedor">
-  
 
-    <!-- Primer video -->
-    <video width="640" height="360" controls>
-        <source src="video1.mp4" type="video/mp4">
-        Tu navegador no soporta videos HTML5.
-    </video>
+    <div class="contenedor">
 
-    <!-- Texto central -->
-    <div class="texto">
-        <p>
-            Aquí va una descripción o explicación relacionada con el video.
-            Puedes escribir varias líneas de texto para acompañar el contenido multimedia.
-        </p>
-    </div>
+        <!-- Video explicativo del tema -->
+        <video width="640" height="360" controls>
+            <source src="sustitucion.mp4" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
 
-    <!-- Segundo cuadro de texto -->
-    <div class="caja-texto">
-        <p>
-            Aquí puedes escribir un texto adicional o mostrar información importante.
-            Este recuadro está resaltado visualmente con borde.
-        </p>
-    </div>
-
-    <!-- Botón siguiente -->
-    <form class="cuestionario">
-        <div class="boton">
-            <button type="submit" class="btn-enviar">Siguiente ➔</button>
+        <!-- Concepto y explicación -->
+        <div class="texto">
+            <h2>¿Qué es la Integración por Sustitución?</h2>
+            <p>
+                Es una técnica que simplifica una integral complicada usando un cambio de variable.
+                Su objetivo es convertir la integral original en una más sencilla. 
+                Se basa en la **regla de la cadena inversa**, y se parece al método de derivación por cadena.
+            </p>
+            <p><strong>Fórmula base:</strong>  
+                <br>
+                Si <i>u = g(x)</i>, entonces:  
+                <br>
+                <i>∫f(g(x))·g'(x) dx = ∫f(u) du</i>
+            </p>
         </div>
-        
-    </form>
-    <!-- Modal -->
-<div id="modal-mensaje" class="modal">
-    <div class="modal-contenido">
-        <p>¡Gracias por completar el examen!<br>Tus respuestas han sido enviadas.</p>
-        <button class="modal-boton" onclick="cerrarModal()">Aceptar</button>
+
+        <!-- Ejercicio resuelto -->
+        <div class="caja-texto">
+            <h3>🧮 Ejercicio resuelto:</h3>
+            <p><strong>Ejemplo:</strong>  
+                <br>
+                Resolver la siguiente integral:  
+                <br>
+                <i>∫x·cos(x²) dx</i>
+            </p>
+            <p><strong>Paso 1:</strong> Usamos el cambio de variable  
+                <br>u = x² → du = 2x dx → (1/2) du = x dx
+            </p>
+            <p><strong>Paso 2:</strong> Sustituimos en la integral:  
+                <br>∫x·cos(x²) dx = ∫cos(u)·(1/2) du = (1/2)∫cos(u) du
+            </p>
+            <p><strong>Paso 3:</strong> Integrar normalmente:  
+                <br>(1/2)·sen(u) + C = (1/2)·sen(x²) + C ✅
+            </p>
+        </div>
+
+        <!-- Botón para pasar a siguiente tema -->
+        <form class="cuestionario" action="tema2.html">
+            <div class="boton">
+                <button type="submit" class="btn-enviar">Siguiente ➔</button>
+            </div>
+        </form>
+
+        <!-- Modal de finalización (oculto hasta activarse) -->
+        <div id="modal-mensaje" class="modal">
+            <div class="modal-contenido">
+                <p>¡Gracias por completar el tema!<br>Puedes continuar con el siguiente.</p>
+                <button class="modal-boton" onclick="cerrarModal()">Aceptar</button>
+            </div>
+        </div>
+
+        <script>
+            insertarLogo();
+        </script>
+        <script src="../JS/modal.js"></script>
     </div>
-<script>
-    insertarLogo();
-</script>
-<script src="../JS/modal.js"></script><!--Importacion del script para funcionamiento de la ventana modal-->
 </body>
 </html>
-

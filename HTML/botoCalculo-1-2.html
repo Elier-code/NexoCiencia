@@ -24,97 +24,106 @@
     </video>
 
     <!-- Cuestionario -->
-    <form class="cuestionario">
-        <h2>Prueba de Conocimientos</h2>
+  <!-- Dentro del formulario de preguntas: -->
+<form class="cuestionario">
+    <h2>Prueba de Conocimientos: Integración por Sustitución</h2>
 
-        <!-- Preguntas -->
-        <!-- Repito el bloque 10 veces -->
-        <div class="pregunta">
-            <p>1. ¿Pregunta 1?</p>
-            <label><input type="radio" name="p1" value="A"> A)</label>
-            <label><input type="radio" name="p1" value="B"> B)</label>
-            <label><input type="radio" name="p1" value="C"> C)</label>
-            <label><input type="radio" name="p1" value="D"> D)</label>
-        </div>
+    <!-- Pregunta 1 -->
+    <div class="pregunta">
+        <p>1. ¿Cuál es el objetivo principal de la técnica de sustitución?</p>
+        <label><input type="radio" name="p1" value="A"> A) Derivar funciones complejas</label>
+        <label><input type="radio" name="p1" value="B"> B) Cambiar los límites de integración</label>
+        <label><input type="radio" name="p1" value="C"> C) Transformar la integral a una más sencilla usando un cambio de variable</label>
+        <label><input type="radio" name="p1" value="D"> D) Encontrar áreas bajo la curva</label>
+    </div>
 
-        <div class="pregunta">
-            <p>2. ¿Pregunta 2?</p>
-            <label><input type="radio" name="p2" value="A"> A)</label>
-            <label><input type="radio" name="p2" value="B"> B)</label>
-            <label><input type="radio" name="p2" value="C"> C)</label>
-            <label><input type="radio" name="p2" value="D"> D)</label>
-        </div>
+    <!-- Pregunta 2 -->
+    <div class="pregunta">
+        <p>2. ¿Qué variable se suele usar en sustituciones?</p>
+        <label><input type="radio" name="p2" value="A"> A) z</label>
+        <label><input type="radio" name="p2" value="B"> B) u</label>
+        <label><input type="radio" name="p2" value="C"> C) k</label>
+        <label><input type="radio" name="p2" value="D"> D) t</label>
+    </div>
 
-        <div class="pregunta">
-            <p>3. ¿Pregunta 3?</p>
-            <label><input type="radio" name="p3" value="A"> A)</label>
-            <label><input type="radio" name="p3" value="B"> B)</label>
-            <label><input type="radio" name="p3" value="C"> C)</label>
-            <label><input type="radio" name="p3" value="D"> D)</label>
-        </div>
+    <!-- Pregunta 3 -->
+    <div class="pregunta">
+        <p>3. ¿Cuál es la derivada de u = x²?</p>
+        <label><input type="radio" name="p3" value="A"> A) du = 2x dx</label>
+        <label><input type="radio" name="p3" value="B"> B) du = x dx</label>
+        <label><input type="radio" name="p3" value="C"> C) du = x² dx</label>
+        <label><input type="radio" name="p3" value="D"> D) du = dx / x</label>
+    </div>
 
-        <div class="pregunta">
-            <p>4. ¿Pregunta 4?</p>
-            <label><input type="radio" name="p4" value="A"> A)</label>
-            <label><input type="radio" name="p4" value="B"> B)</label>
-            <label><input type="radio" name="p4" value="C"> C)</label>
-            <label><input type="radio" name="p4" value="D"> D)</label>
-        </div>
+    <!-- Pregunta 4 -->
+    <div class="pregunta">
+        <p>4. ¿Qué técnica se aplica en ∫x·cos(x²) dx?</p>
+        <label><input type="radio" name="p4" value="A"> A) Por partes</label>
+        <label><input type="radio" name="p4" value="B"> B) Sustitución</label>
+        <label><input type="radio" name="p4" value="C"> C) Fracciones parciales</label>
+        <label><input type="radio" name="p4" value="D"> D) Trigonométrica</label>
+    </div>
 
-        <div class="pregunta">
-            <p>5. ¿Pregunta 5?</p>
-            <label><input type="radio" name="p5" value="A"> A)</label>
-            <label><input type="radio" name="p5" value="B"> B)</label>
-            <label><input type="radio" name="p5" value="C"> C)</label>
-            <label><input type="radio" name="p5" value="D"> D)</label>
-        </div>
+    <!-- Pregunta 5 -->
+    <div class="pregunta">
+        <p>5. ¿Cuál es la integral de cos(u) du?</p>
+        <label><input type="radio" name="p5" value="A"> A) sin(u) + C</label>
+        <label><input type="radio" name="p5" value="B"> B) -cos(u) + C</label>
+        <label><input type="radio" name="p5" value="C"> C) u·cos(u) + C</label>
+        <label><input type="radio" name="p5" value="D"> D) tan(u) + C</label>
+    </div>
 
-        <div class="pregunta">
-            <p>6. ¿Pregunta 6?</p>
-            <label><input type="radio" name="p6" value="A"> A)</label>
-            <label><input type="radio" name="p6" value="B"> B)</label>
-            <label><input type="radio" name="p6" value="C"> C)</label>
-            <label><input type="radio" name="p6" value="D"> D)</label>
-        </div>
+    <!-- Pregunta 6 -->
+    <div class="pregunta">
+        <p>6. ¿Qué cambio conviene en ∫√(4 - x²) dx?</p>
+        <label><input type="radio" name="p6" value="A"> A) u = 4 - x</label>
+        <label><input type="radio" name="p6" value="B"> B) x = 2sin(θ)</label>
+        <label><input type="radio" name="p6" value="C"> C) u = √(x)</label>
+        <label><input type="radio" name="p6" value="D"> D) x = u²</label>
+    </div>
 
-        <div class="pregunta">
-            <p>7. ¿Pregunta 7?</p>
-            <label><input type="radio" name="p7" value="A"> A)</label>
-            <label><input type="radio" name="p7" value="B"> B)</label>
-            <label><input type="radio" name="p7" value="C"> C)</label>
-            <label><input type="radio" name="p7" value="D"> D)</label>
-        </div>
+    <!-- Pregunta 7 -->
+    <div class="pregunta">
+        <p>7. ¿Qué integral resulta de ∫2x·e^(x²) dx usando sustitución u = x²?</p>
+        <label><input type="radio" name="p7" value="A"> A) ∫e^x dx</label>
+        <label><input type="radio" name="p7" value="B"> B) ∫2x·e^u dx</label>
+        <label><input type="radio" name="p7" value="C"> C) ∫e^u du</label>
+        <label><input type="radio" name="p7" value="D"> D) ∫x²·e^u dx</label>
+    </div>
 
-        <div class="pregunta">
-            <p>8. ¿Pregunta 8?</p>
-            <label><input type="radio" name="p8" value="A"> A)</label>
-            <label><input type="radio" name="p8" value="B"> B)</label>
-            <label><input type="radio" name="p8" value="C"> C)</label>
-            <label><input type="radio" name="p8" value="D"> D)</label>
-        </div>
+    <!-- Pregunta 8 -->
+    <div class="pregunta">
+        <p>8. ¿Cuál es la antiderivada de ∫u² du?</p>
+        <label><input type="radio" name="p8" value="A"> A) u³ + C</label>
+        <label><input type="radio" name="p8" value="B"> B) (1/3)u³ + C</label>
+        <label><input type="radio" name="p8" value="C"> C) 3u + C</label>
+        <label><input type="radio" name="p8" value="D"> D) u² + C</label>
+    </div>
 
-        <div class="pregunta">
-            <p>9. ¿Pregunta 9?</p>
-            <label><input type="radio" name="p9" value="A"> A)</label>
-            <label><input type="radio" name="p9" value="B"> B)</label>
-            <label><input type="radio" name="p9" value="C"> C)</label>
-            <label><input type="radio" name="p9" value="D"> D)</label>
-        </div>
+    <!-- Pregunta 9 -->
+    <div class="pregunta">
+        <p>9. ¿Qué se debe hacer al final de una sustitución?</p>
+        <label><input type="radio" name="p9" value="A"> A) Derivar la integral</label>
+        <label><input type="radio" name="p9" value="B"> B) Reemplazar u por x</label>
+        <label><input type="radio" name="p9" value="C"> C) Aplicar partes</label>
+        <label><input type="radio" name="p9" value="D"> D) Calcular límites</label>
+    </div>
 
-        <div class="pregunta">
-            <p>10. ¿Pregunta 10?</p>
-            <label><input type="radio" name="p10" value="A"> A)</label>
-            <label><input type="radio" name="p10" value="B"> B)</label>
-            <label><input type="radio" name="p10" value="C"> C)</label>
-            <label><input type="radio" name="p10" value="D"> D)</label>
-        </div>
+    <!-- Pregunta 10 -->
+    <div class="pregunta">
+        <p>10. ¿Qué función al derivarla da 2x?</p>
+        <label><input type="radio" name="p10" value="A"> A) x²</label>
+        <label><input type="radio" name="p10" value="B"> B) x³</label>
+        <label><input type="radio" name="p10" value="C"> C) 2x²</label>
+        <label><input type="radio" name="p10" value="D"> D) ln(x)</label>
+    </div>
 
-        <!-- Botón enviar -->
-        <div class="boton">
-            <button type="submit">Enviar</button>
-        </div>
+    <!-- Botón enviar -->
+    <div class="boton">
+        <button type="submit">Enviar</button>
+    </div>
+</form>
 
-    </form>
         <!-- Modal -->
 <div id="modal-mensaje" class="modal">
     <div class="modal-contenido">

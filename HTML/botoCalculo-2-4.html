@@ -2,17 +2,20 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Examen</title>
+    <title>Examen - Integración por Partes</title>
     <link rel="stylesheet" href="../CSS/botones.css">
     <script src="../JS/icono.js"></script>
     <style>
-        .contenedor{
+        .contenedor {
             padding: 30px;
             margin: 20px auto;
         }
         .cuestionario {
             margin-top: 20px;
             text-align: left;
+        }
+        .pregunta {
+            margin-bottom: 25px;
         }
     </style>
 </head>
@@ -22,111 +25,100 @@
     <div class="cont-volver">
         <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
     </div>
-    <h1>Examen</h1>
+    <h1>Examen: Integración por Partes</h1>
 </div>
 
 <div class="contenedor">
-    
     <form class="cuestionario">
 
-        <!-- Pregunta 1 -->
         <div class="pregunta">
-            <p>1. ¿Pregunta 1?</p>
+            <p>1. ¿Cuál es la fórmula básica de integración por partes?</p>
             <hr>
-            <label><input type="radio" name="p1" value="A"> A)</label><br>
-            <label><input type="radio" name="p1" value="B"> B)</label><br>
-            <label><input type="radio" name="p1" value="C"> C)</label><br>
-            <label><input type="radio" name="p1" value="D"> D)</label>
+            <label><input type="radio" name="p1" value="A"> A) ∫u·dv = u·v - ∫v·du</label><br>
+            <label><input type="radio" name="p1" value="B"> B) ∫u·dv = uv + ∫du·v</label><br>
+            <label><input type="radio" name="p1" value="C"> C) ∫u·dv = ∫u + ∫dv</label><br>
+            <label><input type="radio" name="p1" value="D"> D) ∫uv = u'v - ∫vdu</label>
         </div>
 
-        <!-- Pregunta 2 -->
         <div class="pregunta">
-            <p>2. ¿Pregunta 2?</p>
+            <p>2. ¿Qué partes se deben elegir al aplicar la técnica?</p>
             <hr>
-            <label><input type="radio" name="p2" value="A"> A)</label><br>
-            <label><input type="radio" name="p2" value="B"> B)</label><br>
-            <label><input type="radio" name="p2" value="C"> C)</label><br>
-            <label><input type="radio" name="p2" value="D"> D)</label>
+            <label><input type="radio" name="p2" value="A"> A) Solo funciones trigonométricas</label><br>
+            <label><input type="radio" name="p2" value="B"> B) Una función u y una diferencial dv</label><br>
+            <label><input type="radio" name="p2" value="C"> C) Una constante y una función</label><br>
+            <label><input type="radio" name="p2" value="D"> D) Ninguna, es directa</label>
         </div>
 
-        <!-- Pregunta 3 -->
         <div class="pregunta">
-            <p>3. ¿Pregunta 3?</p>
+            <p>3. ¿Qué regla ayuda a elegir u en integración por partes?</p>
             <hr>
-            <label><input type="radio" name="p3" value="A"> A)</label><br>
-            <label><input type="radio" name="p3" value="B"> B)</label><br>
-            <label><input type="radio" name="p3" value="C"> C)</label><br>
-            <label><input type="radio" name="p3" value="D"> D)</label>
+            <label><input type="radio" name="p3" value="A"> A) UV-rule</label><br>
+            <label><input type="radio" name="p3" value="B"> B) LIATE</label><br>
+            <label><input type="radio" name="p3" value="C"> C) COCIENTE</label><br>
+            <label><input type="radio" name="p3" value="D"> D) FOIL</label>
         </div>
 
-        <!-- Pregunta 4 -->
         <div class="pregunta">
-            <p>4. ¿Pregunta 4?</p>
+            <p>4. Si u = ln(x), ¿qué valor se debe tomar para dv en ∫ln(x)dx?</p>
             <hr>
-            <label><input type="radio" name="p4" value="A"> A)</label><br>
-            <label><input type="radio" name="p4" value="B"> B)</label><br>
-            <label><input type="radio" name="p4" value="C"> C)</label><br>
-            <label><input type="radio" name="p4" value="D"> D)</label>
+            <label><input type="radio" name="p4" value="A"> A) dv = dx</label><br>
+            <label><input type="radio" name="p4" value="B"> B) dv = ln(x)dx</label><br>
+            <label><input type="radio" name="p4" value="C"> C) dv = xdx</label><br>
+            <label><input type="radio" name="p4" value="D"> D) dv = xln(x)</label>
         </div>
 
-        <!-- Pregunta 5 -->
         <div class="pregunta">
-            <p>5. ¿Pregunta 5?</p>
+            <p>5. ¿Qué resultado se obtiene al integrar ∫x·cos(x)dx por partes?</p>
             <hr>
-            <label><input type="radio" name="p5" value="A"> A)</label><br>
-            <label><input type="radio" name="p5" value="B"> B)</label><br>
-            <label><input type="radio" name="p5" value="C"> C)</label><br>
-            <label><input type="radio" name="p5" value="D"> D)</label>
+            <label><input type="radio" name="p5" value="A"> A) x·sin(x) + cos(x) + C</label><br>
+            <label><input type="radio" name="p5" value="B"> B) x·cos(x) + ∫cos(x)</label><br>
+            <label><input type="radio" name="p5" value="C"> C) x·sin(x) + ∫sin(x)</label><br>
+            <label><input type="radio" name="p5" value="D"> D) x·sin(x) + cos(x) + C</label>
         </div>
 
-        <!-- Pregunta 6 -->
         <div class="pregunta">
-            <p>6. ¿Pregunta 6?</p>
+            <p>6. ¿Qué se debe hacer si ∫v·du también requiere integración por partes?</p>
             <hr>
-            <label><input type="radio" name="p6" value="A"> A)</label><br>
-            <label><input type="radio" name="p6" value="B"> B)</label><br>
-            <label><input type="radio" name="p6" value="C"> C)</label><br>
-            <label><input type="radio" name="p6" value="D"> D)</label>
+            <label><input type="radio" name="p6" value="A"> A) Abandonar el método</label><br>
+            <label><input type="radio" name="p6" value="B"> B) Integrar por partes nuevamente</label><br>
+            <label><input type="radio" name="p6" value="C"> C) Cambiar a fracciones parciales</label><br>
+            <label><input type="radio" name="p6" value="D"> D) Derivar ambas funciones</label>
         </div>
 
-        <!-- Pregunta 7 -->
         <div class="pregunta">
-            <p>7. ¿Pregunta 7?</p>
+            <p>7. ¿Qué valor tiene ∫x·e<sup>x</sup> dx?</p>
             <hr>
-            <label><input type="radio" name="p7" value="A"> A)</label><br>
-            <label><input type="radio" name="p7" value="B"> B)</label><br>
-            <label><input type="radio" name="p7" value="C"> C)</label><br>
-            <label><input type="radio" name="p7" value="D"> D)</label>
+            <label><input type="radio" name="p7" value="A"> A) x·e<sup>x</sup> + e<sup>x</sup> + C</label><br>
+            <label><input type="radio" name="p7" value="B"> B) x·e<sup>x</sup> - e<sup>x</sup> + C</label><br>
+            <label><input type="radio" name="p7" value="C"> C) e<sup>x</sup> + x</label><br>
+            <label><input type="radio" name="p7" value="D"> D) e<sup>2x</sup></label>
         </div>
 
-        <!-- Pregunta 8 -->
         <div class="pregunta">
-            <p>8. ¿Pregunta 8?</p>
+            <p>8. ¿Cuál es la derivada de ln(x)?</p>
             <hr>
-            <label><input type="radio" name="p8" value="A"> A)</label><br>
-            <label><input type="radio" name="p8" value="B"> B)</label><br>
-            <label><input type="radio" name="p8" value="C"> C)</label><br>
-            <label><input type="radio" name="p8" value="D"> D)</label>
+            <label><input type="radio" name="p8" value="A"> A) x</label><br>
+            <label><input type="radio" name="p8" value="B"> B) ln(x)</label><br>
+            <label><input type="radio" name="p8" value="C"> C) 1/x</label><br>
+            <label><input type="radio" name="p8" value="D"> D) e<sup>x</sup></label>
         </div>
 
-        <!-- Pregunta 9 -->
         <div class="pregunta">
-            <p>9. ¿Pregunta 9?</p>
+            <p>9. ¿Qué función se suele usar como dv si no hay otra opción clara?</p>
             <hr>
-            <label><input type="radio" name="p9" value="A"> A)</label><br>
-            <label><input type="radio" name="p9" value="B"> B)</label><br>
-            <label><input type="radio" name="p9" value="C"> C)</label><br>
-            <label><input type="radio" name="p9" value="D"> D)</label>
+            <label><input type="radio" name="p9" value="A"> A) ln(x)</label><br>
+            <label><input type="radio" name="p9" value="B"> B) dx</label><br>
+            <label><input type="radio" name="p9" value="C"> C) x²</label><br>
+            <label><input type="radio" name="p9" value="D"> D) x</label>
         </div>
 
-        <!-- Pregunta 10 -->
         <div class="pregunta">
-            <p>10. ¿Pregunta 10?</p>
+            <p>10. ¿Cuál es la integral de ∫ln(x) dx utilizando partes?</p>
             <hr>
-            <label><input type="radio" name="p10" value="A"> A)</label><br>
-            <label><input type="radio" name="p10" value="B"> B)</label><br>
-            <label><input type="radio" name="p10" value="C"> C)</label><br>
-            <label><input type="radio" name="p10" value="D"> D)</label>
+            <label><input type="radio" name="p10" value="A"> A) x·ln(x) - x + C</label><br>
+            <label><input type="radio" name="p10" value="B"> B) ln(x)² + C</label><br>
+            <label><input type="radio" name="p10" value="C"> C) x + ln(x)</label><br>
+            <label><input type="radio" name="p10" value="D"> D) ln(x) / x + C</label>
         </div>
 
         <!-- Botón Enviar -->
@@ -136,16 +128,18 @@
 
     </form>
 </div>
-    <!-- Modal -->
-    <div id="modal-mensaje" class="modal">
-        <div class="modal-contenido">
-            <p>¡Gracias por completar el examen!<br>Tus respuestas han sido enviadas.</p>
-            <button class="modal-boton" onclick="cerrarModal()">Aceptar</button>
-        </div>
+
+<!-- Modal -->
+<div id="modal-mensaje" class="modal">
+    <div class="modal-contenido">
+        <p>¡Gracias por completar el examen!<br>Tus respuestas han sido enviadas.</p>
+        <button class="modal-boton" onclick="cerrarModal()">Aceptar</button>
     </div>
+</div>
+
 <script>
     insertarLogo();
 </script>
-<script src="../JS/modal.js"></script><!--Importacion del script para funcionamiento de la ventana modal-->
+<script src="../JS/modal.js"></script>
 </body>
 </html>

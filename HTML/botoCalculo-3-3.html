@@ -10,6 +10,11 @@
             margin-bottom: 40px;
             text-align: left;
         }
+        #resultado {
+            margin-top: 20px;
+            font-weight: bold;
+            color: green;
+        }
     </style>
 </head>
 <body>
@@ -17,12 +22,10 @@
         <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
     </div>
 <div class="contenedor">
- 
 
-    <form class="cuestionario">
+    <form id="cuestionario" class="cuestionario">
         <h2>Prueba de Cálculo - Selección Única</h2>
 
-        <!-- Pregunta 1 -->
         <div class="pregunta">
             <p>1. ¿Cuál es la derivada de \( f(x) = x^2 \)?</p>
             <hr>
@@ -34,7 +37,6 @@
             </div>
         </div>
 
-        <!-- Pregunta 2 -->
         <div class="pregunta">
             <p>2. ¿Cuál es el resultado de \( \int x \, dx \)?</p>
             <hr>
@@ -46,7 +48,6 @@
             </div>
         </div>
 
-        <!-- Pregunta 3 -->
         <div class="pregunta">
             <p>3. ¿Cuál es el límite de \( \lim_{x \to 0} \frac{\sin x}{x} \)?</p>
             <hr>
@@ -58,7 +59,6 @@
             </div>
         </div>
 
-        <!-- Pregunta 4 -->
         <div class="pregunta">
             <p>4. Si \( f(x) = \ln x \), ¿cuál es \( f'(x) \)?</p>
             <hr>
@@ -70,7 +70,6 @@
             </div>
         </div>
 
-        <!-- Pregunta 5 -->
         <div class="pregunta">
             <p>5. ¿Qué tipo de función es \( f(x) = \frac{1}{x} \)?</p>
             <hr>
@@ -82,22 +81,23 @@
             </div>
         </div>
 
-        <!-- Botón enviar -->
         <div class="boton">
             <button type="submit">Enviar</button>
         </div>
     </form>
+
+    <div id="resultado"></div>
+
 </div>
     <!-- Modal -->
-    <div id="modal-mensaje" class="modal">
+    <div id="modal-mensaje" class="modal" style="display:none;">
         <div class="modal-contenido">
             <p>¡Gracias por completar el examen!<br>Tus respuestas han sido enviadas.</p>
             <button class="modal-boton" onclick="cerrarModal()">Aceptar</button>
         </div>
     </div>
-<script>
-    insertarLogo(); // tu función JS
-</script>
-<script src="../JS/modal.js"></script><!--Importacion del script para funcionamiento de la ventana modal-->
+
+ 
+<script src="../JS/modal.js"></script>
 </body>
 </html>

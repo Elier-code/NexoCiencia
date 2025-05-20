@@ -2,17 +2,24 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Examen</title>
+    <title>Examen - Tema 4: Cálculo Avanzado</title>
     <link rel="stylesheet" href="../CSS/botones.css">
     <script src="../JS/icono.js"></script>
     <style>
         .contenedor{
             padding: 30px;
             margin: 20px auto;
+            max-width: 700px;
         }
         .cuestionario {
             margin-top: 20px;
             text-align: left;
+        }
+        .pregunta {
+            margin-bottom: 20px;
+        }
+        .boton {
+            margin-top: 30px;
         }
     </style>
 </head>
@@ -22,7 +29,7 @@
     <div class="cont-volver">
         <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
     </div>
-    <h1>Examen</h1>
+    <h1>Examen - Tema 4: Cálculo Avanzado</h1>
 </div>
 
 <div class="contenedor">
@@ -31,102 +38,102 @@
 
         <!-- Pregunta 1 -->
         <div class="pregunta">
-            <p>1. ¿Pregunta 1?</p>
+            <p>1. ¿Cuál es la derivada de \( f(x) = x^3 \cdot e^x \)?</p>
             <hr>
-            <label><input type="radio" name="p1" value="A"> A)</label><br>
-            <label><input type="radio" name="p1" value="B"> B)</label><br>
-            <label><input type="radio" name="p1" value="C"> C)</label><br>
-            <label><input type="radio" name="p1" value="D"> D)</label>
+            <label><input type="radio" name="p1" value="A"> \(3x^2 e^x\)</label><br>
+            <label><input type="radio" name="p1" value="B"> \(x^3 e^x + 3x^2 e^x\)</label><br>
+            <label><input type="radio" name="p1" value="C"> \(3x^2 e^x + x^3 e^x\)</label><br>
+            <label><input type="radio" name="p1" value="D"> \(e^{3x}\)</label>
         </div>
 
         <!-- Pregunta 2 -->
         <div class="pregunta">
-            <p>2. ¿Pregunta 2?</p>
+            <p>2. ¿Cuál es el resultado de la integral \( \int (2x^3 - 5x + 4) \, dx \)?</p>
             <hr>
-            <label><input type="radio" name="p2" value="A"> A)</label><br>
-            <label><input type="radio" name="p2" value="B"> B)</label><br>
-            <label><input type="radio" name="p2" value="C"> C)</label><br>
-            <label><input type="radio" name="p2" value="D"> D)</label>
+            <label><input type="radio" name="p2" value="A"> \( \frac{1}{2}x^4 - \frac{5}{2}x^2 + 4x + C \)</label><br>
+            <label><input type="radio" name="p2" value="B"> \( \frac{1}{4}x^4 - \frac{5}{2}x^2 + 4x + C \)</label><br>
+            <label><input type="radio" name="p2" value="C"> \( \frac{1}{4}x^4 - 5x^2 + 4x + C \)</label><br>
+            <label><input type="radio" name="p2" value="D"> \( 2x^4 - 5x^2 + 4x + C \)</label>
         </div>
 
         <!-- Pregunta 3 -->
         <div class="pregunta">
-            <p>3. ¿Pregunta 3?</p>
+            <p>3. ¿Cuál es el límite cuando \( x \to 0 \) de \( \frac{\sin(3x)}{x} \)?</p>
             <hr>
-            <label><input type="radio" name="p3" value="A"> A)</label><br>
-            <label><input type="radio" name="p3" value="B"> B)</label><br>
-            <label><input type="radio" name="p3" value="C"> C)</label><br>
-            <label><input type="radio" name="p3" value="D"> D)</label>
+            <label><input type="radio" name="p3" value="A"> 0</label><br>
+            <label><input type="radio" name="p3" value="B"> 1</label><br>
+            <label><input type="radio" name="p3" value="C"> 3</label><br>
+            <label><input type="radio" name="p3" value="D"> No existe</label>
         </div>
 
         <!-- Pregunta 4 -->
         <div class="pregunta">
-            <p>4. ¿Pregunta 4?</p>
+            <p>4. ¿Qué regla de derivación se usa para calcular la derivada de \( f(x) = \ln(5x^2 + 1) \)?</p>
             <hr>
-            <label><input type="radio" name="p4" value="A"> A)</label><br>
-            <label><input type="radio" name="p4" value="B"> B)</label><br>
-            <label><input type="radio" name="p4" value="C"> C)</label><br>
-            <label><input type="radio" name="p4" value="D"> D)</label>
+            <label><input type="radio" name="p4" value="A"> Regla del producto</label><br>
+            <label><input type="radio" name="p4" value="B"> Regla de la cadena</label><br>
+            <label><input type="radio" name="p4" value="C"> Regla del cociente</label><br>
+            <label><input type="radio" name="p4" value="D"> Regla de potencias</label>
         </div>
 
         <!-- Pregunta 5 -->
         <div class="pregunta">
-            <p>5. ¿Pregunta 5?</p>
+            <p>5. ¿Cuál es la integral definida de \( \int_0^1 3x^2 \, dx \)?</p>
             <hr>
-            <label><input type="radio" name="p5" value="A"> A)</label><br>
-            <label><input type="radio" name="p5" value="B"> B)</label><br>
-            <label><input type="radio" name="p5" value="C"> C)</label><br>
-            <label><input type="radio" name="p5" value="D"> D)</label>
+            <label><input type="radio" name="p5" value="A"> 1</label><br>
+            <label><input type="radio" name="p5" value="B"> 3</label><br>
+            <label><input type="radio" name="p5" value="C"> 0</label><br>
+            <label><input type="radio" name="p5" value="D"> \( \frac{3}{2} \)</label>
         </div>
 
         <!-- Pregunta 6 -->
         <div class="pregunta">
-            <p>6. ¿Pregunta 6?</p>
+            <p>6. ¿Cuál es la derivada de \( f(x) = \frac{1}{x} \)?</p>
             <hr>
-            <label><input type="radio" name="p6" value="A"> A)</label><br>
-            <label><input type="radio" name="p6" value="B"> B)</label><br>
-            <label><input type="radio" name="p6" value="C"> C)</label><br>
-            <label><input type="radio" name="p6" value="D"> D)</label>
+            <label><input type="radio" name="p6" value="A"> \( -\frac{1}{x^2} \)</label><br>
+            <label><input type="radio" name="p6" value="B"> \( \frac{1}{x^2} \)</label><br>
+            <label><input type="radio" name="p6" value="C"> \( -x \)</label><br>
+            <label><input type="radio" name="p6" value="D"> \( x \)</label>
         </div>
 
         <!-- Pregunta 7 -->
         <div class="pregunta">
-            <p>7. ¿Pregunta 7?</p>
+            <p>7. ¿Cuál es el valor de la serie \( \sum_{n=1}^{\infty} \frac{1}{2^n} \)?</p>
             <hr>
-            <label><input type="radio" name="p7" value="A"> A)</label><br>
-            <label><input type="radio" name="p7" value="B"> B)</label><br>
-            <label><input type="radio" name="p7" value="C"> C)</label><br>
-            <label><input type="radio" name="p7" value="D"> D)</label>
+            <label><input type="radio" name="p7" value="A"> 1</label><br>
+            <label><input type="radio" name="p7" value="B"> 2</label><br>
+            <label><input type="radio" name="p7" value="C"> \( \frac{1}{2} \)</label><br>
+            <label><input type="radio" name="p7" value="D"> No converge</label>
         </div>
 
         <!-- Pregunta 8 -->
         <div class="pregunta">
-            <p>8. ¿Pregunta 8?</p>
+            <p>8. ¿Cuál es la derivada de \( f(x) = \sin(x^2) \)?</p>
             <hr>
-            <label><input type="radio" name="p8" value="A"> A)</label><br>
-            <label><input type="radio" name="p8" value="B"> B)</label><br>
-            <label><input type="radio" name="p8" value="C"> C)</label><br>
-            <label><input type="radio" name="p8" value="D"> D)</label>
+            <label><input type="radio" name="p8" value="A"> \( 2x \cos(x^2) \)</label><br>
+            <label><input type="radio" name="p8" value="B"> \( \cos(x^2) \)</label><br>
+            <label><input type="radio" name="p8" value="C"> \( 2x \sin(x^2) \)</label><br>
+            <label><input type="radio" name="p8" value="D"> \( \sin(x) \cos(x) \)</label>
         </div>
 
         <!-- Pregunta 9 -->
         <div class="pregunta">
-            <p>9. ¿Pregunta 9?</p>
+            <p>9. ¿Qué método se usa para calcular áreas bajo curvas en cálculo?</p>
             <hr>
-            <label><input type="radio" name="p9" value="A"> A)</label><br>
-            <label><input type="radio" name="p9" value="B"> B)</label><br>
-            <label><input type="radio" name="p9" value="C"> C)</label><br>
-            <label><input type="radio" name="p9" value="D"> D)</label>
+            <label><input type="radio" name="p9" value="A"> Derivación</label><br>
+            <label><input type="radio" name="p9" value="B"> Integración</label><br>
+            <label><input type="radio" name="p9" value="C"> Límite</label><br>
+            <label><input type="radio" name="p9" value="D"> Series</label>
         </div>
 
         <!-- Pregunta 10 -->
         <div class="pregunta">
-            <p>10. ¿Pregunta 10?</p>
+            <p>10. ¿Cuál es la integral de \( \int e^{2x} \, dx \)?</p>
             <hr>
-            <label><input type="radio" name="p10" value="A"> A)</label><br>
-            <label><input type="radio" name="p10" value="B"> B)</label><br>
-            <label><input type="radio" name="p10" value="C"> C)</label><br>
-            <label><input type="radio" name="p10" value="D"> D)</label>
+            <label><input type="radio" name="p10" value="A"> \( e^{2x} + C \)</label><br>
+            <label><input type="radio" name="p10" value="B"> \( \frac{1}{2} e^{2x} + C \)</label><br>
+            <label><input type="radio" name="p10" value="C"> \( 2 e^{2x} + C \)</label><br>
+            <label><input type="radio" name="p10" value="D"> \( \ln|2x| + C \)</label>
         </div>
 
         <!-- Botón Enviar -->
@@ -136,16 +143,19 @@
 
     </form>
 </div>
-    <!-- Modal -->
-    <div id="modal-mensaje" class="modal">
-        <div class="modal-contenido">
-            <p>¡Gracias por completar el examen!<br>Tus respuestas han sido enviadas.</p>
-            <button class="modal-boton" onclick="cerrarModal()">Aceptar</button>
-        </div>
+
+<!-- Modal -->
+<div id="modal-mensaje" class="modal">
+    <div class="modal-contenido">
+        <p>¡Gracias por completar el examen!<br>Tus respuestas han sido enviadas.</p>
+        <button class="modal-boton" onclick="cerrarModal()">Aceptar</button>
     </div>
+</div>
+
 <script>
     insertarLogo();
 </script>
 <script src="../JS/modal.js"></script><!--Importacion del script para funcionamiento de la ventana modal-->
+
 </body>
 </html>

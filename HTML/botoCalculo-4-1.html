@@ -2,56 +2,86 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>explicación</title>
+    <title>Fracciones Racionales - Tema 4: Avanzadas</title>
     <link rel="stylesheet" href="../CSS/botones.css">
     <script src="../JS/icono.js"></script>
-    
 </head>
 <body>
     <div class="cont-volver">
         <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
     </div>
-<div class="contenedor">
- 
 
-    <!-- Primer video -->
-    <video width="640" height="360" controls>
-        <source src="video1.mp4" type="video/mp4">
-        Tu navegador no soporta videos HTML5.
-    </video>
+    <div class="contenedor">
 
-    <!-- Texto central -->
-    <div class="texto">
-        <p>
-            Aquí va una descripción o explicación relacionada con el video.
-            Puedes escribir varias líneas de texto para acompañar el contenido multimedia.
-        </p>
-    </div>
+        <!-- Primer video -->
+        <video width="640" height="360" controls>
+            <source src="video4.mp4" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
 
-    <!-- Segundo cuadro de texto -->
-    <div class="caja-texto">
-        <p>
-            Aquí puedes escribir un texto adicional o mostrar información importante.
-            Este recuadro está resaltado visualmente con borde.
-        </p>
-    </div>
-
-     <!-- Botón siguiente -->
-     <form class="cuestionario">
-        <div class="boton">
-            <button type="submit" class="btn-enviar">Siguiente ➔</button>
+        <!-- Texto central -->
+        <div class="texto">
+            <p>
+                En este video se explican operaciones avanzadas con fracciones racionales:
+                cómo sumar y restar fracciones con diferente denominador, multiplicarlas,
+                dividirlas y cómo simplificarlas cuando hay expresiones complejas en numeradores y denominadores.
+                También se analiza el comportamiento de estas funciones y cómo se representan gráficamente.
+            </p>
+            <p>
+                Es importante recordar que para sumar o restar fracciones racionales, se necesita un denominador común.
+                Para multiplicar o dividir, basta con aplicar las reglas básicas de fracciones, pero teniendo cuidado con
+                la factorización para simplificar al máximo.
+            </p>
         </div>
-    </form>
-    <!-- Modal -->
-<div id="modal-mensaje" class="modal">
-    <div class="modal-contenido">
-        <p>¡Gracias por completar el examen!<br>Tus respuestas han sido enviadas.</p>
-        <button class="modal-boton" onclick="cerrarModal()">Aceptar</button>
+
+        <!-- Ejemplo resuelto -->
+        <div class="caja-texto">
+            <h3>🧠 Ejemplo Resuelto</h3>
+            <p><strong>Simplificar:</strong>  
+            <br> \[(x² - 1) / (x² - x - 2) ÷ (x - 1) / (x + 2)\]</p>
+
+            <p><strong>Pasos:</strong></p>
+            <ol>
+                <li>Factorizamos todas las expresiones:
+                    <ul>
+                        <li>x² - 1 = (x - 1)(x + 1)</li>
+                        <li>x² - x - 2 = (x - 2)(x + 1)</li>
+                    </ul>
+                </li>
+                <li>Reescribimos la división como multiplicación con la fracción invertida:</li>
+                <p>
+                    \[(x - 1)(x + 1) / (x - 2)(x + 1) * (x + 2) / (x - 1)\]
+                </p>
+                <li>Cancelamos factores comunes:</li>
+                <p>
+                    Se van (x + 1) y (x - 1), nos queda:<br>
+                    \[(x + 2) / (x - 2)\]
+                </p>
+            </ol>
+            <p><strong>Resultado final:</strong>  
+                \[(x + 2) / (x - 2)\]
+            </p>
+        </div>
+
+        <!-- Botón siguiente -->
+        <form class="cuestionario">
+            <div class="boton">
+                <button type="submit" class="btn-enviar">Siguiente ➔</button>
+            </div>
+        </form>
+
+        <!-- Modal -->
+        <div id="modal-mensaje" class="modal">
+            <div class="modal-contenido">
+                <p>¡Gracias por completar el examen!<br>Tus respuestas han sido enviadas.</p>
+                <button class="modal-boton" onclick="cerrarModal()">Aceptar</button>
+            </div>
+        </div>
+
+        <script>
+            insertarLogo();
+        </script>
+        <script src="../JS/modal.js"></script>
     </div>
-</div>
-<script>
-    insertarLogo();
-</script>
-<script src="../JS/modal.js"></script><!--Importacion del script para funcionamiento de la ventana modal-->
 </body>
 </html>
