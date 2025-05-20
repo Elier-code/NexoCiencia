@@ -1,156 +1,74 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juego de Pregunta- Login</title>
-    <link rel="stylesheet" href="CSS/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <script src="JS/icono.js"></script>
-
+    <title>Nexo Ciencia</title>
+    <link rel="shortcut icon" href="Recursos/Imagenes/nexo-ciencia-logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="CSS/styleindex.css">
 </head>
 
-<body id="body-login">
-    <!-- Contenedor principal que agrupa los formularios de login y registro -->
-    <div class="login-container" id="form-container">
-        <!-- Título del formulario, cambia dinámicamente según el formulario visible -->
-        <h2 id="form-title">Inicio Sesion <i class="fas fa-user-lock"></i></h2>
-
-        <!-- Formulario para iniciar sesión -->
-        <form id="login-form">
-            <div class="input-box">
-                <!-- Campo para ingresar el nombre de usuario -->
-                <input type="text" id="username" placeholder="Username" required>
-                <!-- Icono de usuario al lado del campo -->
-                <span class="icon"><i class="fas fa-user"></i></span>
-            </div>
-            <div class="input-box">
-                <!-- Campo para ingresar la contraseña -->
-                <input type="password" id="password" placeholder="Password" required>
-                <!-- Icono de candado al lado del campo -->
-                <span class="icon"><i class="fas fa-lock"></i></span>
-            </div>
-
-            <!-- Botón para iniciar sesión, ejecuta la función startGame() al hacer clic -->
-            <button type="button" onclick="startGame()" id="btn-regis-inicio">Entrar</button>
-            <!-- Enlace para cambiar al formulario de registro -->
-            <p>¿No tienes una cuenta? <a href="#" onclick="toggleForm()">Regístrate</a></p>
-        </form>
-
-        <!-- Formulario para registrarse, inicialmente oculto con clase "hidden" -->
-        <form id="register-form" class="hidden">
-            <div class="input-box">
-                <!-- Campo para ingresar el nuevo nombre de usuario -->
-                <input type="text" id="new-username" placeholder="Nombre" required>
-                <!-- Icono para agregar usuario -->
-                <span class="icon"><i class="fas fa-user-plus"></i></span>
-            </div>
-            <div class="input-box">
-                <!-- Campo para ingresar el apellido -->
-                <input type="text" id="surname" placeholder="Apellido" required>
-                <!-- Icono de usuario -->
-                <span class="icon"><i class="fas fa-user"></i></span>
-            </div>
-            <div class="input-box">
-                <!-- Campo para ingresar el correo electrónico -->
-                <input type="email" id="email" placeholder="Correo electrónico" required>
-                <!-- Icono de correo -->
-                <span class="icon"><i class="fas fa-envelope"></i></span>
-            </div>
-            <div class="input-box">
-                <!-- Campo para ingresar la contraseña nueva -->
-                <input type="password" id="new-password" placeholder="Contraseña" required>
-                <!-- Icono de candado -->
-                <span class="icon"><i class="fas fa-lock"></i></span>
-            </div>
-            <!-- Botón para registrarse, ejecuta la función registerUser() al hacer clic -->
-            <button type="button" onclick="register()" id="btn-register">Registrar</button>
-            <!-- Enlace para cambiar al formulario de inicio de sesión -->
-            <p>¿Ya tienes una cuenta? <a href="#" onclick="toggleForm()">Inicia sesión</a></p>
-        </form>
+<body>
+    <nav>
+        <a href="#">
+            <img src="Recursos/Imagenes/NEXO CIENCIA.svg" alt="" id="nombre-pag">
+        </a>
+        <a id="inicioSecion" href="HTML/login.html">Inicio / Registro</a>
+    </nav>
+    <div class="container">
+        <img src="Recursos/Imagenes/NEXO CIENCIA.svg" alt="">
+        <p><b>Bienvenido a NexoCiencias</b></p>
+        <p>
+            Descubre una nueva forma de aprender física y cálculo integral a través de simulaciones, retos interactivos
+            y experiencias visuales diseñadas para que comprendas lo que antes parecía abstracto.
+        </p>
+        <p>
+            Explora a tu ritmo, resuelve desafíos, gana recompensas y fortalece tus habilidades científicas mientras
+            avanzas por un camino educativo dinámico, divertido y significativo.
+        </p>
+        <p>🎓 Aprende. 🧠 Conecta. 🚀 Avanza.</p>
+        <p><b>Tu viaje por el conocimiento comienza aquí.</b></p>
     </div>
-    <script>
-    // Función que se ejecuta al hacer clic en "Entrar"
-    function startGame() {
-        // Obtiene el nombre de usuario y contraseña ingresados
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
+    <div class="content">
+        <div class="content-izd">
+            <h2>❓ ¿Qué encontrarás en esta página?</h2>
+            <p>
+                En NexoCiencias encontrarás un entorno interactivo diseñado para facilitar el aprendizaje de física
+                mecánica y cálculo integral. Accede a simulaciones, ejercicios guiados, evaluaciones prácticas, recursos
+                multimedia y un camino gamificado que te permite aprender paso a paso, de forma visual, intuitiva y
+                entretenida.<br>
+                Todo el contenido está pensado para estudiantes de secundaria y primeros semestres universitarios que
+                deseen reforzar y comprender a fondo los conceptos clave de estas áreas.
+            </p>
+            <h2>🎯 ¿Cuál es nuestro propósito?</h2>
+            <p>
+                Nuestro propósito es transformar la manera en que se enseñan y aprenden las ciencias básicas, integrando
+                la tecnología, la visualización interactiva y el refuerzo positivo para facilitar la comprensión
+                profunda de conceptos abstractos.<br>
+                Buscamos reducir la brecha entre la teoría y la práctica, motivando a los estudiantes mediante una
+                experiencia educativa atractiva, accesible y significativa.
+            </p>
+            <h2>🧭 Misión</h2>
+            <p>
+                Proporcionar una plataforma educativa digital innovadora que combine simulaciones, recursos visuales y
+                estrategias interactivas para facilitar el aprendizaje autónomo y guiado de la física y el cálculo
+                integral, promoviendo el pensamiento crítico y el desarrollo de competencias científicas en los
+                estudiantes.
+            </p>
+            <h2>🌟 Visión</h2>
+            <p>
+                Convertirnos en una referencia educativa en el ámbito de las ciencias básicas a nivel hispanoamericano,
+                siendo una plataforma accesible, dinámica y efectiva que inspire a las nuevas generaciones a explorar,
+                comprender y aplicar el conocimiento científico con confianza y entusiasmo.
+            </p>
+        </div>
+        <div class="content-derc">
+            <h3>Tutoriales</h3>
 
-        // Recupera la lista de usuarios registrados desde localStorage (si no hay, usa arreglo vacío)
-        const users = JSON.parse(localStorage.getItem('users')) || [];
+        </div>
+    </div>
 
-        // Busca un usuario que coincida con el nombre y contraseña ingresados
-        const user = users.find(u => u.username === username && u.password === password);
-
-        // Si se encuentra un usuario válido
-        if (user) {
-            // Guarda el nombre de usuario activo en localStorage (puede usarse en otras páginas)
-            localStorage.setItem('username', username);
-
-            // Redirige al menú principal del juego
-            window.location.href = 'HTML/menu.html';
-        } else {
-            // Muestra mensaje de error si los datos no coinciden con ningún usuario registrado
-            alert("Usuario no registrado o contraseña incorrecta");
-        }
-    }
-
-    // Función que se ejecuta al hacer clic en "Registrar"
-    function register() {
-        // Obtiene los valores ingresados en el formulario de registro
-        const newUsername = document.getElementById('new-username').value;
-        const surname = document.getElementById('surname').value;
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('new-password').value;
-
-        // Verifica que todos los campos estén completos
-        if (newUsername && email && password && surname) {
-            // Obtiene los usuarios ya registrados (o crea uno nuevo si no hay ninguno)
-            const users = JSON.parse(localStorage.getItem('users')) || [];
-
-            // Verifica si el nombre de usuario ya está registrado
-            if (users.some(u => u.username === newUsername)) {
-                alert("Este nombre de usuario ya está registrado");
-                return; // Sale de la función sin registrar
-            }
-
-            // Agrega el nuevo usuario al arreglo
-            users.push({ username: newUsername, surname, email, password });
-
-            // Guarda el arreglo actualizado de usuarios en localStorage
-            localStorage.setItem('users', JSON.stringify(users));
-
-            // Muestra mensaje de confirmación y vuelve al formulario de login
-            alert(`Usuario ${newUsername} registrado correctamente.`);
-            toggleForm();
-        } else {
-            // Si falta algún campo, muestra mensaje de advertencia
-            alert("Por favor completa todos los campos");
-        }
-    }
-
-    // Función que cambia entre los formularios de login y registro
-    function toggleForm() {
-        const loginForm = document.getElementById('login-form');
-        const registerForm = document.getElementById('register-form');
-        const formTitle = document.getElementById('form-title');
-
-        // Alterna la visibilidad de ambos formularios
-        loginForm.classList.toggle('hidden');
-        registerForm.classList.toggle('hidden');
-
-        // Cambia el título del formulario según el formulario activo
-        if (!loginForm.classList.contains('hidden')) {
-            formTitle.innerHTML = 'Inicio Sesion <i class="fas fa-user-lock"></i>';
-        } else {
-            formTitle.innerHTML = 'Registro <i class="fas fa-user-plus"></i>';
-        }
-    }
-
-    // Llama a la función insertarLogo() (debe estar definida en otro archivo JS externo)
-    insertarLogo();
-</script>
 </body>
 
 </html>
