@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel del Usuario</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/profesor.css">
+    <script src="../JS/profesor.js"></script>
+</head>
+<body>
+    <!-- Alerta personalizada -->
+    <div id="customAlert" class="custom-alert"></div>
+
+    <div class="panel-usuario">
+        <h2>
+            <img src="https://cdn-icons-png.flaticon.com/512/2922/2922506.png" alt="Icono Usuario">
+            Panel del Profesor
+        </h2>
+
+        <div class="opcion-usuario">
+            <h3>Actualizar Datos</h3>
+            <p>Edita tu información personal.</p>
+            <button onclick="actualizarDatosUsuario()">Actualizar mis datos</button>
+        </div>
+
+        <div class="opcion-usuario">
+            <h3>Agregar tareas</h3>
+            <p>Crea tareas y evaluaciones.</p>
+            <button onclick="verProgreso()">Ver mi progreso</button>
+        </div>
+    </div>
+</body>
+</html>

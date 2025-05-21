@@ -65,3 +65,209 @@
 //         alert("No se encontró un usuario con ese correo.");
 //       }
 //     }
+
+//HTML PARA USUARIO Y PROFESOR
+<!-- <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel del Profesor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .panel-profesor {
+            max-width: 600px;
+            margin: auto;
+            background-color: #1e1e1e;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(235, 231, 231, 0.1);
+        }
+
+        .panel-profesor h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .panel-profesor h2 img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .opcion-profesor {
+            background-color: #2c2c2c;
+            border: 1px solid #444;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .opcion-profesor h3 {
+            margin-top: 0;
+        }
+
+        .opcion-profesor button {
+            margin-top: 10px;
+            padding: 10px 16px;
+            background-color: #3f51b5;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .opcion-profesor button:hover {
+            background-color: #5c6bc0;
+        }
+    </style>
+</head>
+<body>
+    <div class="panel-profesor">
+        <h2>
+            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077063.png" alt="Icono Profesor">
+            Panel del Profesor
+        </h2>
+
+        <div class="opcion-profesor">
+            <h3>Actualizar Datos</h3>
+            <p>Modifica tu información personal y de contacto.</p>
+            <button onclick="actualizarDatos()">Actualizar mis datos</button>
+        </div>
+
+        <div class="opcion-profesor">
+            <h3>Crear Temas</h3>
+            <p>Crea nuevos temas para tus cursos o asignaturas.</p>
+            <button onclick="crearTema()">Crear nuevo tema</button>
+        </div>
+    </div>
+
+    <script>
+        function actualizarDatos() {
+            alert("Redirigiendo a formulario de edición de datos del profesor...");
+            // Aquí puedes redirigir o cargar un formulario
+            // window.location.href = "/profesor/editar-datos.html";
+        }
+
+        function crearTema() {
+            alert("Abriendo formulario para crear nuevo tema...");
+            // Aquí puedes redirigir o mostrar un formulario
+            // window.location.href = "/profesor/crear-tema.html";
+        }
+    </script>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel del Usuario</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .panel-usuario {
+            max-width: 600px;
+            margin: auto;
+            background-color: #1e1e1e;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255,255,255,0.1);
+        }
+
+        .panel-usuario h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .panel-usuario h2 img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .opcion-usuario {
+            background-color: #2c2c2c;
+            border: 1px solid #444;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .opcion-usuario h3 {
+            margin-top: 0;
+        }
+
+        .opcion-usuario button {
+            margin-top: 10px;
+            padding: 10px 16px;
+            background-color: #3f51b5;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .opcion-usuario button:hover {
+            background-color: #5c6bc0;
+        }
+    </style>
+</head>
+<body>
+    <div class="panel-usuario">
+        <h2>
+            <img src="https://cdn-icons-png.flaticon.com/512/2922/2922506.png" alt="Icono Usuario">
+            Panel del Usuario
+        </h2>
+
+        <div class="opcion-usuario">
+            <h3>Actualizar Datos</h3>
+            <p>Edita tu información personal para mantenerla actualizada.</p>
+            <button onclick="actualizarDatosUsuario()">Actualizar mis datos</button>
+        </div>
+
+        <div class="opcion-usuario">
+            <h3>Resumen de Progreso</h3>
+            <p>Consulta tus logros, temas completados y evaluaciones.</p>
+            <button onclick="verProgreso()">Ver mi progreso</button>
+        </div>
+    </div>
+
+    <script>
+        function actualizarDatosUsuario() {
+            alert("Redirigiendo a la página de edición de datos del usuario...");
+            // Redirección a formulario si existe
+            // window.location.href = "/usuario/editar-datos.html";
+        }
+
+        function verProgreso() {
+            alert("Mostrando resumen del progreso del usuario...");
+            // Mostrar resumen o redirigir a la sección de progreso
+            // window.location.href = "/usuario/progreso.html";
+        }
+    </script>
+</body>
+</html>
+

@@ -18,7 +18,7 @@ function mostrarAlerta(mensaje, tipo = 'error') {
 
             if (user) {
                 localStorage.setItem('email', email);
-                window.location.href = 'menu.html';
+                window.location.href = 'menu.html'; // redirige a la edición de perfil
             } else {
                 mostrarAlerta("Correo o contraseña incorrectos", "error");
             }
@@ -62,5 +62,3 @@ function mostrarAlerta(mensaje, tipo = 'error') {
                 formTitle.innerHTML = 'Registro <i class="fas fa-user-plus"></i>';
             }
         }
-
-        insertarLogo(); // Desde icono.js
