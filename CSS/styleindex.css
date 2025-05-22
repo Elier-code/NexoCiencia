@@ -115,3 +115,55 @@ img {
 
     }
 }
+
+a{
+    text-decoration: none;
+    color: #0D2C54;
+}
+#inicioSecion{
+    display: flex;
+    align-items: center;
+}
+#icon-secion{
+    filter: none;
+}
+
+@media (max-width: 680px){
+    #logo{
+        height: 300px;
+        width: 300px;
+        margin-bottom: -90px;
+        margin-top: -50px;
+    }
+    .content-izd{
+        padding: 0;
+    }
+    .target{
+        margin: 10px;
+    }
+    .container{
+        margin-top: 20px;
+        height: 80dvh;
+    }
+    .container>p{
+        margin-bottom: 40px;
+    }
+    a{
+        font-size: 10px;
+    }
+    #ico-secion{
+        width: 10px;
+        height: 10px;
+    }
+    #inicioSecion{
+
+        width: 30%;
+    }
+}
+
+
+/* @media (min-height: 680px){
+    .container>img{
+        height: 200px;
+    }
+} */

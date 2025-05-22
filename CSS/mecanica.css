@@ -168,7 +168,7 @@ button:hover {
     cursor: pointer;
     box-shadow: 0 0 20px 10px #d1d9e0;
     margin: 0;
-    margin-left: 10px;
+    margin-left: 20px;
 
 
 }
@@ -186,4 +186,30 @@ h1 {
     display: inline;
     width: 50%;
     text-align: left;
+}
+
+
+@media (max-width: 600px){
+    .header {
+        width: 100%;
+        padding: 10px;
+    }
+    #btn-volver{
+        height: 30px;
+        padding: 0px;
+        font-size: 15px;
+        width: 30px;
+    }
+    .cont-volver{
+        width: 30%;
+    }
+    h1{
+        width: 70%;
+    }
+    h2{
+        font-size: 24px;
+    }
+    #tituloCalculo{
+        font-size: 26px;
+    }
 }

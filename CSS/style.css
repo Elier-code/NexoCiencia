@@ -208,7 +208,7 @@ a:hover {
     transition: all 0.2s ease-in-out;
 }
 #menu-botones{
-    width: 100vw;
+    width: 70%;
 }
 
 .btn-menu:hover {
