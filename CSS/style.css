@@ -213,6 +213,7 @@ a:hover {
 
 .btn-menu:hover {
     background-color: #6de100;
+    color: #fff;
     transform: scale(1.05);
     box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
 }
@@ -253,14 +254,14 @@ a:hover {
     margin: 15px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-} */
-
-.btn-menu:hover {
+}.btn-menu:hover {
     background: rgba(255, 255, 255, 0.2);
     transform: scale(1.03);
     border-color: #f89c1c;
     color: #f89c1c;
-}
+} */
+
+
 
 h2 {
     font-size: 32px;
