@@ -27,8 +27,9 @@
             <option value="">Selecione un rol</option>
             <option value="estudiante">Estudiante</option>
             <option value="profesor">Profesor</option>
+            <option value="administrador">Administrador</option>
         </select>
-        <button onclick="mensaje()">Agregar</button>
+        <button onclick="guardarUsuario()">Agregar</button>
     </form>
     <table id="lista">
         <thead>
@@ -47,14 +48,12 @@
 
     </table>
 
-    
+
 
 
     <script>
         listarUsuarios()
-        function mensaje() {
-            alert("Usuario agregado con exito");
-        }
+
     </script>
 </body>
 
