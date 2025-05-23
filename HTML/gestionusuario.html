@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionar Usuario</title>
+    <link rel="stylesheet" href="../CSS/styletabla.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../JS/usuario.js"></script>
+    <script src="../JS/utilidades.js"></script>
+    <script src="../JS/gestionarSecuancia.js"></script>
+    <script src="../JS/gestionusuario.js"></script>
+</head>
+
+<body>
+    <h1>Gestionar Usuario</h1>
+    <form action="">
+        <label for="Nombres">Nombres</label>
+        <input type="text" name="Nombres" id="name">
+        <label for="Apellidos">Apellidos</label>
+        <input type="text" name="Apellidos" id="apellido">
+        <label for="Correo">Correo</label>
+        <input type="text" name="Correo" id="email">
+        <label for="Rol">Rol</label>
+        <select name="Rol" id="tipoUsuario">
+            <option value="">Selecione un rol</option>
+            <option value="estudiante">Estudiante</option>
+            <option value="profesor">Profesor</option>
+        </select>
+        <button onclick="mensaje()">Agregar</button>
+    </form>
+    <table id="lista">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Correo</th>
+                <th>Rol</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+
+    </table>
+
+    
+
+
+    <script>
+        listarUsuarios()
+        function mensaje() {
+            alert("Usuario agregado con exito");
+        }
+    </script>
+</body>
+
+</html>

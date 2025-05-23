@@ -1,0 +1,65 @@
+table,
+th,
+tr,
+td {
+    border: 1px solid #000;
+    background-color: #38458e;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 1px 1px 20px #3dbfc1;
+}
+tbody>tr:hover{
+    scale: 1.05;
+    border: 1.5px solid #000;
+    box-shadow: 1px 1px 20px #3dbfc1;
+}
+
+form {
+    margin: 10px;
+
+}
+
+.eliminar {
+    background-color: #ff0000;
+}
+
+.editar {
+    background-color: #F89C1C;
+}
+
+.editar,
+.eliminar {
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.acciones {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 7px;
+    border: none;
+}
+body{
+    color: #fff;
+    background-color: #12106f;
+    text-align: center;
+}
+h1{
+    text-shadow: 3px 3px 3px #3dbfc1;
+}
+input,select,button{
+    border-radius: 10px;
+    margin: 5px;
+}
+input:hover{
+    box-shadow: 1px 1px 20px #3dbfc1;
+}
+input:focus{
+    box-shadow: 1px 1px 20px #3dbfc1;
+}
