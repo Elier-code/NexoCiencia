@@ -13,7 +13,7 @@ function mostrarAlerta(mensaje, tipo = 'error') {
 function startGame() {
     const email = document.getElementById('login-email').value;
     const password = document.getElementById('password').value;
-    var usuarios = getJSONDeLocalStore(localStorage)
+    var usuarios = getJSONDeLocalStore(localStorage) || []
 
     sw = false
 
