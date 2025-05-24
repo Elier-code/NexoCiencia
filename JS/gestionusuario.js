@@ -19,7 +19,7 @@ function listarUsuarios() {
     const listar = document.getElementById("lista")
     const tbody = listar.querySelector('tbody')
     var claveUsuario = "usuarios"
-    const usuarios = getJSONDeLocalStore(claveUsuario) || []
+    const usuarios = getJSONDeLocalStore("usuarios") || []
 
     for (const i in usuarios ) {
 
