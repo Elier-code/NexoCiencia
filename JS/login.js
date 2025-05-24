@@ -1,3 +1,4 @@
+var localStorage = "usuarios"
 function mostrarAlerta(mensaje, tipo = 'error') {
     const alerta = document.getElementById('customAlert');
     alerta.textContent = mensaje;
@@ -12,22 +13,57 @@ function mostrarAlerta(mensaje, tipo = 'error') {
 function startGame() {
     const email = document.getElementById('login-email').value;
     const password = document.getElementById('password').value;
-    const users = JSON.parse(localStorage.getItem('users')) || [];
+    var usuarios = getJSONDeLocalStore(localStorage)
 
-    const user = users.find(u => u.email === email && u.password === password);
+    sw = false
 
-    if (user) {
-        localStorage.setItem('email', email);
-        window.location.href = 'menu.html'; // redirige a la edición de perfil
-    } else {
-        mostrarAlerta("Correo o contraseña incorrectos", "error");
+    for (const usuarioJSON of usuarios) {
+
+        if (email == usuarioJSON.correo && password == usuarioJSON.contraseña) {
+
+            switch (usuarioJSON.tipoUsuario) {
+
+                case 'estudiante':
+                    var datosSesion = new SesionUsuario(usuarioJSON.nombres,usuarioJSON.correo)
+                    var sesion = getJSONDeLocalStore("sessionUser")
+                    sesion.push(datosSesion)
+                    setJSONDeLocalStore("sessionUser", sesion)
+                    window.location.href = '../html/usuario.html'
+                    break
+
+                case 'administrador':
+                    var datosSesion = new SesionUsuario(usuarioJSON.nombres,usuarioJSON.correo)
+                    var sesion = getJSONDeLocalStore("sessionUser")
+                    sesion.push(datosSesion)
+                    setJSONDeLocalStore("sessionUser", sesion)
+                    window.location.href = '../html/inicioAdmin.html'
+                    break
+                case 'profesor':
+                    var datosSesion = new SesionUsuario(usuarioJSON.nombres,usuarioJSON.correo)
+                    var sesion = getJSONDeLocalStore("sessionUser")
+                    sesion.push(datosSesion)
+                    setJSONDeLocalStore("sessionUser", sesion)
+                    window.location.href = '../html/profesor.html'
+                    break
+            }
+
+            sw = true
+
+            break
+        }
+
     }
+
+
+    if (!sw)
+        mostrarAlerta("Correo o contraseña incorrectos", "error");
+
 }
 
 function register() {
 
     recuperarDatosFormularioRegistro();
-
+    var users = getJSONDeLocalStore(localStorage)
     if (nombre && apellido && password && correo) {
         const usersExistente = getJSONDeLocalStore(localStorage);
 
@@ -35,7 +71,7 @@ function register() {
             mostrarAlerta("Este correo electrónico ya está registrado", "warning");
             return;
         }
-        const usuario = new Usuario(getValorSecuenciaUsuario,nombre.value,apellido.value,"",password.value,email.value,"Estudiante")
+        const usuario = new Usuario(getValorSecuenciaUsuario, nombre.value, apellido.value, "", password.value, email.value, "estudiante")
         users.push(usuario);
 
         mostrarAlerta(`Usuario ${newUsername} registrado correctamente.`, "success");

@@ -28,6 +28,10 @@ function alertaGuardar() {
         text: 'El usuario ha sido creado exitosamente. 😊',
         icon: 'success',
         confirmButtonText: '👍 Entendido'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            refrescarPagina()
+        }
     });
 }
 
@@ -43,11 +47,43 @@ function mostrarAlertaEliminar() {
         cancelButtonText: 'Cancelar'
     }).then((result) => {
         if (result.isConfirmed) {
+            eliminarUsuario()
             Swal.fire(
                 '¡Eliminado!',
-                'Tu archivo ha sido eliminado.',
+                'El usuario ha sido eliminado.',
                 'success'
-            );
+            ).then(() => {
+                refrescarPagina()
+            });
+
         }
+    });
+}
+
+
+function refrescarPagina() {
+    location.reload();
+}
+
+
+function alertaActualizar() {
+    Swal.fire({
+        title: 'Listo',
+        text: 'El usuario ha sido actualizado exitosamente. 😊',
+        icon: 'success',
+        confirmButtonText: '👍 Entendido'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            refrescarPagina()
+        }
+    });
+}
+
+function alertaError(mensaje) {
+    Swal.fire({
+        title: 'Error',
+        text: mensaje,
+        icon: 'error',
+        confirmButtonText: '👍 Entendido'
     });
 }

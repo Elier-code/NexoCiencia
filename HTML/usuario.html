@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/usuario.css">
     <script src="../JS/usuario.js" defer></script>
+    <script src="../JS/auth.js"></script>
+    <script src="../JS/utilidades.js"></script>
 </head>
 <body>
     <!-- Alerta personalizada -->
@@ -14,13 +16,13 @@
     <div class="panel-usuario">
         <h2 id="tituloUsuario">
             <img src="https://cdn-icons-png.flaticon.com/512/2922/2922506.png" alt="Icono Usuario">
-            Panel del Usuario
+            Panel del Usuario <span id="nombreSesion">Nombre</span>
         </h2>
 
         <div class="opcion-usuario">
             <h3>Actualizar Datos</h3>
             <p>Edita tu información personal para mantenerla actualizada.</p>
-            <button onclick="actualizarDatosUsuario()">Actualizar mis datos</button>
+            <button onclick="window.location.href='usuarioModifica.html'">Actualizar mis datos</button>
         </div>
 
         <div class="opcion-usuario">
@@ -28,29 +30,12 @@
             <p>Consulta tus logros, temas completados y evaluaciones.</p>
             <button onclick="verProgreso()">Ver mi progreso</button>
         </div>
+        <button onclick="logout()">Cerrar sesión</button>
     </div>
 
     <script>
-        window.addEventListener("DOMContentLoaded", () => {
-            const email = localStorage.getItem('email');
-            const users = JSON.parse(localStorage.getItem('users')) || [];
-            const usuario = users.find(u => u.email === email);
-
-            if (usuario) {
-                const titulo = document.getElementById("tituloUsuario");
-                titulo.innerHTML = `
-                    <img src="https://cdn-icons-png.flaticon.com/512/2922/2922506.png" alt="Icono Usuario">
-                    ${usuario.username} ${usuario.surname}
-                `;
-            } else {
-                // Si no hay sesión, redirige al login
-                window.location.href = "login.html";
-            }
-        });
-
-        function actualizarDatosUsuario() {
-            alert("Función de actualización no implementada aún.");
-        }
+        showUserName()
+        checkSession(true)
 
         function verProgreso() {
             alert("Función de progreso no implementada aún.");

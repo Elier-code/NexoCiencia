@@ -8,7 +8,8 @@ td {
 
 table {
     border-collapse: collapse;
-    width: 100%;
+    width: 97%;
+    margin: auto;
     border-radius: 10px;
     box-shadow: 1px 1px 20px #3dbfc1;
 }
@@ -62,4 +63,8 @@ input:hover{
 }
 input:focus{
     box-shadow: 1px 1px 20px #3dbfc1;
+}
+.form{
+    display: flex;
+    flex-direction: row;
 }

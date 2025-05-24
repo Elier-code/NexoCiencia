@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../CSS/styletabla.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../JS/usuario.js"></script>
+    <script src="../JS/secuencia.js"></script>
     <script src="../JS/utilidades.js"></script>
     <script src="../JS/gestionarSecuancia.js"></script>
     <script src="../JS/gestionusuario.js"></script>
@@ -15,22 +16,25 @@
 
 <body>
     <h1>Gestionar Usuario</h1>
-    <form action="">
-        <label for="Nombres">Nombres</label>
-        <input type="text" name="Nombres" id="name">
-        <label for="Apellidos">Apellidos</label>
-        <input type="text" name="Apellidos" id="apellido">
-        <label for="Correo">Correo</label>
-        <input type="text" name="Correo" id="email">
-        <label for="Rol">Rol</label>
-        <select name="Rol" id="tipoUsuario">
-            <option value="">Selecione un rol</option>
-            <option value="estudiante">Estudiante</option>
-            <option value="profesor">Profesor</option>
-            <option value="administrador">Administrador</option>
-        </select>
+    <div class="form">
+        <form action="">
+            <label for="Nombres">Nombres</label>
+            <input type="text" name="Nombres" id="name">
+            <label for="Apellidos">Apellidos</label>
+            <input type="text" name="Apellidos" id="apellido">
+            <label for="Correo">Correo</label>
+            <input type="text" name="Correo" id="email">
+            <label for="Rol">Rol</label>
+            <select name="Rol" id="tipoUsuario">
+                <option value="">Selecione un rol</option>
+                <option value="estudiante">Estudiante</option>
+                <option value="profesor">Profesor</option>
+                <option value="administrador">Administrador</option>
+            </select>
+            
+        </form>
         <button onclick="guardarUsuario()">Agregar</button>
-    </form>
+    </div>
     <table id="lista">
         <thead>
             <tr>

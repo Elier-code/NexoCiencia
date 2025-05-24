@@ -16,41 +16,61 @@ function habilitarEdicion(id) {
 }
 
 function guardarCambios() {
-    const emailActivo = localStorage.getItem('email');
-    const users = JSON.parse(localStorage.getItem('users')) || [];
+    var sesion = getJSONDeLocalStore("sessionUser");
+    const emailActivo = sesion[0].correo;
+    var users = getJSONDeLocalStore("usuarios") || [];
+    var index = -1
+    for (let i = 0; i < users.length; i++) {
 
-    const index = users.findIndex(u => u.email === emailActivo);
+        if (users[i].correo == emailActivo) {
+
+            index = i
+            break
+        }
+
+    }
 
     if (index !== -1) {
-        users[index].username = document.getElementById('nombre').value;
-        users[index].surname = document.getElementById('apellido').value;
-        users[index].email = document.getElementById('correo').value;
-        users[index].password = document.getElementById('contrasena').value;
-
-        localStorage.setItem('email', users[index].email);
-        localStorage.setItem('users', JSON.stringify(users));
+        users[index].nombres = document.getElementById('nombre').value;
+        users[index].apellido = document.getElementById('apellido').value;
+        users[index].correo = document.getElementById('correo').value;
+        users[index].contraseña = document.getElementById('contrasena').value;
+        
+        setJSONDeLocalStore("usuarios", users)
 
         document.querySelectorAll('input').forEach(input => input.disabled = true);
         mostrarAlerta("¡Cambios guardados exitosamente!", "success");
+        cargarDatos()
     } else {
         mostrarAlerta("Usuario no encontrado", "error");
     }
 }
 
 function cargarDatos() {
-    const emailActivo = localStorage.getItem('email');
-    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const sesion = getJSONDeLocalStore("sessionUser");
+    const emailActivo = sesion[0].correo;
 
-    const user = users.find(u => u.email === emailActivo);
+    var users = getJSONDeLocalStore("usuarios") || [];
+    var index = -1
+    for (let i = 0; i < users.length; i++) {
+
+        if (users[i].correo == emailActivo) {
+
+            index = i
+            var user = users[i];
+            break
+        }
+
+    }
 
     if (user) {
-        document.getElementById('nombre').value = user.username || '';
-        document.getElementById('apellido').value = user.surname || '';
-        document.getElementById('correo').value = user.email || '';
-        document.getElementById('contrasena').value = user.password || '';
+        document.getElementById('nombre').value = user.nombres || '';
+        document.getElementById('apellido').value = user.apellidos || '';
+        document.getElementById('correo').value = user.correo || '';
+        document.getElementById('contrasena').value = user.contraseña || '';
     } else {
         mostrarAlerta("No se encontró información del usuario", "warning");
     }
 }
 
-window.onload = cargarDatos;
+// window.onload = cargarDatos();

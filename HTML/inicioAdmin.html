@@ -6,13 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrador</title>
     <link rel="stylesheet" href="../CSS/styleadmin.css">
+    <script src="../js/auth.js"></script>
+    <script src="../JS/utilidades.js"></script>
 </head>
 
 <body>
     <nav>
-        <span id="nombreSecion">Nombre</span>
+        <button onclick="logout()">Cerrar sesión</button>
     </nav>
-    <h1>Bienvenido Administrador <span id="nombreSecion2">Nombre</span></h1>
+    <h1>Bienvenido Administrador <span id="nombreSesion">Nombre</span></h1>
     <div class="contenedorBotones">
         <a href="">Administrar Cursos</a>
         <a href="gestionusuario.html">Administrar Usuarios</a>
@@ -22,7 +24,12 @@
         <a href="">Administrar Recursos</a>
         <a href="">Administrar Evaluaciones</a>
     </div>
-    <img src="NEXO CIENCIA.svg" alt="">
+    <img src="../Recursos/Imagenes/NEXO CIENCIA.svg" alt="">
+    <script>
+        showUserName()
+        checkSession(true)
+
+    </script>
 </body>
 
 </html>

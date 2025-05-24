@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Editar Perfil</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/usuarioModifica.css">
     <script src="../JS/usuarioModifica.js"></script>
+    <script src="../JS/auth.js"></script>
+    <script src="../JS/utilidades.js"></script>
 </head>
+
 <body>
     <div id="customAlert" class="custom-alert"></div>
 
@@ -38,6 +42,15 @@
         </div>
 
         <button class="btn-guardar" onclick="guardarCambios()">Guardar Cambios</button>
+        <button onclick="logout()">Cerrar sesión</button>
+
     </div>
+    <script>
+        showUserName()
+        checkSession(true)
+        
+        cargarDatos()
+    </script>
 </body>
+
 </html>
