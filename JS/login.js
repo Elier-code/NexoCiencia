@@ -13,7 +13,8 @@ function mostrarAlerta(mensaje, tipo = 'error') {
 function startGame() {
     const email = document.getElementById('login-email').value;
     const password = document.getElementById('password').value;
-    var usuarios = getJSONDeLocalStore(localStorage) || []
+    var usuarios = getJSONDeLocalStore(localStorage)
+    console.log(usuarios)
 
     sw = false
 
@@ -71,9 +72,9 @@ function register() {
             mostrarAlerta("Este correo electrónico ya está registrado", "warning");
             return;
         }
-        const usuario = new Usuario(getValorSecuenciaUsuario, nombre.value, apellido.value, "", password.value, email.value, "estudiante")
+        const usuario = new Usuario(getValorSecuenciaUsuario(), nombre.value, apellido.value, "", password.value, email.value, "estudiante")
         users.push(usuario);
-
+        setJSONDeLocalStore(localStorage,users)
         mostrarAlerta(`Usuario ${nombre.value} registrado correctamente.`, "success");
         toggleForm();
     } else {
