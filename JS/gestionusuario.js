@@ -198,7 +198,7 @@ function recuperarDatosFormularioRegistro() {
     this.nombre = document.getElementById("name")
     this.apellido = document.getElementById("apellido")
     this.correo = document.getElementById("email")
-    this.password = document.getElementById("password")
+    this.password = document.getElementById("new-password")
 }
 
 function recuperarDatosFormulario() {
