@@ -28,7 +28,7 @@ function startGame() {
                     var sesion = getJSONDeLocalStore("sessionUser")
                     sesion.push(datosSesion)
                     setJSONDeLocalStore("sessionUser", sesion)
-                    window.location.href = '../html/usuario.html'
+                    window.location.href = '../HTML/usuario.html'
                     break
 
                 case 'administrador':
@@ -36,14 +36,14 @@ function startGame() {
                     var sesion = getJSONDeLocalStore("sessionUser")
                     sesion.push(datosSesion)
                     setJSONDeLocalStore("sessionUser", sesion)
-                    window.location.href = '../html/inicioAdmin.html'
+                    window.location.href = '../HTML/inicioAdmin.html'
                     break
                 case 'profesor':
                     var datosSesion = new SesionUsuario(usuarioJSON.nombres,usuarioJSON.correo)
                     var sesion = getJSONDeLocalStore("sessionUser")
                     sesion.push(datosSesion)
                     setJSONDeLocalStore("sessionUser", sesion)
-                    window.location.href = '../html/profesor.html'
+                    window.location.href = '../HTML/profesor.html'
                     break
             }
 
