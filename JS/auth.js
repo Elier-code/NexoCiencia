@@ -21,3 +21,6 @@ function logout() {
     localStorage.removeItem("sessionUser");
     window.location.href = "../index.html"; // Redirigir al cerrar sesión
 }
+
+showUserName()
+checkSession(true)
