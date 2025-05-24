@@ -74,7 +74,7 @@ function register() {
         const usuario = new Usuario(getValorSecuenciaUsuario, nombre.value, apellido.value, "", password.value, email.value, "estudiante")
         users.push(usuario);
 
-        mostrarAlerta(`Usuario ${newUsername} registrado correctamente.`, "success");
+        mostrarAlerta(`Usuario ${nombre.value} registrado correctamente.`, "success");
         toggleForm();
     } else {
         mostrarAlerta("Por favor completa todos los campos", "warning");
