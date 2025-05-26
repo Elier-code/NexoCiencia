@@ -22,7 +22,7 @@
         <div class="opcion-usuario">
             <h3>Actualizar Datos</h3>
             <p>Edita tu información personal para mantenerla actualizada.</p>
-            <button onclick="window.location.href='usuarioModifica.html'">Actualizar mis datos</button>
+            <button onclick="actualizarDatosUsuario()">Actualizar mis datos</button>
         </div>
 
         <div class="opcion-usuario">
@@ -37,8 +37,30 @@
         showUserName()
         checkSession(true)
 
+        function mostrarAlertaPersonalizada(mensaje) {
+            const alerta = document.getElementById('customAlert');
+            alerta.textContent = mensaje;
+            alerta.classList.add('show');
+
+            setTimeout(() => {
+                alerta.classList.remove('show');
+            }, 3000);
+        }
+
+        function actualizarDatosUsuario() {
+            mostrarAlertaPersonalizada("Redirigiendo a la página de edición de datos del usuario...");
+            setTimeout(() => {
+                window.location.href = "usuarioModifica.html";
+            }, 1500);
+        }
+
         function verProgreso() {
-            alert("Función de progreso no implementada aún.");
+            mostrarAlertaPersonalizada("Redirigiendo a progreso personal.");
+            // Puedes redirigir si deseas:
+            // setTimeout(() => { window.location.href = "/usuario/progreso.html"; }, 1500);
+            setTimeout(() => {
+                window.location.href = "progreso.html";
+            }, 1500);
         }
     </script>
 </body>

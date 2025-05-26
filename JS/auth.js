@@ -2,8 +2,11 @@
 
 function checkSession(redirectIfNotLogged = false) {
     const user = getJSONDeLocalStore("sessionUser");
-    if (!user && redirectIfNotLogged) {
-        window.location.href = "../index.html"; // Redirigir si no hay sesión
+    if (!user || user.length === 0) {
+        if (redirectIfNotLogged) {
+            window.location.href = "../index.html"; // redirección si no hay sesión
+        }
+        return null;
     }
     return user;
 }
@@ -22,5 +25,3 @@ function logout() {
     window.location.href = "../index.html"; // Redirigir al cerrar sesión
 }
 
-showUserName()
-checkSession(true)

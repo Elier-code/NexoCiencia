@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>explicación</title>
     <link rel="stylesheet" href="../CSS/botones.css">
+    <script src="../JS/utilidades.js"></script>
+    <script src="../JS/auth.js"></script>
     <script src="../JS/icono.js"></script>
 </head>
+
 <body>
     <div class="cont-volver">
         <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
@@ -13,10 +17,7 @@
     <div class="contenedor">
 
         <!-- Primer video -->
-        <video width="640" height="360" controls>
-            <source src="video1.mp4" type="video/mp4">
-            Tu navegador no soporta videos HTML5.
-        </video>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/RkEJ4l9g3xw?si=SCO0-utEkigbvJJm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> <!-- en el src se ubica el link del video -->
 
         <!-- Texto central -->
         <div class="texto">
@@ -30,16 +31,26 @@
         <div class="caja-texto">
             <p>
                 <strong>Rotación de un cuerpo rígido:</strong><br><br>
-                Un cuerpo rígido es un objeto idealizado en el que las distancias entre todas sus partes permanecen constantes mientras se mueve. En la rotación de un cuerpo rígido alrededor de un eje fijo, cada punto del cuerpo describe un círculo en un plano perpendicular al eje de rotación, y todos los puntos tienen la misma velocidad angular (&omega;) y aceleración angular (&alpha;).<br><br>
+                Un cuerpo rígido es un objeto idealizado en el que las distancias entre todas sus partes permanecen
+                constantes mientras se mueve. En la rotación de un cuerpo rígido alrededor de un eje fijo, cada punto
+                del cuerpo describe un círculo en un plano perpendicular al eje de rotación, y todos los puntos tienen
+                la misma velocidad angular (&omega;) y aceleración angular (&alpha;).<br><br>
 
-                La dinámica de rotación se describe mediante el <em>momento de inercia</em> (I), que es análogo a la masa en el movimiento lineal y depende de cómo está distribuida la masa respecto al eje de rotación. La ecuación fundamental es:<br>
+                La dinámica de rotación se describe mediante el <em>momento de inercia</em> (I), que es análogo a la
+                masa en el movimiento lineal y depende de cómo está distribuida la masa respecto al eje de rotación. La
+                ecuación fundamental es:<br>
                 <strong>&tau; = I &alpha;</strong><br>
                 donde &tau; es el torque neto aplicado sobre el cuerpo.<br><br>
 
-                Esta ecuación es análoga a la segunda ley de Newton para el movimiento lineal (F = ma). Además, en ausencia de fuerzas externas, el momento angular del cuerpo se conserva. Este principio es crucial para entender fenómenos como la estabilidad de los giroscopios o el movimiento de los patinadores al girar.<br><br>
+                Esta ecuación es análoga a la segunda ley de Newton para el movimiento lineal (F = ma). Además, en
+                ausencia de fuerzas externas, el momento angular del cuerpo se conserva. Este principio es crucial para
+                entender fenómenos como la estabilidad de los giroscopios o el movimiento de los patinadores al
+                girar.<br><br>
 
                 <strong>Ejercicio resuelto:</strong><br><br>
-                <em>Un disco uniforme de 2 kg y radio 0.5 m está inicialmente en reposo. Se le aplica un torque constante de 1 N·m. ¿Cuál será su aceleración angular y su velocidad angular después de 4 segundos?</em><br><br>
+                <em>Un disco uniforme de 2 kg y radio 0.5 m está inicialmente en reposo. Se le aplica un torque
+                    constante de 1 N·m. ¿Cuál será su aceleración angular y su velocidad angular después de 4
+                    segundos?</em><br><br>
 
                 <u>Solución:</u><br>
                 - El momento de inercia de un disco respecto a su eje central es: <br>
@@ -51,7 +62,8 @@
                 - Como la aceleración angular es constante y el disco parte del reposo:<br>
                 &nbsp;&nbsp;&nbsp;&omega; = &alpha;t = 4 × 4 = <strong>16 rad/s</strong><br><br>
 
-                <strong>Respuesta:</strong> La aceleración angular es 4 rad/s² y la velocidad angular después de 4 s es 16 rad/s.
+                <strong>Respuesta:</strong> La aceleración angular es 4 rad/s² y la velocidad angular después de 4 s es
+                16 rad/s.
             </p>
         </div>
 
@@ -61,20 +73,42 @@
                 <button type="submit" class="btn-enviar">Siguiente ➔</button>
             </div>
         </form>
-        
+
     </div>
     <!-- Modal -->
-<!-- Modal -->
-<div id="modal-mensaje" class="modal">
-    <div class="modal-contenido">
-        <p>¡Gracias por completar el examen!<br>Tus respuestas han sido enviadas.</p>
-        <button class="modal-boton" onclick="cerrarModal()">Aceptar</button>
+    <!-- Modal -->
+    <div id="modal-mensaje" class="modal">
+        <div class="modal-contenido">
+            <p>¡Gracias por completar el examen!<br>Tus respuestas han sido enviadas.</p>
+            <button class="modal-boton" onclick="cerrarModal()">Aceptar</button>
+        </div>
     </div>
-</div>
     <script>
         insertarLogo();
+        checkSession(true)
+        const sesion = checkSession(true)
+        console.log(sesion[0])
+        const usuario = sesion[0].userName;
+
+        const nivelActual = "nivel 1.1";
+
+        document.querySelector("form.cuestionario").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const datos = {
+                correctas: 1,
+                total: 1,
+                completado: true
+            };
+
+            const claveProgreso = `${usuario}_${nivelActual}`;
+            localStorage.setItem(claveProgreso, JSON.stringify(datos));
+
+            document.getElementById("modal-mensaje").style.display = "flex";
+        });
     </script>
-</script>
-<script src="../JS/modal.js"></script><!--Importacion del script para funcionamiento de la ventana modal-->
+
+    <script src="../JS/modal.js"></script><!--Importacion del script para funcionamiento de la ventana modal-->
 </body>
+
 </html>

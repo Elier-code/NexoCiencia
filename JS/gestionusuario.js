@@ -1,13 +1,13 @@
 
-var localStorage = "usuarios"
-var usuarios = getJSONDeLocalStore(localStorage)
+const localStorageUsuario = "usuarios"
+var usuarios = getJSONDeLocalStore(localStorageUsuario)
 const adminExiste = usuarios.some(
     (u) => u.userName === "ElierN" && u.tipoUsuario === "administrador"
 );
 if (!adminExiste) {
     const adim = new Usuario(getValorSecuenciaUsuario(), "Elier", "Narvaez Velasquez", "ElierN", "12345", "eliernarvaez93@gmail.com", "administrador")
     usuarios.push(adim)
-    setJSONDeLocalStore(localStorage, usuarios)
+    setJSONDeLocalStore(localStorageUsuario, usuarios)
 }
 
 
@@ -19,9 +19,9 @@ function listarUsuarios() {
     const listar = document.getElementById("lista")
     const tbody = listar.querySelector('tbody')
 
-    const usuarios = getJSONDeLocalStore(localStorage)
+    const usuarios = getJSONDeLocalStore(localStorageUsuario)
 
-    for (const i in usuarios ) {
+    for (const i in usuarios) {
 
         var fila = document.createElement("tr")
         var id = document.createElement("td")
@@ -66,7 +66,7 @@ function listarUsuarios() {
 
 function guardarUsuario() {
     recuperarDatosFormulario()
-    var usuarios = getJSONDeLocalStore(localStorage)
+    var usuarios = getJSONDeLocalStore(localStorageUsuario)
     var resultado = -1
     for (let i = 0; i < usuarios.length; i++) {
 
@@ -80,18 +80,18 @@ function guardarUsuario() {
     if (resultado == -1) {
         const usuario = new Usuario(getValorSecuenciaUsuario(), nombre.value, apellido.value, "", "09876", correo.value, tipoUsuario.value)
         usuarios.push(usuario)
-        setJSONDeLocalStore(localStorage, usuarios)
+        setJSONDeLocalStore(localStorageUsuario, usuarios)
         limpiarFormulario()
         alertaGuardar()
 
-    }else{
+    } else {
         alertaError("El correo ingresado ya exite")
 
     }
 }
 
 function actualizarUsuario(id, usarioActualizado) {
-    this.usuarios = getJSONDeLocalStore(localStorage)
+    this.usuarios = getJSONDeLocalStore(localStorageUsuario)
     this.id = id
 
     var indice = buscarIndiceUsuario()
@@ -101,7 +101,7 @@ function actualizarUsuario(id, usarioActualizado) {
         usuarios[indice].correo = usarioActualizado.correo
         usuarios[indice].tipoUsuario = usarioActualizado.tipoUsuario
 
-        setJSONDeLocalStore(localStorage, usuarios)
+        setJSONDeLocalStore(localStorageUsuario, usuarios)
         alertaActualizar()
     } else {
         alert("no encontrado")
@@ -113,13 +113,13 @@ function actualizarUsuario(id, usarioActualizado) {
 
 
 function eliminarUsuario() {
-    this.usuarios = getJSONDeLocalStore(localStorage)
+    this.usuarios = getJSONDeLocalStore(localStorageUsuario)
     var indice = buscarIndiceUsuario()
     if (indice > -1) {
 
         // alert("El usuario " + usuarios[indice].idUsuario + " eliminado")
         usuarios.splice(indice, 1)
-        setJSONDeLocalStore(localStorage, usuarios)
+        setJSONDeLocalStore(localStorageUsuario, usuarios)
 
     }
 }
@@ -154,7 +154,7 @@ function editarFila(boton) {
             tipoUsuario: celdas[4].querySelector("input").value
         };
 
-        // Guardamos los datos actualizados en localStorage
+        // Guardamos los datos actualizados en localStorageUsuario
         actualizarUsuario(id, nuevosDatos);
 
         boton.textContent = "Editar";
@@ -231,7 +231,7 @@ function habilitarEdicion(id) {
 function guardarCambios() {
     var sesion = getJSONDeLocalStore("sessionUser");
     const emailActivo = sesion[0].correo;
-    var users = getJSONDeLocalStore(localStorage);
+    var users = getJSONDeLocalStore(localStorageUsuario);
 
     var index = -1
     for (let i = 0; i < users.length; i++) {
@@ -250,7 +250,7 @@ function guardarCambios() {
         users[index].correo = document.getElementById('correo').value;
         users[index].contraseña = document.getElementById('contrasena').value;
 
-        setJSONDeLocalStore(localStorage, users)
+        setJSONDeLocalStore(localStorageUsuario, users)
 
         document.querySelectorAll('input').forEach(input => input.disabled = true);
         mostrarAlerta("¡Cambios guardados exitosamente!", "success");
@@ -265,7 +265,7 @@ function cargarDatos() {
     const sesion = getJSONDeLocalStore("sessionUser");
     const emailActivo = sesion[0].correo;
 
-    var users = getJSONDeLocalStore(localStorage) ;
+    var users = getJSONDeLocalStore(localStorageUsuario);
     var index = -1
     for (let i = 0; i < users.length; i++) {
 
@@ -286,4 +286,19 @@ function cargarDatos() {
     } else {
         mostrarAlerta("No se encontró información del usuario", "warning");
     }
+}
+
+function exportarTablaAExcel() {
+    const tablaOriginal = document.getElementById("lista");
+    const tablaClonada = tablaOriginal.cloneNode(true);
+
+    // Eliminar la última columna ("Acciones") de cada fila
+    [...tablaClonada.rows].forEach(row => {
+        if (row.cells.length > 0) {
+            row.deleteCell(row.cells.length - 1);
+        }
+    });
+
+    const libro = XLSX.utils.table_to_book(tablaClonada, { sheet: "Usuarios" });
+    XLSX.writeFile(libro, "usuarios.xlsx");
 }

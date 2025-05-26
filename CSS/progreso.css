@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    padding: 30px;
+}
+
+.progreso-container {
+    max-width: 700px;
+    margin: auto;
+}
+
+.nivel {
+    background: #fff;
+    border-left: 8px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: border-left-color 0.3s ease;
+}
+
+.nivel.completado {
+    border-left-color: #4caf50;
+}
+
+.nivel.pendiente {
+    border-left-color: #f44336;
+}
+
+.nivel h3 {
+    margin-top: 0;
+}
+
+.estado {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.estado.completado {
+    color: #4caf50;
+}
+
+.estado.pendiente {
+    color: #f44336;
+}
+
+.progreso-barra {
+    background: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+    height: 20px;
+}
+
+.progreso-barra span {
+    display: block;
+    height: 100%;
+    background: #4caf50;
+    text-align: center;
+    color: white;
+    line-height: 20px;
+}
+
+.boton {
+    margin-top: 10px;
+}
+
+button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    background: #2196f3;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0b7dda;
+}
+
+h2 {
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+    margin-top: 40px;
+}

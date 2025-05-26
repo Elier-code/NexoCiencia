@@ -1,4 +1,4 @@
-var localStorage = "usuarios"
+
 function mostrarAlerta(mensaje, tipo = 'error') {
     const alerta = document.getElementById('customAlert');
     alerta.textContent = mensaje;
@@ -13,7 +13,7 @@ function mostrarAlerta(mensaje, tipo = 'error') {
 function startGame() {
     const email = document.getElementById('login-email').value;
     const password = document.getElementById('password').value;
-    var usuarios = getJSONDeLocalStore(localStorage)
+    var usuarios = getJSONDeLocalStore(localStorageUsuario)
     console.log(usuarios)
 
     sw = false
@@ -25,7 +25,7 @@ function startGame() {
             switch (usuarioJSON.tipoUsuario) {
 
                 case 'estudiante':
-                    var datosSesion = new SesionUsuario(usuarioJSON.nombres,usuarioJSON.correo)
+                    var datosSesion = new SesionUsuario(usuarioJSON.nombres,usuarioJSON.correo,usuarioJSON.userName)
                     var sesion = getJSONDeLocalStore("sessionUser")
                     sesion.push(datosSesion)
                     setJSONDeLocalStore("sessionUser", sesion)
@@ -33,14 +33,14 @@ function startGame() {
                     break
 
                 case 'administrador':
-                    var datosSesion = new SesionUsuario(usuarioJSON.nombres,usuarioJSON.correo)
+                    var datosSesion = new SesionUsuario(usuarioJSON.nombres,usuarioJSON.correo,usuarioJSON.userName)
                     var sesion = getJSONDeLocalStore("sessionUser")
                     sesion.push(datosSesion)
                     setJSONDeLocalStore("sessionUser", sesion)
                     window.location.href = '../HTML/inicioAdmin.html'
                     break
                 case 'profesor':
-                    var datosSesion = new SesionUsuario(usuarioJSON.nombres,usuarioJSON.correo)
+                    var datosSesion = new SesionUsuario(usuarioJSON.nombres,usuarioJSON.correo,usuarioJSON.userName)
                     var sesion = getJSONDeLocalStore("sessionUser")
                     sesion.push(datosSesion)
                     setJSONDeLocalStore("sessionUser", sesion)
@@ -64,17 +64,21 @@ function startGame() {
 function register() {
 
     recuperarDatosFormularioRegistro();
-    var users = getJSONDeLocalStore(localStorage)
+    const users = getJSONDeLocalStore(localStorageUsuario)
     if (nombre && apellido && password && correo) {
-        const usersExistente = getJSONDeLocalStore(localStorage);
+        const usersExistente = getJSONDeLocalStore(localStorageUsuario);
 
         if (usersExistente.some(u => u.email === email)) {
             mostrarAlerta("Este correo electrónico ya está registrado", "warning");
             return;
         }
-        const usuario = new Usuario(getValorSecuenciaUsuario(), nombre.value, apellido.value, "", password.value, email.value, "estudiante")
+
+        const userNameGenerado = `${nombre.value[0]}${apellido.value}`.replace(/\s/g, '');
+
+        const usuario = new Usuario(getValorSecuenciaUsuario(), nombre.value, apellido.value, userNameGenerado, password.value, email.value, "estudiante")
+
         users.push(usuario);
-        setJSONDeLocalStore(localStorage,users)
+        setJSONDeLocalStore(localStorageUsuario,users)
         mostrarAlerta(`Usuario ${nombre.value} registrado correctamente.`, "success");
         toggleForm();
     } else {
