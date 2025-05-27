@@ -15,26 +15,46 @@
  
 
     <!-- Primer video -->
-    <video width="640" height="360" controls>
-        <source src="video1.mp4" type="video/mp4">
-        Tu navegador no soporta videos HTML5.
-    </video>
-
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/bLOW8HvWqj4?si=N-BDcSqbWCa68ZaO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     <!-- Texto central -->
-    <div class="texto">
-        <p>
-            Aquí va una descripción o explicación relacionada con el video.
-            Puedes escribir varias líneas de texto para acompañar el contenido multimedia.
-        </p>
-    </div>
+<div class="texto">
+    <p>
+        En este video exploramos uno de los temas fundamentales de la dinámica rotacional: la <strong>rotación de cuerpos rígidos</strong>.
+        <br><br>
+        Un <strong>cuerpo rígido</strong> es un objeto idealizado cuya forma no cambia bajo la acción de fuerzas, es decir, las distancias entre sus partículas permanecen constantes durante el movimiento.
+        <br><br>
+        En la rotación de un cuerpo rígido alrededor de un eje fijo, cada punto del cuerpo describe un círculo con radio <strong>r</strong> centrado en el eje. Las principales magnitudes asociadas al movimiento rotacional son:
+        <br><br>
+        - <strong>Velocidad angular (ω)</strong>: indica qué tan rápido gira un objeto, se mide en radianes por segundo (rad/s).<br>
+        - <strong>Aceleración angular (α)</strong>: es la variación de la velocidad angular en el tiempo (rad/s²).<br>
+        - <strong>Desplazamiento angular (θ)</strong>: mide el ángulo girado respecto al eje de rotación.
+        <br><br>
+        Estas cantidades son análogas al movimiento lineal, pero en el contexto rotacional. Las ecuaciones del movimiento rotacional con aceleración constante son:
+        <br>
+        <code>ω = ω₀ + α·t</code><br>
+        <code>θ = ω₀·t + ½·α·t²</code><br>
+        <code>ω² = ω₀² + 2·α·θ</code>
+        <br><br>
+        Estas fórmulas permiten analizar y predecir el comportamiento de objetos girando alrededor de un eje.
+    </p>
+</div>
 
-    <!-- Segundo cuadro de texto -->
-    <div class="caja-texto">
-        <p>
-            Aquí puedes escribir un texto adicional o mostrar información importante.
-            Este recuadro está resaltado visualmente con borde.
-        </p>
-    </div>
+<!-- Segundo cuadro de texto -->
+<div class="caja-texto">
+    <p>
+        <strong>Ejemplo resuelto:</strong><br>
+        Una rueda parte del reposo y adquiere una aceleración angular constante de 2 rad/s² durante 5 segundos. ¿Cuál es su velocidad angular final y su desplazamiento angular?
+        <br><br>
+        Usamos la fórmula para la velocidad angular final:<br>
+        <code>ω = ω₀ + α·t = 0 + 2·5 = 10 rad/s</code><br>
+        Entonces, la velocidad angular final es <strong>10 rad/s</strong>.
+        <br><br>
+        Ahora, calculamos el desplazamiento angular:<br>
+        <code>θ = ω₀·t + ½·α·t² = 0 + 0.5·2·(5)² = 25 rad</code><br>
+        El desplazamiento angular es de <strong>25 radianes</strong>.
+    </p>
+</div>
+
 
     <!-- Botón siguiente -->
     <form class="cuestionario">

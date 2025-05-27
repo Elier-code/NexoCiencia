@@ -17,101 +17,98 @@
     </div>
     <div class="contenedor">
         <!-- Video -->
-        <video width="640" height="360" controls>
-            <source src="video1.mp4" type="video/mp4">
-            Tu navegador no soporta videos HTML5.
-        </video>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/AzOyFW9rBkg?si=aDI-UufurAbuE2qz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-        <!-- Cuestionario -->
-        <form class="cuestionario">
-            <h2>Prueba de Conocimientos: Rotación de Cuerpo Rígido</h2>
+       <!-- Cuestionario -->
+<form class="cuestionario">
+    <h2>Prueba de Conocimientos: Velocidad Angular</h2>
 
-            <div class="pregunta">
-                <p>1. ¿Qué es un cuerpo rígido?</p>
-                <label><input type="radio" name="p1" value="A"> A) Un objeto que puede deformarse bajo fuerza</label>
-                <label><input type="radio" name="p1" value="B"> B) Un cuerpo con volumen pero sin masa</label>
-                <label><input type="radio" name="p1" value="C"> C) Un cuerpo que mantiene constantes las distancias entre sus puntos</label>
-                <label><input type="radio" name="p1" value="D"> D) Un punto material</label>
-            </div>
-
-            <div class="pregunta">
-                <p>2. ¿Qué representa el momento de inercia (I)?</p>
-                <label><input type="radio" name="p2" value="A"> A) La aceleración angular de un cuerpo</label>
-                <label><input type="radio" name="p2" value="B"> B) La masa total del cuerpo</label>
-                <label><input type="radio" name="p2" value="C"> C) La resistencia del cuerpo a cambiar su estado rotacional</label>
-                <label><input type="radio" name="p2" value="D"> D) La velocidad angular</label>
-            </div>
-
-            <div class="pregunta">
-                <p>3. ¿Cuál es la unidad del momento de inercia en el SI?</p>
-                <label><input type="radio" name="p3" value="A"> A) kg/m</label>
-                <label><input type="radio" name="p3" value="B"> B) kg·m²</label>
-                <label><input type="radio" name="p3" value="C"> C) N·m</label>
-                <label><input type="radio" name="p3" value="D"> D) rad/s</label>
-            </div>
-
-            <div class="pregunta">
-                <p>4. ¿Qué representa el símbolo &tau; (tau) en rotación?</p>
-                <label><input type="radio" name="p4" value="A"> A) Momento de inercia</label>
-                <label><input type="radio" name="p4" value="B"> B) Torque</label>
-                <label><input type="radio" name="p4" value="C"> C) Tiempo</label>
-                <label><input type="radio" name="p4" value="D"> D) Energía cinética</label>
-            </div>
-
-            <div class="pregunta">
-                <p>5. ¿Cuál es la fórmula que relaciona torque, momento de inercia y aceleración angular?</p>
-                <label><input type="radio" name="p5" value="A"> A) F = ma</label>
-                <label><input type="radio" name="p5" value="B"> B) &tau; = I&alpha;</label>
-                <label><input type="radio" name="p5" value="C"> C) v = &omega;r</label>
-                <label><input type="radio" name="p5" value="D"> D) &alpha; = I&tau;</label>
-            </div>
-
-            <div class="pregunta">
-                <p>6. ¿Cuál es el momento de inercia de un disco de masa M y radio R respecto a su eje central?</p>
-                <label><input type="radio" name="p6" value="A"> A) MR²</label>
-                <label><input type="radio" name="p6" value="B"> B) (1/2)MR²</label>
-                <label><input type="radio" name="p6" value="C"> C) (2/3)MR²</label>
-                <label><input type="radio" name="p6" value="D"> D) (3/5)MR²</label>
-            </div>
-
-            <div class="pregunta">
-                <p>7. Si un cuerpo parte del reposo y tiene aceleración angular constante, ¿cómo se calcula su velocidad angular al cabo del tiempo t?</p>
-                <label><input type="radio" name="p7" value="A"> A) &omega; = at</label>
-                <label><input type="radio" name="p7" value="B"> B) &omega; = &alpha;t</label>
-                <label><input type="radio" name="p7" value="C"> C) &omega; = v/t</label>
-                <label><input type="radio" name="p7" value="D"> D) &omega; = I/t</label>
-            </div>
-
-            <div class="pregunta">
-                <p>8. ¿Qué sucede con el momento angular de un sistema si no hay torque externo?</p>
-                <label><input type="radio" name="p8" value="A"> A) Disminuye</label>
-                <label><input type="radio" name="p8" value="B"> B) Aumenta</label>
-                <label><input type="radio" name="p8" value="C"> C) Se conserva</label>
-                <label><input type="radio" name="p8" value="D"> D) Se vuelve cero</label>
-            </div>
-
-            <div class="pregunta">
-                <p>9. ¿Qué relación existe entre energía cinética rotacional y momento de inercia?</p>
-                <label><input type="radio" name="p9" value="A"> A) K = (1/2)mv²</label>
-                <label><input type="radio" name="p9" value="B"> B) K = (1/2)I&omega;²</label>
-                <label><input type="radio" name="p9" value="C"> C) K = I&omega;</label>
-                <label><input type="radio" name="p9" value="D"> D) K = &tau;&omega;</label>
-            </div>
-
-            <div class="pregunta">
-                <p>10. ¿Qué significa que dos cuerpos tengan el mismo momento de inercia?</p>
-                <label><input type="radio" name="p10" value="A"> A) Tienen la misma masa</label>
-                <label><input type="radio" name="p10" value="B"> B) Giran a la misma velocidad</label>
-                <label><input type="radio" name="p10" value="C"> C) Ofrecen la misma resistencia al cambio de rotación</label>
-                <label><input type="radio" name="p10" value="D"> D) Tienen la misma forma</label>
-            </div>
-
-            <!-- Botón enviar -->
-            <div class="boton">
-                <button type="submit">Enviar</button>
-            </div>
-        </form>
+    <div class="pregunta">
+        <p>1. ¿Qué es la velocidad angular?</p>
+        <label><input type="radio" name="p1" value="A"> A) El tiempo que tarda en recorrer un metro</label>
+        <label><input type="radio" name="p1" value="B"> B) El número de vueltas por minuto</label>
+        <label><input type="radio" name="p1" value="C"> C) El ángulo recorrido por unidad de tiempo</label>
+        <label><input type="radio" name="p1" value="D"> D) La aceleración que tiene un cuerpo al girar</label>
     </div>
+
+    <div class="pregunta">
+        <p>2. ¿Cuál es la unidad de la velocidad angular en el Sistema Internacional?</p>
+        <label><input type="radio" name="p2" value="A"> A) rad/s</label>
+        <label><input type="radio" name="p2" value="B"> B) rpm</label>
+        <label><input type="radio" name="p2" value="C"> C) m/s</label>
+        <label><input type="radio" name="p2" value="D"> D) grados/s</label>
+    </div>
+
+    <div class="pregunta">
+        <p>3. ¿Qué relación existe entre la frecuencia (f) y la velocidad angular (&omega;)?</p>
+        <label><input type="radio" name="p3" value="A"> A) &omega; = f / 2</label>
+        <label><input type="radio" name="p3" value="B"> B) &omega; = 2&pi;f</label>
+        <label><input type="radio" name="p3" value="C"> C) &omega; = f²</label>
+        <label><input type="radio" name="p3" value="D"> D) &omega; = f × t</label>
+    </div>
+
+    <div class="pregunta">
+        <p>4. Si una rueda completa 10 vueltas en 5 segundos, ¿cuál es su velocidad angular?</p>
+        <label><input type="radio" name="p4" value="A"> A) 10 rad/s</label>
+        <label><input type="radio" name="p4" value="B"> B) 2 rev/s</label>
+        <label><input type="radio" name="p4" value="C"> C) 4&pi; rad/s</label>
+        <label><input type="radio" name="p4" value="D"> D) 2&pi; rad/s</label>
+    </div>
+
+    <div class="pregunta">
+        <p>5. ¿Qué representa el periodo (T) en un movimiento circular?</p>
+        <label><input type="radio" name="p5" value="A"> A) El ángulo que recorre</label>
+        <label><input type="radio" name="p5" value="B"> B) El tiempo que tarda en dar una vuelta completa</label>
+        <label><input type="radio" name="p5" value="C"> C) La distancia entre dos puntos</label>
+        <label><input type="radio" name="p5" value="D"> D) La velocidad de giro</label>
+    </div>
+
+    <div class="pregunta">
+        <p>6. ¿Qué fórmula relaciona periodo (T) y frecuencia (f)?</p>
+        <label><input type="radio" name="p6" value="A"> A) T = f</label>
+        <label><input type="radio" name="p6" value="B"> B) T = 1/f</label>
+        <label><input type="radio" name="p6" value="C"> C) T = 2&pi;f</label>
+        <label><input type="radio" name="p6" value="D"> D) T = f × &omega;</label>
+    </div>
+
+    <div class="pregunta">
+        <p>7. ¿Qué representa la expresión &omega; = &theta;/t?</p>
+        <label><input type="radio" name="p7" value="A"> A) La aceleración angular</label>
+        <label><input type="radio" name="p7" value="B"> B) La posición angular</label>
+        <label><input type="radio" name="p7" value="C"> C) La velocidad angular media</label>
+        <label><input type="radio" name="p7" value="D"> D) La frecuencia angular</label>
+    </div>
+
+    <div class="pregunta">
+        <p>8. Si &omega; = 6.28 rad/s, ¿cuántas vueltas completas da en 1 segundo?</p>
+        <label><input type="radio" name="p8" value="A"> A) 1 vuelta</label>
+        <label><input type="radio" name="p8" value="B"> B) 2 vueltas</label>
+        <label><input type="radio" name="p8" value="C"> C) 0.5 vueltas</label>
+        <label><input type="radio" name="p8" value="D"> D) 10 vueltas</label>
+    </div>
+
+    <div class="pregunta">
+        <p>9. ¿Cuál es la velocidad angular de un objeto que da 3 vueltas en 2 segundos?</p>
+        <label><input type="radio" name="p9" value="A"> A) 3 rad/s</label>
+        <label><input type="radio" name="p9" value="B"> B) 2&pi; rad/s</label>
+        <label><input type="radio" name="p9" value="C"> C) 3&pi; rad/s</label>
+        <label><input type="radio" name="p9" value="D"> D) (3×2&pi;) / 2 = <strong>3&pi; rad/s</strong></label>
+    </div>
+
+    <div class="pregunta">
+        <p>10. ¿Cómo se puede calcular la velocidad tangencial si conocemos la velocidad angular?</p>
+        <label><input type="radio" name="p10" value="A"> A) v = r/&omega;</label>
+        <label><input type="radio" name="p10" value="B"> B) v = &omega;/r</label>
+        <label><input type="radio" name="p10" value="C"> C) v = &omega;·r</label>
+        <label><input type="radio" name="p10" value="D"> D) v = &omega;² + r</label>
+    </div>
+
+    <!-- Botón enviar -->
+    <div class="boton">
+        <button type="submit">Enviar</button>
+    </div>
+</form>
+
     <!-- Modal -->
 <div id="modal-mensaje" class="modal">
     <div class="modal-contenido">

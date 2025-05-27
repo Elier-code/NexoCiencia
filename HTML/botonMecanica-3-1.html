@@ -14,48 +14,44 @@
     <div class="contenedor">
 
         <!-- Primer video -->
-        <video width="640" height="360" controls>
-            <source src="video1.mp4" type="video/mp4">
-            Tu navegador no soporta videos HTML5.
-        </video>
+       <iframe width="560" height="315" src="https://www.youtube.com/embed/ywEJ7lzLNb4?si=29Rc9sFfEP5whDyR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
         <!-- Texto central -->
-        <div class="texto">
-            <p>
-                En este video exploramos dos conceptos fundamentales en la rotación de cuerpos rígidos: <strong>velocidad angular</strong> y <strong>aceleración angular</strong>.
-                <br><br>
-                La <strong>velocidad angular</strong> (𝜔 o v<sub>z</sub>) describe qué tan rápido rota un objeto en torno a un eje. Se mide en radianes por segundo (rad/s).
-                Por ejemplo, una rueda que gira 2 vueltas por segundo tiene una velocidad angular de aproximadamente 12.57 rad/s.
-                <br><br>
-                La <strong>aceleración angular</strong> (𝛼 o a<sub>z</sub>) indica cómo cambia la velocidad angular con el tiempo. Si una rueda acelera o frena su rotación,
-                está experimentando aceleración angular. Se mide en rad/s².
-                <br><br>
-                Cuando la aceleración angular es constante, se puede usar la ecuación:
-                <br>
-                <code>ω = ω₀ + α·t</code>
-                <br>
-                donde ω₀ es la velocidad angular inicial, α es la aceleración angular y t es el tiempo transcurrido.
-                <br><br>
-                Ambos conceptos son análogos a los de la cinemática lineal, solo que en lugar de moverse en línea recta, se aplican a cuerpos en rotación:contentReference[oaicite:0]{index=0}:contentReference[oaicite:1]{index=1}.
-            </p>
-        </div>
+      <div class="texto">
+    <p>
+        En este video exploramos un concepto clave en la rotación de cuerpos rígidos: <strong>el torque</strong>, también conocido como momento de fuerza.
+        <br><br>
+        El <strong>torque</strong> (τ) describe la tendencia de una fuerza a causar o cambiar el movimiento rotacional de un objeto respecto a un eje. Es análogo a la fuerza en el movimiento lineal.
+        <br><br>
+        La fórmula del torque es:
+        <br>
+        <code>τ = r · F · sen(θ)</code>
+        <br>
+        donde <strong>r</strong> es la distancia desde el eje de rotación hasta el punto de aplicación de la fuerza (brazo de palanca), <strong>F</strong> es la fuerza aplicada y <strong>θ</strong> es el ángulo entre el vector de fuerza y el brazo.
+        <br><br>
+        El torque se mide en <strong>Newton-metro (N·m)</strong> y su dirección se determina usando la <em>regla de la mano derecha</em>. Si la fuerza es perpendicular al brazo (θ = 90°), el torque es máximo.
+        <br><br>
+        El torque es responsable de la aceleración angular de los objetos. Si se aplica un torque neto, el objeto comienza a rotar o cambia su velocidad angular.
+    </p>
+</div>
+
 
         <!-- Segundo cuadro de texto -->
-        <div class="caja-texto">
-            <p>
-                <strong>Ejemplo resuelto:</strong><br>
-                Una rueda parte del reposo y alcanza una velocidad angular de 15 rad/s en 5 segundos. ¿Cuál fue su aceleración angular?
-                <br><br>
-                Usamos la fórmula: <code>α = (ω - ω₀)/t = (15 - 0)/5 = 3 rad/s²</code><br>
-                La aceleración angular fue de <strong>3 rad/s²</strong>.
-                <br><br>
-                Ahora, si queremos saber cuántos radianes giró en ese tiempo:
-                <br>
-                <code>θ = ω₀·t + (1/2)·α·t² = 0 + (1/2)(3)(5²) = 37.5 rad</code>
-                <br>
-                La rueda giró <strong>37.5 radianes</strong>.
-            </p>
-        </div>
+      <div class="caja-texto">
+    <p>
+        <strong>Ejemplo resuelto:</strong><br>
+        Una llave de 0.3 m de largo se usa para aflojar un tornillo. Si se aplica una fuerza de 20 N perpendicular al brazo, ¿cuál es el torque?
+        <br><br>
+        Usamos la fórmula: <code>τ = r · F · sen(θ) = 0.3 · 20 · sen(90°) = 6 N·m</code><br>
+        El torque ejercido es de <strong>6 N·m</strong>.
+        <br><br>
+        Ahora, si la fuerza se aplica con un ángulo de 45° respecto al brazo:
+        <br>
+        <code>τ = 0.3 · 20 · sen(45°) ≈ 0.3 · 20 · 0.707 ≈ 4.24 N·m</code><br>
+        El torque se reduce a aproximadamente <strong>4.24 N·m</strong> debido al ángulo.
+    </p>
+</div>
+
 
         <!-- Botón siguiente -->
         <form class="cuestionario">

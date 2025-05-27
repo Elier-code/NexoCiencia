@@ -17,8 +17,7 @@
     <div class="contenedor">
 
         <!-- Primer video -->
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/RkEJ4l9g3xw?si=SCO0-utEkigbvJJm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> <!-- en el src se ubica el link del video -->
-
+       <iframe width="560" height="315" src="https://www.youtube.com/embed/URJ3u_lnkmI?si=nXz4uDbuZIYl5eYT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         <!-- Texto central -->
         <div class="texto">
             <p>
@@ -28,44 +27,35 @@
         </div>
 
         <!-- Segundo cuadro de texto -->
-        <div class="caja-texto">
-            <p>
-                <strong>Rotación de un cuerpo rígido:</strong><br><br>
-                Un cuerpo rígido es un objeto idealizado en el que las distancias entre todas sus partes permanecen
-                constantes mientras se mueve. En la rotación de un cuerpo rígido alrededor de un eje fijo, cada punto
-                del cuerpo describe un círculo en un plano perpendicular al eje de rotación, y todos los puntos tienen
-                la misma velocidad angular (&omega;) y aceleración angular (&alpha;).<br><br>
+   <div class="caja-texto">
+    <p>
+        <strong>Velocidad angular:</strong><br><br>
+        La velocidad angular (&omega;) es una magnitud física que describe la rapidez con la que un objeto gira o rota
+        alrededor de un eje. Se define como el ángulo barrido por unidad de tiempo y se mide en radianes por segundo (rad/s).<br><br>
 
-                La dinámica de rotación se describe mediante el <em>momento de inercia</em> (I), que es análogo a la
-                masa en el movimiento lineal y depende de cómo está distribuida la masa respecto al eje de rotación. La
-                ecuación fundamental es:<br>
-                <strong>&tau; = I &alpha;</strong><br>
-                donde &tau; es el torque neto aplicado sobre el cuerpo.<br><br>
+        Matemáticamente se expresa como:<br>
+        <strong>&omega; = &theta; / t</strong><br>
+        donde &theta; es el ángulo girado (en radianes) y <em>t</em> es el tiempo empleado.<br><br>
 
-                Esta ecuación es análoga a la segunda ley de Newton para el movimiento lineal (F = ma). Además, en
-                ausencia de fuerzas externas, el momento angular del cuerpo se conserva. Este principio es crucial para
-                entender fenómenos como la estabilidad de los giroscopios o el movimiento de los patinadores al
-                girar.<br><br>
+        La velocidad angular puede ser positiva o negativa, dependiendo del sentido de giro (convencionalmente positivo en sentido antihorario).
+        Además, en un movimiento circular uniforme, esta magnitud es constante, mientras que en un movimiento circular no uniforme puede cambiar con el tiempo, generando una aceleración angular (&alpha;).<br><br>
 
-                <strong>Ejercicio resuelto:</strong><br><br>
-                <em>Un disco uniforme de 2 kg y radio 0.5 m está inicialmente en reposo. Se le aplica un torque
-                    constante de 1 N·m. ¿Cuál será su aceleración angular y su velocidad angular después de 4
-                    segundos?</em><br><br>
+        También puede relacionarse con la velocidad tangencial (<em>v</em>) mediante la fórmula:<br>
+        <strong>v = &omega; · r</strong><br>
+        donde <em>r</em> es el radio de la trayectoria circular.<br><br>
 
-                <u>Solución:</u><br>
-                - El momento de inercia de un disco respecto a su eje central es: <br>
-                &nbsp;&nbsp;&nbsp;I = (1/2)MR² = (1/2)(2)(0.5)² = 0.25 kg·m²<br><br>
+        <strong>Ejercicio resuelto:</strong><br><br>
+        <em>Un objeto gira en una trayectoria circular de radio 0.3 m, recorriendo un ángulo de 12.56 radianes en 4 segundos. 
+        ¿Cuál es su velocidad angular y su velocidad tangencial?</em><br><br>
 
-                - Usamos la ecuación del torque: <br>
-                &nbsp;&nbsp;&nbsp;&tau; = I&alpha; ⇒ 1 = 0.25&alpha; ⇒ &alpha; = 4 rad/s²<br><br>
+        <u>Solución:</u><br>
+        - Usamos la fórmula: &omega; = &theta;/t = 12.56 / 4 = <strong>3.14 rad/s</strong><br><br>
+        - Luego: v = &omega; · r = 3.14 × 0.3 = <strong>0.942 m/s</strong><br><br>
 
-                - Como la aceleración angular es constante y el disco parte del reposo:<br>
-                &nbsp;&nbsp;&nbsp;&omega; = &alpha;t = 4 × 4 = <strong>16 rad/s</strong><br><br>
+        <strong>Respuesta:</strong> La velocidad angular es 3.14 rad/s y la velocidad tangencial es 0.942 m/s.
+    </p>
+</div>
 
-                <strong>Respuesta:</strong> La aceleración angular es 4 rad/s² y la velocidad angular después de 4 s es
-                16 rad/s.
-            </p>
-        </div>
 
         <!-- Botón siguiente -->
         <form class="cuestionario">

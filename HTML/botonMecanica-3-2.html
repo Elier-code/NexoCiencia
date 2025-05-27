@@ -18,94 +18,93 @@
 <div class="contenedor">
  
     <!-- Video -->
-    <video width="640" height="360" controls>
-        <source src="video1.mp4" type="video/mp4">
-        Tu navegador no soporta videos HTML5.
-    </video>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/8387f4gw3O4?si=B3cJqrXSNcTKXTd-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-    <!-- Cuestionario -->
-    <form class="cuestionario">
-        <h2>Prueba de Conocimientos: Aceleración y Velocidad Angular</h2>
+   <!-- Cuestionario sobre Torque -->
+<form class="cuestionario">
+    <h2>Prueba de Conocimientos: Torque</h2>
 
-        <div class="pregunta">
-            <p>1. ¿Cuál es la unidad de la velocidad angular en el Sistema Internacional?</p>
-            <label><input type="radio" name="p1" value="A"> A) m/s²</label>
-            <label><input type="radio" name="p1" value="B"> B) rad/s</label>
-            <label><input type="radio" name="p1" value="C"> C) rev/min</label>
-            <label><input type="radio" name="p1" value="D"> D) N·m</label>
-        </div>
+    <div class="pregunta">
+        <p>1. ¿Qué es el torque?</p>
+        <label><input type="radio" name="p1" value="A"> A) Es una fuerza que actúa en línea recta</label>
+        <label><input type="radio" name="p1" value="B"> B) Es la tendencia de una fuerza a hacer girar un objeto</label>
+        <label><input type="radio" name="p1" value="C"> C) Es la velocidad angular de un cuerpo</label>
+        <label><input type="radio" name="p1" value="D"> D) Es el peso de un objeto en rotación</label>
+    </div>
 
-        <div class="pregunta">
-            <p>2. ¿Qué representa la aceleración angular?</p>
-            <label><input type="radio" name="p2" value="A"> A) La velocidad con que cambia la posición angular</label>
-            <label><input type="radio" name="p2" value="B"> B) El desplazamiento angular de un objeto</label>
-            <label><input type="radio" name="p2" value="C"> C) El cambio de velocidad angular por unidad de tiempo</label>
-            <label><input type="radio" name="p2" value="D"> D) El tiempo que tarda un cuerpo en detenerse</label>
-        </div>
+    <div class="pregunta">
+        <p>2. ¿Cuál es la fórmula del torque?</p>
+        <label><input type="radio" name="p2" value="A"> A) T = m·a</label>
+        <label><input type="radio" name="p2" value="B"> B) τ = r × F</label>
+        <label><input type="radio" name="p2" value="C"> C) τ = m·v²/r</label>
+        <label><input type="radio" name="p2" value="D"> D) τ = F·v</label>
+    </div>
 
-        <div class="pregunta">
-            <p>3. ¿Qué ocurre si la aceleración angular y la velocidad angular tienen signos opuestos?</p>
-            <label><input type="radio" name="p3" value="A"> A) El cuerpo rota con mayor rapidez</label>
-            <label><input type="radio" name="p3" value="B"> B) El cuerpo se frena</label>
-            <label><input type="radio" name="p3" value="C"> C) El cuerpo cambia de eje</label>
-            <label><input type="radio" name="p3" value="D"> D) No hay efecto alguno</label>
-        </div>
+    <div class="pregunta">
+        <p>3. ¿Qué unidad se utiliza para medir el torque?</p>
+        <label><input type="radio" name="p3" value="A"> A) N·m</label>
+        <label><input type="radio" name="p3" value="B"> B) kg·m</label>
+        <label><input type="radio" name="p3" value="C"> C) rad/s</label>
+        <label><input type="radio" name="p3" value="D"> D) J/kg</label>
+    </div>
 
-        <div class="pregunta">
-            <p>4. ¿Cuál es la fórmula de la aceleración angular instantánea?</p>
-            <label><input type="radio" name="p4" value="A"> A) az = dvz/dt</label>
-            <label><input type="radio" name="p4" value="B"> B) az = vz/t</label>
-            <label><input type="radio" name="p4" value="C"> C) az = d²u/dt²</label>
-            <label><input type="radio" name="p4" value="D"> D) Ambas A y C son correctas</label>
-        </div>
+    <div class="pregunta">
+        <p>4. ¿Qué ocurre si la fuerza aplicada no es perpendicular al brazo de palanca?</p>
+        <label><input type="radio" name="p4" value="A"> A) El torque se maximiza</label>
+        <label><input type="radio" name="p4" value="B"> B) El torque disminuye</label>
+        <label><input type="radio" name="p4" value="C"> C) El objeto rota más rápido</label>
+        <label><input type="radio" name="p4" value="D"> D) No se produce torque</label>
+    </div>
 
-        <div class="pregunta">
-            <p>5. ¿Qué condición implica que la aceleración angular es constante?</p>
-            <label><input type="radio" name="p5" value="A"> A) vz cambia de forma irregular</label>
-            <label><input type="radio" name="p5" value="B"> B) vz cambia a una tasa uniforme</label>
-            <label><input type="radio" name="p5" value="C"> C) az = 0</label>
-            <label><input type="radio" name="p5" value="D"> D) u permanece constante</label>
-        </div>
+    <div class="pregunta">
+        <p>5. ¿Qué factor NO influye en el torque?</p>
+        <label><input type="radio" name="p5" value="A"> A) Magnitud de la fuerza</label>
+        <label><input type="radio" name="p5" value="B"> B) Dirección de la fuerza</label>
+        <label><input type="radio" name="p5" value="C"> C) Tiempo de aplicación</label>
+        <label><input type="radio" name="p5" value="D"> D) Distancia al eje de rotación</label>
+    </div>
 
-        <div class="pregunta">
-            <p>6. Si un disco gira con az = -10 rad/s², ¿qué le ocurre?</p>
-            <label><input type="radio" name="p6" value="A"> A) Acelera en sentido horario</label>
-            <label><input type="radio" name="p6" value="B"> B) Se detiene</label>
-            <label><input type="radio" name="p6" value="C"> C) Disminuye su velocidad angular</label>
-            <label><input type="radio" name="p6" value="D"> D) Cambia su eje de rotación</label>
-        </div>
+    <div class="pregunta">
+        <p>6. Si una puerta se empuja cerca de las bisagras, el torque será:</p>
+        <label><input type="radio" name="p6" value="A"> A) Máximo</label>
+        <label><input type="radio" name="p6" value="B"> B) Nulo</label>
+        <label><input type="radio" name="p6" value="C"> C) Bajo</label>
+        <label><input type="radio" name="p6" value="D"> D) Infinito</label>
+    </div>
 
-        <div class="pregunta">
-            <p>7. ¿Qué representa la ecuación vz = v₀z + az·t?</p>
-            <label><input type="radio" name="p7" value="A"> A) La aceleración tangencial</label>
-            <label><input type="radio" name="p7" value="B"> B) La velocidad angular instantánea con aceleración angular constante</label>
-            <label><input type="radio" name="p7" value="C"> C) La distancia angular recorrida</label>
-            <label><input type="radio" name="p7" value="D"> D) La aceleración centrípeta</label>
-        </div>
+    <div class="pregunta">
+        <p>7. ¿Qué describe mejor al torque negativo?</p>
+        <label><input type="radio" name="p7" value="A"> A) Fuerza que no produce rotación</label>
+        <label><input type="radio" name="p7" value="B"> B) Rotación en sentido antihorario</label>
+        <label><input type="radio" name="p7" value="C"> C) Rotación en sentido horario</label>
+        <label><input type="radio" name="p7" value="D"> D) Fuerza aplicada verticalmente</label>
+    </div>
 
-        <div class="pregunta">
-            <p>8. ¿Qué dirección tiene el vector de velocidad angular?</p>
-            <label><input type="radio" name="p8" value="A"> A) Perpendicular al plano de rotación</label>
-            <label><input type="radio" name="p8" value="B"> B) Tangente a la trayectoria</label>
-            <label><input type="radio" name="p8" value="C"> C) Paralela a la aceleración centrípeta</label>
-            <label><input type="radio" name="p8" value="D"> D) No tiene dirección</label>
-        </div>
+    <div class="pregunta">
+        <p>8. ¿Cuál es la mejor forma de generar el mayor torque?</p>
+        <label><input type="radio" name="p8" value="A"> A) Aplicar una gran fuerza perpendicular lejos del eje</label>
+        <label><input type="radio" name="p8" value="B"> B) Aplicar una fuerza pequeña cerca del eje</label>
+        <label><input type="radio" name="p8" value="C"> C) Empujar en línea con el eje</label>
+        <label><input type="radio" name="p8" value="D"> D) Usar una masa rotante</label>
+    </div>
 
-        <div class="pregunta">
-            <p>9. ¿Qué significa que una rueda tenga una velocidad angular de 2 rad/s?</p>
-            <label><input type="radio" name="p9" value="A"> A) Gira dos vueltas por segundo</label>
-            <label><input type="radio" name="p9" value="B"> B) Recorre dos radianes por segundo</label>
-            <label><input type="radio" name="p9" value="C"> C) Tiene aceleración de 2 rad/s²</label>
-            <label><input type="radio" name="p9" value="D"> D) Gira a 2 m/s</label>
-        </div>
+    <div class="pregunta">
+        <p>9. ¿En qué situación el torque neto será cero?</p>
+        <label><input type="radio" name="p9" value="A"> A) Cuando todas las fuerzas giran en el mismo sentido</label>
+        <label><input type="radio" name="p9" value="B"> B) Cuando no hay fuerza aplicada</label>
+        <label><input type="radio" name="p9" value="C"> C) Cuando los torques opuestos se equilibran</label>
+        <label><input type="radio" name="p9" value="D"> D) Cuando el objeto se mueve en línea recta</label>
+    </div>
 
-        <div class="pregunta">
-            <p>10. ¿Cuál de las siguientes expresiones representa el desplazamiento angular con aceleración constante?</p>
-            <label><input type="radio" name="p10" value="A"> A) u = u₀ + v₀z·t</label>
-            <label><input type="radio" name="p10" value="B"> B) u = u₀ + v₀z·t + ½·az·t²</label>
-            <label><input type="radio" name="p10" value="C"> C) u = v₀z + az</label>
-            <label><input type="radio" name="p10" value="D"> D) u = v₀z² + 2az</label>
-        </div>
+    <div class="pregunta">
+        <p>10. ¿Qué representa el producto vectorial en la fórmula del torque?</p>
+        <label><input type="radio" name="p10" value="A"> A) Una resta entre fuerza y distancia</label>
+        <label><input type="radio" name="p10" value="B"> B) Una suma de vectores en el plano XY</label>
+        <label><input type="radio" name="p10" value="C"> C) Una cantidad escalar sin dirección</label>
+        <label><input type="radio" name="p10" value="D"> D) Una dirección perpendicular al plano definido por r y F</label>
+    </div>
+</form>
+
 
         <!-- Botón enviar -->
         <div class="boton">

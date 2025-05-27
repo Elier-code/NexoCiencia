@@ -14,41 +14,37 @@
     <div class="contenedor">
 
         <!-- Primer video -->
-        <video width="640" height="360" controls>
-            <source src="video1.mp4" type="video/mp4">
-            Tu navegador no soporta videos HTML5.
-        </video>
+       <iframe width="560" height="315" src="https://www.youtube.com/embed/SlQmNbMNUOY?si=4mXOESOjaIdCid6t" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
         <!-- Texto central -->
-        <div class="texto">
-            <p>
-                <strong>¿Qué es el Torque?</strong><br>
-                El torque (también llamado momento de fuerza) mide la tendencia de una fuerza a hacer girar un objeto
-                alrededor de un eje. Se calcula con la fórmula:<br>
-                <code>τ = F · r · sen(θ)</code><br>
-                donde <strong>τ</strong> es el torque, <strong>F</strong> es la magnitud de la fuerza aplicada, 
-                <strong>r</strong> es la distancia al punto de giro y <strong>θ</strong> es el ángulo entre la fuerza y el brazo de palanca.<br><br>
+      <div class="texto">
+    <p>
+        <strong>¿Qué es la Aceleración Angular?</strong><br>
+        La aceleración angular mide la tasa de cambio de la velocidad angular con respecto al tiempo. 
+        Indica qué tan rápido está cambiando la velocidad de rotación de un objeto.<br>
+        Se representa con la letra <strong>α</strong> y se calcula con la fórmula:<br>
+        <code>α = Δω / Δt</code><br>
+        donde <strong>α</strong> es la aceleración angular, <strong>Δω</strong> es el cambio en la velocidad angular y <strong>Δt</strong> es el intervalo de tiempo.<br><br>
 
-                Algunas aplicaciones comunes del torque son: abrir una puerta, usar una llave inglesa o girar una manivela. 
-                Es un concepto clave en la física rotacional.
-            </p>
-        </div>
+        La aceleración angular es fundamental para entender cómo varía el movimiento rotacional en sistemas como ruedas, motores o planetas.
+    </p>
+</div>
 
-        <!-- Segundo cuadro de texto -->
-        <div class="caja-texto">
-            <p>
-                <strong>Ejercicio resuelto:</strong><br>
-                Una fuerza de <strong>10 N</strong> se aplica perpendicularmente a una barra de <strong>2 m</strong> de largo desde el eje de rotación.
-                ¿Cuál es el torque generado?<br><br>
-                <code>τ = F · r · sen(90°) = 10 N · 2 m · 1 = 20 N·m</code><br><br>
+<!-- Segundo cuadro de texto -->
+<div class="caja-texto">
+    <p>
+        <strong>Ejercicio resuelto:</strong><br>
+        Un objeto aumenta su velocidad angular de <strong>5 rad/s</strong> a <strong>15 rad/s</strong> en un intervalo de <strong>4 segundos</strong>.<br>
+        ¿Cuál es su aceleración angular?<br><br>
+        <code>α = (ω_final - ω_inicial) / Δt = (15 rad/s - 5 rad/s) / 4 s = 10 / 4 = 2.5 rad/s²</code><br><br>
 
-                <strong>Otro ejemplo:</strong><br>
-                Si una fuerza de <strong>12 N</strong> actúa a <strong>3 m</strong> del eje formando un ángulo de <strong>30°</strong>:<br>
-                <code>τ = 12 N · 3 m · sen(30°) = 12 · 3 · 0.5 = 18 N·m</code><br><br>
+        <strong>Otro ejemplo:</strong><br>
+        Si una rueda parte del reposo y alcanza una velocidad angular de <strong>12 rad/s</strong> en <strong>3 segundos</strong>, su aceleración angular es:<br>
+        <code>α = (12 rad/s - 0) / 3 s = 4 rad/s²</code><br><br>
 
-                Estos ejercicios muestran cómo se calcula el torque en distintos contextos usando trigonometría básica.
-            </p>
-        </div>
+        Estos ejemplos ilustran cómo calcular la aceleración angular en distintos escenarios prácticos.
+    </p>
+</div>
 
         <!-- Botón siguiente -->
         <form class="cuestionario">
