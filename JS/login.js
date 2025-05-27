@@ -73,7 +73,7 @@ function register() {
             return;
         }
 
-        const userNameGenerado = `${nombre.value[0]}${apellido.value}`.replace(/\s/g, '');
+        const userNameGenerado = `${nombre.value[0]}${apellido.value.trim().split(" ")[0]}`.replace(/\s/g, '');
 
         const usuario = new Usuario(getValorSecuenciaUsuario(), nombre.value, apellido.value, userNameGenerado, password.value, email.value, "estudiante")
 

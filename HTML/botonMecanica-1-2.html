@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <title>Video y Cuestionario</title>
     <link rel="stylesheet" href="../CSS/botones.css">
+    <script src="../JS/utilidades.js"></script>
+    <script src="../JS/auth.js"></script>
     <script src="../JS/icono.js"></script>
+
     <style>
         .contenedor {
             padding: 30px;
@@ -19,7 +22,7 @@
         <!-- Video -->
         <iframe width="560" height="315" src="https://www.youtube.com/embed/AzOyFW9rBkg?si=aDI-UufurAbuE2qz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-       <!-- Cuestionario -->
+        <!-- Cuestionario -->
 <form class="cuestionario">
     <h2>Prueba de Conocimientos: Velocidad Angular</h2>
 
@@ -118,8 +121,67 @@
 </div>
     <script>
         insertarLogo();
+        checkSession(true)
+        const respuestasCorrectas = {
+            p1: "C", p2: "C", p3: "B", p4: "B", p5: "B",
+            p6: "B", p7: "B", p8: "C", p9: "B", p10: "C"
+        };
+
+        document.getElementById('formulario-quiz').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const sesion = checkSession(true);
+            if (!sesion || sesion.length === 0) {
+                alert("No hay sesión activa");
+                return;
+            }
+
+            const userName = sesion[0].userName || sesion[0].correo; // fallback
+
+            for (let i = 1; i <= 10; i++) {
+                const opciones = document.getElementsByName(`p${i}`);
+                const respondida = Array.from(opciones).some(op => op.checked);
+                if (!respondida) {
+                    alert(`Por favor responde la pregunta ${i}.`);
+                    return;
+                }
+            }
+
+            let correctas = 0;
+            let total = Object.keys(respuestasCorrectas).length;
+
+            for (let clave in respuestasCorrectas) {
+                const seleccion = document.querySelector(`input[name="${clave}"]:checked`);
+                if (seleccion && seleccion.value === respuestasCorrectas[clave]) {
+                    correctas++;
+                }
+            }
+
+            localStorage.setItem(`${userName}_nivel 1.2`, JSON.stringify({//_nivel 1.2 debe cambiarse dependiedo al nivel
+                completado: true,
+                correctas,
+                total
+            }));
+
+            document.getElementById("texto-modal").innerHTML =
+                `¡Gracias por completar el examen!<br>Resultado: ${correctas}/${total}`;
+            document.getElementById("modal-mensaje").style.display = "flex";
+        });
+        function reintentar() {
+            const sesion = checkSession(true);
+            if (!sesion || sesion.length === 0) return;
+            const userName = sesion[0].userName || sesion[0].correo;
+
+            for (let i = 1; i <= 10; i++) {
+                const opciones = document.getElementsByName(`p${i}`);
+                opciones.forEach(op => op.checked = false);
+            }
+
+            localStorage.removeItem(`${userName}_nivel 1.2`);//_nivel 1.2 debe cambiarse dependiedo al nivel
+            document.getElementById("modal-mensaje").style.display = "none";
+        }
     </script>
-</script>
-<script src="../JS/modal.js"></script><!--Importacion del script para funcionamiento de la ventana modal-->
+
+    <script src="../JS/modal.js"></script><!--Importacion del script para funcionamiento de la ventana modal-->
 </body>
 </html>
