@@ -16,7 +16,7 @@
     
 </head>
 <body>
-    <div class="cont-volver">
+    <div id="cont-volver">
         <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
     </div>
     <div class="contenedor">
@@ -128,7 +128,7 @@
             p6: "B", p7: "B", p8: "C", p9: "B", p10: "C"
         };
 
-        document.getElementsByClassName('cuestionario').addEventListener('submit', function (e) {
+        document.getElementById('cuestionario').addEventListener('submit', function (e) {
             e.preventDefault();
 
             const sesion = checkSession(true);
