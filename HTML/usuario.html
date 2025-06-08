@@ -63,7 +63,7 @@
             backdrop-filter: blur(5px);
             animation: fadeIn 0.5s ease-out;
             position: absolute;
-            top: var(--spacing-md);
+            top: calc(var(--spacing-md) + 50px);
             right: var(--spacing-md);
             max-width: 80%;
             z-index: 10;
@@ -198,13 +198,17 @@
 
         .btn-logout {
             background: transparent;
-            color:azure;
+            color: azure;
             border: 1px solid var(--text-light);
             padding: var(--spacing-md) var(--spacing-lg);
             border-radius: var(--radius-md);
             cursor: pointer;
             transition: var(--transition-normal);
             font-weight: 500;
+            position: absolute;
+            top: var(--spacing-md);
+            right: var(--spacing-md);
+            z-index: 10;
         }
 
         .btn-logout:hover {
@@ -279,9 +283,16 @@
             .welcome-message {
                 font-size: 1.2rem;
                 padding: var(--spacing-sm);
-                top: var(--spacing-sm);
+                top: calc(var(--spacing-sm) + 45px);
                 right: var(--spacing-sm);
                 max-width: 90%;
+            }
+
+            .btn-logout {
+                padding: var(--spacing-sm) var(--spacing-md);
+                font-size: 0.9rem;
+                top: var(--spacing-sm);
+                right: var(--spacing-sm);
             }
         }
 
@@ -293,6 +304,7 @@
             .welcome-message {
                 font-size: 1.1rem;
                 max-width: 95%;
+                top: calc(var(--spacing-sm) + 40px);
             }
 
             .profile-photo {
@@ -302,11 +314,6 @@
 
             .user-name {
                 font-size: 1.3rem;
-            }
-
-            .btn-logout {
-                padding: var(--spacing-sm) var(--spacing-md);
-                font-size: 0.9rem;
             }
         }
 
@@ -400,6 +407,11 @@
     <div class="dashboard-container">
         <!-- Header con información del usuario -->
         <div class="dashboard-header">
+            <button class="btn-logout">
+                <i class="fas fa-sign-out-alt"></i>
+                Cerrar Sesión
+            </button>
+            
             <div class="welcome-message">
                 <i class="fas fa-hand-wave welcome-icon"></i>
                 ¡Bienvenido a Nexo Ciencia, <span id="nombreBienvenida"></span>!
@@ -420,10 +432,6 @@
                 
                 <div class="user-details">
                     <h1 class="user-name" id="nombreSesion"></h1>
-                    <button class="btn-logout">
-                        <i class="fas fa-sign-out-alt"></i>
-                        Cerrar Sesión
-                    </button>
                 </div>
             </div>
         </div>
