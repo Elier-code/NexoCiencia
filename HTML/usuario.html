@@ -5,14 +5,19 @@
     <title>Panel del Usuario - Nexo Ciencia</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/base.css">
-    <link rel="stylesheet" href="../CSS/usuario.css">
+    <link rel="stylesheet" href="../CSS/usuario-nuevo.css">
     <link rel="stylesheet" href="../CSS/theme.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-material-ui/material-ui.css">
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../JS/utilidades.js"></script>
     <script src="../JS/auth.js"></script>
     <script src="../JS/profilePhoto.js"></script>
     <script src="../JS/usuario.js" defer></script>
+    <script src="../JS/theme.js" defer></script>
 
     <style>
         .dashboard-container {
@@ -112,7 +117,7 @@
 
         .btn-logout {
             background: transparent;
-            color: var(--text-medium);
+            color:azure;
             border: 1px solid var(--text-light);
             padding: var(--spacing-md) var(--spacing-lg);
             border-radius: var(--radius-md);
@@ -316,173 +321,192 @@
             position: relative;
             display: inline-block;
         }
+
+        .welcome-message {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: white;
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+            padding: var(--spacing-md);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .welcome-icon {
+            margin-right: 8px;
+            font-size: 1.5rem;
+        }
+
+        [data-theme="dark"] .welcome-message {
+            background: var(--secondary);
+            color: white;
+        }
     </style>
 </head>
 <body>
     <!-- Alerta personalizada -->
     <div id="customAlert" class="custom-alert"></div>
 
-    <nav class="nav">
-        <a href="../index.html" class="nav-logo">
-            <img src="../Recursos/Imagenes/NEXO CIENCIA.svg" alt="Nexo Ciencia" style="width: 110px;">
-        </a>
-        <div class="user-menu">
-            <button class="theme-toggle" id="theme-toggle" title="Cambiar tema">
-                <i class="fas fa-sun"></i>
-            </button>
-            <button onclick="cerrarSesion()" class="btn-logout">
-                <i class="fas fa-sign-out-alt"></i>
-                Cerrar Sesión
-            </button>
-        </div>
-    </nav>
-
-    <div class="profile-container">
-        <div class="profile-header">
-            <div class="profile-photo-section">
-                <div class="profile-photo" id="profile-photo-container">
-                    <img src="https://cdn-icons-png.flaticon.com/512/2922/2922506.png" alt="Foto de perfil" id="profile-photo">
-                    <div class="photo-overlay" id="photo-overlay">
-                        <i class="fas fa-camera"></i>
-                        <span>Cambiar foto</span>
+    <div class="dashboard-container">
+        <!-- Header con información del usuario -->
+        <div class="dashboard-header">
+            <div class="welcome-message" id="welcomeMessage">
+                <i class="fas fa-hand-wave welcome-icon"></i>
+                ¡Bienvenido a Nexo Ciencia, <span id="nombreBienvenida"></span>!
+            </div>
+            <div class="user-profile">
+                <div class="user-avatar-container">
+                    <div class="profile-photo" id="profile-photo-container">
+                        <img id="user-avatar" src="https://cdn-icons-png.flaticon.com/512/2922/2922506.png" alt="Avatar de usuario" class="user-avatar">
+                        <div class="photo-overlay" id="photo-overlay">
+                            <i class="fas fa-camera"></i>
+                            <span>Cambiar foto</span>
+                        </div>
                     </div>
+                    <input type="file" id="photo-upload" accept="image/*" style="display: none;">
+                    <button class="btn-remove-photo" id="btn-remove-photo" title="Eliminar foto">
+                        <i class="fas fa-trash"></i>
+                    </button>
                 </div>
-                <input type="file" id="photo-upload" accept="image/*" style="display: none;">
-                <button class="btn-remove-photo" id="btn-remove-photo" onclick="removeProfilePhoto()" title="Eliminar foto">
-                    <i class="fas fa-trash"></i>
-                </button>
-            </div>
-            <div class="profile-info">
-                <h1 id="nombre-usuario">Bienvenido</h1>
+                <div class="user-details">
+                    <h1 class="user-name" id="nombreSesion"></h1>
+                    <button class="btn-logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Cerrar Sesión
+                    </button>
+                </div>
             </div>
         </div>
 
+        <!-- Estadísticas del usuario -->
         <div class="stats-container">
             <div class="stat-card">
-                <div class="stat-number">4</div>
-                <div class="stat-label">Cursos en Progreso</div>
+                <i class="fas fa-trophy stat-icon"></i>
+                <div class="stat-number" id="total-niveles">5</div>
+                <div class="stat-label">Niveles Completados</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">75%</div>
-                <div class="stat-label">Promedio</div>
+                <i class="fas fa-star stat-icon"></i>
+                <div class="stat-number" id="promedio-general">75%</div>
+                <div class="stat-label">Promedio General</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">12</div>
-                <div class="stat-label">Ejercicios Completados</div>
+                <i class="fas fa-award stat-icon"></i>
+                <div class="stat-number" id="mejor-puntuacion">95%</div>
+                <div class="stat-label">Mejor Puntuación</div>
             </div>
         </div>
 
-        <!-- Nueva sección para el selector de tema -->
+        <!-- Grid de tarjetas -->
+        <div class="dashboard-grid">
+            <!-- Tarjeta de Mi Progreso -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Mi Progreso</h3>
+                </div>
+                <p>Visualiza tu avance en los cursos, estadísticas y logros obtenidos.</p>
+                <a href="progreso.html" class="btn-action">
+                    <i class="fas fa-chart-bar"></i>
+                    Ver Mi Progreso
+                </a>
+            </div>
+
+            <!-- Tarjeta de Cursos -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Mis Cursos</h3>
+                </div>
+                <p>Explora todos los cursos disponibles y continúa tu aprendizaje.</p>
+                <a href="menu.html" class="btn-action">
+                    <i class="fas fa-book"></i>
+                    Ver Mis Cursos
+                </a>
+            </div>
+
+            <!-- Tarjeta de Perfil -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-user-cog"></i>
+                    </div>
+                    <h3>Mi Perfil</h3>
+                </div>
+                <p>Personaliza tu experiencia y gestiona tu información personal.</p>
+                <a href="usuarioModifica.html" class="btn-action">
+                    <i class="fas fa-cog"></i>
+                    Configurar Mi Perfil
+                </a>
+            </div>
+        </div>
+
+        <!-- Selector de tema -->
         <div class="theme-section">
-            <h3>Tema de la aplicación</h3>
+            <h3>Personalización</h3>
             <div class="theme-options">
                 <button class="theme-btn" data-theme="light">
                     <i class="fas fa-sun"></i>
-                    Claro
+                    Modo Claro
                 </button>
                 <button class="theme-btn" data-theme="dark">
                     <i class="fas fa-moon"></i>
-                    Oscuro
+                    Modo Oscuro
                 </button>
-            </div>
-        </div>
-
-        <div class="dashboard-grid">
-            <div class="dashboard-card">
-                <h3>
-                    <i class="fas fa-user-edit"></i>
-                    Actualizar Datos
-                </h3>
-                <p>Mantén tu información personal actualizada para una mejor experiencia.</p>
-                <a href="usuarioModifica.html" class="btn-action">Actualizar mis datos</a>
-            </div>
-
-            <div class="dashboard-card">
-                <h3>
-                    <i class="fas fa-book"></i>
-                    Mis Cursos
-                </h3>
-                <p>Accede a tus cursos de física y cálculo. Continúa tu aprendizaje donde lo dejaste.</p>
-                <a href="menu.html" class="btn-action">Ver cursos</a>
-            </div>
-
-            <div class="dashboard-card">
-                <h3>
-                    <i class="fas fa-chart-line"></i>
-                    Mi Progreso
-                </h3>
-                <p>Revisa tus logros, evaluaciones completadas y áreas de mejora.</p>
-                <a href="progreso.html" class="btn-action">Ver mi progreso</a>
             </div>
         </div>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Verificar y obtener la sesión del usuario
             const sesion = checkSession(true);
             if (sesion && sesion.length > 0) {
-                document.getElementById('nombre-usuario').textContent = `Bienvenido, ${sesion[0].nombres || sesion[0].userName}`;
-                loadProfilePhoto();
+                const nombreUsuario = sesion[0].nombres.charAt(0).toUpperCase() + sesion[0].nombres.slice(1); // Capitalizar nombre
+                
+                // Actualizar el mensaje de bienvenida solo con el nombre
+                const nombreBienvenida = document.getElementById('nombreBienvenida');
+                if (nombreBienvenida) {
+                    nombreBienvenida.textContent = nombreUsuario;
+                }
+                
+                // Actualizar el nombre en el perfil
+                const nombreSesion = document.getElementById('nombreSesion');
+                if (nombreSesion) {
+                    nombreSesion.textContent = nombreUsuario;
+                }
+
+                // Mostrar el mensaje de bienvenida
+                const welcomeMessage = document.getElementById('welcomeMessage');
+                if (welcomeMessage) {
+                    welcomeMessage.style.display = 'block';
+                }
             }
 
-            // Configurar el selector de foto
-            const photoOverlay = document.getElementById('photo-overlay');
-            const photoInput = document.getElementById('photo-upload');
-            const profilePhoto = document.getElementById('profile-photo');
-            const removeButton = document.getElementById('btn-remove-photo');
-
-            // Evento para cambiar la foto
-            photoOverlay.addEventListener('click', (e) => {
-                e.stopPropagation();
-                photoInput.click();
-            });
-
-            // Evento para subir la foto
-            photoInput.addEventListener('change', function(e) {
-                if (e.target.files && e.target.files[0]) {
-                    const file = e.target.files[0];
-                    
-                    // Verificar el tamaño del archivo (máximo 5MB)
-                    if (file.size > 5 * 1024 * 1024) {
-                        mostrarAlerta('La imagen es demasiado grande. El tamaño máximo es 5MB.', 'error');
-                        return;
-                    }
-
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        const photoUrl = e.target.result;
-                        updateProfilePhoto(photoUrl);
-                        mostrarAlerta('Foto de perfil actualizada correctamente', 'success');
-                    };
-                    reader.readAsDataURL(file);
-                }
-            });
-
-            // Función para eliminar la foto
-            window.removeProfilePhoto = function() {
-                updateProfilePhoto(null);
-                mostrarAlerta('Foto de perfil eliminada', 'success');
-            };
-
-            // Cargar la foto inicial
-            loadProfilePhoto();
-
-            checkSession(true);
-            cargarDatosUsuario();
+            // Inicializar otras funcionalidades
+            actualizarFotoPerfil();
             inicializarTema();
+            configurarFotoPerfil();
         });
-
-        function mostrarAlerta(mensaje, tipo) {
-            const alertElement = document.getElementById('customAlert');
-            alertElement.textContent = mensaje;
-            alertElement.className = `custom-alert show ${tipo}`;
-            alertElement.style.backgroundColor = tipo === 'error' ? '#fee2e2' : '#dcfce7';
-            alertElement.style.color = tipo === 'error' ? '#dc2626' : '#15803d';
-
-            setTimeout(() => {
-                alertElement.classList.remove('show');
-            }, 3000);
-        }
 
         function inicializarTema() {
             const savedTheme = localStorage.getItem('theme') || 'light';
@@ -532,6 +556,74 @@
         function actualizarIconoTema(theme) {
             const themeIcon = document.querySelector('#theme-toggle i');
             themeIcon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+        }
+
+        function configurarFotoPerfil() {
+            const photoOverlay = document.getElementById('photo-overlay');
+            const photoInput = document.getElementById('photo-upload');
+            const removeButton = document.getElementById('btn-remove-photo');
+
+            // Evento para cambiar la foto
+            photoOverlay.addEventListener('click', (e) => {
+                e.stopPropagation();
+                photoInput.click();
+            });
+
+            // Evento para subir la foto
+            photoInput.addEventListener('change', function(e) {
+                if (e.target.files && e.target.files[0]) {
+                    const file = e.target.files[0];
+                    
+                    // Verificar el tamaño del archivo (máximo 5MB)
+                    if (file.size > 5 * 1024 * 1024) {
+                        Swal.fire({
+                            title: 'Error',
+                            text: 'La imagen es demasiado grande. El tamaño máximo es 5MB.',
+                            icon: 'error'
+                        });
+                        return;
+                    }
+
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const photoUrl = e.target.result;
+                        updateProfilePhoto(photoUrl);
+                        Swal.fire({
+                            title: '¡Éxito!',
+                            text: 'Foto de perfil actualizada correctamente',
+                            icon: 'success',
+                            timer: 1500,
+                            showConfirmButton: false
+                        });
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            // Evento para eliminar la foto
+            removeButton.addEventListener('click', function() {
+                Swal.fire({
+                    title: '¿Estás seguro?',
+                    text: '¿Deseas eliminar tu foto de perfil?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Sí, eliminar',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        updateProfilePhoto(null);
+                        Swal.fire({
+                            title: '¡Eliminada!',
+                            text: 'Tu foto de perfil ha sido eliminada',
+                            icon: 'success',
+                            timer: 1500,
+                            showConfirmButton: false
+                        });
+                    }
+                });
+            });
         }
     </script>
 </body>
