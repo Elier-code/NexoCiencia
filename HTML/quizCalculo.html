@@ -176,10 +176,10 @@
                 <div class="topic-progress">
                     <div class="progress-bar">
                         <div class="progress-fill" style="width: 0%"></div>
-                    </div>
+        </div>
                     <span class="progress-text">0% completado</span>
-                </div>
-            </div>
+        </div>
+        </div>
 
             <!-- Tema 4: Avanzadas -->
             <div class="topic-card">
@@ -223,7 +223,7 @@
                     </div>
                     <span class="progress-text">0% completado</span>
                 </div>
-            </div>
+        </div>
         </div>
     </div>
 
@@ -241,17 +241,17 @@
         // Función para verificar y actualizar el estado de los botones
         function actualizarEstadoBotones() {
             const botones = document.querySelectorAll('.level-btn');
-            
+                
             botones.forEach(button => {
-                const nivel = button.getAttribute('data-level');
+                    const nivel = button.getAttribute('data-level');
                 if (!verificarNivelDesbloqueadoCalculo(nivel)) {
                     button.disabled = true;
-                    button.classList.add('locked');
+                        button.classList.add('locked');
                 } else {
                     button.disabled = false;
                     button.classList.remove('locked');
-                }
-            });
+                    }
+                });
         }
 
         function actualizarProgresoTemas() {

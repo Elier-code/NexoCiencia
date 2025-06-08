@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexoCiencia - Presentación Interactiva</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+</head>
+<body>
+    <div class="presentation-container">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <!-- Slide 1: Introducción -->
+                <div class="swiper-slide slide" id="slide1">
+                    <div class="slide-content" data-aos="fade-up">
+                        <div class="hero-section">
+                            <h1 class="animated-text">NexoCiencia</h1>
+                            <p class="tagline">Transformando el aprendizaje científico</p>
+                            <div class="particle-background"></div>
+                            <div class="logo-container">
+                                <img src="https://via.placeholder.com/300x200/2a6c/fff?text=NexoCiencia" alt="Logo NexoCiencia" class="logo-image" data-aos="zoom-in">
+                            </div>
+                            <div class="tech-icons">
+                                <i class="fas fa-atom spin"></i>
+                                <i class="fas fa-dna bounce"></i>
+                                <i class="fas fa-microscope pulse"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2: Características Interactivas -->
+                <div class="swiper-slide slide" id="slide2">
+                    <div class="slide-content">
+                        <h2 class="glow-text">Experiencia Inmersiva</h2>
+                        <div class="interactive-cards">
+                            <div class="flip-card" data-aos="flip-left">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <i class="fas fa-graduation-cap"></i>
+                                        <h3>Aprendizaje</h3>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <p>Cursos interactivos con contenido multimedia y ejercicios prácticos</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flip-card" data-aos="flip-up">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <i class="fas fa-users"></i>
+                                        <h3>Comunidad</h3>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <p>Conecta con otros estudiantes y profesores en tiempo real</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flip-card" data-aos="flip-right">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <i class="fas fa-chart-line"></i>
+                                        <h3>Progreso</h3>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <p>Seguimiento personalizado con análisis detallado de tu avance</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3: Dashboard Interactivo -->
+                <div class="swiper-slide slide" id="slide3">
+                    <div class="slide-content">
+                        <h2>Tu Dashboard</h2>
+                        <div class="dashboard-preview">
+                            <div class="dashboard-section" data-aos="fade-right">
+                                <div class="progress-circle">
+                                    <svg class="progress-ring" width="120" height="120">
+                                        <circle class="progress-ring-circle" stroke="#1a2a6c" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+                                    </svg>
+                                    <span class="progress-text">85%</span>
+                                </div>
+                                <h3>Mi Progreso</h3>
+                            </div>
+                            <div class="dashboard-section active" data-aos="fade-up">
+                                <img src="https://via.placeholder.com/400x300/2a6c/fff?text=Cursos+Activos" alt="Cursos" class="dashboard-image">
+                                <h3>Cursos Activos</h3>
+                            </div>
+                            <div class="dashboard-section" data-aos="fade-left">
+                                <div class="profile-preview">
+                                    <img src="https://via.placeholder.com/150/2a6c/fff?text=Perfil" alt="Perfil" class="profile-image">
+                                    <h3>Mi Perfil</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 4: Metodología Interactiva -->
+                <div class="swiper-slide slide" id="slide4">
+                    <div class="slide-content">
+                        <h2>Metodología Innovadora</h2>
+                        <div class="interactive-timeline">
+                            <div class="timeline-item" data-aos="zoom-in">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h3>Diagnóstico</h3>
+                                    <p>Evaluación inicial personalizada</p>
+                                    <div class="timeline-icon">
+                                        <i class="fas fa-clipboard-check"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="timeline-item" data-aos="zoom-in" data-aos-delay="200">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h3>Aprendizaje</h3>
+                                    <p>Contenido adaptativo y prácticas guiadas</p>
+                                    <div class="timeline-icon">
+                                        <i class="fas fa-brain"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="timeline-item" data-aos="zoom-in" data-aos-delay="400">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h3>Evaluación</h3>
+                                    <p>Seguimiento continuo y retroalimentación</p>
+                                    <div class="timeline-icon">
+                                        <i class="fas fa-chart-bar"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 5: Logros y Gamificación -->
+                <div class="swiper-slide slide" id="slide5">
+                    <div class="slide-content">
+                        <h2>Logros y Recompensas</h2>
+                        <div class="achievements-grid">
+                            <div class="achievement-card" data-aos="zoom-in">
+                                <div class="achievement-icon">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <h3>Medallas</h3>
+                                <div class="achievement-progress">
+                                    <div class="progress-bar" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="achievement-card" data-aos="zoom-in" data-aos-delay="200">
+                                <div class="achievement-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h3>Puntos</h3>
+                                <div class="achievement-progress">
+                                    <div class="progress-bar" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="achievement-card" data-aos="zoom-in" data-aos-delay="400">
+                                <div class="achievement-icon">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <h3>Certificados</h3>
+                                <div class="achievement-progress">
+                                    <div class="progress-bar" style="width: 60%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 6: Comunidad -->
+                <div class="swiper-slide slide" id="slide6">
+                    <div class="slide-content">
+                        <h2>Comunidad NexoCiencia</h2>
+                        <div class="community-grid">
+                            <div class="community-card" data-aos="fade-up">
+                                <img src="https://via.placeholder.com/150/2a6c/fff?text=Estudiante" alt="Estudiante" class="community-image">
+                                <div class="community-info">
+                                    <h3>María García</h3>
+                                    <p>"La mejor plataforma para aprender ciencias"</p>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="community-card" data-aos="fade-up" data-aos-delay="200">
+                                <img src="https://via.placeholder.com/150/2a6c/fff?text=Profesor" alt="Profesor" class="community-image">
+                                <div class="community-info">
+                                    <h3>Dr. Carlos Ruiz</h3>
+                                    <p>"Herramienta esencial para la educación moderna"</p>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navegación -->
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+
+    <!-- Sección de perfil -->
+    <div class="profile-container">
+        <div class="welcome-banner">
+            <h1 class="welcome-message">¡Bienvenido a Nexo Ciencia, Jorge!</h1>
+        </div>
+        
+        <div class="profile-content">
+            <div class="profile-picture-wrapper">
+                <img src="images/profile.jpg" alt="Foto de perfil" class="profile-picture">
+                <button class="delete-button" title="Eliminar foto de perfil" aria-label="Eliminar foto de perfil">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+            
+            <h2 class="profile-name">Jorge</h2>
+            
+            <button class="logout-button">
+                <i class="fas fa-sign-out-alt"></i>
+                Cerrar Sesión
+            </button>
+        </div>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <i class="fas fa-trophy stat-icon"></i>
+            <div class="stat-value">5</div>
+            <div class="stat-label">Niveles Completados</div>
+        </div>
+        
+        <div class="stat-card">
+            <i class="fas fa-star stat-icon"></i>
+            <div class="stat-value">75%</div>
+            <div class="stat-label">Promedio General</div>
+        </div>
+        
+        <div class="stat-card">
+            <i class="fas fa-medal stat-icon"></i>
+            <div class="stat-value">95%</div>
+            <div class="stat-label">Mejor Puntuación</div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

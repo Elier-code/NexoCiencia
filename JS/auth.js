@@ -35,7 +35,7 @@ function logout() {
     }).then((result) => {
         if (result.isConfirmed) {
             // Limpiar la sesión
-            localStorage.removeItem(localStorageSession);
+    localStorage.removeItem(localStorageSession);
             localStorage.removeItem('theme');
             
             // Obtener la ruta base del sitio

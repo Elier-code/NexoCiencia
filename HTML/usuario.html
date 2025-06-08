@@ -31,6 +31,8 @@
             color: var(--white);
             padding: var(--spacing-xl) 0;
             margin-bottom: var(--spacing-xl);
+            position: relative;
+            min-height: 200px;
         }
 
         .user-info {
@@ -46,6 +48,85 @@
             border-radius: 50%;
             background: var(--white);
             padding: var(--spacing-xs);
+        }
+
+        .welcome-message {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: white;
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+            padding: var(--spacing-md);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.5s ease-out;
+            position: absolute;
+            top: var(--spacing-md);
+            right: var(--spacing-md);
+            max-width: 80%;
+            z-index: 10;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .profile-photo {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .photo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+        }
+
+        .profile-photo:hover .photo-overlay {
+            opacity: 1;
+        }
+
+        .btn-remove-photo {
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            background: #dc2626;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+            display: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-remove-photo:hover {
+            background: #ef4444;
+            transform: scale(1.1);
         }
 
         .dashboard-grid {
@@ -194,6 +275,39 @@
             .dashboard-card {
                 min-height: 200px;
             }
+
+            .welcome-message {
+                font-size: 1.2rem;
+                padding: var(--spacing-sm);
+                top: var(--spacing-sm);
+                right: var(--spacing-sm);
+                max-width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .dashboard-header {
+                padding: var(--spacing-md);
+            }
+
+            .welcome-message {
+                font-size: 1.1rem;
+                max-width: 95%;
+            }
+
+            .profile-photo {
+                width: 80px;
+                height: 80px;
+            }
+
+            .user-name {
+                font-size: 1.3rem;
+            }
+
+            .btn-logout {
+                padding: var(--spacing-sm) var(--spacing-md);
+                font-size: 0.9rem;
+            }
         }
 
         /* Estilos para el selector de tema */
@@ -262,89 +376,10 @@
             border-color: #ff4444;
         }
 
-        .profile-photo {
-            position: relative;
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            overflow: hidden;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
         .profile-photo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-
-        .photo-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 10px;
-            text-align: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            cursor: pointer;
-        }
-
-        .profile-photo:hover .photo-overlay {
-            opacity: 1;
-        }
-
-        .btn-remove-photo {
-            position: absolute;
-            bottom: -10px;
-            right: -10px;
-            background: #dc2626;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 32px;
-            height: 32px;
-            cursor: pointer;
-            display: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn-remove-photo:hover {
-            background: #ef4444;
-            transform: scale(1.1);
-        }
-
-        .profile-photo-section {
-            position: relative;
-            display: inline-block;
-        }
-
-        .welcome-message {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: white;
-            text-align: center;
-            margin-bottom: var(--spacing-lg);
-            padding: var(--spacing-md);
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius-lg);
-            -webkit-backdrop-filter: blur(5px);
-            backdrop-filter: blur(5px);
-            animation: fadeIn 0.5s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .welcome-icon {
@@ -365,24 +400,24 @@
     <div class="dashboard-container">
         <!-- Header con información del usuario -->
         <div class="dashboard-header">
-            <div class="welcome-message" id="welcomeMessage">
+            <div class="welcome-message">
                 <i class="fas fa-hand-wave welcome-icon"></i>
                 ¡Bienvenido a Nexo Ciencia, <span id="nombreBienvenida"></span>!
             </div>
-            <div class="user-profile">
-                <div class="user-avatar-container">
-                    <div class="profile-photo" id="profile-photo-container">
-                        <img id="user-avatar" src="https://cdn-icons-png.flaticon.com/512/2922/2922506.png" alt="Avatar de usuario" class="user-avatar">
-                        <div class="photo-overlay" id="photo-overlay">
-                            <i class="fas fa-camera"></i>
-                            <span>Cambiar foto</span>
-                        </div>
+            
+            <div class="user-info">
+                <div class="profile-photo" id="profile-photo-container">
+                    <img id="user-avatar" src="https://cdn-icons-png.flaticon.com/512/2922/2922506.png" alt="Avatar de usuario" class="user-avatar">
+                    <div class="photo-overlay" id="photo-overlay">
+                        <i class="fas fa-camera"></i>
+                        <span>Cambiar foto</span>
                     </div>
                     <input type="file" id="photo-upload" accept="image/*" style="display: none;">
                     <button class="btn-remove-photo" id="btn-remove-photo" title="Eliminar foto">
                         <i class="fas fa-trash"></i>
                     </button>
                 </div>
+                
                 <div class="user-details">
                     <h1 class="user-name" id="nombreSesion"></h1>
                     <button class="btn-logout">
