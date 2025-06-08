@@ -3,28 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juego de Pregunta - Login</title>
-    <link rel="stylesheet" href="../CSS/style.css">
+    <title>Iniciar Sesión - Nexo Ciencia</title>
+    <link rel="stylesheet" href="../CSS/base.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="../CSS/login.css">
 
+    <!-- Scripts necesarios -->
     <script src="../JS/usuario.js"></script>
     <script src="../JS/utilidades.js"></script>
     <script src="../JS/gestionarSecuancia.js"></script>
     <script src="../JS/secuencia.js"></script>
     <script src="../JS/gestionusuario.js"></script>
-
     <script src="../JS/icono.js"></script>
     <script src="../JS/sesionUsuario.js"></script>
     <script src="../JS/login.js"></script>
+
+    <style>
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-xl);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+
+        .login-card {
+            background: var(--white);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .form-container {
+            position: relative;
+        }
+
+        .login-form, .register-form {
+            transition: opacity var(--transition-normal);
+        }
+
+        .hidden {
+            display: none;
+            opacity: 0;
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: var(--spacing-md);
+            position: relative;
+        }
+
+        .form-group .icon {
+            position: absolute;
+            right: var(--spacing-md);
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+        }
+
+        .input-box {
+            position: relative;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: var(--spacing-md);
+            padding-right: calc(var(--spacing-md) * 2.5);
+            border: 1px solid var(--text-light);
+            border-radius: var(--radius-md);
+            transition: var(--transition-fast);
+        }
+
+        .input-box input:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 2px rgba(61, 191, 193, 0.1);
+        }
+
+        .input-box .icon {
+            position: absolute;
+            right: var(--spacing-md);
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+        }
+
+        .btn-auth {
+            width: 100%;
+            padding: var(--spacing-md);
+            font-size: 1.1rem;
+            margin-top: var(--spacing-md);
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: var(--transition-normal);
+        }
+
+        .btn-auth:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .form-footer {
+            margin-top: var(--spacing-lg);
+            padding-top: var(--spacing-md);
+            border-top: 1px solid var(--background);
+        }
+
+        /* Alerta personalizada */
+        .custom-alert {
+            display: none;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-radius: var(--radius-md);
+            background: var(--white);
+            box-shadow: var(--shadow-lg);
+            z-index: 1000;
+        }
+
+        .custom-alert.error {
+            background: #fee2e2;
+            color: #dc2626;
+            border-left: 4px solid #dc2626;
+        }
+
+        .custom-alert.success {
+            background: #dcfce7;
+            color: #16a34a;
+            border-left: 4px solid #16a34a;
+        }
+
+        .custom-alert.warning {
+            background: #fef3c7;
+            color: #d97706;
+            border-left: 4px solid #d97706;
+        }
+    </style>
 </head>
-
 <body id="body-login">
-
     <!-- Alerta personalizada -->
     <div id="customAlert" class="custom-alert"></div>
 
-    <div class="login-container" id="form-container">
+    <nav class="nav">
+        <a href="../index.html" class="nav-logo">
+            <img src="../Recursos/Imagenes/NEXO CIENCIA.svg" alt="Nexo Ciencia" style="width: 110px;">
+        </a>
+    </nav>
+
+    <div class="login-container">
+        <div class="login-card">
+            <img src="../Recursos/Imagenes/NEXO CIENCIA.svg" alt="Nexo Ciencia Logo" style="width: 150px; margin-bottom: var(--spacing-lg);">
         <h2 id="form-title">Inicio Sesión <i class="fas fa-user-lock"></i></h2>
 
         <!-- Formulario de login -->
@@ -34,11 +171,13 @@
                 <span class="icon"><i class="fas fa-envelope"></i></span>
             </div>
             <div class="input-box">
-                <input type="password" id="password" placeholder="Password" required>
+                    <input type="password" id="password" placeholder="Contraseña" required>
                 <span class="icon"><i class="fas fa-lock"></i></span>
             </div>
-            <button type="button" onclick="startGame()" id="btn-regis-inicio">Entrar</button>
-            <p>¿No tienes una cuenta? <a href="#" onclick="toggleForm()">Regístrate</a></p>
+                <button type="button" onclick="startGame()" class="btn-auth">Entrar</button>
+                <div class="form-footer">
+                    <p>¿No tienes una cuenta? <a href="#" onclick="toggleForm()" class="text-secondary">Regístrate</a></p>
+                </div>
         </form>
 
         <!-- Formulario de registro -->
@@ -59,9 +198,14 @@
                 <input type="password" id="new-password" placeholder="Contraseña" required>
                 <span class="icon"><i class="fas fa-lock"></i></span>
             </div>
-            <button type="button" onclick="register()" id="btn-register">Registrar</button>
-            <p>¿Ya tienes una cuenta? <a href="#" onclick="toggleForm()">Inicia sesión</a></p>
+                <button type="button" onclick="register()" class="btn-auth">Registrar</button>
+                <div class="form-footer">
+                    <p>¿Ya tienes una cuenta? <a href="#" onclick="toggleForm()" class="text-secondary">Inicia sesión</a></p>
+                </div>
         </form>
+        </div>
     </div>
+
+    <script src="../JS/modal.js"></script>
 </body>
 </html>

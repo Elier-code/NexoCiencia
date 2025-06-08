@@ -1,83 +1,328 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curso de Calculo</title>
-    <link rel="stylesheet" href="../CSS/style.css">
+    <title>Técnica de integración - Nexo Ciencia</title>
+    <link rel="stylesheet" href="../CSS/base.css">
     <link rel="stylesheet" href="../CSS/mecanica.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/theme.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="../JS/utilidades.js"></script>
+    <script src="../JS/auth.js"></script>
     <script src="../JS/icono.js"></script>
-    <style>
-        .cont-volver{
-            width: 35%;
-        }
-    </style>
 </head>
 
-<body id="body-temas">
-    <div class="container-calculo">
-        <div class="header">
-            <div class="cont-volver">
-                <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
+<body>
+    <!-- Navegación -->
+    <nav class="nav">
+        <div class="nav-left">
+            <a href="menu.html" class="btn-back" title="Volver al menú">
+                <i class="fas fa-arrow-left"></i>
+                <span>Volver al Menú</span>
+            </a>
+            <a href="../index.html" class="nav-logo">
+                <img src="../Recursos/Imagenes/NEXO CIENCIA.svg" alt="Nexo Ciencia" style="width: 110px;">
+            </a>
+        </div>
+        <div class="user-menu">
+            <button class="theme-toggle" id="theme-toggle" title="Cambiar tema">
+                <i class="fas fa-sun"></i>
+            </button>
+            <a href="usuario.html" title="Ir al panel de usuario">
+                <img id="user-avatar" src="https://cdn-icons-png.flaticon.com/512/2922/2922506.png" alt="Avatar de usuario" class="user-avatar">
+            </a>
+        </div>
+    </nav>
+
+    <div class="course-container">
+        <div class="course-header">
+            <h1>
+                <i class="fas fa-integral"></i>
+                Técnica de integración
+            </h1>
+            <p>Domina las diferentes técnicas de integración y sus aplicaciones</p>
+        </div>
+
+        <div class="topics-grid">
+            <!-- Tema 1: Sustitución -->
+            <div class="topic-card">
+                <div class="topic-header">
+                    <i class="fas fa-exchange-alt"></i>
+                    <h2>Sustitución</h2>
+                    <span class="topic-badge">Nivel 1</span>
+                </div>
+                <p class="topic-description">
+                    Aprende a resolver integrales mediante el método de sustitución de variables.
+                </p>
+                <div class="level-buttons">
+                    <div class="button-platform">
+                        <button onclick="window.location.href='botoCalculo-1-1.html'" class="level-btn" data-level="1.1">
+                            <span class="level-number">1.1</span>
+                            <span class="level-status"><i class="fas fa-check-circle"></i></span>
+                        </button>
+                    </div>
+                    <div class="button-platform">
+                        <div class="button-group">
+                            <button onclick="window.location.href='botoCalculo-1-2.html'" class="level-btn" data-level="1.2">
+                                <span class="level-number">1.2</span>
+                                <span class="level-status"><i class="fas fa-check-circle"></i></span>
+                            </button>
+                            <button onclick="window.location.href='botoCalculo-1-3.html'" class="level-btn" data-level="1.3">
+                                <span class="level-number">1.3</span>
+                                <span class="level-status"><i class="fas fa-check-circle"></i></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="button-platform">
+                        <button onclick="window.location.href='botoCalculo-1-4.html'" class="level-btn" data-level="1.4">
+                            <span class="level-number">1.4</span>
+                            <span class="level-status"><i class="fas fa-lock"></i></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="topic-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 75%"></div>
+                    </div>
+                    <span class="progress-text">75% completado</span>
+                </div>
             </div>
-            <h1 id="tituloCalculo">Técnica de integración</h1>
+
+            <!-- Tema 2: Por partes -->
+            <div class="topic-card">
+                <div class="topic-header">
+                    <i class="fas fa-puzzle-piece"></i>
+                    <h2>Por partes</h2>
+                    <span class="topic-badge">Nivel 2</span>
+                </div>
+                <p class="topic-description">
+                    Domina la técnica de integración por partes y sus aplicaciones en diferentes tipos de funciones.
+                </p>
+                <div class="level-buttons">
+                    <div class="button-platform">
+                        <button onclick="window.location.href='botoCalculo-2-1.html'" class="level-btn" data-level="2.1">
+                            <span class="level-number">2.1</span>
+                            <span class="level-status"><i class="fas fa-lock"></i></span>
+                        </button>
+                    </div>
+                    <div class="button-platform">
+                        <div class="button-group">
+                            <button onclick="window.location.href='botoCalculo-2-2.html'" class="level-btn" data-level="2.2">
+                                <span class="level-number">2.2</span>
+                                <span class="level-status"><i class="fas fa-lock"></i></span>
+                            </button>
+                            <button onclick="window.location.href='botoCalculo-2-3.html'" class="level-btn" data-level="2.3">
+                                <span class="level-number">2.3</span>
+                                <span class="level-status"><i class="fas fa-lock"></i></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="button-platform">
+                        <button onclick="window.location.href='botoCalculo-2-4.html'" class="level-btn" data-level="2.4">
+                            <span class="level-number">2.4</span>
+                            <span class="level-status"><i class="fas fa-lock"></i></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="topic-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <span class="progress-text">0% completado</span>
+                </div>
+            </div>
+
+            <!-- Tema 3: Fracciones racionales -->
+            <div class="topic-card">
+                <div class="topic-header">
+                    <i class="fas fa-divide"></i>
+                    <h2>Fracciones racionales</h2>
+                    <span class="topic-badge">Nivel 3</span>
+                </div>
+                <p class="topic-description">
+                    Aprende a integrar fracciones racionales mediante descomposición en fracciones parciales.
+                </p>
+                <div class="level-buttons">
+                    <div class="button-platform">
+                        <button onclick="window.location.href='botoCalculo-3-1.html'" class="level-btn" data-level="3.1">
+                            <span class="level-number">3.1</span>
+                            <span class="level-status"><i class="fas fa-lock"></i></span>
+                        </button>
+                    </div>
+                    <div class="button-platform">
+                        <div class="button-group">
+                            <button onclick="window.location.href='botoCalculo-3-2.html'" class="level-btn" data-level="3.2">
+                                <span class="level-number">3.2</span>
+                                <span class="level-status"><i class="fas fa-lock"></i></span>
+                            </button>
+                            <button onclick="window.location.href='botoCalculo-3-3.html'" class="level-btn" data-level="3.3">
+                                <span class="level-number">3.3</span>
+                                <span class="level-status"><i class="fas fa-lock"></i></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="button-platform">
+                        <button onclick="window.location.href='botoCalculo-3-4.html'" class="level-btn" data-level="3.4">
+                            <span class="level-number">3.4</span>
+                            <span class="level-status"><i class="fas fa-lock"></i></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="topic-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
         </div>
-        <div class="tema1">
-            <h2>1. Sustitución</h2>
-            <button id="botones" class="btn-tema2.1" onclick="window.location.href='botoCalculo-1-1.html'">1.1</button>
-            <button id="botones" class="btn-tema2.2" onclick="window.location.href='botoCalculo-1-2.html'">1.2</button>
-            <button id="botones" class="btn-tema2.3" onclick="window.location.href='botoCalculo-1-3.html'">1.3</button>
-            <button id="botones" class="btn-tema2.4" onclick="window.location.href='botoCalculo-1-4.html'">1.4</button>
+                    <span class="progress-text">0% completado</span>
+        </div>
         </div>
 
-        <div class="separacion-nivel">
-
-            <hr class="ancho-personalizado">
+            <!-- Tema 4: Avanzadas -->
+            <div class="topic-card">
+                <div class="topic-header">
+                    <i class="fas fa-brain"></i>
+                    <h2>Avanzadas</h2>
+                    <span class="topic-badge">Nivel 4</span>
+                </div>
+                <p class="topic-description">
+                    Resuelve integrales complejas combinando diferentes técnicas de integración.
+                </p>
+                <div class="level-buttons">
+                    <div class="button-platform">
+                        <button onclick="window.location.href='botoCalculo-4-1.html'" class="level-btn" data-level="4.1">
+                            <span class="level-number">4.1</span>
+                            <span class="level-status"><i class="fas fa-lock"></i></span>
+                        </button>
+                    </div>
+                    <div class="button-platform">
+                        <div class="button-group">
+                            <button onclick="window.location.href='botoCalculo-4-2.html'" class="level-btn" data-level="4.2">
+                                <span class="level-number">4.2</span>
+                                <span class="level-status"><i class="fas fa-lock"></i></span>
+                            </button>
+                            <button onclick="window.location.href='botoCalculo-4-3.html'" class="level-btn" data-level="4.3">
+                                <span class="level-number">4.3</span>
+                                <span class="level-status"><i class="fas fa-lock"></i></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="button-platform">
+                        <button onclick="window.location.href='botoCalculo-4-4.html'" class="level-btn" data-level="4.4">
+                            <span class="level-number">4.4</span>
+                            <span class="level-status"><i class="fas fa-lock"></i></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="topic-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <span class="progress-text">0% completado</span>
+                </div>
         </div>
-        <div class="tema2">
-            <h2>2. Por partes</h2>
-            <button id="botones" class="btn-tema2.1" onclick="window.location.href='botoCalculo-2-1.html'">2.1</button>
-            <button id="botones" class="btn-tema2.2" onclick="window.location.href='botoCalculo-2-2.html'">2.2</button>
-            <button id="botones" class="btn-tema2.3" onclick="window.location.href='botoCalculo-2-3.html'">2.3</button>
-            <button id="botones" class="btn-tema2.4" onclick="window.location.href='botoCalculo-2-4.html'">2.4</button>
         </div>
-        <div class="separacion-nivel">
-            <hr class="ancho-personalizado">
-        </div>
-        <div class="tema3">
-            <h2>3. Fracciones racionales</h2>
-            <button id="botones" class="btn-tema3.1" onclick="window.location.href='botoCalculo-3-1.html'">3.1</button>
-            <button id="botones" class="btn-tema3.2" onclick="window.location.href='botoCalculo-3-2.html'">3.2</button>
-            <button id="botones" class="btn-tema3.3" onclick="window.location.href='botoCalculo-3-3.html'">3.3</button>
-            <button id="botones" class="btn-tema3.4" onclick="window.location.href='botoCalculo-3-4.html'">3.4</button>
-        </div>
-        <div class="separacion-nivel">
-
-            <hr class="ancho-personalizado">
-        </div>
-        <div class="tema4">
-            <h2>4. Avanzadas</h2>
-            <button id="botones" class="btn-tema2.1" onclick="window.location.href='botoCalculo-4-1.html'">4.1</button>
-            <button id="botones" class="btn-tema2.2" onclick="window.location.href='botoCalculo-4-2.html'">4.2</button>
-            <button id="botones" class="btn-tema2.3" onclick="window.location.href='botoCalculo-4-3.html'">4.3</button>
-            <button id="botones" class="btn-tema2.4" onclick="window.location.href='botoCalculo-4-4.html'">4.4</button>
-        </div>
-
     </div>
+
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const category = localStorage.getItem('category');
-            document.getElementById('question').innerText = "Pregunta de " + category;
+        document.addEventListener('DOMContentLoaded', function() {
+            checkSession(true);
+            insertarLogo();
+            actualizarEstadoBotones();
+            actualizarFotoPerfil();
+            inicializarTema();
         });
 
-        function checkAnswer(button) {
-            alert("Seleccionaste: " + button.innerText);
+        // Función para verificar y actualizar el estado de los botones
+        function actualizarEstadoBotones() {
+            const sesion = JSON.parse(localStorage.getItem('sesion'));
+            if (sesion && sesion.length > 0) {
+                const userName = sesion[0].userName || sesion[0].correo;
+                
+                // Obtener todos los botones de nivel
+                const buttons = document.querySelectorAll('.level-btn');
+                
+                buttons.forEach(button => {
+                    const nivel = button.getAttribute('data-level');
+                    const nivelData = JSON.parse(localStorage.getItem(`${userName}_nivel ${nivel}`) || '{}');
+                    
+                    if (!nivelData.desbloqueado) {
+                        button.classList.add('locked');
+                        button.disabled = true;
+                    } else if (nivelData.completado) {
+                        button.classList.add('completed');
+                    }
+                });
+
+                // Actualizar barras de progreso
+                actualizarProgresoTemas();
+            }
         }
-        insertarLogo();
+
+        function actualizarProgresoTemas() {
+            const temas = {
+                1: [1.1, 1.2, 1.3, 1.4],
+                2: [2.1, 2.2, 2.3, 2.4],
+                3: [3.1, 3.2, 3.3, 3.4],
+                4: [4.1, 4.2, 4.3, 4.4]
+            };
+
+            const sesion = JSON.parse(localStorage.getItem('sesion'));
+            const userName = sesion[0].userName || sesion[0].correo;
+
+            Object.entries(temas).forEach(([tema, niveles]) => {
+                let completados = 0;
+                niveles.forEach(nivel => {
+                    const nivelData = JSON.parse(localStorage.getItem(`${userName}_nivel ${nivel}`) || '{}');
+                    if (nivelData.completado) completados++;
+                });
+
+                const porcentaje = (completados / niveles.length) * 100;
+                const topicCard = document.querySelector(`.topic-card:nth-child(${tema})`);
+                if (topicCard) {
+                    const progressFill = topicCard.querySelector('.progress-fill');
+                    const progressText = topicCard.querySelector('.progress-text');
+                    progressFill.style.width = `${porcentaje}%`;
+                    progressText.textContent = `${Math.round(porcentaje)}% completado`;
+                }
+            });
+        }
+
+        function actualizarFotoPerfil() {
+            const sesion = JSON.parse(localStorage.getItem('sesion'));
+            if (sesion && sesion.length > 0 && sesion[0].foto) {
+                const userAvatar = document.getElementById('user-avatar');
+                userAvatar.src = sesion[0].foto;
+            }
+        }
+
+        // Funciones para el manejo del tema
+        function inicializarTema() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            actualizarIconoTema(savedTheme);
+
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                actualizarIconoTema(newTheme);
+            });
+        }
+
+        function actualizarIconoTema(theme) {
+            const themeIcon = document.querySelector('#theme-toggle i');
+            if (theme === 'dark') {
+                themeIcon.className = 'fas fa-moon';
+            } else {
+                themeIcon.className = 'fas fa-sun';
+            }
+        }
     </script>
 </body>
 

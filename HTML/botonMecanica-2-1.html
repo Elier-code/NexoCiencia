@@ -1,70 +1,222 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <title>explicación</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torque - Nexo Ciencia</title>
     <link rel="stylesheet" href="../CSS/botones.css">
+    <script src="../JS/utilidades.js"></script>
+    <script src="../JS/auth.js"></script>
     <script src="../JS/icono.js"></script>
+
+    <style>
+        .contenedor {
+            padding: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .seccion {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Aspecto 16:9 */
+            height: 0;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .explicacion {
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        .ejercicio {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .ejercicio h3 {
+            color: #2196F3;
+            margin-bottom: 15px;
+        }
+
+        .solucion {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+
+        .formula {
+            font-family: 'Times New Roman', serif;
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 6px;
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .navegacion {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding: 20px 0;
+        }
+
+        .btn-nav {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-anterior {
+            background-color: #f5f5f5;
+            color: #666;
+        }
+
+        .btn-siguiente {
+            background-color: #2196F3;
+            color: white;
+        }
+
+        .btn-anterior:hover {
+            background-color: #e0e0e0;
+        }
+
+        .btn-siguiente:hover {
+            background-color: #1976D2;
+            transform: translateX(5px);
+        }
+    </style>
 </head>
+
 <body>
     <div class="cont-volver">
         <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
     </div>
 
     <div class="contenedor">
-
-        <!-- Primer video -->
-       <iframe width="560" height="315" src="https://www.youtube.com/embed/SlQmNbMNUOY?si=4mXOESOjaIdCid6t" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-        <!-- Texto central -->
-      <div class="texto">
-    <p>
-        <strong>¿Qué es la Aceleración Angular?</strong><br>
-        La aceleración angular mide la tasa de cambio de la velocidad angular con respecto al tiempo. 
-        Indica qué tan rápido está cambiando la velocidad de rotación de un objeto.<br>
-        Se representa con la letra <strong>α</strong> y se calcula con la fórmula:<br>
-        <code>α = Δω / Δt</code><br>
-        donde <strong>α</strong> es la aceleración angular, <strong>Δω</strong> es el cambio en la velocidad angular y <strong>Δt</strong> es el intervalo de tiempo.<br><br>
-
-        La aceleración angular es fundamental para entender cómo varía el movimiento rotacional en sistemas como ruedas, motores o planetas.
-    </p>
-</div>
-
-<!-- Segundo cuadro de texto -->
-<div class="caja-texto">
-    <p>
-        <strong>Ejercicio resuelto:</strong><br>
-        Un objeto aumenta su velocidad angular de <strong>5 rad/s</strong> a <strong>15 rad/s</strong> en un intervalo de <strong>4 segundos</strong>.<br>
-        ¿Cuál es su aceleración angular?<br><br>
-        <code>α = (ω_final - ω_inicial) / Δt = (15 rad/s - 5 rad/s) / 4 s = 10 / 4 = 2.5 rad/s²</code><br><br>
-
-        <strong>Otro ejemplo:</strong><br>
-        Si una rueda parte del reposo y alcanza una velocidad angular de <strong>12 rad/s</strong> en <strong>3 segundos</strong>, su aceleración angular es:<br>
-        <code>α = (12 rad/s - 0) / 3 s = 4 rad/s²</code><br><br>
-
-        Estos ejemplos ilustran cómo calcular la aceleración angular en distintos escenarios prácticos.
-    </p>
-</div>
-
-        <!-- Botón siguiente -->
-        <form class="cuestionario">
-            <div class="boton">
-                <button type="submit" class="btn-enviar">Siguiente ➔</button>
+        <div class="seccion">
+            <h2>¿Qué es la Aceleración Angular?</h2>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/SlQmNbMNUOY?si=4mXOESOjaIdCid6t" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
-        </form>
-        
+            
+            <div class="explicacion">
+                <p>La aceleración angular mide la tasa de cambio de la velocidad angular con respecto al tiempo. 
+                Indica qué tan rápido está cambiando la velocidad de rotación de un objeto.</p>
+                <div class="formula">
+                    α = Δω / Δt
+                </div>
+                <p>donde <strong>α</strong> es la aceleración angular, <strong>Δω</strong> es el cambio en la velocidad angular y <strong>Δt</strong> es el intervalo de tiempo.</p>
+                <p>La aceleración angular es fundamental para entender cómo varía el movimiento rotacional en sistemas como ruedas, motores o planetas.</p>
+            </div>
+
+            <div class="ejercicio">
+                <h3>Ejercicio Resuelto</h3>
+                <p>Un objeto aumenta su velocidad angular de <strong>5 rad/s</strong> a <strong>15 rad/s</strong> en un intervalo de <strong>4 segundos</strong>.</p>
+                
+                <div class="solucion">
+                    <p><strong>Solución:</strong></p>
+                    <p>α = (ω_final - ω_inicial) / Δt = (15 rad/s - 5 rad/s) / 4 s = 10 / 4 = 2.5 rad/s²</p>
+                </div>
+            </div>
+
+            <div class="ejercicio">
+                <h3>Otro ejemplo</h3>
+                <p>Si una rueda parte del reposo y alcanza una velocidad angular de <strong>12 rad/s</strong> en <strong>3 segundos</strong>.</p>
+                
+                <div class="solucion">
+                    <p><strong>Solución:</strong></p>
+                    <p>α = (12 rad/s - 0) / 3 s = 4 rad/s²</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botones de navegación -->
+        <div class="navegacion">
+            <a href="quizMecanica.html" class="btn-nav btn-anterior">
+                <i class="fas fa-arrow-left"></i>
+                Volver
+            </a>
+            <a href="botonMecanica-2-2.html" class="btn-nav btn-siguiente" onclick="marcarCompletado()">
+                Siguiente
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
     </div>
-    
-<!-- Modal -->
-<div id="modal-mensaje" class="modal">
-    <div class="modal-contenido">
-        <p>¡Gracias por completar el examen!<br>Tus respuestas han sido enviadas.</p>
-        <button class="modal-boton" onclick="cerrarModal()">Aceptar</button>
-    </div>
-</div>
+
     <script>
         insertarLogo();
+        checkSession(true);
+        
+        function marcarCompletado() {
+            event.preventDefault();
+            const sesion = checkSession(true);
+            if (sesion && sesion.length > 0) {
+                const userName = sesion[0].userName || sesion[0].correo;
+                
+                // Marcar nivel 2.1 como completado
+                localStorage.setItem(`${userName}_nivel 2.1`, JSON.stringify({
+                    completado: true,
+                    correctas: 1,
+                    total: 1,
+                    visualizado: true
+                }));
+
+                // Desbloquear nivel 2.2
+                localStorage.setItem(`${userName}_nivel 2.2`, JSON.stringify({
+                    completado: false,
+                    desbloqueado: true
+                }));
+            }
+        }
+
+        // Verificar si el nivel ya está completado al cargar
+        document.addEventListener('DOMContentLoaded', function() {
+            const sesion = checkSession(true);
+            if (sesion && sesion.length > 0) {
+                const userName = sesion[0].userName || sesion[0].correo;
+                const nivel2_1 = localStorage.getItem(`${userName}_nivel 2.1`);
+                
+                if (!nivel2_1) {
+                    localStorage.setItem(`${userName}_nivel 2.1`, JSON.stringify({
+                        completado: false,
+                        visualizado: false
+                    }));
+                }
+            }
+        });
     </script>
-    <script src="../JS/modal.js"></script><!--Importacion del script para funcionamiento de la ventana modal-->
 </body>
 </html>

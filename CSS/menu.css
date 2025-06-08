@@ -1,0 +1,195 @@
+/* Estilos para el menú de temas */
+.menu-container {
+    min-height: 100vh;
+    background: var(--background);
+    padding: var(--spacing-xl) 0;
+}
+
+.menu-header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: var(--white);
+    padding: var(--spacing-xl) 0;
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+}
+
+.menu-header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.menu-header p {
+    margin: var(--spacing-sm) 0 0;
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+.temas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+
+.tema-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: var(--transition-normal);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    cursor: pointer;
+}
+
+.tema-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.tema-imagen {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 4px solid var(--primary);
+}
+
+.tema-contenido {
+    padding: var(--spacing-xl);
+    text-align: center;
+}
+
+.tema-contenido h3 {
+    color: var(--primary);
+    margin: 0 0 var(--spacing-sm);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.tema-contenido p {
+    color: var(--text-medium);
+    margin: 0 0 var(--spacing-lg);
+    line-height: 1.6;
+}
+
+.tema-stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    color: var(--text-medium);
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.btn-tema {
+    width: 100%;
+    padding: var(--spacing-md);
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-normal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+}
+
+.btn-tema:hover {
+    background: var(--secondary);
+}
+
+.tema-badge {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    background: var(--primary);
+    color: var(--white);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* Navegación */
+.nav {
+    background: var(--white);
+    padding: var(--spacing-md) var(--spacing-xl);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.btn-back {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    color: var(--text-medium);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition-normal);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+    background: var(--background);
+}
+
+.btn-back:hover {
+    background: var(--background-dark);
+    color: var(--primary);
+}
+
+.btn-back i {
+    font-size: 1.1rem;
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary);
+    padding: 2px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .menu-header h1 {
+        font-size: 2rem;
+    }
+
+    .temas-grid {
+        grid-template-columns: 1fr;
+        padding: 0 var(--spacing-md);
+        gap: var(--spacing-lg);
+    }
+
+    .tema-card {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+} 

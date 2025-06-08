@@ -6,86 +6,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nexo Ciencia</title>
     <link rel="shortcut icon" href="Recursos/Imagenes/nexo-ciencia-logo.ico" type="image/x-icon">
-    <link rel="stylesheet" href="CSS/styleindex.css">
+    <link rel="stylesheet" href="CSS/base.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <meta property="og:title" content="Nexo Ciencias" />
-    <meta property="og:description" content=". La plataforma busca transformar el aprendizaje en una experiencia interactiva y dinámica, alejándose de los métodos tradicionales que pueden resultar monótonos y, en muchos casos, poco efectivos para la comprensión de conceptos abstractos." />
+    <meta property="og:description" content="La plataforma busca transformar el aprendizaje en una experiencia interactiva y dinámica, alejándose de los métodos tradicionales que pueden resultar monótonos y, en muchos casos, poco efectivos para la comprensión de conceptos abstractos." />
     <meta property="og:image" content="https://elier-code.github.io/NexoCiencia/Recursos/Imagenes/NEXO%20CIENCIA.png" />
     <meta property="og:url" content="https://elier-code.github.io/NexoCiencia/" />
     <meta property="og:type" content="website" />
 </head>
 
 <body>
-    <nav>
-        <a href="#">
-            <img src="Recursos/Imagenes/NEXO CIENCIA.svg" alt="" id="nombre-pag">
+    <nav class="nav">
+        <a href="#" class="nav-logo">
+            <img src="Recursos/Imagenes/NEXO CIENCIA.svg" alt="Nexo Ciencia" style="width: 110px;">
         </a>
-        <a id="inicioSecion" href="HTML/login.html" ><img src="https://cdn-icons-png.flaticon.com/512/2922/2922506.png" alt="" style="height: 40px;" id="icon-secion"> Iniciar Secion</a>
+        <a href="HTML/login.html" class="btn btn-primary">
+            <img src="https://cdn-icons-png.flaticon.com/512/2922/2922506.png" alt="" style="width: 24px; filter: brightness(0) invert(1);">
+            Iniciar Sesión
+        </a>
     </nav>
-    <div class="container">
-        <img src="Recursos/Imagenes/NEXO CIENCIA.svg" alt="" id="logo">
-        <p><b>Bienvenido a NexoCiencias</b></p>
-        <p>
-            Descubre una nueva forma de aprender física y cálculo integral a través de simulaciones, retos interactivos
-            y experiencias visuales diseñadas para que comprendas lo que antes parecía abstracto.
-        </p>
-        <p>
-            Explora a tu ritmo, resuelve desafíos, gana recompensas y fortalece tus habilidades científicas mientras
-            avanzas por un camino educativo dinámico, divertido y significativo.
-        </p>
-        <p>🎓 Aprende. 🧠 Conecta. 🚀 Avanza.</p>
-        <p><b>Tu viaje por el conocimiento comienza aquí.</b></p>
-    </div>
-    <div class="content">
-        <div class="content-izd">
-            <div class="target">
-                <h2>❓ ¿Qué encontrarás en esta página?</h2>
+
+    <div class="container animate-fade-in">
+        <header class="text-center" style="margin-bottom: var(--spacing-xl);">
+            <img src="Recursos/Imagenes/NEXO CIENCIA.svg" alt="Nexo Ciencia Logo" style="width: 300px; margin-bottom: var(--spacing-lg);">
+            <h1>Bienvenido a NexoCiencias</h1>
+            <p class="text-medium" style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
+                Descubre una nueva forma de aprender física y cálculo integral a través de simulaciones, retos interactivos
+                y experiencias visuales diseñadas para que comprendas lo que antes parecía abstracto.
+            </p>
+        </header>
+
+        <div class="grid">
+            <div class="card">
+                <h2>❓ ¿Qué encontrarás?</h2>
                 <p>
                     En NexoCiencias encontrarás un entorno interactivo diseñado para facilitar el aprendizaje de física
                     mecánica y cálculo integral. Accede a simulaciones, ejercicios guiados, evaluaciones prácticas, recursos
                     multimedia y un camino gamificado que te permite aprender paso a paso, de forma visual, intuitiva y
-                    entretenida.<br>
-                    Todo el contenido está pensado para estudiantes de secundaria y primeros semestres universitarios que
-                    deseen reforzar y comprender a fondo los conceptos clave de estas áreas.
+                    entretenida.
                 </p>
             </div>
-            <div class="target">
-                <h2>🎯 ¿Cuál es nuestro propósito?</h2>
-                <p>
-                    Nuestro propósito es transformar la manera en que se enseñan y aprenden las ciencias básicas, integrando
-                    la tecnología, la visualización interactiva y el refuerzo positivo para facilitar la comprensión
-                    profunda de conceptos abstractos.<br>
-                    Buscamos reducir la brecha entre la teoría y la práctica, motivando a los estudiantes mediante una
-                    experiencia educativa atractiva, accesible y significativa.
-                </p>
 
+            <div class="card">
+                <h2>🎯 Nuestro propósito</h2>
+                <p>
+                    Transformar la manera en que se enseñan y aprenden las ciencias básicas, integrando
+                    la tecnología, la visualización interactiva y el refuerzo positivo para facilitar la comprensión
+                    profunda de conceptos abstractos.
+                </p>
             </div>
-            <div class="target">
+
+            <div class="card">
                 <h2>🧭 Misión</h2>
                 <p>
                     Proporcionar una plataforma educativa digital innovadora que combine simulaciones, recursos visuales y
                     estrategias interactivas para facilitar el aprendizaje autónomo y guiado de la física y el cálculo
-                    integral, promoviendo el pensamiento crítico y el desarrollo de competencias científicas en los
-                    estudiantes.
+                    integral.
                 </p>
-
             </div>
-            <div class="target">
+
+            <div class="card">
                 <h2>🌟 Visión</h2>
                 <p>
                     Convertirnos en una referencia educativa en el ámbito de las ciencias básicas a nivel hispanoamericano,
-                    siendo una plataforma accesible, dinámica y efectiva que inspire a las nuevas generaciones a explorar,
-                    comprender y aplicar el conocimiento científico con confianza y entusiasmo.
+                    siendo una plataforma accesible, dinámica y efectiva que inspire a las nuevas generaciones.
                 </p>
-
             </div>
         </div>
-        <div class="content-derc">
-            <h3>Tutoriales</h3>
 
-        </div>
+        <section class="text-center" style="margin-top: var(--spacing-xl);">
+            <p style="font-size: 1.5rem; font-weight: 500;">
+                🎓 Aprende. 🧠 Conecta. 🚀 Avanza.
+            </p>
+            <h2 class="text-primary">Tu viaje por el conocimiento comienza aquí.</h2>
+        </section>
     </div>
-
 </body>
 
 </html>

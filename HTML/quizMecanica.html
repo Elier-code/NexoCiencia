@@ -4,92 +4,310 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Curso de Mecanica</title>
-    <link rel="stylesheet" href="../CSS/style.css" />
+    <title>Curso de Mecánica - Nexo Ciencia</title>
+    <link rel="stylesheet" href="../CSS/base.css" />
     <link rel="stylesheet" href="../CSS/mecanica.css" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="../JS/utilidades.js"></script>
+    <script src="../JS/auth.js"></script>
     <script src="../JS/icono.js"></script>
-
 </head>
 
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="cont-volver">
-                <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
-            </div>
-            <h1>Mecánica</h1>
+    <!-- Navegación -->
+    <nav class="nav">
+        <div class="nav-left">
+            <a href="menu.html" class="btn-back" title="Volver al menú">
+                <i class="fas fa-arrow-left"></i>
+                <span>Volver al Menú</span>
+            </a>
+            <a href="../index.html" class="nav-logo">
+                <img src="../Recursos/Imagenes/NEXO CIENCIA.svg" alt="Nexo Ciencia" style="width: 110px;">
+            </a>
         </div>
-        <div class="tema1">
-            <h2>Rotación de cuerpo rígido </h2>
-            <button id="botones" class="btn-tema1.1"
-                onclick="window.location.href='botonMecanica-1-1.html'">1.1</button>
-            <button id="botones" class="btn-tema1.2"
-                onclick="window.location.href='botonMecanica-1-2.html'">1.2</button>
-            <button id="botones" class="btn-tema1.3"
-                onclick="window.location.href='botonMecanica-1-3.html'">1.3</button>
-            <button id="botones" class="btn-tema1.4"
-                onclick="window.location.href='botonMecanica-1-4.html'">1.4</button>
+        <div class="user-menu">
+            <a href="usuario.html" title="Ir al panel de usuario">
+                <img src="https://cdn-icons-png.flaticon.com/512/2922/2922506.png" alt="Avatar de usuario" class="user-avatar">
+            </a>
+        </div>
+    </nav>
+
+    <div class="course-container">
+        <div class="course-header">
+            <h1>
+                <i class="fas fa-atom"></i>
+                Curso de Mecánica
+            </h1>
+            <p>Explora los fundamentos de la mecánica clásica y sus aplicaciones</p>
         </div>
 
-        <div class="separacion-nivel">
-            <hr class="ancho-personalizado" />
-        </div>
-        <div class="tema2">
+        <div class="topics-grid">
+            <!-- Tema 1: Rotación de cuerpo rígido -->
+            <div class="topic-card">
+                <div class="topic-header">
+                    <i class="fas fa-sync-alt"></i>
+                    <h2>Rotación de cuerpo rígido</h2>
+                    <span class="topic-badge">Nivel 1</span>
+                </div>
+                <p class="topic-description">
+                    Aprende los conceptos fundamentales del movimiento rotacional y las propiedades de los cuerpos rígidos.
+                </p>
+                <div class="level-buttons">
+                    <!-- Botón 1.1 -->
+                    <div class="button-platform">
+                        <button onclick="window.location.href='botonMecanica-1-1.html'" class="level-btn" data-level="1.1">
+                            <span class="level-number">1.1</span>
+                            <span class="level-status"><i class="fas fa-check-circle"></i></span>
+                        </button>
+                    </div>
+
+                    <!-- Grupo de botones 1.2 y 1.3 -->
+                    <div class="button-platform">
+                        <div class="button-group">
+                            <button onclick="window.location.href='botonMecanica-1-2.html'" class="level-btn" data-level="1.2">
+                                <span class="level-number">1.2</span>
+                                <span class="level-status"><i class="fas fa-check-circle"></i></span>
+                            </button>
+                            <button onclick="window.location.href='botonMecanica-1-3.html'" class="level-btn" data-level="1.3">
+                                <span class="level-number">1.3</span>
+                                <span class="level-status"><i class="fas fa-check-circle"></i></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Botón 1.4 -->
+                    <div class="button-platform">
+                        <button onclick="window.location.href='botonMecanica-1-4.html'" class="level-btn" data-level="1.4">
+                            <span class="level-number">1.4</span>
+                            <span class="level-status"><i class="fas fa-lock"></i></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="topic-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 25%"></div>
+                    </div>
+                    <span class="progress-text">25% completado</span>
+                </div>
+            </div>
+
+            <!-- Tema 2: Torque -->
+            <div class="topic-card">
+                <div class="topic-header">
+                    <i class="fas fa-cog"></i>
             <h2>Torque</h2>
-            <button id="botones" class="btn-tema2.1"
-                onclick="window.location.href='botonMecanica-2-1.html'">2.1</button>
-            <button id="botones" class="btn-tema2.2 "
-                onclick="window.location.href='botonMecanica-2-2.html'">2.2</button>
-            <button id="botones" class="btn-tema2.3"
-                onclick="window.location.href='botonMecanica-2-3.html'">2.3</button>
-            <button id="botones" class="btn-tema2.4"
-                onclick="window.location.href='botonMecanica-2-4.html'">2.4</button>
-        </div>
-        <div class="separacion-nivel">
-            <hr class="ancho-personalizado" />
-        </div>
-        <div class="tema3">
-            <h2>Acelerador y velocidad angular</h2>
-            <button id="botones" class="btn-tema3.1"
-                onclick="window.location.href='botonMecanica-3-1.html'">3.1</button>
-            <button id="botones" class="btn-tema3.2"
-                onclick="window.location.href='botonMecanica-3-2.html'">3.2</button>
-            <button id="botones" class="btn-tema3.3"
-                onclick="window.location.href='botonMecanica-3-3.html'">3.3</button>
-            <button id="botones" class="btn-tema3.4"
-                onclick="window.location.href='botonMecanica-3-4.html'">3.4</button>
-            <div class="separacion-nivel">
-                <hr class="ancho-personalizado" />
-            </div>
-            <div class="tema4">
-                <h2>Tema #4</h2>
-                <button id="botones" class="btn-tema4.1"
-                    onclick="window.location.href='botonMecanica-4-1.html'">4.1</button>
-                <button id="botones" class="btn-tema4.2"
-                    onclick="window.location.href='botonMecanica-4-2.html'">4.1</button>
-                <button id="botones" class="btn-tema4.3"
-                    onclick="window.location.href='botonMecanica-4-3.html'">4.1</button>
-                <button id="botones" class="btn-tema4.4"
-                    onclick="window.location.href='botonMecanica-4-4.html'">4.1</button>
+                    <span class="topic-badge">Nivel 2</span>
+                </div>
+                <p class="topic-description">
+                    Estudia el efecto rotacional de las fuerzas y su importancia en sistemas mecánicos.
+                </p>
+                <div class="level-buttons">
+                    <!-- Botón 2.1 -->
+                    <div class="button-platform">
+                        <button onclick="window.location.href='botonMecanica-2-1.html'" class="level-btn" data-level="2.1">
+                            <span class="level-number">2.1</span>
+                            <span class="level-status"><i class="fas fa-lock"></i></span>
+                        </button>
+                    </div>
 
+                    <!-- Grupo de botones 2.2 y 2.3 -->
+                    <div class="button-platform">
+                        <div class="button-group">
+                            <button onclick="window.location.href='botonMecanica-2-2.html'" class="level-btn" data-level="2.2">
+                                <span class="level-number">2.2</span>
+                                <span class="level-status"><i class="fas fa-lock"></i></span>
+                            </button>
+                            <button onclick="window.location.href='botonMecanica-2-3.html'" class="level-btn" data-level="2.3">
+                                <span class="level-number">2.3</span>
+                                <span class="level-status"><i class="fas fa-lock"></i></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Botón 2.4 -->
+                    <div class="button-platform">
+                        <button onclick="window.location.href='botonMecanica-2-4.html'" class="level-btn" data-level="2.4">
+                            <span class="level-number">2.4</span>
+                            <span class="level-status"><i class="fas fa-lock"></i></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="topic-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+        </div>
+                    <span class="progress-text">0% completado</span>
+        </div>
             </div>
 
+            <!-- Tema 3: Aceleración y velocidad angular -->
+            <div class="topic-card">
+                <div class="topic-header">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <h2>Aceleración y velocidad angular</h2>
+                    <span class="topic-badge">Nivel 3</span>
+                </div>
+                <p class="topic-description">
+                    Analiza el movimiento circular y las variables que describen la rotación.
+                </p>
+                <div class="level-buttons">
+                    <!-- Botón 3.1 -->
+                    <div class="button-platform">
+                        <button onclick="window.location.href='botonMecanica-3-1.html'" class="level-btn" data-level="3.1">
+                            <span class="level-number">3.1</span>
+                            <span class="level-status"><i class="fas fa-lock"></i></span>
+                        </button>
+                    </div>
+
+                    <!-- Grupo de botones 3.2 y 3.3 -->
+                    <div class="button-platform">
+                        <div class="button-group">
+                            <button onclick="window.location.href='botonMecanica-3-2.html'" class="level-btn" data-level="3.2">
+                                <span class="level-number">3.2</span>
+                                <span class="level-status"><i class="fas fa-lock"></i></span>
+                            </button>
+                            <button onclick="window.location.href='botonMecanica-3-3.html'" class="level-btn" data-level="3.3">
+                                <span class="level-number">3.3</span>
+                                <span class="level-status"><i class="fas fa-lock"></i></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Botón 3.4 -->
+                    <div class="button-platform">
+                        <button onclick="window.location.href='botonMecanica-3-4.html'" class="level-btn" data-level="3.4">
+                            <span class="level-number">3.4</span>
+                            <span class="level-status"><i class="fas fa-lock"></i></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="topic-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <span class="progress-text">0% completado</span>
+                </div>
+            </div>
+
+            <!-- Tema 4: Energía Rotacional -->
+            <div class="topic-card">
+                <div class="topic-header">
+                    <i class="fas fa-bolt"></i>
+                    <h2>Energía Rotacional</h2>
+                    <span class="topic-badge">Nivel 4</span>
+                </div>
+                <p class="topic-description">
+                    Descubre la energía asociada al movimiento rotacional y su conservación.
+                </p>
+                <div class="level-buttons">
+                    <!-- Botón 4.1 -->
+                    <div class="button-platform">
+                        <button onclick="window.location.href='botonMecanica-4-1.html'" class="level-btn" data-level="4.1">
+                            <span class="level-number">4.1</span>
+                            <span class="level-status"><i class="fas fa-lock"></i></span>
+                        </button>
+                    </div>
+
+                    <!-- Grupo de botones 4.2 y 4.3 -->
+                    <div class="button-platform">
+                        <div class="button-group">
+                            <button onclick="window.location.href='botonMecanica-4-2.html'" class="level-btn" data-level="4.2">
+                                <span class="level-number">4.2</span>
+                                <span class="level-status"><i class="fas fa-lock"></i></span>
+                            </button>
+                            <button onclick="window.location.href='botonMecanica-4-3.html'" class="level-btn" data-level="4.3">
+                                <span class="level-number">4.3</span>
+                                <span class="level-status"><i class="fas fa-lock"></i></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Botón 4.4 -->
+                    <div class="button-platform">
+                        <button onclick="window.location.href='botonMecanica-4-4.html'" class="level-btn" data-level="4.4">
+                            <span class="level-number">4.4</span>
+                            <span class="level-status"><i class="fas fa-lock"></i></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="topic-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <span class="progress-text">0% completado</span>
+                </div>
+            </div>
         </div>
+    </div>
+
         <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                const category = localStorage.getItem("category");
-                document.getElementById("question").innerText =
-                    "Pregunta de " + category;
-            });
+        document.addEventListener('DOMContentLoaded', function() {
+            checkSession(true);
+            const sesion = getJSONDeLocalStore("sessionUser");
+            if (sesion && sesion.length > 0) {
+                const usuario = sesion[0].userName;
+                const profilePhoto = localStorage.getItem('profilePhoto');
+                if (profilePhoto) {
+                    document.querySelector('.user-avatar').src = profilePhoto;
+                }
 
-            function checkAnswer(button) {
-                alert("Seleccionaste: " + button.innerText);
+                // Actualizar estado de los niveles
+                document.querySelectorAll('.level-btn').forEach(btn => {
+                    const nivel = btn.getAttribute('data-level');
+                    const claveProgreso = `${usuario}_nivel ${nivel}`;
+                    const datos = JSON.parse(localStorage.getItem(claveProgreso));
+                    
+                    if (datos && datos.completado) {
+                        btn.classList.add('completed');
+                        btn.querySelector('.level-status i').className = 'fas fa-check-circle';
+                    } else {
+                        // Verificar si el nivel anterior está completado
+                        const nivelAnterior = obtenerNivelAnterior(nivel);
+                        if (nivelAnterior) {
+                            const progresoAnterior = JSON.parse(localStorage.getItem(`${usuario}_nivel ${nivelAnterior}`));
+                            if (!progresoAnterior || !progresoAnterior.completado) {
+                                btn.disabled = true;
+                                btn.querySelector('.level-status i').className = 'fas fa-lock';
+                            } else {
+                                btn.querySelector('.level-status i').className = 'fas fa-lock-open';
+                            }
+                        }
+                    }
+                });
+
+                // Actualizar barras de progreso
+                actualizarProgresoTemas(usuario);
             }
-            insertarLogo();
+        });
+
+        function obtenerNivelAnterior(nivel) {
+            const [tema, subnivel] = nivel.split('.');
+            if (subnivel === '1') return null;
+            return `${tema}.${parseInt(subnivel) - 1}`;
+        }
+
+        function actualizarProgresoTemas(usuario) {
+            const temas = {
+                1: [1.1, 1.2, 1.3, 1.4],
+                2: [2.1, 2.2, 2.3, 2.4],
+                3: [3.1, 3.2, 3.3, 3.4],
+                4: [4.1, 4.2, 4.3, 4.4]
+            };
+
+            for (let tema in temas) {
+                let completados = 0;
+                temas[tema].forEach(nivel => {
+                    const datos = JSON.parse(localStorage.getItem(`${usuario}_nivel ${nivel}`));
+                    if (datos && datos.completado) completados++;
+                });
+
+                const porcentaje = (completados / 4) * 100;
+                const topicCard = document.querySelector(`.topic-card:nth-child(${tema})`);
+                topicCard.querySelector('.progress-fill').style.width = `${porcentaje}%`;
+                topicCard.querySelector('.progress-text').textContent = `${Math.round(porcentaje)}% completado`;
+            }
+        }
         </script>
 </body>
 

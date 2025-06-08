@@ -49,3 +49,4 @@ function mostrarAlerta(mensaje, tipo = 'success') {
         }
 
         window.onload = cargarDatos;
+        

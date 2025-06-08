@@ -1,0 +1,83 @@
+:root {
+    /* Tema claro (predeterminado) */
+    --primary: #0d2c54;
+    --secondary: #3dbfc1;
+    --accent: #f89c1c;
+    --background: #f4f6f8;
+    --background-dark: #e8edf1;
+    --white: #ffffff;
+    --text-dark: #1a1a1a;
+    --text-medium: #4a4a4a;
+    --text-light: #767676;
+    --card-bg: #ffffff;
+    --nav-bg: #ffffff;
+    --border-color: #e0e0e0;
+}
+
+[data-theme="dark"] {
+    /* Tema oscuro */
+    --primary: #64b5f6;
+    --secondary: #4dd0e1;
+    --accent: #ffb74d;
+    --background: #121212;
+    --background-dark: #1e1e1e;
+    --white: #1e1e1e;
+    --text-dark: #ffffff;
+    --text-medium: #e0e0e0;
+    --text-light: #bdbdbd;
+    --card-bg: #2d2d2d;
+    --nav-bg: #1e1e1e;
+    --border-color: #424242;
+}
+
+/* Transición suave al cambiar de tema */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Estilos específicos para el tema oscuro */
+[data-theme="dark"] .nav {
+    background-color: var(--nav-bg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .topic-card {
+    background-color: var(--card-bg);
+}
+
+[data-theme="dark"] .level-btn {
+    background-color: var(--background-dark);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .level-btn:not(:disabled):hover {
+    background-color: var(--primary);
+    color: var(--text-dark);
+}
+
+/* Estilos para el botón de cambio de tema */
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-medium);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background-color: var(--background-dark);
+}
+
+.theme-toggle i {
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover i {
+    transform: rotate(30deg);
+} 

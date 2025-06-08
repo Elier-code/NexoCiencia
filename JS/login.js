@@ -1,4 +1,3 @@
-
 function mostrarAlerta(mensaje, tipo = 'error') {
     const alerta = document.getElementById('customAlert');
     alerta.textContent = mensaje;
@@ -19,29 +18,35 @@ function startGame() {
     sw = false
 
     for (const usuarioJSON of usuarios) {
-
         if (email == usuarioJSON.correo && password == usuarioJSON.contraseña) {
-
             switch (usuarioJSON.tipoUsuario) {
-
                 case 'estudiante':
-                    var datosSesion = new SesionUsuario(usuarioJSON.nombres,usuarioJSON.correo,usuarioJSON.userName)
-                    var sesion = getJSONDeLocalStore("sessionUser")
+                    var datosSesion = new SesionUsuario(usuarioJSON.nombres, usuarioJSON.correo, usuarioJSON.userName)
+                    // Inicializar el array de sesión si no existe
+                    var sesion = getJSONDeLocalStore("sessionUser") || [];
+                    // Limpiar sesiones anteriores
+                    sesion = [];
                     sesion.push(datosSesion)
                     setJSONDeLocalStore("sessionUser", sesion)
                     window.location.href = '../HTML/usuario.html'
                     break
 
                 case 'administrador':
-                    var datosSesion = new SesionUsuario(usuarioJSON.nombres,usuarioJSON.correo,usuarioJSON.userName)
-                    var sesion = getJSONDeLocalStore("sessionUser")
+                    var datosSesion = new SesionUsuario(usuarioJSON.nombres, usuarioJSON.correo, usuarioJSON.userName)
+                    // Inicializar el array de sesión si no existe
+                    var sesion = getJSONDeLocalStore("sessionUser") || [];
+                    // Limpiar sesiones anteriores
+                    sesion = [];
                     sesion.push(datosSesion)
                     setJSONDeLocalStore("sessionUser", sesion)
                     window.location.href = '../HTML/inicioAdmin.html'
                     break
                 case 'profesor':
-                    var datosSesion = new SesionUsuario(usuarioJSON.nombres,usuarioJSON.correo,usuarioJSON.userName)
-                    var sesion = getJSONDeLocalStore("sessionUser")
+                    var datosSesion = new SesionUsuario(usuarioJSON.nombres, usuarioJSON.correo, usuarioJSON.userName)
+                    // Inicializar el array de sesión si no existe
+                    var sesion = getJSONDeLocalStore("sessionUser") || [];
+                    // Limpiar sesiones anteriores
+                    sesion = [];
                     sesion.push(datosSesion)
                     setJSONDeLocalStore("sessionUser", sesion)
                     window.location.href = '../HTML/profesor.html'

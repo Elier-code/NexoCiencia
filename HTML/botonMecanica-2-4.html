@@ -2,33 +2,428 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Examen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aceleración Angular - Examen Final</title>
     <link rel="stylesheet" href="../CSS/botones.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="../JS/utilidades.js"></script>
+    <script src="../JS/auth.js"></script>
     <script src="../JS/icono.js"></script>
     <style>
-        .contenedor {
-            padding: 30px;
-            margin: 20px auto;
+        body {
+            background-color: #f0f2f5;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
+
+        .contenedor {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .seccion-contenido {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .seccion-contenido:hover {
+            transform: translateY(-2px);
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #5c5cff, #4a4aff);
+            border-radius: 3px;
+        }
+
         .cuestionario {
-            margin-top: 20px;
-            text-align: left;
+            margin-top: 30px;
+        }
+
+        .pregunta {
+            background: #f8f9fa;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+
+        .pregunta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: #5c5cff;
+        }
+
+        .pregunta p {
+            color: #333;
+            font-weight: 500;
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .pregunta label {
+            display: block;
+            padding: 15px 20px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            background: white;
+            border: 1px solid #e0e0e0;
+            font-size: 15px;
+            color: #444;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pregunta label:hover {
+            background: #e3f2fd;
+            border-color: #2196F3;
+            color: #1976D2;
+        }
+
+        .pregunta input[type="radio"] {
+            margin-right: 12px;
+            transform: scale(1.2);
+        }
+
+        .navegacion {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .btn-nav {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-nav::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .btn-nav:hover::before {
+            left: 100%;
+        }
+
+        .btn-atras {
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            color: #333;
+        }
+
+        .btn-enviar {
+            background: linear-gradient(135deg, #4CAF50, #43A047);
+            color: white;
+        }
+
+        .btn-siguiente {
+            background: linear-gradient(135deg, #2196F3, #1976D2);
+            color: white;
+        }
+
+        .btn-atras:hover {
+            background: linear-gradient(135deg, #e0e0e0, #d0d0d0);
+            transform: translateX(-5px);
+        }
+
+        .btn-enviar:hover {
+            background: linear-gradient(135deg, #43A047, #388E3C);
+            transform: translateY(-2px);
+        }
+
+        .btn-siguiente:hover {
+            background: linear-gradient(135deg, #1976D2, #1565C0);
+            transform: translateX(5px);
+        }
+
+        .btn-siguiente.disabled {
+            background: linear-gradient(135deg, #ccc, #bbb);
+            cursor: not-allowed;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(17, 25, 40, 0.75);
+            -webkit-backdrop-filter: blur(12px) saturate(180%);
+            backdrop-filter: blur(12px) saturate(180%);
+            opacity: 0;
+            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .modal.show {
+            opacity: 1;
+        }
+
+        .modal-contenido {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 24px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            transform: translateY(30px) scale(0.95);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin: 30px auto;
+        }
+
+        .modal.show .modal-contenido {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+
+        .resultado {
+            margin: 30px 0;
+            padding: 35px;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .resultado:hover {
+            transform: translateY(-5px);
+        }
+
+        .resultado::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            filter: brightness(1.1);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 0;
+        }
+
+        .resultado:hover::before {
+            opacity: 1;
+        }
+
+        .resultado.aprobado {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
+        }
+
+        .resultado.reprobado {
+            background: linear-gradient(135deg, #f44336, #e53935);
+            color: white;
+            box-shadow: 0 8px 25px rgba(244, 67, 54, 0.3);
+        }
+
+        .resultado h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .resultado h3::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background: rgba(255,255,255,0.5);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .resultado .score {
+            font-size: 64px;
+            font-weight: 700;
+            margin: 25px 0;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            font-family: 'Arial', sans-serif;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 10px;
+            display: inline-block;
+            min-width: 120px;
+        }
+
+        .resultado p {
+            font-size: 16px;
+            margin: 10px 0;
+            position: relative;
+            z-index: 1;
+            opacity: 0.9;
+        }
+
+        .modal-boton {
+            background: linear-gradient(135deg, #2196F3, #1976D2);
+            color: white;
+            padding: 16px 45px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            margin-top: 35px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            box-shadow: 0 6px 20px rgba(33, 150, 243, 0.3);
+        }
+
+        .modal-boton:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(33, 150, 243, 0.4);
+            background: linear-gradient(135deg, #1E88E5, #1565C0);
+        }
+
+        .modal-boton:active {
+            transform: translateY(1px);
+        }
+
+        .modal-boton::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            transition: 0.6s;
+        }
+
+        .modal-boton:hover::before {
+            left: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .contenedor {
+                padding: 15px;
+            }
+
+            .seccion-contenido {
+                padding: 20px;
+            }
+
+            .navegacion {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .btn-nav {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .modal-contenido {
+                padding: 25px;
+                margin: 15px;
+                width: calc(100% - 30px);
+            }
+
+            .resultado {
+                padding: 25px;
+            }
+
+            .resultado h3 {
+                font-size: 24px;
+            }
+
+            .resultado .score {
+                font-size: 48px;
+                padding: 8px;
+                min-width: 100px;
+            }
+
+            .modal-boton {
+                padding: 14px 35px;
+                font-size: 15px;
+            }
+
+            .pregunta label {
+                padding: 12px 15px;
+            }
         }
     </style>
 </head>
 <body>
-
-<div class="header">
     <div class="cont-volver">
         <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
-    </div>
-    <h1>Examen</h1>
 </div>
 
 <div class="contenedor">
-    
-    <form class="cuestionario">
-
+        <div class="seccion-contenido">
+            <h2>Examen Final - Aceleración Angular</h2>
+            <form id="quizForm" class="cuestionario" onsubmit="return verificarRespuestas(event)">
         <!-- Pregunta 1 -->
 <div class="pregunta">
     <p>1. ¿Qué representa la aceleración angular en un sistema rotacional?</p>
@@ -129,23 +524,199 @@
     <label><input type="radio" name="p10" value="D"> D) La aceleración angular es constante</label>
 </div>
 
-        <!-- Botón Enviar -->
-        <div class="boton">
-            <button type="submit">Enviar</button>
+                <div class="navegacion">
+                    <a href="botonMecanica-2-3.html" class="btn-nav btn-atras">
+                        <i class="fas fa-arrow-left"></i>
+                        Atrás
+                    </a>
+                    <button type="submit" class="btn-nav btn-enviar">
+                        <i class="fas fa-check"></i>
+                        Enviar
+                    </button>
+                    <a href="quizMecanica.html" class="btn-nav btn-siguiente disabled" id="btn-siguiente">
+                        Siguiente
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </form>
         </div>
-
-    </form>
 </div>
-    <!-- Modal -->
+
     <div id="modal-mensaje" class="modal">
         <div class="modal-contenido">
-            <p>¡Gracias por completar el examen!<br>Tus respuestas han sido enviadas.</p>
-            <button class="modal-boton" onclick="cerrarModal()">Aceptar</button>
+            <div id="resultado-mensaje"></div>
+            <div id="respuestas-detalle" class="respuestas-detalle"></div>
+            <button class="modal-boton" onclick="cerrarModal()">Continuar</button>
         </div>
     </div>
+
 <script>
     insertarLogo();
+        checkSession(true);
+
+        const respuestasCorrectas = {
+            p1: "B",
+            p2: "A",
+            p3: "B",
+            p4: "C",
+            p5: "A",
+            p6: "B",
+            p7: "A",
+            p8: "B",
+            p9: "C",
+            p10: "A"
+        };
+
+        // Habilitar/deshabilitar botón siguiente según el estado
+        function actualizarBotonSiguiente() {
+            const sesion = checkSession(true);
+            if (sesion && sesion.length > 0) {
+                const userName = sesion[0].userName || sesion[0].correo;
+                const nivel2_4 = JSON.parse(localStorage.getItem(`${userName}_nivel 2.4`) || '{}');
+                const btnSiguiente = document.getElementById('btn-siguiente');
+                
+                if (nivel2_4.completado) {
+                    btnSiguiente.classList.remove('disabled');
+                    btnSiguiente.href = 'quizMecanica.html';
+                } else {
+                    btnSiguiente.classList.add('disabled');
+                    btnSiguiente.href = '#';
+                }
+            }
+        }
+
+        function verificarRespuestas(event) {
+            event.preventDefault();
+            
+            let correctas = 0;
+            let total = Object.keys(respuestasCorrectas).length;
+            let preguntasSinResponder = [];
+
+            // Verificar cada pregunta
+            for (let i = 1; i <= total; i++) {
+                const pregunta = document.getElementsByName('p' + i);
+                let respondida = false;
+                let respuestaSeleccionada = '';
+
+                for (let radio of pregunta) {
+                    if (radio.checked) {
+                        respondida = true;
+                        respuestaSeleccionada = radio.value;
+                        if (respuestaSeleccionada === respuestasCorrectas['p' + i]) {
+                            correctas++;
+                        }
+                        break;
+                    }
+                }
+
+                if (!respondida) {
+                    preguntasSinResponder.push(i);
+                }
+            }
+
+            // Si hay preguntas sin responder
+            if (preguntasSinResponder.length > 0) {
+                const modal = document.getElementById('modal-mensaje');
+                const resultadoMensaje = document.getElementById('resultado-mensaje');
+                
+                let mensaje = `
+                    <div class="resultado" style="background: linear-gradient(135deg, #ff9800, #ff5722);">
+                        <h3>Preguntas sin responder</h3>
+                        <p>Por favor responde todas las preguntas.</p>
+                        <p>Te faltan las siguientes preguntas: ${preguntasSinResponder.join(', ')}</p>
+                    </div>
+                `;
+                
+                resultadoMensaje.innerHTML = mensaje;
+                modal.style.display = 'flex';
+                setTimeout(() => {
+                    modal.classList.add('show');
+                }, 10);
+                return false;
+            }
+
+            // Calcular porcentaje
+            const porcentaje = (correctas / total) * 100;
+            const aprobado = porcentaje >= 60;
+
+            // Mostrar resultados en el modal
+            const modal = document.getElementById('modal-mensaje');
+            const resultadoMensaje = document.getElementById('resultado-mensaje');
+
+            let mensaje = `
+                <div class="resultado ${aprobado ? 'aprobado' : 'reprobado'}">
+                    <h3>${aprobado ? '¡Felicitaciones!' : 'Necesitas repasar'}</h3>
+                    <div class="score">${porcentaje}%</div>
+                    <p>Has respondido correctamente ${correctas} de ${total} preguntas</p>
+                    <p>${aprobado ? '¡Has completado la sección!' : 'Necesitas al menos 60% para aprobar'}</p>
+                </div>
+            `;
+
+            resultadoMensaje.innerHTML = mensaje;
+            modal.style.display = 'flex';
+            setTimeout(() => {
+                modal.classList.add('show');
+            }, 10);
+
+            // Si aprobó, marcar como completado
+            if (aprobado) {
+                const sesion = checkSession(true);
+                if (sesion && sesion.length > 0) {
+                    const userName = sesion[0].userName || sesion[0].correo;
+                    
+                    // Marcar nivel como completado
+                    localStorage.setItem(`${userName}_nivel 2.4`, JSON.stringify({
+                        completado: true,
+                        correctas: correctas,
+                        total: total,
+                        visualizado: true
+                    }));
+
+                    // Marcar la sección de Mecánica como completada
+                    localStorage.setItem(`${userName}_mecanica`, JSON.stringify({
+                        completado: true
+                    }));
+
+                    // Actualizar estado del botón siguiente
+                    actualizarBotonSiguiente();
+                }
+            }
+
+            return false;
+        }
+
+        function cerrarModal() {
+            const modal = document.getElementById('modal-mensaje');
+            modal.classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+        }
+
+        // Cerrar modal al hacer clic fuera del contenido
+        document.getElementById('modal-mensaje').addEventListener('click', function(e) {
+            if (e.target === this) {
+                cerrarModal();
+            }
+        });
+
+        // Verificar estado inicial
+        document.addEventListener('DOMContentLoaded', function() {
+            const sesion = checkSession(true);
+            if (sesion && sesion.length > 0) {
+                const userName = sesion[0].userName || sesion[0].correo;
+                const nivel2_4 = localStorage.getItem(`${userName}_nivel 2.4`);
+                
+                if (!nivel2_4) {
+                    localStorage.setItem(`${userName}_nivel 2.4`, JSON.stringify({
+                        completado: false,
+                        visualizado: false
+                    }));
+                }
+
+                actualizarBotonSiguiente();
+            }
+        });
 </script>
-<script src="../JS/modal.js"></script><!--Importacion del script para funcionamiento de la ventana modal-->
 </body>
 </html>

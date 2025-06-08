@@ -3,11 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Editar Perfil</title>
+    <title>Editar Perfil - Nexo Ciencia</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/base.css">
     <link rel="stylesheet" href="../CSS/usuarioModifica.css">
-    <script src="../JS/auth.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="../JS/utilidades.js"></script>
+    <script src="../JS/auth.js"></script>
     <script src="../JS/usuario.js"></script>
     <script src="../JS/secuencia.js"></script>
     <script src="../JS/gestionarSecuancia.js"></script>
@@ -17,43 +20,81 @@
 <body>
     <div id="customAlert" class="custom-alert"></div>
 
+    <nav class="nav">
+        <a href="usuario.html" class="btn-back">
+            <i class="fas fa-arrow-left"></i>
+            Volver al Panel
+        </a>
+        <a href="../index.html" class="nav-logo">
+            <img src="../Recursos/Imagenes/NEXO CIENCIA.svg" alt="Nexo Ciencia" style="width: 110px;">
+        </a>
+    </nav>
+
     <div class="perfil-container">
-        <h2>Editar Perfil</h2>
-
-        <div class="perfil-campo">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" disabled>
-            <button onclick="habilitarEdicion('nombre')">Editar</button>
+        <div class="perfil-header">
+            <h2>Editar Perfil</h2>
+            <p>Actualiza tu información personal</p>
         </div>
 
-        <div class="perfil-campo">
-            <label for="apellido">Apellido:</label>
-            <input type="text" id="apellido" disabled>
-            <button onclick="habilitarEdicion('apellido')">Editar</button>
+        <div class="perfil-form">
+            <div class="perfil-campo">
+                <label for="nombre">Nombre</label>
+                <div class="input-group">
+                    <input type="text" id="nombre" disabled>
+                    <button class="btn-edit" onclick="habilitarEdicion('nombre')" title="Editar nombre">
+                        <i class="fas fa-pencil-alt"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="perfil-campo">
+                <label for="apellido">Apellido</label>
+                <div class="input-group">
+                    <input type="text" id="apellido" disabled>
+                    <button class="btn-edit" onclick="habilitarEdicion('apellido')" title="Editar apellido">
+                        <i class="fas fa-pencil-alt"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="perfil-campo">
+                <label for="correo">Correo electrónico</label>
+                <div class="input-group">
+                    <input type="email" id="correo" disabled>
+                    <button class="btn-edit" onclick="habilitarEdicion('correo')" title="Editar correo electrónico">
+                        <i class="fas fa-pencil-alt"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="perfil-campo">
+                <label for="contrasena">Contraseña</label>
+                <div class="input-group">
+                    <input type="password" id="contrasena" disabled>
+                    <button class="btn-edit" onclick="habilitarEdicion('contrasena')" title="Editar contraseña">
+                        <i class="fas fa-pencil-alt"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="perfil-actions">
+                <button class="btn-guardar" onclick="guardarCambios()">
+                    <i class="fas fa-save"></i>
+                    Guardar Cambios
+                </button>
+                <button class="btn-cancelar" onclick="window.location.href='usuario.html'">
+                    <i class="fas fa-times"></i>
+                    Cancelar
+                </button>
+            </div>
         </div>
-
-        <div class="perfil-campo">
-            <label for="correo">Correo electrónico:</label>
-            <input type="email" id="correo" disabled>
-            <button onclick="habilitarEdicion('correo')">Editar</button>
-        </div>
-
-        <div class="perfil-campo">
-            <label for="contrasena">Contraseña:</label>
-            <input type="password" id="contrasena" disabled>
-            <button onclick="habilitarEdicion('contrasena')">Editar</button>
-        </div>
-
-        <button class="btn-guardar" onclick="guardarCambios()">Guardar Cambios</button>
-        
-        <button onclick="logout()">Cerrar sesión</button>
-
     </div>
-    <script>
-        showUserName()
-        checkSession(true)
 
-        cargarDatos()
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            checkSession(true);
+            cargarDatos();
+        });
     </script>
 </body>
 

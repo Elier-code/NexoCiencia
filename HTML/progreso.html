@@ -3,17 +3,76 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Progreso del Usuario</title>
+    <title>Mi Progreso - Nexo Ciencia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/base.css">
+    <link rel="stylesheet" href="../CSS/progreso.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="../JS/utilidades.js"></script>
     <script src="../JS/auth.js"></script>
-
-    <link rel="stylesheet" href="../CSS/progreso.css">
+    <script src="../JS/icono.js"></script>
 </head>
 
 <body>
-    <div class="progreso-container" id="progreso-secciones">
-        <h1>Resumen de Progreso</h1>
+    <!-- Navegación -->
+    <nav class="nav">
+        <div class="nav-left">
+            <a href="usuario.html" class="btn-back" title="Volver al panel">
+                <i class="fas fa-arrow-left"></i>
+                <span>Volver al Panel</span>
+            </a>
+            <a href="../index.html" class="nav-logo">
+                <img src="../Recursos/Imagenes/NEXO CIENCIA.svg" alt="Nexo Ciencia" style="width: 110px;">
+            </a>
+        </div>
+        <div class="user-menu">
+            <a href="usuario.html" title="Ir al panel de usuario">
+                <img src="https://cdn-icons-png.flaticon.com/512/2922/2922506.png" alt="Avatar de usuario" class="user-avatar">
+            </a>
+        </div>
+    </nav>
+
+    <div class="progreso-container">
+        <div class="progreso-header">
+            <h1>Mi Progreso</h1>
+            <p>Seguimiento de tu avance en los cursos</p>
+        </div>
+
+        <div class="resumen-stats">
+            <div class="stat-card">
+                <i class="fas fa-book-open"></i>
+                <div class="stat-info">
+                    <span class="stat-value" id="total-niveles">0</span>
+                    <span class="stat-label">Niveles Completados</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-chart-line"></i>
+                <div class="stat-info">
+                    <span class="stat-value" id="promedio-general">0%</span>
+                    <span class="stat-label">Promedio General</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-trophy"></i>
+                <div class="stat-info">
+                    <span class="stat-value" id="mejor-puntuacion">0%</span>
+                    <span class="stat-label">Mejor Puntuación</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="progreso-tabs">
+            <button class="tab-btn active" onclick="cambiarTab('mecanica')">Mecánica</button>
+            <button class="tab-btn" onclick="cambiarTab('calculo')">Cálculo</button>
+        </div>
+
+        <div id="progreso-secciones" class="progreso-content">
+            <!-- El contenido se carga dinámicamente con JS -->
+        </div>
     </div>
+
     <script src="../JS/gestionprogreso.js"></script>
 </body>
 

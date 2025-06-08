@@ -3,102 +3,232 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>explicación</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceptos Básicos del Movimiento - Nexo Ciencia</title>
     <link rel="stylesheet" href="../CSS/botones.css">
     <script src="../JS/utilidades.js"></script>
     <script src="../JS/auth.js"></script>
     <script src="../JS/icono.js"></script>
+
+    <style>
+        .contenedor {
+            padding: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .seccion {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Aspecto 16:9 */
+            height: 0;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .explicacion {
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        .ejercicio {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .ejercicio h3 {
+            color: #2196F3;
+            margin-bottom: 15px;
+        }
+
+        .solucion {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+
+        .formula {
+            font-family: 'Times New Roman', serif;
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 6px;
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        /* Estilos para los botones de navegación */
+        .navegacion {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding: 20px 0;
+        }
+
+        .btn-nav {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-anterior {
+            background-color: #f5f5f5;
+            color: #666;
+        }
+
+        .btn-siguiente {
+            background-color: #2196F3;
+            color: white;
+        }
+
+        .btn-anterior:hover {
+            background-color: #e0e0e0;
+        }
+
+        .btn-siguiente:hover {
+            background-color: #1976D2;
+            transform: translateX(5px);
+        }
+    </style>
 </head>
 
 <body>
     <div class="cont-volver">
         <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
     </div>
+
     <div class="contenedor">
-
-        <!-- Primer video -->
-       <iframe width="560" height="315" src="https://www.youtube.com/embed/URJ3u_lnkmI?si=nXz4uDbuZIYl5eYT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        <!-- Texto central -->
-        <div class="texto">
-            <p>
-                Aquí va una descripción o explicación relacionada con el video.
-                Puedes escribir varias líneas de texto para acompañar el contenido multimedia.
-            </p>
-        </div>
-
-        <!-- Segundo cuadro de texto -->
-   <div class="caja-texto">
-    <p>
-        <strong>Velocidad angular:</strong><br><br>
-        La velocidad angular (&omega;) es una magnitud física que describe la rapidez con la que un objeto gira o rota
-        alrededor de un eje. Se define como el ángulo barrido por unidad de tiempo y se mide en radianes por segundo (rad/s).<br><br>
-
-        Matemáticamente se expresa como:<br>
-        <strong>&omega; = &theta; / t</strong><br>
-        donde &theta; es el ángulo girado (en radianes) y <em>t</em> es el tiempo empleado.<br><br>
-
-        La velocidad angular puede ser positiva o negativa, dependiendo del sentido de giro (convencionalmente positivo en sentido antihorario).
-        Además, en un movimiento circular uniforme, esta magnitud es constante, mientras que en un movimiento circular no uniforme puede cambiar con el tiempo, generando una aceleración angular (&alpha;).<br><br>
-
-        También puede relacionarse con la velocidad tangencial (<em>v</em>) mediante la fórmula:<br>
-        <strong>v = &omega; · r</strong><br>
-        donde <em>r</em> es el radio de la trayectoria circular.<br><br>
-
-        <strong>Ejercicio resuelto:</strong><br><br>
-        <em>Un objeto gira en una trayectoria circular de radio 0.3 m, recorriendo un ángulo de 12.56 radianes en 4 segundos.
-        ¿Cuál es su velocidad angular y su velocidad tangencial?</em><br><br>
-
-        <u>Solución:</u><br>
-        - Usamos la fórmula: &omega; = &theta;/t = 12.56 / 4 = <strong>3.14 rad/s</strong><br><br>
-        - Luego: v = &omega; · r = 3.14 × 0.3 = <strong>0.942 m/s</strong><br><br>
-
-        <strong>Respuesta:</strong> La velocidad angular es 3.14 rad/s y la velocidad tangencial es 0.942 m/s.
-    </p>
-</div>
-
-
-        <!-- Botón siguiente -->
-        <form class="cuestionario">
-            <div class="boton">
-                <button type="submit" class="btn-enviar">Siguiente ➔</button>
+        <div class="seccion">
+            <h2>Conceptos Básicos del Movimiento</h2>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/URJ3u_lnkmI?si=nXz4uDbuZIYl5eYT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
-        </form>
+            
+            <div class="explicacion">
+                <h3>Conceptos Fundamentales</h3>
+                <p>El movimiento es uno de los conceptos más importantes en física. Se define como el cambio de posición de un objeto con respecto a un punto de referencia a lo largo del tiempo. Para entender el movimiento, necesitamos comprender varios elementos clave:</p>
+                <ul>
+                    <li>Posición: Ubicación de un objeto en el espacio</li>
+                    <li>Velocidad: Rapidez y dirección del movimiento</li>
+                    <li>Aceleración: Cambio en la velocidad</li>
+                    <li>Tiempo: Duración del movimiento</li>
+                </ul>
+            </div>
 
-    </div>
-    <!-- Modal -->
-    <!-- Modal -->
-    <div id="modal-mensaje" class="modal">
-        <div class="modal-contenido">
-            <p>¡Gracias por completar el examen!<br>Tus respuestas han sido enviadas.</p>
-            <button class="modal-boton" onclick="cerrarModal()">Aceptar</button>
+            <div class="ejercicio">
+                <h3>Ejercicio Resuelto 1: Velocidad Media</h3>
+                <p>Un automóvil recorre 200 metros en 20 segundos. Calcular su velocidad media.</p>
+                
+                <div class="formula">
+                    v = Δx/Δt
+                </div>
+                
+                <div class="solucion">
+                    <p><strong>Solución:</strong></p>
+                    <p>Datos:</p>
+                    <ul>
+                        <li>Distancia (Δx) = 200 m</li>
+                        <li>Tiempo (Δt) = 20 s</li>
+                    </ul>
+                    <p>Aplicando la fórmula:</p>
+                    <p>v = 200 m / 20 s = 10 m/s</p>
+                </div>
+            </div>
+
+            <div class="ejercicio">
+                <h3>Ejercicio Resuelto 2: Conversión de Unidades</h3>
+                <p>Convertir una velocidad de 72 km/h a m/s.</p>
+                
+                <div class="solucion">
+                    <p><strong>Solución:</strong></p>
+                    <p>72 km/h = 72 × (1000 m/1 km) × (1 h/3600 s)</p>
+                    <p>72 × (1000/3600) = 20 m/s</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botones de navegación -->
+        <div class="navegacion">
+            <a href="quizMecanica.html" class="btn-nav btn-anterior">
+                <i class="fas fa-arrow-left"></i>
+                Volver
+            </a>
+            <a href="botonMecanica-1-2.html" class="btn-nav btn-siguiente" onclick="marcarCompletado()">
+                Siguiente
+                <i class="fas fa-arrow-right"></i>
+            </a>
         </div>
     </div>
+
     <script>
         insertarLogo();
-        checkSession(true)
-        const sesion = checkSession(true)
-        console.log(sesion[0])
-        const usuario = sesion[0].userName;
+        checkSession(true);
+        
+        function marcarCompletado() {
+            const sesion = checkSession(true);
+            if (sesion && sesion.length > 0) {
+                const userName = sesion[0].userName || sesion[0].correo;
+                
+                // Marcar nivel 1.1 como completado
+                localStorage.setItem(`${userName}_nivel 1.1`, JSON.stringify({
+                    completado: true,
+                    visualizado: true
+                }));
 
-        const nivelActual = "nivel 1.1";//nivel 1.1 debe cambiarse dependiedo al nivel
+                // Desbloquear nivel 1.2
+                localStorage.setItem(`${userName}_nivel 1.2`, JSON.stringify({
+                    completado: false,
+                    desbloqueado: true
+                }));
+            }
+        }
 
-        document.querySelector("form.cuestionario").addEventListener("submit", function (e) {
-            e.preventDefault();
-
-            const datos = {
-                correctas: 1,
-                total: 1,
-                completado: true
-            };
-
-            const claveProgreso = `${usuario}_${nivelActual}`;
-            localStorage.setItem(claveProgreso, JSON.stringify(datos));
-
-            document.getElementById("modal-mensaje").style.display = "flex";
+        // Verificar si el nivel ya está completado al cargar
+        document.addEventListener('DOMContentLoaded', function() {
+            const sesion = checkSession(true);
+            if (sesion && sesion.length > 0) {
+                const userName = sesion[0].userName || sesion[0].correo;
+                const nivel1_1 = localStorage.getItem(`${userName}_nivel 1.1`);
+                
+                if (!nivel1_1) {
+                    // Si es la primera vez, inicializar el progreso
+                    localStorage.setItem(`${userName}_nivel 1.1`, JSON.stringify({
+                        completado: false,
+                        visualizado: false
+                    }));
+                }
+            }
         });
     </script>
-
-    <script src="../JS/modal.js"></script><!--Importacion del script para funcionamiento de la ventana modal-->
 </body>
 
 </html>

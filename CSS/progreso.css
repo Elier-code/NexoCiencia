@@ -1,85 +1,270 @@
+/* Estilos generales */
 body {
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
-    padding: 30px;
+    font-family: 'Inter', sans-serif;
+    background: var(--background);
+    margin: 0;
+    padding: 0;
 }
 
+/* Navegación */
+.nav {
+    background: var(--white);
+    padding: var(--spacing-md) var(--spacing-xl);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.btn-back {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    color: var(--text-medium);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition-normal);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+    background: var(--background);
+}
+
+.btn-back:hover {
+    background: var(--background-dark);
+    color: var(--primary);
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary);
+    padding: 2px;
+}
+
+/* Contenedor principal */
 .progreso-container {
-    max-width: 700px;
-    margin: auto;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-xl);
 }
 
+/* Encabezado */
+.progreso-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.progreso-header h1 {
+    color: var(--text-dark);
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.progreso-header p {
+    color: var(--text-medium);
+    font-size: 1.1rem;
+    margin-top: var(--spacing-sm);
+}
+
+/* Tarjetas de estadísticas */
+.resumen-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.stat-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    transition: var(--transition-normal);
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.stat-card i {
+    font-size: 2rem;
+    color: var(--primary);
+    background: var(--background);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+}
+
+.stat-info {
+    flex: 1;
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.stat-label {
+    color: var(--text-medium);
+    font-size: 0.9rem;
+}
+
+/* Tabs de navegación */
+.progreso-tabs {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+    border-bottom: 2px solid var(--background-dark);
+    padding-bottom: var(--spacing-md);
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-medium);
+    cursor: pointer;
+    transition: var(--transition-normal);
+    position: relative;
+}
+
+.tab-btn.active {
+    color: var(--primary);
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primary);
+}
+
+/* Niveles */
 .nivel {
-    background: #fff;
-    border-left: 8px solid #ccc;
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 16px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: border-left-color 0.3s ease;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-normal);
+    border-left: 4px solid var(--background-dark);
 }
 
 .nivel.completado {
-    border-left-color: #4caf50;
+    border-left-color: var(--success);
 }
 
 .nivel.pendiente {
-    border-left-color: #f44336;
+    border-left-color: var(--warning);
 }
 
 .nivel h3 {
-    margin-top: 0;
+    margin: 0;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
 }
 
 .estado {
-    font-weight: bold;
-    font-size: 1.1em;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-full);
+    margin-left: auto;
 }
 
 .estado.completado {
-    color: #4caf50;
+    background: var(--success-light);
+    color: var(--success);
 }
 
 .estado.pendiente {
-    color: #f44336;
+    background: var(--warning-light);
+    color: var(--warning);
 }
 
 .progreso-barra {
-    background: #eee;
-    border-radius: 10px;
+    background: var(--background);
+    border-radius: var(--radius-full);
+    height: 8px;
+    margin: var(--spacing-md) 0;
     overflow: hidden;
-    margin-top: 10px;
-    height: 20px;
 }
 
 .progreso-barra span {
     display: block;
     height: 100%;
-    background: #4caf50;
-    text-align: center;
-    color: white;
-    line-height: 20px;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+    transition: width var(--transition-normal);
 }
 
 .boton {
-    margin-top: 10px;
+    margin-top: var(--spacing-md);
 }
 
-button {
-    padding: 8px 12px;
+.boton button {
+    background: var(--primary);
+    color: var(--white);
     border: none;
-    border-radius: 6px;
-    background: #2196f3;
-    color: white;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--radius-md);
+    font-weight: 500;
     cursor: pointer;
+    transition: var(--transition-normal);
 }
 
-button:hover {
-    background: #0b7dda;
+.boton button:hover {
+    background: var(--secondary);
+    transform: translateY(-2px);
 }
 
-h2 {
-    border-bottom: 2px solid #ccc;
-    padding-bottom: 5px;
-    margin-top: 40px;
+/* Responsive */
+@media (max-width: 768px) {
+    .progreso-container {
+        padding: var(--spacing-lg);
+    }
+
+    .progreso-header h1 {
+        font-size: 2rem;
+    }
+
+    .stat-card {
+        padding: var(--spacing-lg);
+    }
+
+    .stat-value {
+        font-size: 1.5rem;
+    }
+
+    .nivel {
+        padding: var(--spacing-lg);
+    }
 }

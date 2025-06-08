@@ -4,28 +4,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juego de Preguntas - Menú</title>
-    <link rel="stylesheet" href="../CSS/style.css">
+    <title>Menú - Nexo Ciencia</title>
+    <link rel="stylesheet" href="../CSS/base.css">
+    <link rel="stylesheet" href="../CSS/menu.css">
+    <link rel="stylesheet" href="../CSS/theme.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="../JS/utilidades.js"></script>
+    <script src="../JS/auth.js"></script>
+    <script src="../JS/profilePhoto.js"></script>
     <script src="../JS/icono.js"></script>
 </head>
 
-<body class="menu-body">
-    <!-- Logo de perfil en la esquina superior derecha -->
-    <div style="position: absolute; top: 10px; right: 10px;">
-        <a href="usuario.html">
-            <img src="https://cdn-icons-png.flaticon.com/512/2922/2922506.png" alt="Perfil" style="width: 80px; height: 80px; cursor: pointer;">
-        </a>
-    </div>
+<body>
+    <!-- Navegación -->
+    <nav class="nav">
+        <div class="nav-left">
+            <a href="usuario.html" class="btn-back" title="Volver al panel">
+                <i class="fas fa-arrow-left"></i>
+                <span>Volver al Panel</span>
+            </a>
+            <a href="../index.html" class="nav-logo">
+                <img src="../Recursos/Imagenes/NEXO CIENCIA.svg" alt="Nexo Ciencia" style="width: 110px;">
+            </a>
+        </div>
+        <div class="user-menu">
+            <a href="usuario.html" title="Ir al panel de usuario">
+                <img src="https://cdn-icons-png.flaticon.com/512/2922/2922506.png" alt="Avatar de usuario" class="user-avatar">
+            </a>
+        </div>
+    </nav>
 
-    <div id="menu" class="screen">
-        <h2 style="color: #f89c1c;">Selecciona un Tema</h2>
-        <div id="menu-botones">
-            <button class="btn-menu" onclick="selectCategory('Mecanica')">Mecánica</button>
-            <button class="btn-menu" onclick="selectCategory('Calculo')">Cálculo</button>
+    <div class="menu-container">
+        <!-- Encabezado -->
+        <div class="menu-header">
+            <h1>Selecciona un Tema</h1>
+            <p>Explora nuestros cursos de física y cálculo</p>
+        </div>
+
+        <!-- Grid de temas -->
+        <div class="temas-grid">
+            <!-- Tarjeta de Mecánica -->
+            <div class="tema-card" onclick="selectCategory('Mecanica')">
+                <span class="tema-badge">Física</span>
+                <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                     alt="Imagen de Mecánica" 
+                     class="tema-imagen">
+                <div class="tema-contenido">
+                    <h3>Mecánica</h3>
+                    <p>Aprende los fundamentos de la mecánica clásica, movimiento, fuerzas y energía.</p>
+                    <div class="tema-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-book"></i>
+                            <span>12 lecciones</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-clock"></i>
+                            <span>6 horas</span>
+                        </div>
+                    </div>
+                    <button class="btn-tema">
+                        <i class="fas fa-play"></i>
+                        Comenzar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tarjeta de Cálculo -->
+            <div class="tema-card" onclick="selectCategory('Calculo')">
+                <span class="tema-badge">Matemáticas</span>
+                <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                     alt="Imagen de Cálculo" 
+                     class="tema-imagen">
+                <div class="tema-contenido">
+                    <h3>Cálculo</h3>
+                    <p>Domina los conceptos de cálculo diferencial e integral, límites y derivadas.</p>
+                    <div class="tema-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-book"></i>
+                            <span>15 lecciones</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-clock"></i>
+                            <span>8 horas</span>
+                        </div>
+                    </div>
+                    <button class="btn-tema">
+                        <i class="fas fa-play"></i>
+                        Comenzar
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            checkSession(true);
+            loadProfilePhoto();
+        });
+
         function selectCategory(category) {
             localStorage.setItem('category', category);
             if (category === 'Mecanica') {
@@ -34,7 +112,6 @@
                 window.location.href = 'quizCalculo.html';
             }
         }
-        insertarLogo();
     </script>
 </body>
 

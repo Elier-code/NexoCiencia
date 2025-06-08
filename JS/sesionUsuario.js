@@ -1,6 +1,6 @@
 class SesionUsuario{
-    constructor(nombre,correo,usuario){
-        this.nombre = nombre;
+    constructor(nombres,correo,usuario){
+        this.nombres = nombres;
         this.correo = correo;
         this.userName = usuario;
     }

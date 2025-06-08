@@ -2,13 +2,357 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Prueba dinámica</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torque - Prueba Dinámica</title>
     <link rel="stylesheet" href="../CSS/botones.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="../JS/utilidades.js"></script>
+    <script src="../JS/auth.js"></script>
     <script src="../JS/icono.js"></script>
     <style>
+        body {
+            background-color: #f0f2f5;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .contenedor {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .seccion-contenido {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .seccion-contenido:hover {
+            transform: translateY(-2px);
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #5c5cff, #4a4aff);
+            border-radius: 3px;
+        }
+
+        .cuestionario {
+            margin-top: 30px;
+        }
+
         .pregunta {
-            margin-bottom: 40px;
-            text-align: left;
+            background: #f8f9fa;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+
+        .pregunta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: #5c5cff;
+        }
+
+        .pregunta p {
+            color: #333;
+            font-weight: 500;
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .pregunta label {
+            display: block;
+            padding: 15px 20px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            background: white;
+            border: 1px solid #e0e0e0;
+            font-size: 15px;
+            color: #444;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pregunta label:hover {
+            background: #e3f2fd;
+            border-color: #2196F3;
+            color: #1976D2;
+        }
+
+        .pregunta input[type="radio"] {
+            margin-right: 12px;
+            transform: scale(1.2);
+        }
+
+        .navegacion {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .btn-nav {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-nav::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .btn-nav:hover::before {
+            left: 100%;
+        }
+
+        .btn-atras {
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            color: #333;
+        }
+
+        .btn-enviar {
+            background: linear-gradient(135deg, #4CAF50, #43A047);
+            color: white;
+        }
+
+        .btn-siguiente {
+            background: linear-gradient(135deg, #2196F3, #1976D2);
+            color: white;
+        }
+
+        .btn-atras:hover {
+            background: linear-gradient(135deg, #e0e0e0, #d0d0d0);
+            transform: translateX(-5px);
+        }
+
+        .btn-enviar:hover {
+            background: linear-gradient(135deg, #43A047, #388E3C);
+            transform: translateY(-2px);
+        }
+
+        .btn-siguiente:hover {
+            background: linear-gradient(135deg, #1976D2, #1565C0);
+            transform: translateX(5px);
+        }
+
+        .btn-siguiente.disabled {
+            background: linear-gradient(135deg, #ccc, #bbb);
+            cursor: not-allowed;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.show {
+            opacity: 1;
+        }
+
+        .modal-contenido {
+            background: linear-gradient(145deg, #ffffff, #f3f3f3);
+            padding: 40px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .modal.show .modal-contenido {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .resultado {
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .resultado.aprobado {
+            background: linear-gradient(145deg, #e8f5e9, #c8e6c9);
+            color: #2e7d32;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.1);
+        }
+
+        .resultado.reprobado {
+            background: linear-gradient(145deg, #ffebee, #ffcdd2);
+            color: #c62828;
+            box-shadow: 0 4px 15px rgba(198, 40, 40, 0.1);
+        }
+
+        .resultado h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .resultado .score {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 20px 0;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .modal-boton {
+            background: linear-gradient(145deg, #2196F3, #1976D2);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            margin-top: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+        }
+
+        .modal-boton:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
+        }
+
+        .modal-boton:active {
+            transform: translateY(1px);
+        }
+
+        .modal-boton::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .modal-boton:hover::before {
+            left: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .contenedor {
+                padding: 15px;
+            }
+
+            .seccion-contenido {
+                padding: 20px;
+            }
+
+            .navegacion {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .btn-nav {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .modal-contenido {
+                padding: 30px;
+                margin: 20px;
+            }
+
+            .resultado {
+                padding: 20px;
+            }
+
+            .resultado h3 {
+                font-size: 24px;
+            }
+
+            .resultado .score {
+                font-size: 36px;
+            }
+
+            .pregunta label {
+                padding: 12px 15px;
+            }
         }
     </style>
 </head>
@@ -16,11 +360,11 @@
     <div class="cont-volver">
         <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
     </div>
+
 <div class="contenedor">
-
-   <form class="cuestionario">
-    <h2>Prueba de Autocompletar Fórmulas: Torque</h2>
-
+        <div class="seccion-contenido">
+            <h2>Torque - Prueba Dinámica</h2>
+            <form id="cuestionario" class="cuestionario" onsubmit="return verificarRespuestas(event)">
     <!-- Pregunta 1 -->
     <div class="pregunta">
         <p>1. La fórmula básica del **torque** es:</p>
@@ -69,24 +413,20 @@
         </div>
     </div>
 </form>
-
-        <!-- Botón enviar -->
-        <div class="boton">
-            <button type="submit">Enviar</button>
         </div>
-
-    </form>
 </div>
-    <!-- Modal -->
+
     <div id="modal-mensaje" class="modal">
         <div class="modal-contenido">
-            <p>¡Gracias por completar el examen!<br>Tus respuestas han sido enviadas.</p>
-            <button class="modal-boton" onclick="cerrarModal()">Aceptar</button>
+            <div id="resultado-mensaje"></div>
+            <div id="respuestas-detalle" class="respuestas-detalle"></div>
+            <button class="modal-boton" onclick="cerrarModal()">Continuar</button>
         </div>
     </div>
+
 <script>
     insertarLogo();
 </script>
-<script src="../JS/modal.js"></script><!--Importacion del script para funcionamiento de la ventana modal-->
+    <script src="../JS/modal.js"></script>
 </body>
 </html>

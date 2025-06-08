@@ -1,3 +1,7 @@
+// Variables globales para localStorage
+ 
+const localStorageSession = "sessionUser";
+
 function getJSONDeLocalStore(nombreLocalStore) {
 
     return JSON.parse(

@@ -2,12 +2,319 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Video y Cuestionario</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integración por Partes - Cuestionario</title>
     <link rel="stylesheet" href="../CSS/botones.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="../JS/utilidades.js"></script>
+    <script src="../JS/auth.js"></script>
     <script src="../JS/icono.js"></script>
     <style>
-        .cotenedor{
+        body {
+            background-color: #f0f2f5;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .contenedor {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .seccion-contenido {
+            background: white;
+            border-radius: 15px;
             padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .seccion-contenido:hover {
+            transform: translateY(-2px);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #5c5cff, #4a4aff);
+            border-radius: 3px;
+        }
+
+        .cuestionario {
+            margin-top: 30px;
+        }
+
+        .pregunta {
+            background: #f8f9fa;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+
+        .pregunta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: #5c5cff;
+        }
+
+        .pregunta p {
+            color: #333;
+            font-weight: 500;
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .pregunta label {
+            display: block;
+            padding: 15px 20px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            background: white;
+            border: 1px solid #e0e0e0;
+            font-size: 15px;
+            color: #444;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pregunta label:hover {
+            background: #e3f2fd;
+            border-color: #2196F3;
+            color: #1976D2;
+        }
+
+        .pregunta input[type="radio"] {
+            margin-right: 12px;
+            transform: scale(1.2);
+        }
+
+        .navegacion {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .btn-nav {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            gap: 8px;
+        }
+
+        .btn-atras {
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            color: #333;
+        }
+
+        .btn-enviar {
+            background: linear-gradient(135deg, #4CAF50, #43A047);
+            color: white;
+        }
+
+        .btn-siguiente {
+            background: linear-gradient(135deg, #2196F3, #1976D2);
+            color: white;
+        }
+
+        .btn-atras:hover {
+            background: linear-gradient(135deg, #e0e0e0, #d0d0d0);
+            transform: translateX(-5px);
+        }
+
+        .btn-enviar:hover {
+            background: linear-gradient(135deg, #43A047, #388E3C);
+            transform: translateY(-2px);
+        }
+
+        .btn-siguiente:hover {
+            background: linear-gradient(135deg, #1976D2, #1565C0);
+            transform: translateX(5px);
+        }
+
+        .btn-siguiente.disabled {
+            background: linear-gradient(135deg, #ccc, #bbb);
+            cursor: not-allowed;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(17, 25, 40, 0.75);
+            -webkit-backdrop-filter: blur(12px) saturate(180%);
+            backdrop-filter: blur(12px) saturate(180%);
+            opacity: 0;
+            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .modal.show {
+            opacity: 1;
+        }
+
+        .modal-contenido {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 24px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .modal.show .modal-contenido {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .resultado {
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .resultado.aprobado {
+            background: linear-gradient(145deg, #e8f5e9, #c8e6c9);
+            color: #2e7d32;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.1);
+        }
+
+        .resultado.reprobado {
+            background: linear-gradient(145deg, #ffebee, #ffcdd2);
+            color: #c62828;
+            box-shadow: 0 4px 15px rgba(198, 40, 40, 0.1);
+        }
+
+        .resultado h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .resultado .score {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .modal-boton {
+            background: linear-gradient(145deg, #2196F3, #1976D2);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+        }
+
+        .modal-boton:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .contenedor {
+                padding: 15px;
+            }
+
+            .seccion-contenido {
+                padding: 20px;
+            }
+
+            .navegacion {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .btn-nav {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .modal-contenido {
+                padding: 30px;
+                margin: 20px;
+            }
+
+            .resultado {
+                padding: 20px;
+            }
+
+            .resultado h3 {
+                font-size: 24px;
+            }
+
+            .resultado .score {
+                font-size: 36px;
+            }
         }
     </style>
 </head>
@@ -15,129 +322,246 @@
     <div class="cont-volver">
         <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
     </div>
-<div class="contenedor">
- 
-    <!-- Video -->
-    <video width="640" height="360" controls>
-        <source src="video1.mp4" type="video/mp4">
-        Tu navegador no soporta videos HTML5.
-    </video>
 
-    <!-- Cuestionario -->
-    <form class="cuestionario">
-        <h2>Prueba de Conocimientos</h2>
+    <div class="contenedor">
+        <div class="seccion-contenido">
+            <h2>Integración por Partes</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
 
-        <!-- Preguntas -->
-        <!-- Repito el bloque 10 veces -->
-       <!-- Pregunta 1 -->
-<div class="pregunta">
-    <p>1. ¿Cuál es la fórmula base de la integración por partes?</p>
-    <label><input type="radio" name="p1" value="A"> A) ∫u·dv = u·v + ∫v·du</label>
-    <label><input type="radio" name="p1" value="B"> B) ∫u·dv = u·v - ∫v·du</label>
-    <label><input type="radio" name="p1" value="C"> C) ∫u·dv = ∫u + ∫dv</label>
-    <label><input type="radio" name="p1" value="D"> D) ∫u·dv = v·du - u·dv</label>
-</div>
+            <form id="quizForm" class="cuestionario" onsubmit="return verificarRespuestas(event)">
+                <h2>Prueba de Conocimientos</h2>
 
-<!-- Pregunta 2 -->
-<div class="pregunta">
-    <p>2. ¿Cuál es una estrategia útil para elegir "u" en la técnica de partes?</p>
-    <label><input type="radio" name="p2" value="A"> A) La función más difícil de integrar</label>
-    <label><input type="radio" name="p2" value="B"> B) La función que crece más rápido</label>
-    <label><input type="radio" name="p2" value="C"> C) La función más fácil de derivar</label>
-    <label><input type="radio" name="p2" value="D"> D) Siempre el primer término</label>
-</div>
+                <div class="pregunta">
+                    <p>1. ¿Qué es la integración por partes?</p>
+                    <label><input type="radio" name="p1" value="A"> A) Una técnica para integrar productos de funciones</label>
+                    <label><input type="radio" name="p1" value="B"> B) Un método para derivar funciones compuestas</label>
+                    <label><input type="radio" name="p1" value="C"> C) Una forma de resolver ecuaciones diferenciales</label>
+                    <label><input type="radio" name="p1" value="D"> D) Un proceso para factorizar polinomios</label>
+                </div>
 
-<!-- Pregunta 3 -->
-<div class="pregunta">
-    <p>3. ¿Qué sugiere el acrónimo LIATE?</p>
-    <label><input type="radio" name="p3" value="A"> A) Un orden para integrar funciones racionales</label>
-    <label><input type="radio" name="p3" value="B"> B) Un orden para elegir u</label>
-    <label><input type="radio" name="p3" value="C"> C) La forma de simplificar una integral</label>
-    <label><input type="radio" name="p3" value="D"> D) La fórmula de derivación</label>
-</div>
+                <div class="pregunta">
+                    <p>2. La fórmula de integración por partes es:</p>
+                    <label><input type="radio" name="p2" value="A"> A) ∫u dv = uv - ∫v du</label>
+                    <label><input type="radio" name="p2" value="B"> B) ∫u dv = uv + ∫v du</label>
+                    <label><input type="radio" name="p2" value="C"> C) ∫u dv = u/v - ∫v du</label>
+                    <label><input type="radio" name="p2" value="D"> D) ∫u dv = uv · ∫v du</label>
+                </div>
 
-<!-- Pregunta 4 -->
-<div class="pregunta">
-    <p>4. Si u = x y dv = e<sup>x</sup>dx, ¿cuál es el resultado de ∫x·e<sup>x</sup>dx?</p>
-    <label><input type="radio" name="p4" value="A"> A) x·e<sup>x</sup> + e<sup>x</sup> + C</label>
-    <label><input type="radio" name="p4" value="B"> B) e<sup>x</sup> - x·e<sup>x</sup> + C</label>
-    <label><input type="radio" name="p4" value="C"> C) x·e<sup>x</sup> - e<sup>x</sup> + C</label>
-    <label><input type="radio" name="p4" value="D"> D) e<sup>2x</sup> + C</label>
-</div>
+                <div class="pregunta">
+                    <p>3. ¿Cuándo se usa la integración por partes?</p>
+                    <label><input type="radio" name="p3" value="A"> A) Cuando hay un producto de funciones</label>
+                    <label><input type="radio" name="p3" value="B"> B) Solo con funciones trigonométricas</label>
+                    <label><input type="radio" name="p3" value="C"> C) En todas las integrales</label>
+                    <label><input type="radio" name="p3" value="D"> D) Nunca se usa</label>
+                </div>
 
-<!-- Pregunta 5 -->
-<div class="pregunta">
-    <p>5. ¿Cuál es la derivada de ln(x)?</p>
-    <label><input type="radio" name="p5" value="A"> A) ln(x)</label>
-    <label><input type="radio" name="p5" value="B"> B) 1/x</label>
-    <label><input type="radio" name="p5" value="C"> C) x</label>
-    <label><input type="radio" name="p5" value="D"> D) e<sup>x</sup></label>
-</div>
+                <div class="pregunta">
+                    <p>4. Para ∫x·ln(x) dx, ¿qué función debe ser u?</p>
+                    <label><input type="radio" name="p4" value="A"> A) ln(x)</label>
+                    <label><input type="radio" name="p4" value="B"> B) x</label>
+                    <label><input type="radio" name="p4" value="C"> C) dx</label>
+                    <label><input type="radio" name="p4" value="D"> D) 1/x</label>
+                </div>
 
-<!-- Pregunta 6 -->
-<div class="pregunta">
-    <p>6. ¿Qué se obtiene al aplicar integración por partes dos veces en ∫x²·e<sup>x</sup>dx?</p>
-    <label><input type="radio" name="p6" value="A"> A) No se puede resolver</label>
-    <label><input type="radio" name="p6" value="B"> B) x²·e<sup>x</sup> - 2∫x·e<sup>x</sup>dx</label>
-    <label><input type="radio" name="p6" value="C"> C) x²·e<sup>x</sup> - 2x·e<sup>x</sup> + 2e<sup>x</sup> + C</label>
-    <label><input type="radio" name="p6" value="D"> D) e<sup>x²</sup> + C</label>
-</div>
+                <div class="pregunta">
+                    <p>5. ¿Qué tipo de funciones son buenas candidatas para ser u?</p>
+                    <label><input type="radio" name="p5" value="A"> A) Las que se simplifican al derivar</label>
+                    <label><input type="radio" name="p5" value="B"> B) Las más complejas</label>
+                    <label><input type="radio" name="p5" value="C"> C) Las constantes</label>
+                    <label><input type="radio" name="p5" value="D"> D) Las exponenciales</label>
+                </div>
 
-<!-- Pregunta 7 -->
-<div class="pregunta">
-    <p>7. En la fórmula ∫u·dv = u·v - ∫v·du, ¿qué representa v?</p>
-    <label><input type="radio" name="p7" value="A"> A) La derivada de u</label>
-    <label><input type="radio" name="p7" value="B"> B) La derivada de dv</label>
-    <label><input type="radio" name="p7" value="C"> C) La integral de dv</label>
-    <label><input type="radio" name="p7" value="D"> D) Un número constante</label>
-</div>
-
-<!-- Pregunta 8 -->
-<div class="pregunta">
-    <p>8. ¿Qué resultado se obtiene al integrar ∫ln(x) dx usando integración por partes?</p>
-    <label><input type="radio" name="p8" value="A"> A) ln²(x)/2 + C</label>
-    <label><input type="radio" name="p8" value="B"> B) x·ln(x) - x + C</label>
-    <label><input type="radio" name="p8" value="C"> C) x + ln(x)</label>
-    <label><input type="radio" name="p8" value="D"> D) x²·ln(x)</label>
-</div>
-
-<!-- Pregunta 9 -->
-<div class="pregunta">
-    <p>9. ¿Qué tipo de funciones es más común integrar con este método?</p>
-    <label><input type="radio" name="p9" value="A"> A) Polinomios</label>
-    <label><input type="radio" name="p9" value="B"> B) Productos de funciones</label>
-    <label><input type="radio" name="p9" value="C"> C) Racionales simples</label>
-    <label><input type="radio" name="p9" value="D"> D) Funciones constantes</label>
-</div>
-
-<!-- Pregunta 10 -->
-<div class="pregunta">
-    <p>10. ¿Cuál de las siguientes integrales puede resolverse por partes?</p>
-    <label><input type="radio" name="p10" value="A"> A) ∫x³ dx</label>
-    <label><input type="radio" name="p10" value="B"> B) ∫e<sup>x</sup> dx</label>
-    <label><input type="radio" name="p10" value="C"> C) ∫x·cos(x) dx</label>
-    <label><input type="radio" name="p10" value="D"> D) ∫1/x dx</label>
-</div>
-
-
-        <!-- Botón enviar -->
-        <div class="boton">
-            <button type="submit">Enviar</button>
-        </div>
-
-    </form>
-
-</div>
-    <!-- Modal -->
-    <div id="modal-mensaje" class="modal">
-        <div class="modal-contenido">
-            <p>¡Gracias por completar el examen!<br>Tus respuestas han sido enviadas.</p>
-            <button class="modal-boton" onclick="cerrarModal()">Aceptar</button>
+                <div class="navegacion">
+                    <a href="quizCalculo.html" class="btn-nav btn-atras">
+                        <i class="fas fa-arrow-left"></i>
+                        Atrás
+                    </a>
+                    <button type="submit" class="btn-nav btn-enviar">
+                        <i class="fas fa-check"></i>
+                        Enviar
+                    </button>
+                    <a href="botoCalculo-2-3.html" class="btn-nav btn-siguiente disabled" id="btn-siguiente">
+                        Siguiente
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </form>
         </div>
     </div>
-<script>
-    insertarLogo();
-</script>
-<script src="../JS/modal.js"></script><!--Importacion del script para funcionamiento de la ventana modal-->
+
+    <div id="modal-mensaje" class="modal">
+        <div class="modal-contenido">
+            <div id="resultado-mensaje"></div>
+            <div id="respuestas-detalle" class="respuestas-detalle"></div>
+            <button class="modal-boton" onclick="cerrarModal()">Continuar</button>
+        </div>
+    </div>
+
+    <script>
+        insertarLogo();
+        checkSession(true);
+
+        const respuestasCorrectas = {
+            p1: "A",
+            p2: "A",
+            p3: "A",
+            p4: "A",
+            p5: "A"
+        };
+
+        // Habilitar/deshabilitar botón siguiente según el estado
+        function actualizarBotonSiguiente() {
+            const sesion = checkSession(true);
+            if (sesion && sesion.length > 0) {
+                const userName = sesion[0].userName || sesion[0].correo;
+                const nivel2_2 = JSON.parse(localStorage.getItem(`${userName}_nivel 2.2`) || '{}');
+                const btnSiguiente = document.getElementById('btn-siguiente');
+                
+                if (nivel2_2.completado) {
+                    btnSiguiente.classList.remove('disabled');
+                    btnSiguiente.href = 'botoCalculo-2-3.html';
+                } else {
+                    btnSiguiente.classList.add('disabled');
+                    btnSiguiente.href = '#';
+                }
+            }
+        }
+
+        function verificarRespuestas(event) {
+            event.preventDefault();
+            
+            let correctas = 0;
+            let total = Object.keys(respuestasCorrectas).length;
+            let preguntasSinResponder = [];
+
+            // Verificar cada pregunta
+            for (let i = 1; i <= total; i++) {
+                const pregunta = document.getElementsByName('p' + i);
+                let respondida = false;
+                let respuestaSeleccionada = '';
+
+                for (let radio of pregunta) {
+                    if (radio.checked) {
+                        respondida = true;
+                        respuestaSeleccionada = radio.value;
+                        if (respuestaSeleccionada === respuestasCorrectas['p' + i]) {
+                            correctas++;
+                        }
+                        break;
+                    }
+                }
+
+                if (!respondida) {
+                    preguntasSinResponder.push(i);
+                }
+            }
+
+            // Si hay preguntas sin responder
+            if (preguntasSinResponder.length > 0) {
+                const modal = document.getElementById('modal-mensaje');
+                const resultadoMensaje = document.getElementById('resultado-mensaje');
+                
+                let mensaje = `
+                    <div class="resultado" style="background: linear-gradient(135deg, #ff9800, #ff5722);">
+                        <h3>Preguntas sin responder</h3>
+                        <p>Por favor responde todas las preguntas.</p>
+                        <p>Te faltan las siguientes preguntas: ${preguntasSinResponder.join(', ')}</p>
+                    </div>
+                `;
+                
+                resultadoMensaje.innerHTML = mensaje;
+                modal.style.display = 'flex';
+                setTimeout(() => {
+                    modal.classList.add('show');
+                }, 10);
+                return false;
+            }
+
+            // Calcular porcentaje
+            const porcentaje = (correctas / total) * 100;
+            const aprobado = porcentaje >= 60;
+
+            // Mostrar resultados en el modal
+            const modal = document.getElementById('modal-mensaje');
+            const resultadoMensaje = document.getElementById('resultado-mensaje');
+
+            let mensaje = `
+                <div class="resultado ${aprobado ? 'aprobado' : 'reprobado'}">
+                    <h3>${aprobado ? '¡Felicitaciones!' : 'Necesitas repasar'}</h3>
+                    <div class="score">${porcentaje}%</div>
+                    <p>Has respondido correctamente ${correctas} de ${total} preguntas</p>
+                    <p>${aprobado ? '¡Has desbloqueado el siguiente nivel!' : 'Necesitas al menos 60% para aprobar'}</p>
+                </div>
+            `;
+
+            resultadoMensaje.innerHTML = mensaje;
+            modal.style.display = 'flex';
+            setTimeout(() => {
+                modal.classList.add('show');
+            }, 10);
+
+            // Si aprobó, marcar como completado
+            if (aprobado) {
+                const sesion = checkSession(true);
+                if (sesion && sesion.length > 0) {
+                    const userName = sesion[0].userName || sesion[0].correo;
+                    
+                    // Marcar nivel como completado
+                    localStorage.setItem(`${userName}_nivel 2.2`, JSON.stringify({
+                        completado: true,
+                        correctas: correctas,
+                        total: total,
+                        visualizado: true
+                    }));
+
+                    // Desbloquear siguiente nivel
+                    localStorage.setItem(`${userName}_nivel 2.3`, JSON.stringify({
+                        completado: false,
+                        desbloqueado: true
+                    }));
+
+                    // Actualizar estado del botón siguiente
+                    actualizarBotonSiguiente();
+                }
+            }
+
+            return false;
+        }
+
+        function cerrarModal() {
+            const modal = document.getElementById('modal-mensaje');
+            modal.classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+        }
+
+        // Cerrar modal al hacer clic fuera del contenido
+        document.getElementById('modal-mensaje').addEventListener('click', function(e) {
+            if (e.target === this) {
+                cerrarModal();
+            }
+        });
+
+        // Verificar estado inicial
+        document.addEventListener('DOMContentLoaded', function() {
+            const sesion = checkSession(true);
+            if (sesion && sesion.length > 0) {
+                const userName = sesion[0].userName || sesion[0].correo;
+                const nivel2_2 = localStorage.getItem(`${userName}_nivel 2.2`);
+                
+                if (!nivel2_2) {
+                    localStorage.setItem(`${userName}_nivel 2.2`, JSON.stringify({
+                        completado: false,
+                        visualizado: false
+                    }));
+                }
+
+                actualizarBotonSiguiente();
+            }
+        });
+    </script>
 </body>
 </html>

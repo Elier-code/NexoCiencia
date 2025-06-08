@@ -1,72 +1,537 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <title>Panel del Usuario</title>
+    <title>Panel del Usuario - Nexo Ciencia</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/base.css">
     <link rel="stylesheet" href="../CSS/usuario.css">
-    <script src="../JS/usuario.js" defer></script>
-    <script src="../JS/auth.js"></script>
+    <link rel="stylesheet" href="../CSS/theme.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="../JS/utilidades.js"></script>
+    <script src="../JS/auth.js"></script>
+    <script src="../JS/profilePhoto.js"></script>
+    <script src="../JS/usuario.js" defer></script>
+
+    <style>
+        .dashboard-container {
+            min-height: 100vh;
+            background: var(--background);
+            padding-top: var(--spacing-xl);
+        }
+
+        .dashboard-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            padding: var(--spacing-xl) 0;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .user-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--white);
+            padding: var(--spacing-xs);
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-lg);
+            margin: var(--spacing-xl) auto;
+            max-width: 1200px;
+            padding: 0 var(--spacing-lg);
+        }
+
+        .dashboard-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-normal);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            min-height: 250px;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .dashboard-card h3 {
+            color: var(--primary);
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-size: 1.5rem;
+        }
+
+        .dashboard-card p {
+            color: var(--text-medium);
+            margin-bottom: var(--spacing-lg);
+            flex-grow: 1;
+        }
+
+        .card-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .btn-action {
+            width: 100%;
+            padding: var(--spacing-md);
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: var(--transition-normal);
+            font-weight: 500;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: auto;
+        }
+
+        .btn-action:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .btn-logout {
+            background: transparent;
+            color: var(--text-medium);
+            border: 1px solid var(--text-light);
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: var(--transition-normal);
+            font-weight: 500;
+        }
+
+        .btn-logout:hover {
+            background: #fee2e2;
+            color: #dc2626;
+            border-color: #dc2626;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .stat-label {
+            color: var(--text-medium);
+            font-size: 0.9rem;
+        }
+
+        /* Alerta personalizada */
+        .custom-alert {
+            display: none;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-radius: var(--radius-md);
+            background: var(--white);
+            box-shadow: var(--shadow-lg);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity var(--transition-normal);
+        }
+
+        .custom-alert.show {
+            display: block;
+            opacity: 1;
+        }
+
+        @media (max-width: 992px) {
+            .dashboard-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard-card {
+                min-height: 200px;
+            }
+        }
+
+        /* Estilos para el selector de tema */
+        .theme-section {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+            padding: var(--spacing-md);
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .theme-section h3 {
+            margin: 0;
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+
+        .theme-options {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+
+        .theme-btn {
+            background: none;
+            border: 2px solid var(--border-color);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            color: var(--text-medium);
+            transition: var(--transition-normal);
+        }
+
+        .theme-btn.active {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        .theme-btn:hover:not(.active) {
+            background: var(--background-dark);
+        }
+
+        /* Ajustes para modo oscuro */
+        [data-theme="dark"] .dashboard-card {
+            background: var(--card-bg);
+        }
+
+        [data-theme="dark"] .stat-card {
+            background: var(--card-bg);
+        }
+
+        [data-theme="dark"] .btn-logout {
+            color: var(--text-medium);
+            border-color: var(--border-color);
+        }
+
+        [data-theme="dark"] .btn-logout:hover {
+            background: #dc26261a;
+            color: #ff4444;
+            border-color: #ff4444;
+        }
+
+        .profile-photo {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+        }
+
+        .profile-photo:hover .photo-overlay {
+            opacity: 1;
+        }
+
+        .btn-remove-photo {
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            background: #dc2626;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+            display: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-remove-photo:hover {
+            background: #ef4444;
+            transform: scale(1.1);
+        }
+
+        .profile-photo-section {
+            position: relative;
+            display: inline-block;
+        }
+    </style>
 </head>
 <body>
     <!-- Alerta personalizada -->
     <div id="customAlert" class="custom-alert"></div>
 
-    <div class="panel-usuario">
-        <h2 id="tituloUsuario">
-            <img src="https://cdn-icons-png.flaticon.com/512/2922/2922506.png" alt="Icono Usuario">
-            Panel del Usuario <span id="nombreSesion">Nombre</span>
-        </h2>
+    <nav class="nav">
+        <a href="../index.html" class="nav-logo">
+            <img src="../Recursos/Imagenes/NEXO CIENCIA.svg" alt="Nexo Ciencia" style="width: 110px;">
+        </a>
+        <div class="user-menu">
+            <button class="theme-toggle" id="theme-toggle" title="Cambiar tema">
+                <i class="fas fa-sun"></i>
+            </button>
+            <button onclick="cerrarSesion()" class="btn-logout">
+                <i class="fas fa-sign-out-alt"></i>
+                Cerrar Sesión
+            </button>
+        </div>
+    </nav>
 
-        <div class="opcion-usuario">
-            <h3>Actualizar Datos</h3>
-            <p>Edita tu información personal para mantenerla actualizada.</p>
-            <button onclick="actualizarDatosUsuario()">Actualizar mis datos</button>
+    <div class="profile-container">
+        <div class="profile-header">
+            <div class="profile-photo-section">
+                <div class="profile-photo" id="profile-photo-container">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2922/2922506.png" alt="Foto de perfil" id="profile-photo">
+                    <div class="photo-overlay" id="photo-overlay">
+                        <i class="fas fa-camera"></i>
+                        <span>Cambiar foto</span>
+                    </div>
+                </div>
+                <input type="file" id="photo-upload" accept="image/*" style="display: none;">
+                <button class="btn-remove-photo" id="btn-remove-photo" onclick="removeProfilePhoto()" title="Eliminar foto">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+            <div class="profile-info">
+                <h1 id="nombre-usuario">Bienvenido</h1>
+            </div>
         </div>
 
-        <div class="opcion-usuario">
-            <h3>Cursos</h3>
-            <p>Consulta los cursos disponibles.</p>
-            <button onclick="window.location.href = 'menu.html'">Cursos</button>
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-number">4</div>
+                <div class="stat-label">Cursos en Progreso</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">75%</div>
+                <div class="stat-label">Promedio</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">12</div>
+                <div class="stat-label">Ejercicios Completados</div>
+            </div>
         </div>
 
-        <div class="opcion-usuario">
-            <h3>Resumen de Progreso</h3>
-            <p>Consulta tus logros, temas completados y evaluaciones.</p>
-            <button onclick="verProgreso()">Ver mi progreso</button>
+        <!-- Nueva sección para el selector de tema -->
+        <div class="theme-section">
+            <h3>Tema de la aplicación</h3>
+            <div class="theme-options">
+                <button class="theme-btn" data-theme="light">
+                    <i class="fas fa-sun"></i>
+                    Claro
+                </button>
+                <button class="theme-btn" data-theme="dark">
+                    <i class="fas fa-moon"></i>
+                    Oscuro
+                </button>
+            </div>
         </div>
-        <button onclick="logout()">Cerrar sesión</button>
+
+        <div class="dashboard-grid">
+            <div class="dashboard-card">
+                <h3>
+                    <i class="fas fa-user-edit"></i>
+                    Actualizar Datos
+                </h3>
+                <p>Mantén tu información personal actualizada para una mejor experiencia.</p>
+                <a href="usuarioModifica.html" class="btn-action">Actualizar mis datos</a>
+            </div>
+
+            <div class="dashboard-card">
+                <h3>
+                    <i class="fas fa-book"></i>
+                    Mis Cursos
+                </h3>
+                <p>Accede a tus cursos de física y cálculo. Continúa tu aprendizaje donde lo dejaste.</p>
+                <a href="menu.html" class="btn-action">Ver cursos</a>
+            </div>
+
+            <div class="dashboard-card">
+                <h3>
+                    <i class="fas fa-chart-line"></i>
+                    Mi Progreso
+                </h3>
+                <p>Revisa tus logros, evaluaciones completadas y áreas de mejora.</p>
+                <a href="progreso.html" class="btn-action">Ver mi progreso</a>
+            </div>
+        </div>
     </div>
 
     <script>
-        showUserName()
-        checkSession(true)
+        document.addEventListener('DOMContentLoaded', function() {
+            const sesion = checkSession(true);
+            if (sesion && sesion.length > 0) {
+                document.getElementById('nombre-usuario').textContent = `Bienvenido, ${sesion[0].nombres || sesion[0].userName}`;
+                loadProfilePhoto();
+            }
 
-        function mostrarAlertaPersonalizada(mensaje) {
-            const alerta = document.getElementById('customAlert');
-            alerta.textContent = mensaje;
-            alerta.classList.add('show');
+            // Configurar el selector de foto
+            const photoOverlay = document.getElementById('photo-overlay');
+            const photoInput = document.getElementById('photo-upload');
+            const profilePhoto = document.getElementById('profile-photo');
+            const removeButton = document.getElementById('btn-remove-photo');
+
+            // Evento para cambiar la foto
+            photoOverlay.addEventListener('click', (e) => {
+                e.stopPropagation();
+                photoInput.click();
+            });
+
+            // Evento para subir la foto
+            photoInput.addEventListener('change', function(e) {
+                if (e.target.files && e.target.files[0]) {
+                    const file = e.target.files[0];
+                    
+                    // Verificar el tamaño del archivo (máximo 5MB)
+                    if (file.size > 5 * 1024 * 1024) {
+                        mostrarAlerta('La imagen es demasiado grande. El tamaño máximo es 5MB.', 'error');
+                        return;
+                    }
+
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const photoUrl = e.target.result;
+                        updateProfilePhoto(photoUrl);
+                        mostrarAlerta('Foto de perfil actualizada correctamente', 'success');
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            // Función para eliminar la foto
+            window.removeProfilePhoto = function() {
+                updateProfilePhoto(null);
+                mostrarAlerta('Foto de perfil eliminada', 'success');
+            };
+
+            // Cargar la foto inicial
+            loadProfilePhoto();
+
+            checkSession(true);
+            cargarDatosUsuario();
+            inicializarTema();
+        });
+
+        function mostrarAlerta(mensaje, tipo) {
+            const alertElement = document.getElementById('customAlert');
+            alertElement.textContent = mensaje;
+            alertElement.className = `custom-alert show ${tipo}`;
+            alertElement.style.backgroundColor = tipo === 'error' ? '#fee2e2' : '#dcfce7';
+            alertElement.style.color = tipo === 'error' ? '#dc2626' : '#15803d';
 
             setTimeout(() => {
-                alerta.classList.remove('show');
+                alertElement.classList.remove('show');
             }, 3000);
         }
 
-        function actualizarDatosUsuario() {
-            mostrarAlertaPersonalizada("Redirigiendo a la página de edición de datos del usuario...");
-            setTimeout(() => {
-                window.location.href = "usuarioModifica.html";
-            }, 1500);
+        function inicializarTema() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeButtons = document.querySelectorAll('.theme-btn');
+            
+            // Aplicar tema guardado
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            actualizarIconoTema(savedTheme);
+            
+            // Actualizar botones de tema
+            themeButtons.forEach(btn => {
+                if (btn.dataset.theme === savedTheme) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+                
+                btn.addEventListener('click', () => {
+                    const newTheme = btn.dataset.theme;
+                    document.documentElement.setAttribute('data-theme', newTheme);
+                    localStorage.setItem('theme', newTheme);
+                    actualizarIconoTema(newTheme);
+                    
+                    // Actualizar estado activo de los botones
+                    themeButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                });
+            });
+
+            // Botón de alternancia rápida
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                actualizarIconoTema(newTheme);
+                
+                // Actualizar estado activo de los botones
+                themeButtons.forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.theme === newTheme);
+                });
+            });
         }
 
-        function verProgreso() {
-            mostrarAlertaPersonalizada("Redirigiendo a progreso personal.");
-            // Puedes redirigir si deseas:
-            // setTimeout(() => { window.location.href = "/usuario/progreso.html"; }, 1500);
-            setTimeout(() => {
-                window.location.href = "progreso.html";
-            }, 1500);
+        function actualizarIconoTema(theme) {
+            const themeIcon = document.querySelector('#theme-toggle i');
+            themeIcon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
         }
     </script>
 </body>

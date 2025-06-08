@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prueba dinamica</title>
     <link rel="stylesheet" href="../CSS/botones.css">
     <script src="../JS/icono.js"></script>
@@ -19,8 +20,8 @@
     </div>
 <div class="contenedor">
    
-    <form class="cuestionario">
-    <h2>Prueba de Autocompletar Fórmulas: Rotación de Cuerpo Rígido</h2>
+    <form id="quizForm" class="cuestionario" onsubmit="return verificarRespuestas(event)">
+    <h2>Prueba de Conocimientos</h2>
 
     <!-- Pregunta 1 -->
     <div class="pregunta">
@@ -70,9 +71,19 @@
         </div>
     </div>
 
-    <!-- Botón enviar -->
-    <div class="boton">
-        <button type="submit">Enviar</button>
+    <div class="navegacion">
+        <a href="botonMecanica-4-2.html" class="btn-nav btn-atras">
+            <i class="fas fa-arrow-left"></i>
+            Atrás
+        </a>
+        <button type="submit" class="btn-nav btn-enviar">
+            <i class="fas fa-check"></i>
+            Enviar
+        </button>
+        <a href="botonMecanica-4-4.html" class="btn-nav btn-siguiente disabled" id="btn-siguiente">
+            Siguiente
+            <i class="fas fa-arrow-right"></i>
+        </a>
     </div>
 </form>
 
@@ -80,13 +91,174 @@
     <!-- Modal -->
     <div id="modal-mensaje" class="modal">
         <div class="modal-contenido">
-            <p>¡Gracias por completar el examen!<br>Tus respuestas han sido enviadas.</p>
-            <button class="modal-boton" onclick="cerrarModal()">Aceptar</button>
+            <div id="resultado-mensaje"></div>
+            <div id="respuestas-detalle" class="respuestas-detalle"></div>
+            <button class="modal-boton" onclick="cerrarModal()">Continuar</button>
         </div>
     </div>
 <script>
     insertarLogo();
+    checkSession(true);
+
+    const respuestasCorrectas = {
+        p1: "B",
+        p2: "A",
+        p3: "B",
+        p4: "C",
+        p5: "A"
+    };
+
+    // Habilitar/deshabilitar botón siguiente según el estado
+    function actualizarBotonSiguiente() {
+        const sesion = checkSession(true);
+        if (sesion && sesion.length > 0) {
+            const userName = sesion[0].userName || sesion[0].correo;
+            const nivel4_3 = JSON.parse(localStorage.getItem(`${userName}_nivel 4.3`) || '{}');
+            const btnSiguiente = document.getElementById('btn-siguiente');
+            
+            if (nivel4_3.completado) {
+                btnSiguiente.classList.remove('disabled');
+                btnSiguiente.href = 'botonMecanica-4-4.html';
+            } else {
+                btnSiguiente.classList.add('disabled');
+                btnSiguiente.href = '#';
+            }
+        }
+    }
+
+    function verificarRespuestas(event) {
+        event.preventDefault();
+        
+        let correctas = 0;
+        let total = Object.keys(respuestasCorrectas).length;
+        let preguntasSinResponder = [];
+
+        // Verificar cada pregunta
+        for (let i = 1; i <= total; i++) {
+            const pregunta = document.getElementsByName('p' + i);
+            let respondida = false;
+            let respuestaSeleccionada = '';
+
+            for (let radio of pregunta) {
+                if (radio.checked) {
+                    respondida = true;
+                    respuestaSeleccionada = radio.value;
+                    if (respuestaSeleccionada === respuestasCorrectas['p' + i]) {
+                        correctas++;
+                    }
+                    break;
+                }
+            }
+
+            if (!respondida) {
+                preguntasSinResponder.push(i);
+            }
+        }
+
+        // Si hay preguntas sin responder
+        if (preguntasSinResponder.length > 0) {
+            const modal = document.getElementById('modal-mensaje');
+            const resultadoMensaje = document.getElementById('resultado-mensaje');
+            
+            let mensaje = `
+                <div class="resultado" style="background: linear-gradient(135deg, #ff9800, #ff5722);">
+                    <h3>Preguntas sin responder</h3>
+                    <p>Por favor responde todas las preguntas.</p>
+                    <p>Te faltan las siguientes preguntas: ${preguntasSinResponder.join(', ')}</p>
+                </div>
+            `;
+            
+            resultadoMensaje.innerHTML = mensaje;
+            modal.style.display = 'flex';
+            setTimeout(() => {
+                modal.classList.add('show');
+            }, 10);
+            return false;
+        }
+
+        // Calcular porcentaje
+        const porcentaje = (correctas / total) * 100;
+        const aprobado = porcentaje >= 60;
+
+        // Mostrar resultados en el modal
+        const modal = document.getElementById('modal-mensaje');
+        const resultadoMensaje = document.getElementById('resultado-mensaje');
+
+        let mensaje = `
+            <div class="resultado ${aprobado ? 'aprobado' : 'reprobado'}">
+                <h3>${aprobado ? '¡Felicitaciones!' : 'Necesitas repasar'}</h3>
+                <div class="score">${porcentaje}%</div>
+                <p>Has respondido correctamente ${correctas} de ${total} preguntas</p>
+                <p>${aprobado ? '¡Has desbloqueado el siguiente nivel!' : 'Necesitas al menos 60% para aprobar'}</p>
+            </div>
+        `;
+
+        resultadoMensaje.innerHTML = mensaje;
+        modal.style.display = 'flex';
+        setTimeout(() => {
+            modal.classList.add('show');
+        }, 10);
+
+        // Si aprobó, marcar como completado
+        if (aprobado) {
+            const sesion = checkSession(true);
+            if (sesion && sesion.length > 0) {
+                const userName = sesion[0].userName || sesion[0].correo;
+                
+                // Marcar nivel como completado
+                localStorage.setItem(`${userName}_nivel 4.3`, JSON.stringify({
+                    completado: true,
+                    correctas: correctas,
+                    total: total,
+                    visualizado: true
+                }));
+
+                // Desbloquear siguiente nivel
+                localStorage.setItem(`${userName}_nivel 4.4`, JSON.stringify({
+                    completado: false,
+                    desbloqueado: true
+                }));
+
+                // Actualizar estado del botón siguiente
+                actualizarBotonSiguiente();
+            }
+        }
+
+        return false;
+    }
+
+    function cerrarModal() {
+        const modal = document.getElementById('modal-mensaje');
+        modal.classList.remove('show');
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 300);
+    }
+
+    // Cerrar modal al hacer clic fuera del contenido
+    document.getElementById('modal-mensaje').addEventListener('click', function(e) {
+        if (e.target === this) {
+            cerrarModal();
+        }
+    });
+
+    // Verificar estado inicial
+    document.addEventListener('DOMContentLoaded', function() {
+        const sesion = checkSession(true);
+        if (sesion && sesion.length > 0) {
+            const userName = sesion[0].userName || sesion[0].correo;
+            const nivel4_3 = localStorage.getItem(`${userName}_nivel 4.3`);
+            
+            if (!nivel4_3) {
+                localStorage.setItem(`${userName}_nivel 4.3`, JSON.stringify({
+                    completado: false,
+                    visualizado: false
+                }));
+            }
+
+            actualizarBotonSiguiente();
+        }
+    });
 </script>
-<script src="../JS/modal.js"></script><!--Importacion del script para funcionamiento de la ventana modal-->
 </body>
 </html>

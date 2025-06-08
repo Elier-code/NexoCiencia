@@ -211,3 +211,57 @@ label {
     border-radius: 8px;
     cursor: pointer;
 }
+
+/* Estilos para los botones de nivel */
+.nivel-button {
+    display: inline-block;
+    margin: 10px;
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border: 2px solid #3dbfc1;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 16px;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.nivel-button:hover {
+    background: #3dbfc1;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.nivel-button.completed {
+    background: #3dbfc1;
+    color: #fff;
+}
+
+.nivel-button.locked {
+    background: #f0f0f0;
+    border-color: #ccc;
+    color: #999;
+    cursor: not-allowed;
+}
+
+.nivel-button.locked::after {
+    content: '🔒';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 20px;
+}
+
+.nivel-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
