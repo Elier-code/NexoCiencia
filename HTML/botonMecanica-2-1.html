@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Torque - Nexo Ciencia</title>
+    <title>Aceleración Angular - Nexo Ciencia</title>
     <link rel="stylesheet" href="../CSS/botones.css">
     <script src="../JS/utilidades.js"></script>
     <script src="../JS/auth.js"></script>
@@ -118,6 +118,137 @@
             transform: translateX(5px);
         }
     </style>
+
+    <style>
+        .simulation-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        #motionCanvas {
+            width: 100%;
+            height: 500px;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            background: #f8f9fa;
+            margin: 20px 0;
+        }
+        
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .control-group {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .control-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+        
+        .control-group input[type="range"] {
+            width: 100%;
+        }
+        
+        .data-display {
+            background: #2c3e50;
+            color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .data-display p {
+            margin: 5px 0;
+        }
+
+        .graph-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .graph {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            height: 250px;
+        }
+
+        .graph canvas {
+            width: 100%;
+            height: 200px;
+        }
+
+        .graph p {
+            margin: 10px 0;
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .explanation-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+
+        .explanation-box h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .explanation-box h3 {
+            color: #34495e;
+            margin: 15px 0 10px;
+        }
+
+        .explanation-box ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+
+        .explanation-box li {
+            margin: 5px 0;
+            line-height: 1.5;
+        }
+
+        .tip-box {
+            background: #f7f9fc;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin-top: 20px;
+        }
+
+        .tip-box h4 {
+            color: #3498db;
+            margin: 0 0 10px;
+        }
+
+        .physics-note {
+            background: #fdf6e7;
+            padding: 15px;
+            border-left: 4px solid #f1c40f;
+            margin-top: 20px;
+        }
+
+        .physics-note h4 {
+            color: #d35400;
+            margin: 0 0 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -161,6 +292,102 @@
                     <p>α = (12 rad/s - 0) / 3 s = 4 rad/s²</p>
                 </div>
             </div>
+            <div class="simulation-container">
+                <h1>Simulación de Aceleración Angular en 3D</h1>
+                
+                <div class="explanation-box">
+                    <h2>¿Qué estamos viendo?</h2>
+                    <p>Esta simulación demuestra cómo cambia la velocidad angular de un objeto cuando se le aplica una aceleración angular constante. Los elementos visuales son:</p>
+                    <ul>
+                        <li><strong>Esfera Roja:</strong> El objeto en movimiento circular acelerado.</li>
+                        <li><strong>Flecha Verde:</strong> Vector de velocidad angular instantánea.</li>
+                        <li><strong>Flecha Naranja:</strong> Vector de aceleración angular.</li>
+                        <li><strong>Gráficas:</strong> Muestran la evolución temporal de la velocidad y aceleración angular.</li>
+                    </ul>
+        
+                    <h3>Conceptos Físicos</h3>
+                    <ul>
+                        <li><strong>Velocidad Angular (ω):</strong> Rapidez de rotación instantánea del objeto (rad/s).</li>
+                        <li><strong>Aceleración Angular (α):</strong> Tasa de cambio de la velocidad angular (rad/s²).</li>
+                        <li><strong>Aceleración Centrípeta (a<sub>c</sub>):</strong> Aceleración hacia el centro de la trayectoria circular.</li>
+                    </ul>
+        
+                    <h3>Ecuaciones del Movimiento</h3>
+                    <ul>
+                        <li>Velocidad Angular: ω = ω₀ + αt</li>
+                        <li>Posición Angular: θ = θ₀ + ω₀t + ½αt²</li>
+                        <li>Aceleración Centrípeta: a<sub>c</sub> = ω²r</li>
+                    </ul>
+        
+                    <div class="tip-box">
+                        <h4>💡 Consejos para la Simulación</h4>
+                        <ul>
+                            <li>Ajusta la velocidad inicial y observa cómo afecta al movimiento.</li>
+                            <li>Cambia la aceleración angular y observa cómo varía la velocidad en el tiempo.</li>
+                            <li>Nota cómo la aceleración centrípeta aumenta con la velocidad angular.</li>
+                            <li>Observa las gráficas para entender la relación entre velocidad y aceleración.</li>
+                            <li>Experimenta con diferentes ejes de rotación para ver el movimiento en distintos planos.</li>
+                        </ul>
+                    </div>
+        
+                    <div class="physics-note">
+                        <h4>📝 Nota Importante</h4>
+                        <p>La aceleración angular puede ser positiva o negativa:</p>
+                        <ul>
+                            <li>Positiva: Aumenta la velocidad angular (aceleración)</li>
+                            <li>Negativa: Disminuye la velocidad angular (desaceleración)</li>
+                        </ul>
+                    </div>
+                </div>
+        
+                <div id="motionCanvas"></div>
+                
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="initialVelocity">Velocidad Angular Inicial (rad/s)</label>
+                        <input type="range" id="initialVelocity" min="0" max="10" step="0.1" value="2">
+                        <span id="initialVelocityValue">2.0 rad/s</span>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="acceleration">Aceleración Angular (rad/s²)</label>
+                        <input type="range" id="acceleration" min="-5" max="5" step="0.1" value="1">
+                        <span id="accelerationValue">1.0 rad/s²</span>
+                    </div>
+        
+                    <div class="control-group">
+                        <label for="radius">Radio (m)</label>
+                        <input type="range" id="radius" min="1" max="5" step="0.1" value="2">
+                        <span id="radiusValue">2.0 m</span>
+                    </div>
+        
+                    <div class="control-group">
+                        <label for="rotationAxis">Eje de Rotación</label>
+                        <select id="rotationAxis">
+                            <option value="y">Y (Vertical)</option>
+                            <option value="x">X (Horizontal)</option>
+                            <option value="z">Z (Profundidad)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="data-display">
+                    <p>Velocidad Angular Instantánea: <span id="currentVelocity">0</span> rad/s</p>
+                    <p>Aceleración Angular: <span id="currentAcceleration">0</span> rad/s²</p>
+                    <p>Aceleración Centrípeta: <span id="centripetalAcceleration">0</span> m/s²</p>
+                </div>
+        
+                <div class="graph-container">
+                    <div class="graph">
+                        <canvas id="velocityGraph"></canvas>
+                        <p>Velocidad Angular vs Tiempo</p>
+                    </div>
+                    <div class="graph">
+                        <canvas id="accelerationGraph"></canvas>
+                        <p>Aceleración Angular vs Tiempo</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Botones de navegación -->
@@ -175,6 +402,11 @@
             </a>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../JS/three-utils.js"></script>
+    <script src="../JS/angular-velocity.js"></script>
 
     <script>
         insertarLogo();
@@ -199,6 +431,12 @@
                     completado: false,
                     desbloqueado: true
                 }));
+
+                // Redirigir después de guardar
+                window.location.href = 'botonMecanica-2-2.html';
+            } else {
+                // Si no hay sesión, redirigir de todas formas
+                window.location.href = 'botonMecanica-2-2.html';
             }
         }
 

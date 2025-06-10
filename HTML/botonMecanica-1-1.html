@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conceptos Básicos del Movimiento - Nexo Ciencia</title>
     <link rel="stylesheet" href="../CSS/botones.css">
+    <link rel="stylesheet" href="../CSS/velocidad.css">
     <script src="../JS/utilidades.js"></script>
     <script src="../JS/auth.js"></script>
     <script src="../JS/icono.js"></script>
@@ -119,6 +120,99 @@
             transform: translateX(5px);
         }
     </style>
+
+      <style>
+        .simulation-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        #rotationCanvas {
+            width: 100%;
+            height: 500px;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            background: #f8f9fa;
+            margin: 20px 0;
+        }
+        
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .control-group {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .control-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+        
+        .control-group input[type="range"] {
+            width: 100%;
+        }
+        
+        .data-display {
+            background: #2c3e50;
+            color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .data-display p {
+            margin: 5px 0;
+        }
+
+        .explanation-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+
+        .explanation-box h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .explanation-box h3 {
+            color: #34495e;
+            margin: 15px 0 10px;
+        }
+
+        .explanation-box ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+
+        .explanation-box li {
+            margin: 5px 0;
+            line-height: 1.5;
+        }
+
+        .tip-box {
+            background: #f7f9fc;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin-top: 20px;
+        }
+
+        .tip-box h4 {
+            color: #3498db;
+            margin: 0 0 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -130,7 +224,7 @@
         <div class="seccion">
             <h2>Conceptos Básicos del Movimiento</h2>
             <div class="video-container">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/URJ3u_lnkmI?si=nXz4uDbuZIYl5eYT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/URJ3u_lnkmI?si=SwfLvu2lICTU8U5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
             
             <div class="explicacion">
@@ -174,6 +268,78 @@
                     <p>72 × (1000/3600) = 20 m/s</p>
                 </div>
             </div>
+
+            <div class="simulation-container">
+                <h1>Simulación de Velocidad Angular en 3D</h1>
+                
+                <div class="explanation-box">
+                    <h2>¿Qué estamos viendo?</h2>
+                    <p>Esta simulación muestra el movimiento circular uniforme de un objeto en el espacio tridimensional. Los elementos clave son:</p>
+                    <ul>
+                        <li><strong>Esfera Roja:</strong> Representa el objeto en movimiento circular.</li>
+                        <li><strong>Línea Azul:</strong> Muestra la trayectoria circular que seguirá el objeto.</li>
+                        <li><strong>Flecha Verde:</strong> Indica la velocidad angular instantánea del objeto.</li>
+                    </ul>
+        
+                    <h3>Conceptos Físicos</h3>
+                    <ul>
+                        <li><strong>Posición Angular (θ):</strong> Indica dónde se encuentra el objeto en su trayectoria circular, medida en radianes.</li>
+                        <li><strong>Velocidad Angular (ω):</strong> Qué tan rápido gira el objeto, medida en radianes por segundo (rad/s).</li>
+                        <li><strong>Período (T):</strong> El tiempo que tarda el objeto en dar una vuelta completa.</li>
+                        <li><strong>Frecuencia (f):</strong> Número de vueltas que da el objeto por segundo.</li>
+                    </ul>
+        
+                    <h3>Fórmulas Importantes</h3>
+                    <ul>
+                        <li>Período: T = 2π/ω</li>
+                        <li>Frecuencia: f = 1/T = ω/2π</li>
+                        <li>Velocidad Angular: ω = 2πf</li>
+                    </ul>
+        
+                    <div class="tip-box">
+                        <h4>💡 Consejos para la Simulación</h4>
+                        <ul>
+                            <li>Usa el control deslizante de velocidad angular para ver cómo cambia el período y la frecuencia.</li>
+                            <li>Cambia el radio para observar cómo afecta a la trayectoria del objeto.</li>
+                            <li>Experimenta con diferentes ejes de rotación para visualizar el movimiento en distintos planos.</li>
+                            <li>Puedes rotar, hacer zoom y mover la cámara para ver el movimiento desde diferentes ángulos.</li>
+                        </ul>
+                    </div>
+                </div>
+        
+                <div id="rotationCanvas"></div>
+                
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="angularVelocity">Velocidad Angular (rad/s)</label>
+                        <input type="range" id="angularVelocity" min="0" max="10" step="0.1" value="1">
+                        <span id="velocityValue">1.0 rad/s</span>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="radius">Radio (m)</label>
+                        <input type="range" id="radius" min="1" max="5" step="0.1" value="2">
+                        <span id="radiusValue">2.0 m</span>
+                    </div>
+        
+                    <div class="control-group">
+                        <label for="rotationAxis">Eje de Rotación</label>
+                        <select id="rotationAxis">
+                            <option value="y">Y (Vertical)</option>
+                            <option value="x">X (Horizontal)</option>
+                            <option value="z">Z (Profundidad)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="data-display">
+                    <p>Posición Angular: <span id="angularPosition">0</span> rad</p>
+                    <p>Desplazamiento Angular: <span id="angularDisplacement">0</span> rad</p>
+                    <p>Período: <span id="period">0</span> s</p>
+                    <p>Frecuencia: <span id="frequency">0</span> Hz</p>
+                </div>
+            </div>
+
         </div>
 
         <!-- Botones de navegación -->
@@ -188,8 +354,13 @@
             </a>
         </div>
     </div>
-
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="../JS/three-utils.js"></script>
+    <script src="../JS/angular-rotation.js"></script>
     <script>
+        
         insertarLogo();
         checkSession(true);
         

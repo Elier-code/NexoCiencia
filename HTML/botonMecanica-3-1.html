@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aceleración y Velocidad Angular - Nexo Ciencia</title>
+    <title>Torque - Nexo Ciencia</title>
     <link rel="stylesheet" href="../CSS/botones.css">
     <script src="../JS/utilidades.js"></script>
     <script src="../JS/auth.js"></script>
@@ -118,6 +118,133 @@
             transform: translateX(5px);
         }
     </style>
+
+<style>
+    .simulation-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    #torqueCanvas {
+        width: 100%;
+        height: 500px;
+        border: 2px solid #3498db;
+        border-radius: 8px;
+        background: #f8f9fa;
+        margin: 20px 0;
+    }
+    
+    .controls {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin: 20px 0;
+    }
+    
+    .control-group {
+        background: #fff;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .control-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: #2c3e50;
+    }
+    
+    .control-group input[type="range"] {
+        width: 100%;
+    }
+    
+    .data-display {
+        background: #2c3e50;
+        color: #fff;
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 20px;
+    }
+    
+    .data-display p {
+        margin: 5px 0;
+    }
+
+    .vector-legend {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin: 20px 0;
+        padding: 10px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .vector-legend div {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .vector-legend .color-box {
+        width: 20px;
+        height: 3px;
+    }
+
+    .explanation-box {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        margin: 20px 0;
+    }
+
+    .explanation-box h2 {
+        color: #2c3e50;
+        margin-bottom: 15px;
+    }
+
+    .explanation-box h3 {
+        color: #34495e;
+        margin: 15px 0 10px;
+    }
+
+    .explanation-box ul, .explanation-box ol {
+        padding-left: 20px;
+        margin: 10px 0;
+    }
+
+    .explanation-box li {
+        margin: 5px 0;
+        line-height: 1.5;
+    }
+
+    .tip-box {
+        background: #f7f9fc;
+        padding: 15px;
+        border-left: 4px solid #3498db;
+        margin-top: 20px;
+    }
+
+    .tip-box h4 {
+        color: #3498db;
+        margin: 0 0 10px;
+    }
+
+    .physics-note {
+        background: #fdf6e7;
+        padding: 15px;
+        border-left: 4px solid #f1c40f;
+        margin-top: 20px;
+    }
+
+    .physics-note h4 {
+        color: #d35400;
+        margin: 0 0 10px;
+    }
+</style>
 </head>
 
 <body>
@@ -127,35 +254,138 @@
 
     <div class="contenedor">
         <div class="seccion">
-            <h2>Aceleración y Velocidad Angular</h2>
+            <h2>Torque</h2>
             <div class="video-container">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/SXScpCtfNxU?si=SG-m5c6wvW3fNdfx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
             
             <div class="explicacion">
                 <h3>Conceptos Fundamentales</h3>
-                <p>La velocidad angular (ω) y la aceleración angular (α) son conceptos fundamentales en el movimiento rotacional:</p>
+                <p>El <strong>torque</strong> (también conocido como momento de fuerza) es una magnitud que mide la tendencia de una fuerza a hacer girar un objeto alrededor de un eje:</p>
                 <ul>
-                    <li>Velocidad angular: mide qué tan rápido gira un objeto</li>
-                    <li>Aceleración angular: mide el cambio en la velocidad angular</li>
+                    <li><strong>Torque (τ):</strong> depende de la magnitud de la fuerza, la distancia al eje de rotación y el ángulo entre la fuerza y el brazo de palanca.</li>
+                    <li><strong>Fuerza (F):</strong> magnitud aplicada sobre el objeto.</li>
+                    <li><strong>Radio (r):</strong> distancia desde el eje de rotación al punto donde se aplica la fuerza.</li>
                 </ul>
                 <div class="formula">
-                    ω = Δθ/Δt<br>
-                    α = Δω/Δt
+                    τ = r × F × sin(θ)
                 </div>
             </div>
-
+    
             <div class="ejercicio">
-                <h3>Ejercicio Resuelto: Velocidad Angular</h3>
-                <p>Un ventilador gira 120° en 0.5 segundos. Calcular su velocidad angular en rad/s.</p>
+                <h3>Ejercicio Resuelto: Cálculo de Torque</h3>
+                <p>Se aplica una fuerza de 10 N a una llave de 0.3 m de largo, formando un ángulo de 90° con respecto al brazo. Calcular el torque producido.</p>
                 
                 <div class="solucion">
                     <p><strong>Solución:</strong></p>
-                    <p>1. Convertir grados a radianes: 120° × (π/180°) = 2.094 rad</p>
-                    <p>2. Aplicar la fórmula: ω = 2.094 rad / 0.5 s = 4.189 rad/s</p>
+                    <p>Datos:</p>
+                    <ul>
+                        <li>Fuerza (F) = 10 N</li>
+                        <li>Distancia (r) = 0.3 m</li>
+                        <li>Ángulo (θ) = 90° → sin(θ) = 1</li>
+                    </ul>
+                    <p>Aplicando la fórmula:</p>
+                    <p>τ = 0.3 m × 10 N × sin(90°) = 3 N·m</p>
                 </div>
             </div>
         </div>
+        <div class="simulation-container">
+            <h1>Simulación de Torque en 3D</h1>
+            
+            <div class="explanation-box">
+                <h2>¿Qué estamos viendo?</h2>
+                <p>Esta simulación ilustra el concepto de torque o momento de fuerza en tres dimensiones. Los elementos visuales son:</p>
+                <ul>
+                    <li><strong>Vector Azul:</strong> Radio vector (r), que va desde el eje de rotación hasta el punto de aplicación de la fuerza.</li>
+                    <li><strong>Vector Rojo:</strong> Fuerza aplicada (F).</li>
+                    <li><strong>Vector Verde:</strong> Torque resultante (τ), que es perpendicular tanto al radio como a la fuerza.</li>
+                </ul>
+    
+                <h3>Conceptos Físicos</h3>
+                <ul>
+                    <li><strong>Torque (τ):</strong> Medida de la tendencia de una fuerza para hacer rotar un objeto alrededor de un eje.</li>
+                    <li><strong>Brazo de Palanca:</strong> Distancia perpendicular desde la línea de acción de la fuerza al eje de rotación.</li>
+                    <li><strong>Componente Perpendicular de la Fuerza:</strong> Parte de la fuerza que contribuye efectivamente al torque.</li>
+                </ul>
+    
+                <h3>Fórmulas Importantes</h3>
+                <ul>
+                    <li>Torque: τ = r × F (producto vectorial)</li>
+                    <li>Magnitud del Torque: |τ| = |r| |F| sin(θ)</li>
+                    <li>donde θ es el ángulo entre r y F</li>
+                </ul>
+    
+                <div class="tip-box">
+                    <h4>💡 Consejos para la Simulación</h4>
+                    <ul>
+                        <li>Ajusta la magnitud de la fuerza para ver cómo afecta al torque.</li>
+                        <li>Cambia el ángulo de la fuerza en los planos XZ e Y para ver cómo varía el torque.</li>
+                        <li>Observa que el torque es máximo cuando la fuerza es perpendicular al radio vector.</li>
+                        <li>Nota que el torque se hace cero cuando la fuerza es paralela al radio vector.</li>
+                    </ul>
+                </div>
+    
+                <div class="physics-note">
+                    <h4>📝 Regla de la Mano Derecha</h4>
+                    <p>Para determinar la dirección del torque:</p>
+                    <ol>
+                        <li>Apunta los dedos en la dirección del radio vector (r)</li>
+                        <li>Dobla los dedos hacia la dirección de la fuerza (F)</li>
+                        <li>El pulgar apuntará en la dirección del torque (τ)</li>
+                    </ol>
+                </div>
+            </div>
+    
+            <div id="torqueCanvas"></div>
+            
+            <div class="vector-legend">
+                <div>
+                    <div class="color-box" style="background: #3498db;"></div>
+                    <span>Radio Vector</span>
+                </div>
+                <div>
+                    <div class="color-box" style="background: #e74c3c;"></div>
+                    <span>Fuerza</span>
+                </div>
+                <div>
+                    <div class="color-box" style="background: #27ae60;"></div>
+                    <span>Torque</span>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <div class="control-group">
+                    <label for="force">Magnitud de la Fuerza (N)</label>
+                    <input type="range" id="force" min="0" max="100" step="1" value="50">
+                    <span id="forceValue">50 N</span>
+                </div>
+                
+                <div class="control-group">
+                    <label for="angleXZ">Ángulo en plano XZ (grados)</label>
+                    <input type="range" id="angleXZ" min="0" max="360" step="1" value="45">
+                    <span id="angleXZValue">45°</span>
+                </div>
+    
+                <div class="control-group">
+                    <label for="angleY">Ángulo en Y (grados)</label>
+                    <input type="range" id="angleY" min="-90" max="90" step="1" value="30">
+                    <span id="angleYValue">30°</span>
+                </div>
+    
+                <div class="control-group">
+                    <label for="radius">Radio (m)</label>
+                    <input type="range" id="radius" min="1" max="5" step="0.1" value="2">
+                    <span id="radiusValue">2 m</span>
+                </div>
+            </div>
+            
+            <div class="data-display">
+                <p>Momento de Fuerza (Torque): <span id="torqueValue">0</span> N⋅m</p>
+                <p>Componente Perpendicular de la Fuerza: <span id="perpForceValue">0</span> N</p>
+                <p>Brazo de Palanca Efectivo: <span id="leverArmValue">0</span> m</p>
+            </div>
+        </div>
+   </div>
 
         <!-- Botones de navegación -->
         <div class="navegacion">
@@ -170,6 +400,10 @@
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="../JS/three-utils.js"></script>
+    <script src="../JS/torque.js"></script>
     <script>
         insertarLogo();
         checkSession(true);
@@ -193,6 +427,12 @@
                     completado: false,
                     desbloqueado: true
                 }));
+                
+                // Redirigir después de guardar
+                window.location.href = 'botonMecanica-3-2.html';
+            } else {
+                // Si no hay sesión, redirigir de todas formas
+                window.location.href = 'botonMecanica-3-2.html';
             }
         }
 
