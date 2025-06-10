@@ -37,11 +37,11 @@ function logout() {
             // Limpiar la sesión
     localStorage.removeItem(localStorageSession);
             localStorage.removeItem('theme');
-            
+
             // Obtener la ruta base del sitio
             const currentPath = window.location.pathname;
             const pathToRoot = currentPath.split('/HTML/')[0];
-            
+
             // Mostrar mensaje de éxito antes de redirigir
             Swal.fire({
                 title: '¡Sesión cerrada!',

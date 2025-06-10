@@ -411,12 +411,12 @@
                 <i class="fas fa-sign-out-alt"></i>
                 Cerrar Sesión
             </button>
-            
+
             <div class="welcome-message">
                 <i class="fas fa-hand-wave welcome-icon"></i>
                 ¡Bienvenido a Nexo Ciencia, <span id="nombreBienvenida"></span>!
             </div>
-            
+
             <div class="user-info">
                 <div class="profile-photo" id="profile-photo-container">
                     <img id="user-avatar" src="https://cdn-icons-png.flaticon.com/512/2922/2922506.png" alt="Avatar de usuario" class="user-avatar">
@@ -429,10 +429,8 @@
                         <i class="fas fa-trash"></i>
                     </button>
                 </div>
+
                 
-                <div class="user-details">
-                    <h1 class="user-name" id="nombreSesion"></h1>
-                </div>
             </div>
         </div>
 
@@ -525,13 +523,13 @@
             const sesion = checkSession(true);
             if (sesion && sesion.length > 0) {
                 const nombreUsuario = sesion[0].nombres.charAt(0).toUpperCase() + sesion[0].nombres.slice(1); // Capitalizar nombre
-                
+
                 // Actualizar el mensaje de bienvenida solo con el nombre
                 const nombreBienvenida = document.getElementById('nombreBienvenida');
                 if (nombreBienvenida) {
                     nombreBienvenida.textContent = nombreUsuario;
                 }
-                
+
                 // Actualizar el nombre en el perfil
                 const nombreSesion = document.getElementById('nombreSesion');
                 if (nombreSesion) {
@@ -546,7 +544,7 @@
             }
 
             // Inicializar otras funcionalidades
-            actualizarFotoPerfil();
+            loadProfilePhoto();
             inicializarTema();
             configurarFotoPerfil();
         });
@@ -555,11 +553,11 @@
             const savedTheme = localStorage.getItem('theme') || 'light';
             const themeToggle = document.getElementById('theme-toggle');
             const themeButtons = document.querySelectorAll('.theme-btn');
-            
+
             // Aplicar tema guardado
             document.documentElement.setAttribute('data-theme', savedTheme);
-            actualizarIconoTema(savedTheme);
-            
+
+
             // Actualizar botones de tema
             themeButtons.forEach(btn => {
                 if (btn.dataset.theme === savedTheme) {
@@ -567,13 +565,13 @@
                 } else {
                     btn.classList.remove('active');
                 }
-                
+
                 btn.addEventListener('click', () => {
                     const newTheme = btn.dataset.theme;
                     document.documentElement.setAttribute('data-theme', newTheme);
                     localStorage.setItem('theme', newTheme);
-                    actualizarIconoTema(newTheme);
-                    
+
+
                     // Actualizar estado activo de los botones
                     themeButtons.forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
@@ -581,25 +579,10 @@
             });
 
             // Botón de alternancia rápida
-            themeToggle.addEventListener('click', () => {
-                const currentTheme = document.documentElement.getAttribute('data-theme');
-                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-                
-                document.documentElement.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                actualizarIconoTema(newTheme);
-                
-                // Actualizar estado activo de los botones
-                themeButtons.forEach(btn => {
-                    btn.classList.toggle('active', btn.dataset.theme === newTheme);
-                });
-            });
+
         }
 
-        function actualizarIconoTema(theme) {
-            const themeIcon = document.querySelector('#theme-toggle i');
-            themeIcon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
-        }
+
 
         function configurarFotoPerfil() {
             const photoOverlay = document.getElementById('photo-overlay');
@@ -616,7 +599,7 @@
             photoInput.addEventListener('change', function(e) {
                 if (e.target.files && e.target.files[0]) {
                     const file = e.target.files[0];
-                    
+
                     // Verificar el tamaño del archivo (máximo 5MB)
                     if (file.size > 5 * 1024 * 1024) {
                         Swal.fire({

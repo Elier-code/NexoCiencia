@@ -254,7 +254,17 @@ function guardarCambios() {
 
         document.querySelectorAll('input').forEach(input => input.disabled = true);
         mostrarAlerta("¡Cambios guardados exitosamente!", "success");
+        sesion[0].correo = document.getElementById('correo').value;
+        sesion[0].nombres = document.getElementById('nombre').value;
+        setJSONDeLocalStore("sessionUser",sesion)
         cargarDatos()
+        Swal.fire({
+                title: '¡Se a actializado!',
+                text: 'Has actualizado tu información exitosamente',
+                icon: 'success',
+                timer: 1500,
+                showConfirmButton: false
+            })
     } else {
         mostrarAlerta("Usuario no encontrado", "error");
     }
