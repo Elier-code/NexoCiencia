@@ -87,9 +87,9 @@
                 </div>
                 <div class="topic-progress">
                     <div class="progress-bar">
-                        <div class="progress-fill" style="width: 75%"></div>
+                        <div class="progress-fill" style="width: 0%"></div>
                     </div>
-                    <span class="progress-text">75% completado</span>
+                    <span class="progress-text">0% completado</span>
                 </div>
             </div>
 
@@ -241,7 +241,7 @@
         // Función para verificar y actualizar el estado de los botones
         function actualizarEstadoBotones() {
             const botones = document.querySelectorAll('.level-btn');
-                
+
             botones.forEach(button => {
                     const nivel = button.getAttribute('data-level');
                 if (!verificarNivelDesbloqueadoCalculo(nivel)) {
@@ -295,14 +295,14 @@
         function inicializarTema() {
             const themeToggle = document.getElementById('theme-toggle');
             const savedTheme = localStorage.getItem('theme') || 'light';
-            
+
             document.documentElement.setAttribute('data-theme', savedTheme);
             actualizarIconoTema(savedTheme);
 
             themeToggle.addEventListener('click', () => {
                 const currentTheme = document.documentElement.getAttribute('data-theme');
                 const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-                
+
                 document.documentElement.setAttribute('data-theme', newTheme);
                 localStorage.setItem('theme', newTheme);
                 actualizarIconoTema(newTheme);

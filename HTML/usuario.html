@@ -18,6 +18,7 @@
     <script src="../JS/profilePhoto.js"></script>
     <script src="../JS/usuario.js" defer></script>
     <script src="../JS/theme.js" defer></script>
+    <script src="../JS/icono.js"></script>
 
     <style>
         .dashboard-container {
@@ -430,7 +431,7 @@
                     </button>
                 </div>
 
-                
+
             </div>
         </div>
 
@@ -518,6 +519,7 @@
     </div>
 
     <script>
+        insertarLogo()
         document.addEventListener('DOMContentLoaded', function() {
             // Verificar y obtener la sesión del usuario
             const sesion = checkSession(true);

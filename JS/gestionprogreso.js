@@ -12,9 +12,9 @@ const seccionesMecanica = {
         "nivel 2.4",
     ],
     "Torque": [
-        "nivel 3.1", 
-        "nivel 3.2", 
-        "nivel 3.3", 
+        "nivel 3.1",
+        "nivel 3.2",
+        "nivel 3.3",
         "nivel 3.4"
     ],
     "Rotación del cuerpo rígido": [
@@ -72,28 +72,29 @@ const rutasMecanica = {
 };
 
 const rutasCalculo = {
-    "nivel 1.1": "../HTML/botonCalculo-1-1.html",
-    "nivel 1.2": "../HTML/botonCalculo-1-2.html",
-    "nivel 1.3": "../HTML/botonCalculo-1-3.html",
-    "nivel 1.4": "../HTML/botonCalculo-1-4.html",
-    "nivel 2.1": "../HTML/botonCalculo-2-1.html",
-    "nivel 2.2": "../HTML/botonCalculo-2-2.html",
-    "nivel 2.3": "../HTML/botonCalculo-2-3.html",
-    "nivel 2.4": "../HTML/botonCalculo-2-4.html",
-    "nivel 3.1": "../HTML/botonCalculo-3-1.html",
-    "nivel 3.2": "../HTML/botonCalculo-3-2.html",
-    "nivel 3.3": "../HTML/botonCalculo-3-3.html",
-    "nivel 3.4": "../HTML/botonCalculo-3-4.html",
-    "nivel 4.1": "../HTML/botonCalculo-4-1.html",
-    "nivel 4.2": "../HTML/botonCalculo-4-2.html",
-    "nivel 4.3": "../HTML/botonCalculo-4-3.html",
-    "nivel 4.4": "../HTML/botonCalculo-4-4.html",
+    "nivel 1.1": "../HTML/botoCalculo-1-1.html",
+    "nivel 1.2": "../HTML/botoCalculo-1-2.html",
+    "nivel 1.3": "../HTML/botoCalculo-1-3.html",
+    "nivel 1.4": "../HTML/botoCalculo-1-4.html",
+    "nivel 2.1": "../HTML/botoCalculo-2-1.html",
+    "nivel 2.2": "../HTML/botoCalculo-2-2.html",
+    "nivel 2.3": "../HTML/botoCalculo-2-3.html",
+    "nivel 2.4": "../HTML/botoCalculo-2-4.html",
+    "nivel 3.1": "../HTML/botoCalculo-3-1.html",
+    "nivel 3.2": "../HTML/botoCalculo-3-2.html",
+    "nivel 3.3": "../HTML/botoCalculo-3-3.html",
+    "nivel 3.4": "../HTML/botoCalculo-3-4.html",
+    "nivel 4.1": "../HTML/botoCalculo-4-1.html",
+    "nivel 4.2": "../HTML/botoCalculo-4-2.html",
+    "nivel 4.3": "../HTML/botoCalculo-4-3.html",
+    "nivel 4.4": "../HTML/botoCalculo-4-4.html",
 };
 
 let currentTab = 'mecanica';
 
 document.addEventListener('DOMContentLoaded', function() {
     checkSession(true);
+    loadProfilePhoto();
     cargarProgreso();
 });
 
@@ -109,7 +110,7 @@ function cambiarTab(tab) {
 function cargarProgreso() {
     const contenedor = document.getElementById("progreso-secciones");
     const sesion = getJSONDeLocalStore("sessionUser");
-    
+
     if (sesion.length === 0 || !sesion[0].userName) {
         contenedor.innerHTML = "<p class='mensaje-error'>⚠️ No hay sesión activa. Inicia sesión para ver tu progreso.</p>";
         return;
@@ -118,7 +119,7 @@ function cargarProgreso() {
     const usuario = sesion[0].userName;
     const secciones = currentTab === 'mecanica' ? seccionesMecanica : seccionesCalculo;
     const rutas = currentTab === 'mecanica' ? rutasMecanica : rutasCalculo;
-    
+
     let nivelesCompletados = 0;
     let totalPuntuacion = 0;
     let totalNivelesConPuntuacion = 0;
@@ -192,9 +193,19 @@ function cargarProgreso() {
 
     // Actualizar estadísticas
     document.getElementById('total-niveles').textContent = nivelesCompletados;
-    document.getElementById('promedio-general').textContent = 
-        totalNivelesConPuntuacion > 0 
-            ? Math.round(totalPuntuacion / totalNivelesConPuntuacion) + '%' 
+    document.getElementById('promedio-general').textContent =
+        totalNivelesConPuntuacion > 0
+            ? Math.round(totalPuntuacion / totalNivelesConPuntuacion) + '%'
             : '0%';
     document.getElementById('mejor-puntuacion').textContent = mejorPuntuacion + '%';
 }
+// document.addEventListener('DOMContentLoaded', function() {
+//     checkSession(true);
+//     insertarLogo();
+//     actualizarEstadoBotones();
+//     actualizarFotoPerfil();
+//     inicializarTema();
+//     inicializarProgresoCalculo();
+//     actualizarInterfazProgresoCalculo();
+//     actualizarProgresoTemas(); // ← Agrega esta línea
+// });
