@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ecuaciones Homogéneas - Nivel 3.4</title>
+    <link rel="stylesheet" href="../CSS/botones.css">
+    <script src="../JS/icono.js"></script>
+</head>
+<body>
+    <div class="cont-volver">
+        <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
+    </div>
+
+    <div class="contenedor">
+
+        <!-- Video explicativo del tema -->
+        <video width="640" height="360" controls>
+            <source src="" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
+
+        <!-- Concepto y explicación -->
+        <div class="texto">
+            <h2>Casos Especiales y Verificación</h2>
+            <p>
+                Es importante reconocer casos especiales en ecuaciones homogéneas y verificar
+                las soluciones obtenidas para asegurar la corrección del proceso.
+            </p>
+            <p><strong>Casos especiales:</strong>  
+                <br>
+                • Cuando M(x,y) = 0 o N(x,y) = 0
+                <br>
+                • Ecuaciones que no son homogéneas pero se pueden transformar
+                <br>
+                • Verificación: sustituir la solución en la ecuación original
+                <br>
+                • Condiciones de frontera y singularidades
+            </p>
+        </div>
+
+        <!-- Ejercicio resuelto -->
+        <div class="caja-texto">
+            <h3>🧮 Ejercicio resuelto:</h3>
+            <p><strong>Ejemplo:</strong>  
+                <br>
+                Resolver: (x³ + y³)dx - 3xy² dy = 0
+            </p>
+            <p><strong>Paso 1:</strong> Verificar homogeneidad
+                <br>M(x,y) = x³ + y³, N(x,y) = -3xy² (ambas de grado 3)
+            </p>
+            <p><strong>Paso 2:</strong> Sustitución y = vx
+                <br>(x³ + v³x³)dx - 3x(vx)²(vdx + xdv) = 0
+                <br>(1 + v³)dx - 3v²(vdx + xdv) = 0
+            </p>
+            <p><strong>Paso 3:</strong> Simplificar y separar
+                <br>(1 - 2v³)dx - 3v²x dv = 0
+                <br>dx/x = 3v² dv/(1 - 2v³)
+                <br>Solución: x(1 - 2v³) = C → x - 2y³/x² = C ✅
+            </p>
+        </div>
+
+        <!-- Botón para pasar a siguiente tema -->
+        <form class="cuestionario" action="ecuaciones-4-1.html">
+            <div class="boton">
+                <button type="submit" class="btn-enviar">Siguiente ➔</button>
+            </div>
+        </form>
+
+        <!-- Modal de finalización (oculto hasta activarse) -->
+        <div id="modal-mensaje" class="modal">
+            <div class="modal-contenido">
+                <p>¡Gracias por completar el tema!<br>Puedes continuar con el siguiente.</p>
+                <button class="modal-boton" onclick="cerrarModal()">Aceptar</button>
+            </div>
+        </div>
+
+        <script>
+            insertarLogo();
+        </script>
+        <script src="../JS/modal.js"></script>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

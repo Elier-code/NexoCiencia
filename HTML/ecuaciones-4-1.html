@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ecuaciones Separables - Nivel 4.1</title>
+    <link rel="stylesheet" href="../CSS/botones.css">
+    <script src="../JS/icono.js"></script>
+</head>
+<body>
+    <div class="cont-volver">
+        <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
+    </div>
+
+    <div class="contenedor">
+
+        <!-- Video explicativo del tema -->
+        <video width="640" height="360" controls>
+            <source src="" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
+
+        <!-- Concepto y explicación -->
+        <div class="texto">
+            <h2>¿Qué son las Ecuaciones Separables?</h2>
+            <p>
+                Las ecuaciones separables tienen la forma: <strong>dy/dx = f(x)g(y)</strong>
+                donde f(x) depende solo de x y g(y) depende solo de y.
+            </p>
+            <p><strong>Características:</strong>  
+                <br>
+                • Se pueden separar en variables independientes
+                <br>
+                • Se resuelven por integración directa
+                <br>
+                • Son el tipo más básico de ecuación diferencial
+                <br>
+                • Tienen aplicaciones en muchos modelos simples
+            </p>
+        </div>
+
+        <!-- Ejercicio resuelto -->
+        <div class="caja-texto">
+            <h3>🧮 Ejercicio resuelto:</h3>
+            <p><strong>Ejemplo:</strong>  
+                <br>
+                Resolver: dy/dx = x²y
+            </p>
+            <p><strong>Paso 1:</strong> Separar variables
+                <br>dy/y = x² dx
+            </p>
+            <p><strong>Paso 2:</strong> Integrar ambos lados
+                <br>∫dy/y = ∫x² dx
+                <br>ln|y| = x³/3 + C
+            </p>
+            <p><strong>Paso 3:</strong> Despejar y
+                <br>|y| = e^(x³/3 + C) = e^C · e^(x³/3)
+                <br>y = ±e^C · e^(x³/3) = Ce^(x³/3) ✅
+            </p>
+        </div>
+
+        <!-- Botón para pasar a siguiente tema -->
+        <form class="cuestionario" action="ecuaciones-4-2.html">
+            <div class="boton">
+                <button type="submit" class="btn-enviar">Siguiente ➔</button>
+            </div>
+        </form>
+
+        <!-- Modal de finalización (oculto hasta activarse) -->
+        <div id="modal-mensaje" class="modal">
+            <div class="modal-contenido">
+                <p>¡Gracias por completar el tema!<br>Puedes continuar con el siguiente.</p>
+                <button class="modal-boton" onclick="cerrarModal()">Aceptar</button>
+            </div>
+        </div>
+
+        <script>
+            insertarLogo();
+        </script>
+        <script src="../JS/modal.js"></script>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

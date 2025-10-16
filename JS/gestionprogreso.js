@@ -52,6 +52,33 @@ const seccionesCalculo = {
     ],
 };
 
+const seccionesEcuaciones = {
+    "Ecuaciones de Bernoulli": [
+        "nivel 1.1",
+        "nivel 1.2",
+        "nivel 1.3",
+        "nivel 1.4",
+    ],
+    "Ecuaciones lineales": [
+        "nivel 2.1",
+        "nivel 2.2",
+        "nivel 2.3",
+        "nivel 2.4",
+    ],
+    "Ecuaciones homogéneas": [
+        "nivel 3.1",
+        "nivel 3.2",
+        "nivel 3.3",
+        "nivel 3.4",
+    ],
+    "Ecuaciones separables": [
+        "nivel 4.1",
+        "nivel 4.2",
+        "nivel 4.3",
+        "nivel 4.4",
+    ],
+};
+
 const rutasMecanica = {
     "nivel 1.1": "../HTML/botonMecanica-1-1.html",
     "nivel 1.2": "../HTML/botonMecanica-1-2.html",
@@ -90,6 +117,25 @@ const rutasCalculo = {
     "nivel 4.4": "../HTML/botoCalculo-4-4.html",
 };
 
+const rutasEcuaciones = {
+    "nivel 1.1": "../HTML/ecuaciones-1-1.html",
+    "nivel 1.2": "../HTML/ecuaciones-1-2.html",
+    "nivel 1.3": "../HTML/ecuaciones-1-3.html",
+    "nivel 1.4": "../HTML/ecuaciones-1-4.html",
+    "nivel 2.1": "../HTML/ecuaciones-2-1.html",
+    "nivel 2.2": "../HTML/ecuaciones-2-2.html",
+    "nivel 2.3": "../HTML/ecuaciones-2-3.html",
+    "nivel 2.4": "../HTML/ecuaciones-2-4.html",
+    "nivel 3.1": "../HTML/ecuaciones-3-1.html",
+    "nivel 3.2": "../HTML/ecuaciones-3-2.html",
+    "nivel 3.3": "../HTML/ecuaciones-3-3.html",
+    "nivel 3.4": "../HTML/ecuaciones-3-4.html",
+    "nivel 4.1": "../HTML/ecuaciones-4-1.html",
+    "nivel 4.2": "../HTML/ecuaciones-4-2.html",
+    "nivel 4.3": "../HTML/ecuaciones-4-3.html",
+    "nivel 4.4": "../HTML/ecuaciones-4-4.html",
+};
+
 let currentTab = 'mecanica';
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -117,8 +163,18 @@ function cargarProgreso() {
     }
 
     const usuario = sesion[0].userName;
-    const secciones = currentTab === 'mecanica' ? seccionesMecanica : seccionesCalculo;
-    const rutas = currentTab === 'mecanica' ? rutasMecanica : rutasCalculo;
+    let secciones, rutas;
+    
+    if (currentTab === 'mecanica') {
+        secciones = seccionesMecanica;
+        rutas = rutasMecanica;
+    } else if (currentTab === 'calculo') {
+        secciones = seccionesCalculo;
+        rutas = rutasCalculo;
+    } else if (currentTab === 'ecuaciones') {
+        secciones = seccionesEcuaciones;
+        rutas = rutasEcuaciones;
+    }
 
     let nivelesCompletados = 0;
     let totalPuntuacion = 0;

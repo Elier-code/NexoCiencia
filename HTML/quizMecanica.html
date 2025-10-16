@@ -12,6 +12,7 @@
     <script src="../JS/utilidades.js"></script>
     <script src="../JS/auth.js"></script>
     <script src="../JS/icono.js"></script>
+    <script src="../JS/profilePhoto.js"></script>
 </head>
 
 <body>
@@ -213,10 +214,7 @@
             const sesion = getJSONDeLocalStore("sessionUser");
             if (sesion && sesion.length > 0) {
                 const usuario = sesion[0].userName;
-                const profilePhoto = localStorage.getItem('profilePhoto');
-                if (profilePhoto) {
-                    document.querySelector('.user-avatar').src = profilePhoto;
-                }
+                loadProfilePhoto();
 
                 // Actualizar estado de los niveles
                 document.querySelectorAll('.level-btn').forEach(btn => {

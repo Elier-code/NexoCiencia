@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ecuaciones Separables - Nivel 4.4</title>
+    <link rel="stylesheet" href="../CSS/botones.css">
+    <script src="../JS/icono.js"></script>
+</head>
+<body>
+    <div class="cont-volver">
+        <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
+    </div>
+
+    <div class="contenedor">
+
+        <!-- Video explicativo del tema -->
+        <video width="640" height="360" controls>
+            <source src="" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
+
+        <!-- Concepto y explicación -->
+        <div class="texto">
+            <h2>Problemas con Condiciones Iniciales</h2>
+            <p>
+                Los problemas de valor inicial con ecuaciones separables permiten determinar
+                las constantes de integración y obtener soluciones particulares.
+            </p>
+            <p><strong>Proceso de resolución:</strong>  
+                <br>
+                1. Resolver la ecuación separable general
+                <br>
+                2. Aplicar la condición inicial
+                <br>
+                3. Determinar el valor de la constante
+                <br>
+                4. Escribir la solución particular
+            </p>
+        </div>
+
+        <!-- Ejercicio resuelto -->
+        <div class="caja-texto">
+            <h3>🧮 Ejercicio resuelto:</h3>
+            <p><strong>Ejemplo:</strong>  
+                <br>
+                Resolver: dy/dx = 2xy con y(0) = 3
+            </p>
+            <p><strong>Paso 1:</strong> Separar variables
+                <br>dy/y = 2x dx
+            </p>
+            <p><strong>Paso 2:</strong> Integrar
+                <br>ln|y| = x² + C
+                <br>y = Ce^(x²)
+            </p>
+            <p><strong>Paso 3:</strong> Aplicar condición inicial
+                <br>y(0) = 3 = Ce^(0) = C
+                <br>Solución particular: y = 3e^(x²) ✅
+            </p>
+        </div>
+
+        <!-- Botón para pasar a siguiente tema -->
+        <form class="cuestionario" action="quizEcuaciones.html">
+            <div class="boton">
+                <button type="submit" class="btn-enviar">Volver al Curso</button>
+            </div>
+        </form>
+
+        <!-- Modal de finalización (oculto hasta activarse) -->
+        <div id="modal-mensaje" class="modal">
+            <div class="modal-contenido">
+                <p>¡Gracias por completar el tema!<br>Puedes continuar con el siguiente.</p>
+                <button class="modal-boton" onclick="cerrarModal()">Aceptar</button>
+            </div>
+        </div>
+
+        <script>
+            insertarLogo();
+        </script>
+        <script src="../JS/modal.js"></script>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

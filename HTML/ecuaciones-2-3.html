@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ecuaciones Lineales - Nivel 2.3</title>
+    <link rel="stylesheet" href="../CSS/botones.css">
+    <script src="../JS/icono.js"></script>
+</head>
+<body>
+    <div class="cont-volver">
+        <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
+    </div>
+
+    <div class="contenedor">
+
+        <!-- Video explicativo del tema -->
+        <video width="640" height="360" controls>
+            <source src="" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
+
+        <!-- Concepto y explicación -->
+        <div class="texto">
+            <h2>Aplicaciones de Ecuaciones Lineales</h2>
+            <p>
+                Las ecuaciones lineales modelan muchos fenómenos naturales y procesos físicos,
+                desde crecimiento poblacional hasta circuitos eléctricos y procesos de enfriamiento.
+            </p>
+            <p><strong>Áreas de aplicación:</strong>  
+                <br>
+                • Crecimiento y decaimiento exponencial
+                <br>
+                • Circuitos eléctricos RC y RL
+                <br>
+                • Procesos de enfriamiento (ley de Newton)
+                <br>
+                • Modelos de mezclas y concentraciones
+            </p>
+        </div>
+
+        <!-- Ejercicio resuelto -->
+        <div class="caja-texto">
+            <h3>🧮 Ejercicio resuelto:</h3>
+            <p><strong>Ejemplo:</strong>  
+                <br>
+                Resolver: y' + 3y = 6e^(-2x)
+            </p>
+            <p><strong>Paso 1:</strong> Identificar P(x) = 3, Q(x) = 6e^(-2x)
+            </p>
+            <p><strong>Paso 2:</strong> Factor integrante
+                <br>μ(x) = e^(∫3dx) = e^(3x)
+            </p>
+            <p><strong>Paso 3:</strong> Aplicar fórmula
+                <br>y = e^(-3x)[∫e^(3x)·6e^(-2x)dx + C]
+                <br>y = e^(-3x)[∫6e^xdx + C] = e^(-3x)[6e^x + C]
+                <br>y = 6e^(-2x) + Ce^(-3x) ✅
+            </p>
+        </div>
+
+        <!-- Botón para pasar a siguiente tema -->
+        <form class="cuestionario" action="ecuaciones-2-4.html">
+            <div class="boton">
+                <button type="submit" class="btn-enviar">Siguiente ➔</button>
+            </div>
+        </form>
+
+        <!-- Modal de finalización (oculto hasta activarse) -->
+        <div id="modal-mensaje" class="modal">
+            <div class="modal-contenido">
+                <p>¡Gracias por completar el tema!<br>Puedes continuar con el siguiente.</p>
+                <button class="modal-boton" onclick="cerrarModal()">Aceptar</button>
+            </div>
+        </div>
+
+        <script>
+            insertarLogo();
+        </script>
+        <script src="../JS/modal.js"></script>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

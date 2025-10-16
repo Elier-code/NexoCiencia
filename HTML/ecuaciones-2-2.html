@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ecuaciones Lineales - Nivel 2.2</title>
+    <link rel="stylesheet" href="../CSS/botones.css">
+    <script src="../JS/icono.js"></script>
+</head>
+<body>
+    <div class="cont-volver">
+        <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
+    </div>
+
+    <div class="contenedor">
+
+        <!-- Video explicativo del tema -->
+        <video width="640" height="360" controls>
+            <source src="" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
+
+        <!-- Concepto y explicación -->
+        <div class="texto">
+            <h2>Método del Factor Integrante</h2>
+            <p>
+                El factor integrante es la herramienta principal para resolver ecuaciones lineales.
+                Se calcula como μ(x) = e^(∫P(x)dx) y permite transformar la ecuación en una forma integrable.
+            </p>
+            <p><strong>Fórmula general:</strong>  
+                <br>
+                y = (1/μ(x))[∫μ(x)Q(x)dx + C]
+                <br>
+                donde μ(x) = e^(∫P(x)dx)
+            </p>
+        </div>
+
+        <!-- Ejercicio resuelto -->
+        <div class="caja-texto">
+            <h3>🧮 Ejercicio resuelto:</h3>
+            <p><strong>Ejemplo:</strong>  
+                <br>
+                Resolver: y' + (1/x)y = x²
+            </p>
+            <p><strong>Paso 1:</strong> Identificar P(x) = 1/x, Q(x) = x²
+            </p>
+            <p><strong>Paso 2:</strong> Factor integrante
+                <br>μ(x) = e^(∫(1/x)dx) = e^(ln|x|) = |x| = x (para x > 0)
+            </p>
+            <p><strong>Paso 3:</strong> Aplicar fórmula
+                <br>y = (1/x)[∫x·x²dx + C] = (1/x)[∫x³dx + C]
+                <br>y = (1/x)[x⁴/4 + C] = x³/4 + C/x ✅
+            </p>
+        </div>
+
+        <!-- Botón para pasar a siguiente tema -->
+        <form class="cuestionario" action="ecuaciones-2-3.html">
+            <div class="boton">
+                <button type="submit" class="btn-enviar">Siguiente ➔</button>
+            </div>
+        </form>
+
+        <!-- Modal de finalización (oculto hasta activarse) -->
+        <div id="modal-mensaje" class="modal">
+            <div class="modal-contenido">
+                <p>¡Gracias por completar el tema!<br>Puedes continuar con el siguiente.</p>
+                <button class="modal-boton" onclick="cerrarModal()">Aceptar</button>
+            </div>
+        </div>
+
+        <script>
+            insertarLogo();
+        </script>
+        <script src="../JS/modal.js"></script>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

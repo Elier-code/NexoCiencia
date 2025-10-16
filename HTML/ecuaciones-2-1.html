@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ecuaciones Lineales - Nivel 2.1</title>
+    <link rel="stylesheet" href="../CSS/botones.css">
+    <script src="../JS/icono.js"></script>
+</head>
+<body>
+    <div class="cont-volver">
+        <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
+    </div>
+
+    <div class="contenedor">
+
+        <!-- Video explicativo del tema -->
+        <video width="640" height="360" controls>
+            <source src="" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
+
+        <!-- Concepto y explicación -->
+        <div class="texto">
+            <h2>¿Qué son las Ecuaciones Lineales?</h2>
+            <p>
+                Las ecuaciones diferenciales lineales de primer orden tienen la forma:
+                <strong>y' + P(x)y = Q(x)</strong>, donde P(x) y Q(x) son funciones continuas.
+            </p>
+            <p><strong>Características principales:</strong>  
+                <br>
+                • Son lineales en y y y'
+                <br>
+                • Tienen solución única bajo condiciones apropiadas
+                <br>
+                • Se resuelven usando el factor integrante
+                <br>
+                • Son fundamentales en muchos modelos matemáticos
+            </p>
+        </div>
+
+        <!-- Ejercicio resuelto -->
+        <div class="caja-texto">
+            <h3>🧮 Ejercicio resuelto:</h3>
+            <p><strong>Ejemplo:</strong>  
+                <br>
+                Resolver: y' + 2y = 4x
+            </p>
+            <p><strong>Paso 1:</strong> Identificar P(x) y Q(x)
+                <br>P(x) = 2, Q(x) = 4x
+            </p>
+            <p><strong>Paso 2:</strong> Calcular el factor integrante
+                <br>μ(x) = e^(∫2dx) = e^(2x)
+            </p>
+            <p><strong>Paso 3:</strong> Aplicar la fórmula de solución
+                <br>y = (1/μ(x))[∫μ(x)Q(x)dx + C]
+                <br>y = e^(-2x)[∫e^(2x)·4x dx + C]
+                <br>y = 2x - 1 + Ce^(-2x) ✅
+            </p>
+        </div>
+
+        <!-- Botón para pasar a siguiente tema -->
+        <form class="cuestionario" action="ecuaciones-2-2.html">
+            <div class="boton">
+                <button type="submit" class="btn-enviar">Siguiente ➔</button>
+            </div>
+        </form>
+
+        <!-- Modal de finalización (oculto hasta activarse) -->
+        <div id="modal-mensaje" class="modal">
+            <div class="modal-contenido">
+                <p>¡Gracias por completar el tema!<br>Puedes continuar con el siguiente.</p>
+                <button class="modal-boton" onclick="cerrarModal()">Aceptar</button>
+            </div>
+        </div>
+
+        <script>
+            insertarLogo();
+        </script>
+        <script src="../JS/modal.js"></script>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

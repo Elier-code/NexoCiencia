@@ -95,6 +95,32 @@
                     </button>
                 </div>
             </div>
+
+            <!-- Tarjeta de Ecuaciones -->
+            <div class="tema-card" onclick="selectCategory('Ecuaciones')">
+                <span class="tema-badge">Ecuaciones Diferenciales</span>
+                <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                     alt="Imagen de Ecuaciones"
+                     class="tema-imagen">
+                <div class="tema-contenido">
+                    <h3>Ecuaciones</h3>
+                    <p>Domina las técnicas para resolver ecuaciones diferenciales de primer orden.</p>
+                    <div class="tema-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-book"></i>
+                            <span>15 lecciones</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-clock"></i>
+                            <span>8 horas</span>
+                        </div>
+                    </div>
+                    <button class="btn-tema">
+                        <i class="fas fa-play"></i>
+                        Comenzar
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -111,6 +137,8 @@
                 window.location.href = 'quizMecanica.html';
             } else if (category === 'Calculo') {
                 window.location.href = 'quizCalculo.html';
+            } else if (category === 'Ecuaciones') {
+                window.location.href = 'quizEcuaciones.html';
             }
         }
     </script>

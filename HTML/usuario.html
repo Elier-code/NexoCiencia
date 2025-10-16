@@ -89,6 +89,16 @@
             overflow: hidden;
             cursor: pointer;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-photo:hover .photo-overlay {
+            opacity: 1;
         }
 
         .photo-overlay {
@@ -103,10 +113,6 @@
             opacity: 0;
             transition: opacity 0.3s ease;
             cursor: pointer;
-        }
-
-        .profile-photo:hover .photo-overlay {
-            opacity: 1;
         }
 
         .btn-remove-photo {
@@ -399,6 +405,135 @@
             background: var(--secondary);
             color: white;
         }
+
+        /* Estilos para el logo 3D animado */
+        .logo-3d-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+            perspective: 1000px;
+        }
+
+        .logo-3d {
+            width: 120px;
+            height: 120px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: logo3dFloat 4s ease-in-out infinite, logo3dRotate 12s linear infinite;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .logo-3d:hover {
+            transform: scale(1.15) rotateX(10deg) rotateY(10deg);
+        }
+
+        /* Capas 3D para crear grosor */
+        .logo-3d-layer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+        }
+
+        .logo-3d-layer:nth-child(1) { transform: translateZ(0px); }
+        .logo-3d-layer:nth-child(2) { transform: translateZ(2px); }
+        .logo-3d-layer:nth-child(3) { transform: translateZ(4px); }
+        .logo-3d-layer:nth-child(4) { transform: translateZ(6px); }
+        .logo-3d-layer:nth-child(5) { transform: translateZ(8px); }
+
+        .logo-3d svg {
+            width: 100%;
+            height: 100%;
+            filter: 
+                drop-shadow(0 0 2px rgba(0, 188, 212, 0.3))
+                drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2))
+                drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1));
+        }
+
+        /* Efectos de iluminación 3D */
+        .logo-3d::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(0, 188, 212, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 70% 70%, rgba(255, 152, 0, 0.3) 0%, transparent 50%);
+            border-radius: 50%;
+            animation: logo3dGlow 3s ease-in-out infinite alternate;
+            z-index: -1;
+        }
+
+        .logo-3d::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, 
+                rgba(0, 188, 212, 0.1) 0%, 
+                transparent 30%, 
+                transparent 70%, 
+                rgba(255, 152, 0, 0.1) 100%);
+            border-radius: 50%;
+            animation: logo3dShine 2s ease-in-out infinite;
+        }
+
+        @keyframes logo3dFloat {
+            0%, 100% {
+                transform: translateY(0px) rotateX(0deg) rotateZ(0deg);
+            }
+            25% {
+                transform: translateY(-8px) rotateX(5deg) rotateZ(2deg);
+            }
+            50% {
+                transform: translateY(-12px) rotateX(0deg) rotateZ(0deg);
+            }
+            75% {
+                transform: translateY(-8px) rotateX(-5deg) rotateZ(-2deg);
+            }
+        }
+
+        @keyframes logo3dRotate {
+            0% {
+                transform: rotateY(0deg) rotateX(5deg);
+            }
+            100% {
+                transform: rotateY(360deg) rotateX(5deg);
+            }
+        }
+
+        @keyframes logo3dGlow {
+            0% {
+                opacity: 0.4;
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 0.8;
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes logo3dShine {
+            0% {
+                opacity: 0.2;
+                transform: rotate(0deg);
+            }
+            50% {
+                opacity: 0.6;
+                transform: rotate(180deg);
+            }
+            100% {
+                opacity: 0.2;
+                transform: rotate(360deg);
+            }
+        }
     </style>
 </head>
 <body>
@@ -431,6 +566,65 @@
                     </button>
                 </div>
 
+                <!-- Logo 3D animado -->
+                <div class="logo-3d-container">
+                    <div class="logo-3d">
+                        <!-- Capa 1 (fondo) -->
+                        <div class="logo-3d-layer">
+                            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <ellipse cx="100" cy="100" rx="60" ry="20" fill="none" stroke="#00BCD4" stroke-width="4" opacity="0.3"/>
+                                <ellipse cx="100" cy="100" rx="60" ry="20" fill="none" stroke="#00BCD4" stroke-width="4" opacity="0.3" transform="rotate(60 100 100)"/>
+                                <ellipse cx="100" cy="100" rx="60" ry="20" fill="none" stroke="#00BCD4" stroke-width="4" opacity="0.3" transform="rotate(120 100 100)"/>
+                                <circle cx="100" cy="100" r="8" fill="#00BCD4" opacity="0.3"/>
+                                <path d="M 120 80 Q 140 100 120 120 Q 100 100 120 80" fill="none" stroke="#FF9800" stroke-width="5" stroke-linecap="round" opacity="0.3"/>
+                            </svg>
+                        </div>
+                        
+                        <!-- Capa 2 -->
+                        <div class="logo-3d-layer">
+                            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <ellipse cx="100" cy="100" rx="60" ry="20" fill="none" stroke="#00BCD4" stroke-width="4" opacity="0.5"/>
+                                <ellipse cx="100" cy="100" rx="60" ry="20" fill="none" stroke="#00BCD4" stroke-width="4" opacity="0.5" transform="rotate(60 100 100)"/>
+                                <ellipse cx="100" cy="100" rx="60" ry="20" fill="none" stroke="#00BCD4" stroke-width="4" opacity="0.5" transform="rotate(120 100 100)"/>
+                                <circle cx="100" cy="100" r="8" fill="#00BCD4" opacity="0.5"/>
+                                <path d="M 120 80 Q 140 100 120 120 Q 100 100 120 80" fill="none" stroke="#FF9800" stroke-width="5" stroke-linecap="round" opacity="0.5"/>
+                            </svg>
+                        </div>
+                        
+                        <!-- Capa 3 -->
+                        <div class="logo-3d-layer">
+                            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <ellipse cx="100" cy="100" rx="60" ry="20" fill="none" stroke="#00BCD4" stroke-width="4" opacity="0.7"/>
+                                <ellipse cx="100" cy="100" rx="60" ry="20" fill="none" stroke="#00BCD4" stroke-width="4" opacity="0.7" transform="rotate(60 100 100)"/>
+                                <ellipse cx="100" cy="100" rx="60" ry="20" fill="none" stroke="#00BCD4" stroke-width="4" opacity="0.7" transform="rotate(120 100 100)"/>
+                                <circle cx="100" cy="100" r="8" fill="#00BCD4" opacity="0.7"/>
+                                <path d="M 120 80 Q 140 100 120 120 Q 100 100 120 80" fill="none" stroke="#FF9800" stroke-width="5" stroke-linecap="round" opacity="0.7"/>
+                            </svg>
+                        </div>
+                        
+                        <!-- Capa 4 -->
+                        <div class="logo-3d-layer">
+                            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <ellipse cx="100" cy="100" rx="60" ry="20" fill="none" stroke="#00BCD4" stroke-width="4" opacity="0.9"/>
+                                <ellipse cx="100" cy="100" rx="60" ry="20" fill="none" stroke="#00BCD4" stroke-width="4" opacity="0.9" transform="rotate(60 100 100)"/>
+                                <ellipse cx="100" cy="100" rx="60" ry="20" fill="none" stroke="#00BCD4" stroke-width="4" opacity="0.9" transform="rotate(120 100 100)"/>
+                                <circle cx="100" cy="100" r="8" fill="#00BCD4" opacity="0.9"/>
+                                <path d="M 120 80 Q 140 100 120 120 Q 100 100 120 80" fill="none" stroke="#FF9800" stroke-width="5" stroke-linecap="round" opacity="0.9"/>
+                            </svg>
+                        </div>
+                        
+                        <!-- Capa 5 (frente) -->
+                        <div class="logo-3d-layer">
+                            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <ellipse cx="100" cy="100" rx="60" ry="20" fill="none" stroke="#00BCD4" stroke-width="4" opacity="1"/>
+                                <ellipse cx="100" cy="100" rx="60" ry="20" fill="none" stroke="#00BCD4" stroke-width="4" opacity="1" transform="rotate(60 100 100)"/>
+                                <ellipse cx="100" cy="100" rx="60" ry="20" fill="none" stroke="#00BCD4" stroke-width="4" opacity="1" transform="rotate(120 100 100)"/>
+                                <circle cx="100" cy="100" r="8" fill="#00BCD4" opacity="1"/>
+                                <path d="M 120 80 Q 140 100 120 120 Q 100 100 120 80" fill="none" stroke="#FF9800" stroke-width="5" stroke-linecap="round" opacity="1"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>

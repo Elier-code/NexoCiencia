@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ecuaciones Homogéneas - Nivel 3.3</title>
+    <link rel="stylesheet" href="../CSS/botones.css">
+    <script src="../JS/icono.js"></script>
+</head>
+<body>
+    <div class="cont-volver">
+        <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
+    </div>
+
+    <div class="contenedor">
+
+        <!-- Video explicativo del tema -->
+        <video width="640" height="360" controls>
+            <source src="" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
+
+        <!-- Concepto y explicación -->
+        <div class="texto">
+            <h2>Aplicaciones de Ecuaciones Homogéneas</h2>
+            <p>
+                Las ecuaciones homogéneas aparecen en diversos contextos matemáticos y físicos,
+                especialmente en problemas de geometría y dinámica de fluidos.
+            </p>
+            <p><strong>Áreas de aplicación:</strong>  
+                <br>
+                • Geometría diferencial
+                <br>
+                • Dinámica de fluidos
+                <br>
+                • Teoría de campos vectoriales
+                <br>
+                • Problemas de optimización
+            </p>
+        </div>
+
+        <!-- Ejercicio resuelto -->
+        <div class="caja-texto">
+            <h3>🧮 Ejercicio resuelto:</h3>
+            <p><strong>Ejemplo:</strong>  
+                <br>
+                Resolver: (x² + 2xy - y²)dx + (y² + 2xy - x²)dy = 0
+            </p>
+            <p><strong>Paso 1:</strong> Verificar homogeneidad
+                <br>Ambas funciones son de grado 2
+            </p>
+            <p><strong>Paso 2:</strong> Sustitución y = vx
+                <br>(x² + 2vx² - v²x²)dx + (v²x² + 2vx² - x²)(vdx + xdv) = 0
+                <br>(1 + 2v - v²)dx + (v² + 2v - 1)(vdx + xdv) = 0
+            </p>
+            <p><strong>Paso 3:</strong> Simplificar y separar
+                <br>(1 + 2v - v² + v³ + 2v² - v)dx + (v² + 2v - 1)x dv = 0
+                <br>Solución: x(1 + v + v²) = C → x + y + y²/x = C ✅
+            </p>
+        </div>
+
+        <!-- Botón para pasar a siguiente tema -->
+        <form class="cuestionario" action="ecuaciones-3-4.html">
+            <div class="boton">
+                <button type="submit" class="btn-enviar">Siguiente ➔</button>
+            </div>
+        </form>
+
+        <!-- Modal de finalización (oculto hasta activarse) -->
+        <div id="modal-mensaje" class="modal">
+            <div class="modal-contenido">
+                <p>¡Gracias por completar el tema!<br>Puedes continuar con el siguiente.</p>
+                <button class="modal-boton" onclick="cerrarModal()">Aceptar</button>
+            </div>
+        </div>
+
+        <script>
+            insertarLogo();
+        </script>
+        <script src="../JS/modal.js"></script>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

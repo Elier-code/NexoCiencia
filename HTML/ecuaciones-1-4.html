@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ecuaciones de Bernoulli - Nivel 1.4</title>
+    <link rel="stylesheet" href="../CSS/botones.css">
+    <script src="../JS/icono.js"></script>
+</head>
+<body>
+    <div class="cont-volver">
+        <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
+    </div>
+
+    <div class="contenedor">
+
+        <!-- Video explicativo del tema -->
+        <video width="640" height="360" controls>
+            <source src="" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
+
+        <!-- Concepto y explicación -->
+        <div class="texto">
+            <h2>Examen de Ecuaciones de Bernoulli</h2>
+            <p>
+                Este examen evaluará tu comprensión completa de las ecuaciones de Bernoulli.
+                Resuelve cada problema paso a paso y verifica tus respuestas.
+            </p>
+            <p><strong>Instrucciones del examen:</strong>  
+                <br>
+                • Tienes 30 minutos para completar el examen
+                <br>
+                • Resuelve cada problema paso a paso
+                <br>
+                • Verifica tus respuestas sustituyendo en la ecuación original
+                <br>
+                • Necesitas 70% de aciertos para aprobar
+            </p>
+        </div>
+
+        <!-- Ejercicio resuelto -->
+        <div class="caja-texto">
+            <h3>🧮 Ejercicio resuelto:</h3>
+            <p><strong>Ejemplo:</strong>  
+                <br>
+                Resolver: y' + 2xy = 6x√y con y(0) = 4
+            </p>
+            <p><strong>Paso 1:</strong> Reescribir como Bernoulli
+                <br>y' + 2xy = 6xy^(1/2), donde n = 1/2
+            </p>
+            <p><strong>Paso 2:</strong> Sustitución v = y^(1/2)
+                <br>v' = (1/2)y^(-1/2)y' = (1/2)y^(-1/2)(-2xy + 6xy^(1/2))
+                <br>v' = -xv + 3x
+            </p>
+            <p><strong>Paso 3:</strong> Resolver v' + xv = 3x
+                <br>Factor integrante: e^(x²/2)
+                <br>Solución: v = 3 + Ce^(-x²/2)
+                <br>Con y(0) = 4: C = -1, y = (3 - e^(-x²/2))² ✅
+            </p>
+        </div>
+
+        <!-- Botón para pasar a siguiente tema -->
+        <form class="cuestionario" action="ecuaciones-2-1.html" onsubmit="marcarCompletado()">
+            <div class="boton">
+                <button type="submit" class="btn-enviar">Siguiente ➔</button>
+            </div>
+        </form>
+
+        <!-- Modal de finalización (oculto hasta activarse) -->
+        <div id="modal-mensaje" class="modal">
+            <div class="modal-contenido">
+                <p>¡Gracias por completar el tema!<br>Puedes continuar con el siguiente.</p>
+                <button class="modal-boton" onclick="cerrarModal()">Aceptar</button>
+            </div>
+        </div>
+
+        <script>
+            insertarLogo();
+            checkSession(true);
+            
+            function marcarCompletado() {
+                const sesion = checkSession(true);
+                if (sesion && sesion.length > 0) {
+                    const userName = sesion[0].userName || sesion[0].correo;
+                    
+                    // Marcar nivel 1.4 como completado
+                    localStorage.setItem(`${userName}_nivel 1.4`, JSON.stringify({
+                        completado: true,
+                        visualizado: true,
+                        fecha: new Date().toISOString()
+                    }));
+
+                    // Desbloquear nivel 2.1
+                    localStorage.setItem(`${userName}_nivel 2.1`, JSON.stringify({
+                        completado: false,
+                        desbloqueado: true,
+                        visualizado: false
+                    }));
+                }
+            }
+
+            // Verificar si el nivel ya está completado al cargar
+            document.addEventListener('DOMContentLoaded', function() {
+                const sesion = checkSession(true);
+                if (sesion && sesion.length > 0) {
+                    const userName = sesion[0].userName || sesion[0].correo;
+                    const nivel1_4 = localStorage.getItem(`${userName}_nivel 1.4`);
+                    
+                    if (!nivel1_4) {
+                        // Si es la primera vez, inicializar el progreso
+                        localStorage.setItem(`${userName}_nivel 1.4`, JSON.stringify({
+                            completado: false,
+                            visualizado: false
+                        }));
+                    }
+                }
+            });
+        </script>
+        <script src="../JS/modal.js"></script>
+    </div>
+</body>
+</html>

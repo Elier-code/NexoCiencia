@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecuaciones de Bernoulli - Nexo Ciencia</title>
+    <link rel="stylesheet" href="../CSS/botones.css">
+    <script src="../JS/utilidades.js"></script>
+    <script src="../JS/auth.js"></script>
+    <script src="../JS/icono.js"></script>
+
+    <style>
+        .contenedor {
+            padding: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .seccion {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Aspecto 16:9 */
+            height: 0;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .explicacion {
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        .ejercicio {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .ejercicio h3 {
+            color: #2196F3;
+            margin-bottom: 15px;
+        }
+
+        .solucion {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+
+        .formula {
+            font-family: 'Times New Roman', serif;
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 6px;
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        /* Estilos para los botones de navegación */
+        .navegacion {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding: 20px 0;
+        }
+
+        .btn-nav {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-anterior {
+            background-color: #f5f5f5;
+            color: #666;
+        }
+
+        .btn-siguiente {
+            background-color: #2196F3;
+            color: white;
+        }
+
+        .btn-anterior:hover {
+            background-color: #e0e0e0;
+        }
+
+        .btn-siguiente:hover {
+            background-color: #1976D2;
+            transform: translateX(5px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cont-volver">
+        <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
+    </div>
+
+    <div class="contenedor">
+        <div class="seccion">
+            <h2>Introducción a las Ecuaciones de Bernoulli</h2>
+            <div class="video-container">
+                <iframe width="560" height="315" src="" title="Video de Introducción a Ecuaciones de Bernoulli" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            
+            <div class="explicacion">
+                <h3>¿Qué son las Ecuaciones de Bernoulli?</h3>
+                <p>Las ecuaciones de Bernoulli son un tipo especial de ecuación diferencial no lineal de primer orden. Tienen la forma general:</p>
+                
+                <div class="formula">
+                    y' + P(x)y = Q(x)y^n
+                </div>
+                
+                <p>donde n ≠ 0, 1. Estas ecuaciones son importantes porque:</p>
+                <ul>
+                    <li>Son no lineales cuando n ≠ 1</li>
+                    <li>Se pueden transformar en ecuaciones lineales mediante sustitución</li>
+                    <li>Tienen aplicaciones en dinámica de fluidos y crecimiento poblacional</li>
+                    <li>Son fundamentales en muchos modelos matemáticos</li>
+                </ul>
+                
+                <h3>Conceptos Clave</h3>
+                <ul>
+                    <li><strong>Identificación:</strong> Reconocer cuando una ecuación es de Bernoulli</li>
+                    <li><strong>Sustitución:</strong> Usar v = y^(1-n) para transformar la ecuación</li>
+                    <li><strong>Resolución:</strong> Aplicar métodos de ecuaciones lineales</li>
+                    <li><strong>Aplicaciones:</strong> Modelar fenómenos reales</li>
+                </ul>
+            </div>
+
+            <div class="ejercicio">
+                <h3>Ejercicio Resuelto 1: Identificación y Transformación</h3>
+                <p>Resolver la ecuación: y' + y = xy²</p>
+                
+                <div class="solucion">
+                    <p><strong>Solución:</strong></p>
+                    <p><strong>Paso 1:</strong> Identificar la forma de Bernoulli</p>
+                    <ul>
+                        <li>P(x) = 1</li>
+                        <li>Q(x) = x</li>
+                        <li>n = 2</li>
+                    </ul>
+                    
+                    <p><strong>Paso 2:</strong> Hacer la sustitución v = y^(1-n) = y^(-1)</p>
+                    <p>Derivando: v' = -y^(-2)y' = -y^(-2)(xy² - y) = -x + y^(-1) = -x + v</p>
+                    
+                    <p><strong>Paso 3:</strong> Resolver la ecuación lineal resultante</p>
+                    <p>v' - v = -x (ecuación lineal que se puede resolver con factor integrante)</p>
+                </div>
+            </div>
+
+            <div class="ejercicio">
+                <h3>Ejercicio Resuelto 2: Aplicación del Factor Integrante</h3>
+                <p>Resolver: y' - 2y = 3y²</p>
+                
+                <div class="solucion">
+                    <p><strong>Solución:</strong></p>
+                    <p><strong>Paso 1:</strong> Identificar parámetros</p>
+                    <ul>
+                        <li>P(x) = -2</li>
+                        <li>Q(x) = 3</li>
+                        <li>n = 2</li>
+                    </ul>
+                    
+                    <p><strong>Paso 2:</strong> Sustitución v = y^(-1)</p>
+                    <p>v' = -y^(-2)y' = -y^(-2)(2y + 3y²) = -2y^(-1) - 3 = -2v - 3</p>
+                    
+                    <p><strong>Paso 3:</strong> Resolver v' + 2v = -3</p>
+                    <p>Factor integrante: e^(2x)</p>
+                    <p>Solución: v = -3/2 + Ce^(-2x)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botones de navegación -->
+        <div class="navegacion">
+            <a href="quizEcuaciones.html" class="btn-nav btn-anterior">
+                <i class="fas fa-arrow-left"></i>
+                Volver
+            </a>
+            <a href="ecuaciones-1-2.html" class="btn-nav btn-siguiente" onclick="marcarCompletado()">
+                Siguiente
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+        
+    <script>
+        insertarLogo();
+        checkSession(true);
+        
+        function marcarCompletado() {
+            const sesion = checkSession(true);
+            if (sesion && sesion.length > 0) {
+                const userName = sesion[0].userName || sesion[0].correo;
+                
+                // Marcar nivel 1.1 como completado
+                localStorage.setItem(`${userName}_nivel 1.1`, JSON.stringify({
+                    completado: true,
+                    visualizado: true,
+                    fecha: new Date().toISOString()
+                }));
+
+                // Desbloquear nivel 1.2
+                localStorage.setItem(`${userName}_nivel 1.2`, JSON.stringify({
+                    completado: false,
+                    desbloqueado: true,
+                    visualizado: false
+                }));
+            }
+        }
+
+        // Verificar si el nivel ya está completado al cargar
+        document.addEventListener('DOMContentLoaded', function() {
+            const sesion = checkSession(true);
+            if (sesion && sesion.length > 0) {
+                const userName = sesion[0].userName || sesion[0].correo;
+                const nivel1_1 = localStorage.getItem(`${userName}_nivel 1.1`);
+                
+                if (!nivel1_1) {
+                    // Si es la primera vez, inicializar el progreso
+                    localStorage.setItem(`${userName}_nivel 1.1`, JSON.stringify({
+                        completado: false,
+                        visualizado: false
+                    }));
+                }
+            }
+        });
+    </script>
+</body>
+</html>

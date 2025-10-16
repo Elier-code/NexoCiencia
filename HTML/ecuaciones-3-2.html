@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ecuaciones Homogéneas - Nivel 3.2</title>
+    <link rel="stylesheet" href="../CSS/botones.css">
+    <script src="../JS/icono.js"></script>
+</head>
+<body>
+    <div class="cont-volver">
+        <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
+    </div>
+
+    <div class="contenedor">
+
+        <!-- Video explicativo del tema -->
+        <video width="640" height="360" controls>
+            <source src="" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
+
+        <!-- Concepto y explicación -->
+        <div class="texto">
+            <h2>Método de Resolución para Homogéneas</h2>
+            <p>
+                El método estándar para resolver ecuaciones homogéneas involucra la sustitución
+                y = vx, que convierte la ecuación en una forma separable.
+            </p>
+            <p><strong>Pasos del método:</strong>  
+                <br>
+                1. Verificar que M y N sean homogéneas del mismo grado
+                <br>
+                2. Hacer la sustitución y = vx, dy = vdx + xdv
+                <br>
+                3. Sustituir en la ecuación original
+                <br>
+                4. Separar variables e integrar
+            </p>
+        </div>
+
+        <!-- Ejercicio resuelto -->
+        <div class="caja-texto">
+            <h3>🧮 Ejercicio resuelto:</h3>
+            <p><strong>Ejemplo:</strong>  
+                <br>
+                Resolver: (x² - y²)dx + 2xy dy = 0
+            </p>
+            <p><strong>Paso 1:</strong> Verificar homogeneidad
+                <br>M(x,y) = x² - y², N(x,y) = 2xy (ambas de grado 2)
+            </p>
+            <p><strong>Paso 2:</strong> Sustitución y = vx, dy = vdx + xdv
+                <br>(x² - v²x²)dx + 2x(vx)(vdx + xdv) = 0
+                <br>(1 - v²)dx + 2v(vdx + xdv) = 0
+            </p>
+            <p><strong>Paso 3:</strong> Simplificar
+                <br>(1 + v²)dx + 2vx dv = 0
+                <br>dx/x = -2v dv/(1 + v²)
+                <br>Solución: x(1 + v²) = C → x + y²/x = C ✅
+            </p>
+        </div>
+
+        <!-- Botón para pasar a siguiente tema -->
+        <form class="cuestionario" action="ecuaciones-3-3.html">
+            <div class="boton">
+                <button type="submit" class="btn-enviar">Siguiente ➔</button>
+            </div>
+        </form>
+
+        <!-- Modal de finalización (oculto hasta activarse) -->
+        <div id="modal-mensaje" class="modal">
+            <div class="modal-contenido">
+                <p>¡Gracias por completar el tema!<br>Puedes continuar con el siguiente.</p>
+                <button class="modal-boton" onclick="cerrarModal()">Aceptar</button>
+            </div>
+        </div>
+
+        <script>
+            insertarLogo();
+        </script>
+        <script src="../JS/modal.js"></script>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

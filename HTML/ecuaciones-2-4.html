@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ecuaciones Lineales - Nivel 2.4</title>
+    <link rel="stylesheet" href="../CSS/botones.css">
+    <script src="../JS/icono.js"></script>
+</head>
+<body>
+    <div class="cont-volver">
+        <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
+    </div>
+
+    <div class="contenedor">
+
+        <!-- Video explicativo del tema -->
+        <video width="640" height="360" controls>
+            <source src="" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
+
+        <!-- Concepto y explicación -->
+        <div class="texto">
+            <h2>Problemas con Condiciones Iniciales</h2>
+            <p>
+                Los problemas de valor inicial combinan ecuaciones diferenciales con condiciones
+                específicas que permiten determinar las constantes de integración.
+            </p>
+            <p><strong>Proceso de resolución:</strong>  
+                <br>
+                1. Resolver la ecuación diferencial general
+                <br>
+                2. Aplicar la condición inicial
+                <br>
+                3. Determinar el valor de la constante
+                <br>
+                4. Escribir la solución particular
+            </p>
+        </div>
+
+        <!-- Ejercicio resuelto -->
+        <div class="caja-texto">
+            <h3>🧮 Ejercicio resuelto:</h3>
+            <p><strong>Ejemplo:</strong>  
+                <br>
+                Resolver: y' + 2y = 4x con y(0) = 1
+            </p>
+            <p><strong>Paso 1:</strong> Solución general
+                <br>y = 2x - 1 + Ce^(-2x)
+            </p>
+            <p><strong>Paso 2:</strong> Aplicar condición inicial
+                <br>y(0) = 1 = 2(0) - 1 + Ce^(-2(0))
+                <br>1 = -1 + C → C = 2
+            </p>
+            <p><strong>Paso 3:</strong> Solución particular
+                <br>y = 2x - 1 + 2e^(-2x) ✅
+            </p>
+        </div>
+
+        <!-- Botón para pasar a siguiente tema -->
+        <form class="cuestionario" action="ecuaciones-3-1.html">
+            <div class="boton">
+                <button type="submit" class="btn-enviar">Siguiente ➔</button>
+            </div>
+        </form>
+
+        <!-- Modal de finalización (oculto hasta activarse) -->
+        <div id="modal-mensaje" class="modal">
+            <div class="modal-contenido">
+                <p>¡Gracias por completar el tema!<br>Puedes continuar con el siguiente.</p>
+                <button class="modal-boton" onclick="cerrarModal()">Aceptar</button>
+            </div>
+        </div>
+
+        <script>
+            insertarLogo();
+        </script>
+        <script src="../JS/modal.js"></script>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

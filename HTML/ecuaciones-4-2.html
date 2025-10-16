@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ecuaciones Separables - Nivel 4.2</title>
+    <link rel="stylesheet" href="../CSS/botones.css">
+    <script src="../JS/icono.js"></script>
+</head>
+<body>
+    <div class="cont-volver">
+        <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
+    </div>
+
+    <div class="contenedor">
+
+        <!-- Video explicativo del tema -->
+        <video width="640" height="360" controls>
+            <source src="" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
+
+        <!-- Concepto y explicación -->
+        <div class="texto">
+            <h2>Método de Resolución para Separables</h2>
+            <p>
+                El método para resolver ecuaciones separables es directo: separar las variables
+                e integrar ambos lados de la ecuación.
+            </p>
+            <p><strong>Pasos del método:</strong>  
+                <br>
+                1. Identificar la forma separable dy/dx = f(x)g(y)
+                <br>
+                2. Separar variables: dy/g(y) = f(x)dx
+                <br>
+                3. Integrar ambos lados
+                <br>
+                4. Despejar y si es posible
+            </p>
+        </div>
+
+        <!-- Ejercicio resuelto -->
+        <div class="caja-texto">
+            <h3>🧮 Ejercicio resuelto:</h3>
+            <p><strong>Ejemplo:</strong>  
+                <br>
+                Resolver: dy/dx = (x + 1)/(y - 2)
+            </p>
+            <p><strong>Paso 1:</strong> Separar variables
+                <br>(y - 2)dy = (x + 1)dx
+            </p>
+            <p><strong>Paso 2:</strong> Integrar ambos lados
+                <br>∫(y - 2)dy = ∫(x + 1)dx
+                <br>y²/2 - 2y = x²/2 + x + C
+            </p>
+            <p><strong>Paso 3:</strong> Simplificar
+                <br>y² - 4y = x² + 2x + 2C
+                <br>y² - 4y + 4 = x² + 2x + 2C + 4
+                <br>(y - 2)² = x² + 2x + 2C + 4 ✅
+            </p>
+        </div>
+
+        <!-- Botón para pasar a siguiente tema -->
+        <form class="cuestionario" action="ecuaciones-4-3.html">
+            <div class="boton">
+                <button type="submit" class="btn-enviar">Siguiente ➔</button>
+            </div>
+        </form>
+
+        <!-- Modal de finalización (oculto hasta activarse) -->
+        <div id="modal-mensaje" class="modal">
+            <div class="modal-contenido">
+                <p>¡Gracias por completar el tema!<br>Puedes continuar con el siguiente.</p>
+                <button class="modal-boton" onclick="cerrarModal()">Aceptar</button>
+            </div>
+        </div>
+
+        <script>
+            insertarLogo();
+        </script>
+        <script src="../JS/modal.js"></script>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

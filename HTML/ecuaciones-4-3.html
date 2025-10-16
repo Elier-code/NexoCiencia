@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ecuaciones Separables - Nivel 4.3</title>
+    <link rel="stylesheet" href="../CSS/botones.css">
+    <script src="../JS/icono.js"></script>
+</head>
+<body>
+    <div class="cont-volver">
+        <button onclick="history.back()" id="btn-volver" class="btn-volver">&larr;</button>
+    </div>
+
+    <div class="contenedor">
+
+        <!-- Video explicativo del tema -->
+        <video width="640" height="360" controls>
+            <source src="" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
+
+        <!-- Concepto y explicación -->
+        <div class="texto">
+            <h2>Aplicaciones de Ecuaciones Separables</h2>
+            <p>
+                Las ecuaciones separables modelan muchos fenómenos naturales y procesos físicos,
+                desde crecimiento poblacional hasta procesos de enfriamiento.
+            </p>
+            <p><strong>Áreas de aplicación:</strong>  
+                <br>
+                • Crecimiento y decaimiento exponencial
+                <br>
+                • Procesos de enfriamiento (ley de Newton)
+                <br>
+                • Modelos de mezclas y concentraciones
+                <br>
+                • Circuitos eléctricos simples
+            </p>
+        </div>
+
+        <!-- Ejercicio resuelto -->
+        <div class="caja-texto">
+            <h3>🧮 Ejercicio resuelto:</h3>
+            <p><strong>Ejemplo:</strong>  
+                <br>
+                Resolver: dy/dx = y² cos(x)
+            </p>
+            <p><strong>Paso 1:</strong> Separar variables
+                <br>dy/y² = cos(x)dx
+            </p>
+            <p><strong>Paso 2:</strong> Integrar ambos lados
+                <br>∫dy/y² = ∫cos(x)dx
+                <br>-1/y = sen(x) + C
+            </p>
+            <p><strong>Paso 3:</strong> Despejar y
+                <br>1/y = -sen(x) - C
+                <br>y = 1/(-sen(x) - C) = -1/(sen(x) + C) ✅
+            </p>
+        </div>
+
+        <!-- Botón para pasar a siguiente tema -->
+        <form class="cuestionario" action="ecuaciones-4-4.html">
+            <div class="boton">
+                <button type="submit" class="btn-enviar">Siguiente ➔</button>
+            </div>
+        </form>
+
+        <!-- Modal de finalización (oculto hasta activarse) -->
+        <div id="modal-mensaje" class="modal">
+            <div class="modal-contenido">
+                <p>¡Gracias por completar el tema!<br>Puedes continuar con el siguiente.</p>
+                <button class="modal-boton" onclick="cerrarModal()">Aceptar</button>
+            </div>
+        </div>
+
+        <script>
+            insertarLogo();
+        </script>
+        <script src="../JS/modal.js"></script>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
